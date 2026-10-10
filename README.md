@@ -1,1 +1,137 @@
-# RiyadhMetro-
+<div dir="rtl">
+
+# 🚇 مترو الرياض — دليل التنقل | Riyadh Metro Navigator
+
+**إسقاط كامل لشبكة مترو الرياض (6 مسارات، 83 محطة، 176 كم) على Google Earth وخرائط Google، مع مخطط شبكة تفاعلي ومخطط رحلات للتنقل بين أي محطتين أو مكانين — بالأوقات والأسعار وبثماني لغات.**
+
+[![CI](https://github.com/engmohammeda/RiyadhMetro-/actions/workflows/ci.yml/badge.svg)](https://github.com/engmohammeda/RiyadhMetro-/actions/workflows/ci.yml)
+![Lines](https://img.shields.io/badge/%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B1%D8%A7%D8%AA-6-00ADE5)
+![Stations](https://img.shields.io/badge/%D8%A7%D9%84%D9%85%D8%AD%D8%B7%D8%A7%D8%AA-83-F0493A)
+![License](https://img.shields.io/badge/license-MIT-43B649)
+
+<img src="docs/img/network-preview.png" alt="Riyadh Metro network preview" width="720">
+
+<img src="docs/img/diagram-ar.png" alt="مخطط شبكة مترو الرياض" width="720">
+
+## ⚡ ابدأ خلال دقيقة
+
+| أريد… | افعل هذا |
+|---|---|
+| 🌍 **الشبكة كاملة داخل Google Earth** | حمّل [`dist/riyadh-metro.kmz`](dist/riyadh-metro.kmz) وافتحه (سطح المكتب: File → Open · الويب: المشاريع → استيراد KML · الجوال: افتح الملف بـ Google Earth). [التفاصيل](docs/google-earth.md) |
+| 🗺️ **الشبكة داخل تطبيق خرائط Google** | استورد [`dist/riyadh-metro.kml`](dist/riyadh-metro.kml) في [Google My Maps](https://www.google.com/maps/d/) ← تظهر في التطبيق ضمن «المحفوظة → الخرائط». [التفاصيل](docs/google-maps.md) |
+| 🧭 **تخطيط رحلة بين محطتين أو مكانين** | افتح التطبيق التفاعلي `web/` (محلياً: `npm start` ثم http://localhost:8080) أو انشره على GitHub Pages — انقر على محطتين في **المخطط**، أو اكتب محطة/مكاناً («العليا»، «برج المملكة»، «المطار») وستحصل على المسار، وقت المغادرة والوصول، التذكرة، التبديلات، ورابط قصير للمشاركة مثل `#al-batha~al-hamra~ar` |
+| 🚇 **مخطط الشبكة للطباعة** | [`dist/riyadh-metro-diagram.svg`](dist/riyadh-metro-diagram.svg) (عربي) · [`dist/riyadh-metro-diagram-en.svg`](dist/riyadh-metro-diagram-en.svg) (إنجليزي) |
+| 🧩 **دمج البيانات في تطبيقي** | [`dist/riyadh-metro.geojson`](dist/riyadh-metro.geojson) · [`dist/riyadh-metro-network.json`](dist/riyadh-metro-network.json) · [`dist/riyadh-metro-stations.csv`](dist/riyadh-metro-stations.csv) · [`dist/riyadh-metro.gpx`](dist/riyadh-metro.gpx) |
+
+## ✨ ما الذي يقدّمه المشروع؟
+
+### 1. ملفات جاهزة لـ Google Earth / Google Maps (مجلد `dist/`)
+
+| الملف | الاستخدام |
+|---|---|
+| `riyadh-metro.kmz` | حزمة Google Earth: المسارات الستة بألوانها الرسمية فوق المسار الهندسي الفعلي، 94 توقّفاً مرتباً داخل مجلد لكل مسار، مجلد **محطات التبادل** (10)، بالون معلومات ثنائي اللغة لكل محطة (المسارات، المحطة السابقة/التالية، النوع، الإحداثيات، روابط خرائط Google/Earth)، و**6 جولات طيران افتراضية** فوق كل مسار، بأيقونات مضمّنة |
+| `riyadh-metro.kml` | نفس المحتوى بصيغة KML عادية (أيقونات مستضافة) — للاستيراد في Google My Maps |
+| `lines/line-1-blue.kml` … `line-6-purple.kml` | كل مسار في ملف مستقل (طبقة لكل مسار في My Maps) |
+| `riyadh-metro.geojson` (+ `-lines`, `-stations`, `-segments`) | GeoJSON بخصائص simplestyle — يُعرض ملوّناً مباشرة على GitHub وgeojson.io وQGIS وMapLibre وGoogle Maps Data Layer |
+| `riyadh-metro-stations.csv` | جدول المحطات (عربي/إنجليزي، إحداثيات، مسارات، نوع، روابط Google) — My Maps / Excel / Sheets |
+| `riyadh-metro-places.{geojson,csv}` | ~50 وجهة شهيرة (مولات، مستشفيات، جامعات، معالم…) مع **أقرب محطة ومسافة المشي** — تظهر أيضاً كمجلد «أماكن ووجهات» داخل KMZ |
+| `riyadh-metro-diagram{,-en}.svg` | المخطط التخطيطي للشبكة (نفس المحرّك الذي يعرضه التطبيق) |
+| `riyadh-metro-line-stops.csv` | تسلسل المحطات لكل مسار مع المسافة والزمن التقديري بين كل محطتين |
+| `riyadh-metro.gpx` | نقاط المحطات + مسارات الخطوط لأجهزة GPS وOsmAnd وApple Maps |
+| `riyadh-metro-network.json` | الشبكة القابلة للتوجيه (المقاطع بين المحطات بهندستها الحقيقية، المسافات، الأزمنة، أزمنة التبديل) |
+
+### 2. تطبيق ويب تفاعلي (مجلد `web/`) — يعمل دون خادم خلفي ودون مفاتيح API
+
+- **مخطط الشبكة التفاعلي** 🚇: رسم تخطيطي (45°/90°) مولَّد من `data/schematic.json` مع أسماء الأحياء ومحطات التبادل؛ تحريك وتكبير بالماوس/اللمس، و**انقر على محطة ثم أخرى** لتظهر الرحلة مظلَّلة فوق المخطط مع A/B ونقاط التبديل.
+- **الخريطة الجغرافية** 🗺️: Leaflet بثلاث خلفيات (خريطة / فاتحة / قمر صناعي) تعرض الشبكة فوق السكة الفعلية — بزر واحد للتبديل بين المخطط والخريطة.
+- **مخطط رحلات**: بحث فوري بالمحطات **والأماكن** (برج المملكة، المصمك، المطار…) وبالأسماء القديمة/الشائعة («العليا» ← stc، «الفيصلية»، «البطحا»)، وضعان «الأسرع» و«أقل تبديل»، اختيار **وقت المغادرة** (الآن أو أي نصف ساعة قادمة)، فيظهر وقت الوصول المتوقع، **التذكرة وسعرها** (عادي/الدرجة الأولى)، وتنبيه إن كان المترو مغلقاً أو الوصول بعد انتهاء الخدمة؛ مع مشي من/إلى المكان المختار.
+- شريط حالة: «المترو يعمل الآن · حتى 00:00» / «مغلق · يفتح 05:30» بتوقيت الرياض، وتبويب **معلومات** بساعات التشغيل والتذاكر ونصائح وقائمة الوجهات وأقرب محطة لكل منها.
+- **أقرب محطة لموقعي** (GPS) مع مسافة ووقت المشي ورابط اتجاهات، ورحلات شائعة بنقرة واحدة.
+- بطاقة لكل محطة: المسارات، النوع، المحطة السابقة/التالية، الأسماء الأخرى، الأماكن القريبة، وروابط: 📌 خرائط Google · 🚶 اتجاهات المشي · 🌍 Google Earth · 📱 `geo:`.
+- **تصدير الرحلة**: KML لفتحها في Google Earth، GeoJSON، زر «افتح في خرائط Google (مواصلات)»، و**روابط قصيرة** `#من~إلى~اللغة` (مثل `#kafd~airport-t1-2~ar` أو `#p:kingdom-centre~al-batha~en` لمكان)، مع دعم الروابط القديمة.
+- **8 لغات** للواجهة: العربية، English، اردو، हिन्दी، বাংলা، Filipino، Français، Русский — مع RTL/LTR، متجاوب للجوال، PWA يعمل دون اتصال (عدا بلاطات الخريطة).
+- `web/google-maps.html` — نفس الشبكة والمخطط مباشرة فوق **Google Maps JavaScript API** (بمفتاحك).
+
+### 3. نموذج بيانات مفتوح ومحرك توجيه قابل لإعادة الاستخدام
+
+- `data/*.json` هو المصدر الوحيد للحقيقة؛ `npm run build` يتحقق من سلامته ويولّد كل ما سبق.
+- `src/` وحدات JavaScript بلا اعتماديات تعمل في Node والمتصفح معاً: الهندسة الجغرافية، بناء الشبكة (إسقاط المحطات على السكة وتقطيعها لمقاطع)، Dijkstra مع عقوبات التبديل، توليد KML/GeoJSON، الروابط العميقة، **المخطط التخطيطي** (`schematic.js`)، و**ساعات الخدمة والأسعار والتوقيت** (`service.js`).
+- واجهة سطر أوامر: `node scripts/route.js المركز المالي المطار`.
+- 47 اختباراً آلياً (`npm test`) تغطي سلامة البيانات، التوجيه بين كل زوج من المحطات (3,403 زوج)، صحة ملفات KML/KMZ/GeoJSON/CSV/GPX، تغطية المخطط لكل المحطات وتعامده، الأماكن وأقرب محطة، البحث بالأسماء البديلة، وساعات التشغيل/التوقيت.
+
+## 🚇 الشبكة
+
+| # | المسار | المحور | من ⇄ إلى | المحطات | الطول |
+|---|---|---|---|---|---|
+| 1 | 🔵 الأزرق | العليا – الملك فهد – البطحاء – الحائر | بنك الأول ⇄ الدار البيضاء | 25 | 38.0 كم |
+| 2 | 🔴 الأحمر | طريق الملك عبدالله | جامعة الملك سعود ⇄ مدينة الملك فهد الرياضية | 15 | 25.3 كم |
+| 3 | 🟠 البرتقالي | طريق المدينة المنورة – الأمير سعد بن عبدالرحمن الأول | طريق جدة ⇄ خشم العان | 22 | 40.7 كم |
+| 4 | 🟡 الأصفر | طريق مطار الملك خالد الدولي | المركز المالي ⇄ المطار الصالة 1-2 | 9 | 29.6 كم |
+| 5 | 🟢 الأخضر | طريق الملك عبدالعزيز | وزارة التعليم ⇄ المتحف الوطني | 12 | 12.9 كم |
+| 6 | 🟣 البنفسجي | عبدالرحمن بن عوف – الشيخ حسن بن حسين بن علي | المركز المالي ⇄ النسيم | 11 | 29.9 كم |
+
+**محطات التبادل (10):** المركز المالي (1·4·6) · stc (1·2) · المتحف الوطني (1·5) · قصر الحكم (1·3) · وزارة التعليم (2·5) · الحمراء (2·6) · النسيم (3·6) · الربيع، طريق عثمان بن عفان، سابك (4·6 — جذع مشترك).
+
+## 🛠️ التشغيل والتطوير
+
+```bash
+git clone https://github.com/engmohammeda/RiyadhMetro-.git
+cd RiyadhMetro-
+npm run build     # يتحقق من البيانات ويولّد dist/ و web/data و web/lib (لا اعتماديات خارجية)
+npm test          # 47 اختباراً
+npm start         # خادم محلي → http://localhost:8080/web/
+npm run route -- المركز المالي المتحف الوطني    # مخطط الرحلات من الطرفية
+```
+
+> المتطلبات: Node.js 18+ فقط. لا يحتاج `npm install` (صفر اعتماديات؛ Leaflet مضمّن في `web/vendor`).
+
+### النشر على GitHub Pages (رابط عام للخريطة)
+
+1. من إعدادات المستودع: **Settings → Pages → Source: GitHub Actions**.
+2. ادمج هذا الفرع في `main`؛ سير العمل [`pages.yml`](.github/workflows/pages.yml) ينشر الموقع تلقائياً على:
+   `https://engmohammeda.github.io/RiyadhMetro-/` (يحوّل إلى `web/`).
+3. عدّل `project.siteUrl` في `data/config.json` إن تغيّر العنوان، ثم `npm run build` — فتتحدّث الروابط داخل بالونات KML.
+
+### بنية المستودع
+
+```
+data/        المصدر الوحيد للحقيقة: stations.json · lines.json · shapes.json · config.json · places.json · schematic.json · SOURCES.md
+src/         وحدات مشتركة (Node + متصفح): geo · network · router · links · kml · geojson · schematic · service  +  node/ (zip/png/csv/gpx/validate)
+scripts/     build.js (التوليد والتحقق) · serve.js (خادم ثابت) · route.js (CLI)
+dist/        المخرجات المولّدة: KMZ · KML · GeoJSON · CSV · GPX · SVG · network.json   ← لا تُحرَّر يدوياً
+web/         التطبيق التفاعلي (index.html · app.js · styles.css · google-maps.html · PWA · vendor/leaflet)
+docs/        google-earth.md · google-maps.md · data-model.md · img/
+test/        node --test
+```
+
+## 📐 دقة البيانات والافتراضات
+
+- الإحداثيات والمسارات الهندسية من بيانات المسارات المفتوحة لمشغّل النقل العام بالرياض (انظر [`data/SOURCES.md`](data/SOURCES.md)). كل محطة تقع على بُعد أقل من 250 م من محور مسارها، والأطوال المحسوبة تطابق الأطوال الرسمية بفارق ~3%.
+- **الأزمنة تقديرية**: سرعة متوسطة 65 كم/س + 50 ثانية لكل توقف + 5 دقائق للتبديل (دقيقتان على الجذع المشترك للأصفر/البنفسجي، 7 دقائق في المركز المالي). قابلة للتعديل في `data/config.json`.
+- **ساعات التشغيل والأسعار** في `data/config.json` (السبت–الخميس 05:30–00:00، الجمعة 10:00–00:00؛ تذكرة ساعتين 4 ريال / الدرجة الأولى 10 ريال، وباقات 3 و7 و30 يوماً وسنوية) معلومات عامة قد تتغير — المرجع الرسمي تطبيق **درب (darb)** والهيئة الملكية لمدينة الرياض. التطبيق يحسب وقت الوصول بإضافة ~3 دقائق انتظار عند «المغادرة الآن».
+- **الأماكن** في `data/places.json` إحداثياتها تقريبية (±100–300 م) والغرض منها اختيار المحطة المناسبة فقط؛ أقرب محطة ومسافة المشي تُحسبان وقت البناء.
+- **المخطط التخطيطي** في `data/schematic.json` تصميم يدوي أصلي (المسافات غير حقيقية)؛ البناء يرفض أي مقطع غير متعامد/قطري أو أي محطة ناقصة.
+- تجربة الاستخدام (المخطط التفاعلي، اختيار المحطتين بالنقر، الروابط القصيرة، ساعات العمل والأسعار) مستلهمة من مشاريع مجتمعية مثل [riyadhmetro.fyi](https://riyadhmetro.fyi) — مع بيانات وشيفرة ورسوم مستقلة بالكامل.
+- هذا مشروع مجتمعي **غير رسمي** وغير تابع للهيئة الملكية لمدينة الرياض أو مشغّلي المترو.
+
+## 🤝 المساهمة
+
+أضف/صحّح محطة أو مكاناً أو اسماً بديلاً في `data/`، شغّل `npm run build && npm test`، ثم افتح Pull Request. البناء يرفض أي محطة بعيدة عن مسارها أو خارج ترتيبها، ويُعيد توليد جميع الملفات تلقائياً. لإضافة لغة واجهة جديدة أضف مفاتيحها في `web/app.js` (`I18N`) — ما لم يُترجم يعود تلقائياً إلى الإنجليزية.
+
+</div>
+
+---
+
+## English
+
+**Riyadh Metro Navigator** projects the complete Riyadh Metro network (6 lines, 83 stations, 176 km) onto Google Earth and Google Maps, and ships an interactive schematic diagram and journey planner — stations *and* places, hours, fares, arrival times, short links, 8 UI languages.
+
+<img src="docs/img/diagram-en.png" alt="Riyadh Metro schematic diagram" width="720">
+
+- **Google Earth:** open [`dist/riyadh-metro.kmz`](dist/riyadh-metro.kmz) — official line colours on the real alignments, stations per line, an *Interchanges* folder, bilingual info balloons with Google Maps/Earth links, and 6 fly-over tours. ([guide](docs/google-earth.md))
+- **Google Maps:** import [`dist/riyadh-metro.kml`](dist/riyadh-metro.kml) (or one `dist/lines/*.kml` per layer) into Google My Maps → visible in the Google Maps app under *Saved → Maps*; deep links for every station (pin, walking directions, transit trip); `web/google-maps.html` for the Maps JavaScript API. ([guide](docs/google-maps.md))
+- **Web app (`web/`):** interactive schematic diagram (pan/zoom, tap A then B to plan) plus a Leaflet map; search stations **and places** (Kingdom Centre, Masmak, airport…) including old/common names (“Olaya” → stc); fastest / fewest-transfers; **“Leave at”** picker with estimated arrival, **ticket price** (standard / first class) and closed/late-service warnings; live “Metro running until 00:00” status; info tab with hours, fares, tips and destinations; nearest station via GPS; popular trips; station cards; route export to KML/GeoJSON; short links `#from~to~lang` (e.g. `#al-batha~al-hamra~en`, `#p:kingdom-centre~airport-t1-2~en`); UI in Arabic, English, Urdu, Hindi, Bengali, Filipino, French and Russian; installable PWA. Run `npm start` → http://localhost:8080/web/ or deploy with the included GitHub Pages workflow.
+- **Diagram & destinations:** `dist/riyadh-metro-diagram{,-en}.svg` (printable network diagram generated from the hand-designed octilinear layout in `data/schematic.json`); `dist/riyadh-metro-places.{geojson,csv}` and a hidden *Destinations* folder in the KMZ — ~50 landmarks/malls/hospitals/universities with their nearest station and walking distance.
+- **Open data & engine:** `data/*.json` is the single source of truth; dependency-free modules in `src/` (geodesy, network building, Dijkstra routing, KML/GeoJSON generation, deep links, schematic renderer, service hours/fares/timing) run in Node and the browser; `node scripts/route.js "KAFD" "National Museum" --en`; 47 tests (`npm test`).
+- UX inspired by community projects such as [riyadhmetro.fyi](https://riyadhmetro.fyi); data, code and artwork are fully independent.
+- Data provenance and accuracy notes: [`data/SOURCES.md`](data/SOURCES.md). Times are estimates; this is an unofficial community project (MIT).

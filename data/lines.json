@@ -1,0 +1,508 @@
+{
+  "_comment": "Riyadh Metro lines — canonical station order per line (first → last). structure = station construction type on that line.",
+  "updated": "2026-10-09",
+  "lines": [
+    {
+      "id": "1",
+      "number": 1,
+      "color": "#00ADE5",
+      "name": {
+        "ar": "المسار الأزرق",
+        "en": "Blue Line"
+      },
+      "colorName": {
+        "ar": "الأزرق",
+        "en": "Blue"
+      },
+      "corridor": {
+        "ar": "شارع العليا – طريق الملك فهد – شارع البطحاء – طريق الحائر",
+        "en": "Olaya Street – King Fahd Road – Al Batha Street – Al Hayer Road"
+      },
+      "officialLengthKm": 38.0,
+      "openedOn": "2024-12-01",
+      "stations": [
+        {
+          "station": "sab-bank",
+          "structure": "elevated"
+        },
+        {
+          "station": "dr-sulaiman-al-habib",
+          "structure": "elevated"
+        },
+        {
+          "station": "kafd",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-murooj",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "king-fahad-district",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "king-fahad-district-2",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "stc",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-wurud-2",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-urubah",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "alinma-bank",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "bank-albilad",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "king-fahad-library",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "ministry-of-interior",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-murabba",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "passport-department",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "national-museum",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-batha",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "qasr-al-hokm",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-owd",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "skirinah",
+          "structure": "elevated"
+        },
+        {
+          "station": "manfouhah",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-iman-hospital",
+          "structure": "elevated"
+        },
+        {
+          "station": "transportation-center",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-aziziah",
+          "structure": "elevated"
+        },
+        {
+          "station": "ad-dar-al-baida",
+          "structure": "elevated"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "number": 2,
+      "color": "#F0493A",
+      "name": {
+        "ar": "المسار الأحمر",
+        "en": "Red Line"
+      },
+      "colorName": {
+        "ar": "الأحمر",
+        "en": "Red"
+      },
+      "corridor": {
+        "ar": "طريق الملك عبدالله",
+        "en": "King Abdullah Road"
+      },
+      "officialLengthKm": 25.3,
+      "openedOn": "2024-12-15",
+      "stations": [
+        {
+          "station": "king-saud-university",
+          "structure": "elevated"
+        },
+        {
+          "station": "king-salman-oasis",
+          "structure": "elevated"
+        },
+        {
+          "station": "kacst",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "at-takhassussi",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "stc",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-wurud",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "king-abdulaziz-road",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "ministry-of-education",
+          "structure": "at_grade"
+        },
+        {
+          "station": "an-nuzhah",
+          "structure": "at_grade"
+        },
+        {
+          "station": "riyadh-exhibition-center",
+          "structure": "elevated"
+        },
+        {
+          "station": "khalid-bin-alwaleed-road",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "al-hamra",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-khaleej",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "ishbiliyah",
+          "structure": "at_grade"
+        },
+        {
+          "station": "king-fahad-sport-city",
+          "structure": "at_grade"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "number": 3,
+      "color": "#F68D39",
+      "name": {
+        "ar": "المسار البرتقالي",
+        "en": "Orange Line"
+      },
+      "colorName": {
+        "ar": "البرتقالي",
+        "en": "Orange"
+      },
+      "corridor": {
+        "ar": "طريق المدينة المنورة – طريق الأمير سعد بن عبدالرحمن الأول",
+        "en": "Madinah Road – Prince Saad Bin Abdulrahman Al Awal Road"
+      },
+      "officialLengthKm": 40.7,
+      "openedOn": "2025-01-05",
+      "stations": [
+        {
+          "station": "jeddah-road",
+          "structure": "elevated"
+        },
+        {
+          "station": "tuwaiq",
+          "structure": "elevated"
+        },
+        {
+          "station": "ad-douh",
+          "structure": "elevated"
+        },
+        {
+          "station": "western-station",
+          "structure": "elevated"
+        },
+        {
+          "station": "aishah-bint-abi-bakr-street",
+          "structure": "elevated"
+        },
+        {
+          "station": "dhahrat-al-badiah",
+          "structure": "elevated"
+        },
+        {
+          "station": "sultanah",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-jarradiyah",
+          "structure": "elevated"
+        },
+        {
+          "station": "courts-complex",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "qasr-al-hokm",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-hilla",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-margab",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "as-salhiyah",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "first-industrial-city",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "railway",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-malaz",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "jarir-district",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-rajhi-grand-mosque",
+          "structure": "elevated"
+        },
+        {
+          "station": "harun-ar-rashid-road",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "an-naseem",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "hassan-bin-thabit-street",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "khashm-al-an",
+          "structure": "shallow_underground"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "number": 4,
+      "color": "#FFD105",
+      "name": {
+        "ar": "المسار الأصفر",
+        "en": "Yellow Line"
+      },
+      "colorName": {
+        "ar": "الأصفر",
+        "en": "Yellow"
+      },
+      "corridor": {
+        "ar": "طريق مطار الملك خالد الدولي",
+        "en": "King Khalid International Airport Road"
+      },
+      "officialLengthKm": 29.6,
+      "openedOn": "2024-12-01",
+      "stations": [
+        {
+          "station": "kafd",
+          "structure": "elevated"
+        },
+        {
+          "station": "ar-rabi",
+          "structure": "elevated"
+        },
+        {
+          "station": "uthman-bin-affan-road",
+          "structure": "elevated"
+        },
+        {
+          "station": "sabic",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "pnu-1",
+          "structure": "elevated"
+        },
+        {
+          "station": "pnu-2",
+          "structure": "elevated"
+        },
+        {
+          "station": "airport-t5",
+          "structure": "elevated"
+        },
+        {
+          "station": "airport-t3-4",
+          "structure": "elevated"
+        },
+        {
+          "station": "airport-t1-2",
+          "structure": "elevated"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "number": 5,
+      "color": "#43B649",
+      "name": {
+        "ar": "المسار الأخضر",
+        "en": "Green Line"
+      },
+      "colorName": {
+        "ar": "الأخضر",
+        "en": "Green"
+      },
+      "corridor": {
+        "ar": "طريق الملك عبدالعزيز",
+        "en": "King Abdulaziz Road"
+      },
+      "officialLengthKm": 12.9,
+      "openedOn": "2024-12-15",
+      "stations": [
+        {
+          "station": "ministry-of-education",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "king-salman-park",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "as-sulimaniyah",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "ad-dhabab",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "abu-dhabi-square",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "officers-club",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "gosi",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "al-wizarat",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "ministry-of-defence",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "king-abdulaziz-hospital",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "ministry-of-finance",
+          "structure": "deep_underground"
+        },
+        {
+          "station": "national-museum",
+          "structure": "deep_underground"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "number": 6,
+      "color": "#984C9D",
+      "name": {
+        "ar": "المسار البنفسجي",
+        "en": "Purple Line"
+      },
+      "colorName": {
+        "ar": "البنفسجي",
+        "en": "Purple"
+      },
+      "corridor": {
+        "ar": "طريق عبدالرحمن بن عوف – طريق الشيخ حسن بن حسين بن علي",
+        "en": "Abdulrahman Bin Awf Road – Sheikh Hasan Bin Hussain Bin Ali Road"
+      },
+      "officialLengthKm": 29.9,
+      "openedOn": "2024-12-01",
+      "stations": [
+        {
+          "station": "kafd",
+          "structure": "elevated"
+        },
+        {
+          "station": "ar-rabi",
+          "structure": "elevated"
+        },
+        {
+          "station": "uthman-bin-affan-road",
+          "structure": "elevated"
+        },
+        {
+          "station": "sabic",
+          "structure": "shallow_underground"
+        },
+        {
+          "station": "granadia",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-yarmuk",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-hamra",
+          "structure": "elevated"
+        },
+        {
+          "station": "al-andalus",
+          "structure": "elevated"
+        },
+        {
+          "station": "khurais-road",
+          "structure": "elevated"
+        },
+        {
+          "station": "as-salam",
+          "structure": "elevated"
+        },
+        {
+          "station": "an-naseem",
+          "structure": "shallow_underground"
+        }
+      ]
+    }
+  ]
+}

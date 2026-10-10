@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1088 1336" width="1088" height="1336" direction="ltr" class="sch" role="img" aria-label="مخطط شبكة مترو الرياض">
+<style>.sch{font-family:"Segoe UI",Tahoma,"Noto Sans Arabic","Noto Naskh Arabic UI","Helvetica Neue",Arial,sans-serif}
+.sch .bg{fill:#fbfbf9}
+.sch .line{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.sch .st{fill:#fff;stroke-width:2.6}
+.sch .st.x{stroke:#1a1a1a;stroke-width:3}
+.sch .st.t{stroke-width:3.4}
+.sch .lbl{fill:#1f2937;paint-order:stroke;stroke:#fbfbf9;stroke-width:3px;stroke-linejoin:round}
+.sch .lbl.x{font-weight:700;fill:#111}
+.sch .lbl.t{font-weight:700}
+.sch .district{fill:#9ca3af;font-weight:700;letter-spacing:.08em}
+.sch .title{fill:#111;font-weight:800}
+.sch .sub{fill:#6b7280}
+.sch .legend text{fill:#374151}
+.sch .hit{fill:transparent;cursor:pointer}
+.sch.interactive .lbl{cursor:pointer}
+.sch .dim .line,.sch .dim .st,.sch .dim .lbl{opacity:.22}
+.sch .dim .lbl{stroke:none}
+.sch .route .line{stroke-width:11}
+.sch .route .halo{stroke:#fff;stroke-width:17}
+.sch .route .st{stroke-width:3}
+.sch .ab{font-weight:800;fill:#fff;text-anchor:middle}
+.sch .hover .st{stroke:#0ea5e9!important}</style>
+<rect class="bg" width="1088" height="1336"/>
+<text class="district" x="512" y="756" font-size="10.83" text-anchor="middle">العليا</text>
+<text class="district" x="688" y="804" font-size="10.83" text-anchor="middle">الملز</text>
+<text class="district" x="496" y="116" font-size="10.83" text-anchor="middle">المطار</text>
+<text class="district" x="952" y="888" font-size="10.83" text-anchor="middle">النسيم</text>
+<text class="district" x="220" y="176" font-size="10.83" text-anchor="middle">الياسمين</text>
+<text class="district" x="160" y="500" font-size="10.83" text-anchor="middle">‏الدرعية ←‏</text>
+<text class="district" x="128" y="924" font-size="10.83" text-anchor="middle">وادي حنيفة</text>
+<text class="district" x="352" y="1108" font-size="10.83" text-anchor="middle">البطحاء · طريق الحائر</text>
+<text class="district" x="868" y="404" font-size="10.83" text-anchor="middle">‏→ طريق الملك عبدالله‏</text>
+<g class="net" id="sch-net">
+<g class="lines">
+<g class="l" data-line="1">
+<path class="line" data-line="1" data-from="sab-bank" data-to="dr-sulaiman-al-habib" d="M288 224 L328 264" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="dr-sulaiman-al-habib" data-to="kafd" d="M328 264 L448 384" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="kafd" data-to="al-murooj" d="M448 384 L448 424" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="al-murooj" data-to="king-fahad-district" d="M448 424 L448 464" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="king-fahad-district" data-to="king-fahad-district-2" d="M448 464 L448 504" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="king-fahad-district-2" data-to="stc" d="M448 504 L448 544" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="stc" data-to="al-wurud-2" d="M448 544 L448 584" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="al-wurud-2" data-to="al-urubah" d="M448 584 L448 624" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="al-urubah" data-to="alinma-bank" d="M448 624 L448 664" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="alinma-bank" data-to="bank-albilad" d="M448 664 L448 704" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="bank-albilad" data-to="king-fahad-library" d="M448 704 L448 744" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="king-fahad-library" data-to="ministry-of-interior" d="M448 744 L448 784" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="ministry-of-interior" data-to="al-murabba" d="M448 784 L448 824" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="al-murabba" data-to="passport-department" d="M448 824 L448 864" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="passport-department" data-to="national-museum" d="M448 864 L448 904" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="national-museum" data-to="al-batha" d="M448 904 L448 944" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="al-batha" data-to="qasr-al-hokm" d="M448 944 L448 984" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="qasr-al-hokm" data-to="al-owd" d="M448 984 L488 1024" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="al-owd" data-to="skirinah" d="M488 1024 L528 1064" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="skirinah" data-to="manfouhah" d="M528 1064 L568 1104" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="manfouhah" data-to="al-iman-hospital" d="M568 1104 L608 1144" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="al-iman-hospital" data-to="transportation-center" d="M608 1144 L648 1184" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="transportation-center" data-to="al-aziziah" d="M648 1184 L688 1224" stroke="#00ADE5" stroke-width="8.8"/>
+<path class="line" data-line="1" data-from="al-aziziah" data-to="ad-dar-al-baida" d="M688 1224 L728 1264" stroke="#00ADE5" stroke-width="8.8"/>
+</g>
+<g class="l" data-line="2">
+<path class="line" data-line="2" data-from="king-saud-university" data-to="king-salman-oasis" d="M288 544 L328 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="king-salman-oasis" data-to="kacst" d="M328 544 L368 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="kacst" data-to="at-takhassussi" d="M368 544 L408 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="at-takhassussi" data-to="stc" d="M408 544 L448 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="stc" data-to="al-wurud" d="M448 544 L488 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="al-wurud" data-to="king-abdulaziz-road" d="M488 544 L528 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="king-abdulaziz-road" data-to="ministry-of-education" d="M528 544 L568 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="ministry-of-education" data-to="an-nuzhah" d="M568 544 L608 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="an-nuzhah" data-to="riyadh-exhibition-center" d="M608 544 L648 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="riyadh-exhibition-center" data-to="khalid-bin-alwaleed-road" d="M648 544 L728 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="khalid-bin-alwaleed-road" data-to="al-hamra" d="M728 544 L768 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="al-hamra" data-to="al-khaleej" d="M768 544 L808 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="al-khaleej" data-to="ishbiliyah" d="M808 544 L848 544" stroke="#F0493A" stroke-width="8.8"/>
+<path class="line" data-line="2" data-from="ishbiliyah" data-to="king-fahad-sport-city" d="M848 544 L888 544" stroke="#F0493A" stroke-width="8.8"/>
+</g>
+<g class="l" data-line="3">
+<path class="line" data-line="3" data-from="jeddah-road" data-to="tuwaiq" d="M88 1064 L128 1064" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="tuwaiq" data-to="ad-douh" d="M128 1064 L168 1064" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="ad-douh" data-to="western-station" d="M168 1064 L208 1064" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="western-station" data-to="aishah-bint-abi-bakr-street" d="M208 1064 L248 1064" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="aishah-bint-abi-bakr-street" data-to="dhahrat-al-badiah" d="M248 1064 L288 1024" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="dhahrat-al-badiah" data-to="sultanah" d="M288 1024 L328 984" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="sultanah" data-to="al-jarradiyah" d="M328 984 L368 984" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="al-jarradiyah" data-to="courts-complex" d="M368 984 L408 984" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="courts-complex" data-to="qasr-al-hokm" d="M408 984 L448 984" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="qasr-al-hokm" data-to="al-hilla" d="M448 984 L488 984" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="al-hilla" data-to="al-margab" d="M488 984 L528 984" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="al-margab" data-to="as-salhiyah" d="M528 984 L568 984" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="as-salhiyah" data-to="first-industrial-city" d="M568 984 L608 984" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="first-industrial-city" data-to="railway" d="M608 984 L648 944" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="railway" data-to="al-malaz" d="M648 944 L688 904" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="al-malaz" data-to="jarir-district" d="M688 904 L728 864" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="jarir-district" data-to="al-rajhi-grand-mosque" d="M728 864 L768 824" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="al-rajhi-grand-mosque" data-to="harun-ar-rashid-road" d="M768 824 L808 784" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="harun-ar-rashid-road" data-to="an-naseem" d="M808 784 L848 744" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="an-naseem" data-to="hassan-bin-thabit-street" d="M848 744 L888 704" stroke="#F68D39" stroke-width="8.8"/>
+<path class="line" data-line="3" data-from="hassan-bin-thabit-street" data-to="khashm-al-an" d="M888 704 L928 664" stroke="#F68D39" stroke-width="8.8"/>
+</g>
+<g class="l" data-line="4">
+<path class="line" data-line="4" data-from="kafd" data-to="ar-rabi" d="M444.32 380.32 L484.32 340.32" stroke="#FFD105" stroke-width="8.8"/>
+<path class="line" data-line="4" data-from="ar-rabi" data-to="uthman-bin-affan-road" d="M484.32 340.32 L524.32 300.32" stroke="#FFD105" stroke-width="8.8"/>
+<path class="line" data-line="4" data-from="uthman-bin-affan-road" data-to="sabic" d="M524.32 300.32 L564.32 260.32" stroke="#FFD105" stroke-width="8.8"/>
+<path class="line" data-line="4" data-from="sabic" data-to="pnu-1" d="M568 264 L568 224" stroke="#FFD105" stroke-width="8.8"/>
+<path class="line" data-line="4" data-from="pnu-1" data-to="pnu-2" d="M568 224 L568 184" stroke="#FFD105" stroke-width="8.8"/>
+<path class="line" data-line="4" data-from="pnu-2" data-to="airport-t5" d="M568 184 L568 144" stroke="#FFD105" stroke-width="8.8"/>
+<path class="line" data-line="4" data-from="airport-t5" data-to="airport-t3-4" d="M568 144 L568 104" stroke="#FFD105" stroke-width="8.8"/>
+<path class="line" data-line="4" data-from="airport-t3-4" data-to="airport-t1-2" d="M568 104 L568 64" stroke="#FFD105" stroke-width="8.8"/>
+</g>
+<g class="l" data-line="5">
+<path class="line" data-line="5" data-from="ministry-of-education" data-to="king-salman-park" d="M568 544 L568 584" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="king-salman-park" data-to="as-sulimaniyah" d="M568 584 L568 624" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="as-sulimaniyah" data-to="ad-dhabab" d="M568 624 L568 664" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="ad-dhabab" data-to="abu-dhabi-square" d="M568 664 L568 704" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="abu-dhabi-square" data-to="officers-club" d="M568 704 L568 744" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="officers-club" data-to="gosi" d="M568 744 L568 784" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="gosi" data-to="al-wizarat" d="M568 784 L568 824" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="al-wizarat" data-to="ministry-of-defence" d="M568 824 L568 864" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="ministry-of-defence" data-to="king-abdulaziz-hospital" d="M568 864 L528 904" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="king-abdulaziz-hospital" data-to="ministry-of-finance" d="M528 904 L488 904" stroke="#43B649" stroke-width="8.8"/>
+<path class="line" data-line="5" data-from="ministry-of-finance" data-to="national-museum" d="M488 904 L448 904" stroke="#43B649" stroke-width="8.8"/>
+</g>
+<g class="l" data-line="6">
+<path class="line" data-line="6" data-from="kafd" data-to="ar-rabi" d="M451.68 387.68 L491.68 347.68" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="ar-rabi" data-to="uthman-bin-affan-road" d="M491.68 347.68 L531.68 307.68" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="uthman-bin-affan-road" data-to="sabic" d="M531.68 307.68 L571.68 267.68" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="sabic" data-to="granadia" d="M568 264 L648 344" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="granadia" data-to="al-yarmuk" d="M648 344 L768 464" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="al-yarmuk" data-to="al-hamra" d="M768 464 L768 544" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="al-hamra" data-to="al-andalus" d="M768 544 L768 584" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="al-andalus" data-to="khurais-road" d="M768 584 L768 624" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="khurais-road" data-to="as-salam" d="M768 624 L768 664" stroke="#984C9D" stroke-width="8.8"/>
+<path class="line" data-line="6" data-from="as-salam" data-to="an-naseem" d="M768 664 L848 744" stroke="#984C9D" stroke-width="8.8"/>
+</g>
+</g>
+<g class="stations">
+<g class="s" data-st="sab-bank">
+<circle class="st t" cx="288" cy="224" r="6" stroke="#00ADE5"/>
+<text x="273.6" y="227.99" class="lbl t" text-anchor="end" font-size="11.4" data-st="sab-bank">بنك الأول</text>
+</g>
+<g class="s" data-st="dr-sulaiman-al-habib">
+<circle class="st" cx="328" cy="264" r="6" stroke="#00ADE5"/>
+<text x="313.6" y="267.99" class="lbl" text-anchor="end" font-size="11.4" data-st="dr-sulaiman-al-habib">د. سليمان الحبيب</text>
+</g>
+<g class="s" data-st="kafd">
+<circle class="st x" cx="448" cy="384" r="10.8"/>
+<circle cx="448" cy="384" r="3.6" fill="#1a1a1a"/>
+<text x="425.6" y="388.19" class="lbl x t" text-anchor="end" font-size="11.97" data-st="kafd">المركز المالي</text>
+</g>
+<g class="s" data-st="al-murooj">
+<circle class="st" cx="448" cy="424" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="427.99" class="lbl" text-anchor="end" font-size="11.4" data-st="al-murooj">المروج</text>
+</g>
+<g class="s" data-st="king-fahad-district">
+<circle class="st" cx="448" cy="464" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="467.99" class="lbl" text-anchor="end" font-size="11.4" data-st="king-fahad-district">حي الملك فهد</text>
+</g>
+<g class="s" data-st="king-fahad-district-2">
+<circle class="st" cx="448" cy="504" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="507.99" class="lbl" text-anchor="end" font-size="11.4" data-st="king-fahad-district-2">حي الملك فهد 2</text>
+</g>
+<g class="s" data-st="stc">
+<circle class="st x" cx="448" cy="544" r="8.8"/>
+<text x="436" y="560.19" class="lbl x" text-anchor="end" font-size="11.97" data-st="stc">stc</text>
+</g>
+<g class="s" data-st="al-wurud-2">
+<circle class="st" cx="448" cy="584" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="587.99" class="lbl" text-anchor="end" font-size="11.4" data-st="al-wurud-2">الورود 2</text>
+</g>
+<g class="s" data-st="al-urubah">
+<circle class="st" cx="448" cy="624" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="627.99" class="lbl" text-anchor="end" font-size="11.4" data-st="al-urubah">العروبة</text>
+</g>
+<g class="s" data-st="alinma-bank">
+<circle class="st" cx="448" cy="664" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="667.99" class="lbl" text-anchor="end" font-size="11.4" data-st="alinma-bank">مصرف الإنماء</text>
+</g>
+<g class="s" data-st="bank-albilad">
+<circle class="st" cx="448" cy="704" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="707.99" class="lbl" text-anchor="end" font-size="11.4" data-st="bank-albilad">بنك البلاد</text>
+</g>
+<g class="s" data-st="king-fahad-library">
+<circle class="st" cx="448" cy="744" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="747.99" class="lbl" text-anchor="end" font-size="11.4" data-st="king-fahad-library">مكتبة الملك فهد</text>
+</g>
+<g class="s" data-st="ministry-of-interior">
+<circle class="st" cx="448" cy="784" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="787.99" class="lbl" text-anchor="end" font-size="11.4" data-st="ministry-of-interior">وزارة الداخلية</text>
+</g>
+<g class="s" data-st="al-murabba">
+<circle class="st" cx="448" cy="824" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="827.99" class="lbl" text-anchor="end" font-size="11.4" data-st="al-murabba">المربع</text>
+</g>
+<g class="s" data-st="passport-department">
+<circle class="st" cx="448" cy="864" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="867.99" class="lbl" text-anchor="end" font-size="11.4" data-st="passport-department">الجوازات</text>
+</g>
+<g class="s" data-st="national-museum">
+<circle class="st x" cx="448" cy="904" r="8.8"/>
+<text x="429.6" y="908.19" class="lbl x t" text-anchor="end" font-size="11.97" data-st="national-museum">المتحف الوطني</text>
+</g>
+<g class="s" data-st="al-batha">
+<circle class="st" cx="448" cy="944" r="6" stroke="#00ADE5"/>
+<text x="433.6" y="947.99" class="lbl" text-anchor="end" font-size="11.4" data-st="al-batha">البطحاء</text>
+</g>
+<g class="s" data-st="qasr-al-hokm">
+<circle class="st x" cx="448" cy="984" r="8.8"/>
+<text x="436" y="976.19" class="lbl x" text-anchor="end" font-size="11.97" data-st="qasr-al-hokm">قصر الحكم</text>
+</g>
+<g class="s" data-st="al-owd">
+<circle class="st" cx="488" cy="1024" r="6" stroke="#00ADE5"/>
+<text x="502.4" y="1027.99" class="lbl" text-anchor="start" font-size="11.4" data-st="al-owd">العود</text>
+</g>
+<g class="s" data-st="skirinah">
+<circle class="st" cx="528" cy="1064" r="6" stroke="#00ADE5"/>
+<text x="542.4" y="1067.99" class="lbl" text-anchor="start" font-size="11.4" data-st="skirinah">سكيرينة</text>
+</g>
+<g class="s" data-st="manfouhah">
+<circle class="st" cx="568" cy="1104" r="6" stroke="#00ADE5"/>
+<text x="582.4" y="1107.99" class="lbl" text-anchor="start" font-size="11.4" data-st="manfouhah">منفوحة</text>
+</g>
+<g class="s" data-st="al-iman-hospital">
+<circle class="st" cx="608" cy="1144" r="6" stroke="#00ADE5"/>
+<text x="622.4" y="1147.99" class="lbl" text-anchor="start" font-size="11.4" data-st="al-iman-hospital">مستشفى الإيمان</text>
+</g>
+<g class="s" data-st="transportation-center">
+<circle class="st" cx="648" cy="1184" r="6" stroke="#00ADE5"/>
+<text x="662.4" y="1187.99" class="lbl" text-anchor="start" font-size="11.4" data-st="transportation-center">مركز النقل العام</text>
+</g>
+<g class="s" data-st="al-aziziah">
+<circle class="st" cx="688" cy="1224" r="6" stroke="#00ADE5"/>
+<text x="702.4" y="1227.99" class="lbl" text-anchor="start" font-size="11.4" data-st="al-aziziah">العزيزية</text>
+</g>
+<g class="s" data-st="ad-dar-al-baida">
+<circle class="st t" cx="728" cy="1264" r="6" stroke="#00ADE5"/>
+<text x="742.4" y="1267.99" class="lbl t" text-anchor="start" font-size="11.4" data-st="ad-dar-al-baida">الدار البيضاء</text>
+</g>
+<g class="s" data-st="king-saud-university">
+<circle class="st t" cx="288" cy="544" r="6" stroke="#F0493A"/>
+<text x="281.6" y="559.19" class="lbl t" text-anchor="end" font-size="11.4" data-st="king-saud-university" transform="rotate(-45 281.6 555.2)">جامعة الملك سعود</text>
+</g>
+<g class="s" data-st="king-salman-oasis">
+<circle class="st" cx="328" cy="544" r="6" stroke="#F0493A"/>
+<text x="321.6" y="559.19" class="lbl" text-anchor="end" font-size="11.4" data-st="king-salman-oasis" transform="rotate(-45 321.6 555.2)">واحة الملك سلمان</text>
+</g>
+<g class="s" data-st="kacst">
+<circle class="st" cx="368" cy="544" r="6" stroke="#F0493A"/>
+<text x="361.6" y="559.19" class="lbl" text-anchor="end" font-size="11.4" data-st="kacst" transform="rotate(-45 361.6 555.2)">المدينة التقنية</text>
+</g>
+<g class="s" data-st="at-takhassussi">
+<circle class="st" cx="408" cy="544" r="6" stroke="#F0493A"/>
+<text x="372" y="528.46" class="lbl" text-anchor="middle" font-size="11.4" data-st="at-takhassussi">التخصصي</text>
+</g>
+<g class="s" data-st="al-wurud">
+<circle class="st" cx="488" cy="544" r="6" stroke="#F0493A"/>
+<text x="494.4" y="536.79" class="lbl" text-anchor="start" font-size="11.4" data-st="al-wurud" transform="rotate(-45 494.4 532.8)">الورود</text>
+</g>
+<g class="s" data-st="king-abdulaziz-road">
+<circle class="st" cx="528" cy="544" r="6" stroke="#F0493A"/>
+<text x="534.4" y="536.79" class="lbl" text-anchor="start" font-size="11.4" data-st="king-abdulaziz-road" transform="rotate(-45 534.4 532.8)">طريق الملك عبدالعزيز</text>
+</g>
+<g class="s" data-st="ministry-of-education">
+<circle class="st x" cx="568" cy="544" r="8.8"/>
+<text x="574.4" y="532.99" class="lbl x t" text-anchor="start" font-size="11.97" data-st="ministry-of-education" transform="rotate(-45 574.4 528.8)">وزارة التعليم</text>
+</g>
+<g class="s" data-st="an-nuzhah">
+<circle class="st" cx="608" cy="544" r="6" stroke="#F0493A"/>
+<text x="614.4" y="536.79" class="lbl" text-anchor="start" font-size="11.4" data-st="an-nuzhah" transform="rotate(-45 614.4 532.8)">النزهة</text>
+</g>
+<g class="s" data-st="riyadh-exhibition-center">
+<circle class="st" cx="648" cy="544" r="6" stroke="#F0493A"/>
+<text x="654.4" y="530.41" class="lbl" text-anchor="start" font-size="11.4" data-st="riyadh-exhibition-center" transform="rotate(-45 654.4 532.8)">مركز الرياض</text><text x="654.4" y="543.17" class="lbl" text-anchor="start" font-size="11.4" data-st="riyadh-exhibition-center" transform="rotate(-45 654.4 532.8)">للمعارض</text>
+</g>
+<g class="s" data-st="khalid-bin-alwaleed-road">
+<circle class="st" cx="728" cy="544" r="6" stroke="#F0493A"/>
+<text x="721.6" y="552.81" class="lbl" text-anchor="end" font-size="11.4" data-st="khalid-bin-alwaleed-road" transform="rotate(-45 721.6 555.2)">طريق خالد</text><text x="721.6" y="565.57" class="lbl" text-anchor="end" font-size="11.4" data-st="khalid-bin-alwaleed-road" transform="rotate(-45 721.6 555.2)">بن الوليد</text>
+</g>
+<g class="s" data-st="al-hamra">
+<circle class="st x" cx="768" cy="544" r="8.8"/>
+<text x="780" y="560.19" class="lbl x" text-anchor="start" font-size="11.97" data-st="al-hamra">الحمراء</text>
+</g>
+<g class="s" data-st="al-khaleej">
+<circle class="st" cx="808" cy="544" r="6" stroke="#F0493A"/>
+<text x="814.4" y="536.79" class="lbl" text-anchor="start" font-size="11.4" data-st="al-khaleej" transform="rotate(-45 814.4 532.8)">الخليج</text>
+</g>
+<g class="s" data-st="ishbiliyah">
+<circle class="st" cx="848" cy="544" r="6" stroke="#F0493A"/>
+<text x="854.4" y="536.79" class="lbl" text-anchor="start" font-size="11.4" data-st="ishbiliyah" transform="rotate(-45 854.4 532.8)">إشبيلية</text>
+</g>
+<g class="s" data-st="king-fahad-sport-city">
+<circle class="st t" cx="888" cy="544" r="6" stroke="#F0493A"/>
+<text x="894.4" y="536.79" class="lbl t" text-anchor="start" font-size="11.4" data-st="king-fahad-sport-city" transform="rotate(-45 894.4 532.8)">مدينة الملك فهد الرياضية</text>
+</g>
+<g class="s" data-st="jeddah-road">
+<circle class="st t" cx="88" cy="1064" r="6" stroke="#F68D39"/>
+<text x="88" y="1048.46" class="lbl t" text-anchor="middle" font-size="11.4" data-st="jeddah-road">طريق جدة</text>
+</g>
+<g class="s" data-st="tuwaiq">
+<circle class="st" cx="128" cy="1064" r="6" stroke="#F68D39"/>
+<text x="121.6" y="1079.19" class="lbl" text-anchor="end" font-size="11.4" data-st="tuwaiq" transform="rotate(-45 121.6 1075.2)">طويق</text>
+</g>
+<g class="s" data-st="ad-douh">
+<circle class="st" cx="168" cy="1064" r="6" stroke="#F68D39"/>
+<text x="161.6" y="1079.19" class="lbl" text-anchor="end" font-size="11.4" data-st="ad-douh" transform="rotate(-45 161.6 1075.2)">الدوح</text>
+</g>
+<g class="s" data-st="western-station">
+<circle class="st" cx="208" cy="1064" r="6" stroke="#F68D39"/>
+<text x="201.6" y="1079.19" class="lbl" text-anchor="end" font-size="11.4" data-st="western-station" transform="rotate(-45 201.6 1075.2)">المحطة الغربية</text>
+</g>
+<g class="s" data-st="aishah-bint-abi-bakr-street">
+<circle class="st" cx="248" cy="1064" r="6" stroke="#F68D39"/>
+<text x="241.6" y="1072.81" class="lbl" text-anchor="end" font-size="11.4" data-st="aishah-bint-abi-bakr-street" transform="rotate(-45 241.6 1075.2)">شارع عائشة</text><text x="241.6" y="1085.57" class="lbl" text-anchor="end" font-size="11.4" data-st="aishah-bint-abi-bakr-street" transform="rotate(-45 241.6 1075.2)">بنت أبي بكر</text>
+</g>
+<g class="s" data-st="dhahrat-al-badiah">
+<circle class="st" cx="288" cy="1024" r="6" stroke="#F68D39"/>
+<text x="273.6" y="1027.99" class="lbl" text-anchor="end" font-size="11.4" data-st="dhahrat-al-badiah">ظهرة البديعة</text>
+</g>
+<g class="s" data-st="sultanah">
+<circle class="st" cx="328" cy="984" r="6" stroke="#F68D39"/>
+<text x="334.4" y="976.79" class="lbl" text-anchor="start" font-size="11.4" data-st="sultanah" transform="rotate(-45 334.4 972.8)">سلطانة</text>
+</g>
+<g class="s" data-st="al-jarradiyah">
+<circle class="st" cx="368" cy="984" r="6" stroke="#F68D39"/>
+<text x="361.6" y="999.19" class="lbl" text-anchor="end" font-size="11.4" data-st="al-jarradiyah" transform="rotate(-45 361.6 995.2)">الجرادية</text>
+</g>
+<g class="s" data-st="courts-complex">
+<circle class="st" cx="408" cy="984" r="6" stroke="#F68D39"/>
+<text x="401.6" y="999.19" class="lbl" text-anchor="end" font-size="11.4" data-st="courts-complex" transform="rotate(-45 401.6 995.2)">مجمع المحاكم</text>
+</g>
+<g class="s" data-st="al-hilla">
+<circle class="st" cx="488" cy="984" r="6" stroke="#F68D39"/>
+<text x="494" y="968.46" class="lbl" text-anchor="middle" font-size="11.4" data-st="al-hilla">الحلة</text>
+</g>
+<g class="s" data-st="al-margab">
+<circle class="st" cx="528" cy="984" r="6" stroke="#F68D39"/>
+<text x="534.4" y="976.79" class="lbl" text-anchor="start" font-size="11.4" data-st="al-margab" transform="rotate(-45 534.4 972.8)">المرقب</text>
+</g>
+<g class="s" data-st="as-salhiyah">
+<circle class="st" cx="568" cy="984" r="6" stroke="#F68D39"/>
+<text x="574.4" y="976.79" class="lbl" text-anchor="start" font-size="11.4" data-st="as-salhiyah" transform="rotate(-45 574.4 972.8)">الصالحية</text>
+</g>
+<g class="s" data-st="first-industrial-city">
+<circle class="st" cx="608" cy="984" r="6" stroke="#F68D39"/>
+<text x="622.4" y="987.99" class="lbl" text-anchor="start" font-size="11.4" data-st="first-industrial-city">المدينة الصناعية الأولى</text>
+</g>
+<g class="s" data-st="railway">
+<circle class="st" cx="648" cy="944" r="6" stroke="#F68D39"/>
+<text x="662.4" y="947.99" class="lbl" text-anchor="start" font-size="11.4" data-st="railway">سكة الحديد</text>
+</g>
+<g class="s" data-st="al-malaz">
+<circle class="st" cx="688" cy="904" r="6" stroke="#F68D39"/>
+<text x="702.4" y="907.99" class="lbl" text-anchor="start" font-size="11.4" data-st="al-malaz">الملز</text>
+</g>
+<g class="s" data-st="jarir-district">
+<circle class="st" cx="728" cy="864" r="6" stroke="#F68D39"/>
+<text x="742.4" y="867.99" class="lbl" text-anchor="start" font-size="11.4" data-st="jarir-district">حي جرير</text>
+</g>
+<g class="s" data-st="al-rajhi-grand-mosque">
+<circle class="st" cx="768" cy="824" r="6" stroke="#F68D39"/>
+<text x="782.4" y="827.99" class="lbl" text-anchor="start" font-size="11.4" data-st="al-rajhi-grand-mosque">جامع الراجحي</text>
+</g>
+<g class="s" data-st="harun-ar-rashid-road">
+<circle class="st" cx="808" cy="784" r="6" stroke="#F68D39"/>
+<text x="822.4" y="787.99" class="lbl" text-anchor="start" font-size="11.4" data-st="harun-ar-rashid-road">طريق هارون الرشيد</text>
+</g>
+<g class="s" data-st="an-naseem">
+<circle class="st x" cx="848" cy="744" r="8.8"/>
+<text x="866.4" y="748.19" class="lbl x t" text-anchor="start" font-size="11.97" data-st="an-naseem">النسيم</text>
+</g>
+<g class="s" data-st="hassan-bin-thabit-street">
+<circle class="st" cx="888" cy="704" r="6" stroke="#F68D39"/>
+<text x="902.4" y="707.99" class="lbl" text-anchor="start" font-size="11.4" data-st="hassan-bin-thabit-street">شارع حسان بن ثابت</text>
+</g>
+<g class="s" data-st="khashm-al-an">
+<circle class="st t" cx="928" cy="664" r="6" stroke="#F68D39"/>
+<text x="942.4" y="667.99" class="lbl t" text-anchor="start" font-size="11.4" data-st="khashm-al-an">خشم العان</text>
+</g>
+<g class="s" data-st="ar-rabi">
+<circle class="st x" cx="488" cy="344" r="8.8"/>
+<text x="506.4" y="348.19" class="lbl x" text-anchor="start" font-size="11.97" data-st="ar-rabi">الربيع</text>
+</g>
+<g class="s" data-st="uthman-bin-affan-road">
+<circle class="st x" cx="528" cy="304" r="8.8"/>
+<text x="509.6" y="301.49" class="lbl x" text-anchor="end" font-size="11.97" data-st="uthman-bin-affan-road">طريق عثمان</text><text x="509.6" y="314.89" class="lbl x" text-anchor="end" font-size="11.97" data-st="uthman-bin-affan-road">بن عفان</text>
+</g>
+<g class="s" data-st="sabic">
+<circle class="st x" cx="568" cy="264" r="8.8"/>
+<text x="586.4" y="268.19" class="lbl x" text-anchor="start" font-size="11.97" data-st="sabic">سابك</text>
+</g>
+<g class="s" data-st="pnu-1">
+<circle class="st" cx="568" cy="224" r="6" stroke="#FFD105"/>
+<text x="582.4" y="227.99" class="lbl" text-anchor="start" font-size="11.4" data-st="pnu-1">جامعة الأميرة نورة 1</text>
+</g>
+<g class="s" data-st="pnu-2">
+<circle class="st" cx="568" cy="184" r="6" stroke="#FFD105"/>
+<text x="582.4" y="187.99" class="lbl" text-anchor="start" font-size="11.4" data-st="pnu-2">جامعة الأميرة نورة 2</text>
+</g>
+<g class="s" data-st="airport-t5">
+<circle class="st" cx="568" cy="144" r="6" stroke="#FFD105"/>
+<text x="582.4" y="147.99" class="lbl" text-anchor="start" font-size="11.4" data-st="airport-t5">المطار - الصالة 5</text>
+</g>
+<g class="s" data-st="airport-t3-4">
+<circle class="st" cx="568" cy="104" r="6" stroke="#FFD105"/>
+<text x="582.4" y="107.99" class="lbl" text-anchor="start" font-size="11.4" data-st="airport-t3-4">المطار - الصالة ‎3-4</text>
+</g>
+<g class="s" data-st="airport-t1-2">
+<circle class="st t" cx="568" cy="64" r="6" stroke="#FFD105"/>
+<text x="582.4" y="67.99" class="lbl t" text-anchor="start" font-size="11.4" data-st="airport-t1-2">المطار - الصالة ‎1-2</text>
+</g>
+<g class="s" data-st="king-salman-park">
+<circle class="st" cx="568" cy="584" r="6" stroke="#43B649"/>
+<text x="553.6" y="587.99" class="lbl" text-anchor="end" font-size="11.4" data-st="king-salman-park">حديقة الملك سلمان</text>
+</g>
+<g class="s" data-st="as-sulimaniyah">
+<circle class="st" cx="568" cy="624" r="6" stroke="#43B649"/>
+<text x="553.6" y="627.99" class="lbl" text-anchor="end" font-size="11.4" data-st="as-sulimaniyah">السليمانية</text>
+</g>
+<g class="s" data-st="ad-dhabab">
+<circle class="st" cx="568" cy="664" r="6" stroke="#43B649"/>
+<text x="582.4" y="667.99" class="lbl" text-anchor="start" font-size="11.4" data-st="ad-dhabab">الضباب</text>
+</g>
+<g class="s" data-st="abu-dhabi-square">
+<circle class="st" cx="568" cy="704" r="6" stroke="#43B649"/>
+<text x="582.4" y="707.99" class="lbl" text-anchor="start" font-size="11.4" data-st="abu-dhabi-square">ميدان أبو ظبي</text>
+</g>
+<g class="s" data-st="officers-club">
+<circle class="st" cx="568" cy="744" r="6" stroke="#43B649"/>
+<text x="582.4" y="747.99" class="lbl" text-anchor="start" font-size="11.4" data-st="officers-club">نادي الضباط</text>
+</g>
+<g class="s" data-st="gosi">
+<circle class="st" cx="568" cy="784" r="6" stroke="#43B649"/>
+<text x="582.4" y="787.99" class="lbl" text-anchor="start" font-size="11.4" data-st="gosi">التأمينات الاجتماعية</text>
+</g>
+<g class="s" data-st="al-wizarat">
+<circle class="st" cx="568" cy="824" r="6" stroke="#43B649"/>
+<text x="582.4" y="827.99" class="lbl" text-anchor="start" font-size="11.4" data-st="al-wizarat">الوزارات</text>
+</g>
+<g class="s" data-st="ministry-of-defence">
+<circle class="st" cx="568" cy="864" r="6" stroke="#43B649"/>
+<text x="582.4" y="867.99" class="lbl" text-anchor="start" font-size="11.4" data-st="ministry-of-defence">وزارة الدفاع</text>
+</g>
+<g class="s" data-st="king-abdulaziz-hospital">
+<circle class="st" cx="528" cy="904" r="6" stroke="#43B649"/>
+<text x="528" y="928.66" class="lbl" text-anchor="middle" font-size="11.4" data-st="king-abdulaziz-hospital">مستشفى الملك</text><text x="528" y="941.43" class="lbl" text-anchor="middle" font-size="11.4" data-st="king-abdulaziz-hospital">عبدالعزيز</text>
+</g>
+<g class="s" data-st="ministry-of-finance">
+<circle class="st" cx="488" cy="904" r="6" stroke="#43B649"/>
+<text x="498" y="875.69" class="lbl" text-anchor="middle" font-size="11.4" data-st="ministry-of-finance">وزارة</text><text x="498" y="888.46" class="lbl" text-anchor="middle" font-size="11.4" data-st="ministry-of-finance">المالية</text>
+</g>
+<g class="s" data-st="granadia">
+<circle class="st" cx="648" cy="344" r="6" stroke="#984C9D"/>
+<text x="662.4" y="347.99" class="lbl" text-anchor="start" font-size="11.4" data-st="granadia">غرناطية</text>
+</g>
+<g class="s" data-st="al-yarmuk">
+<circle class="st" cx="768" cy="464" r="6" stroke="#984C9D"/>
+<text x="782.4" y="467.99" class="lbl" text-anchor="start" font-size="11.4" data-st="al-yarmuk">اليرموك</text>
+</g>
+<g class="s" data-st="al-andalus">
+<circle class="st" cx="768" cy="584" r="6" stroke="#984C9D"/>
+<text x="782.4" y="587.99" class="lbl" text-anchor="start" font-size="11.4" data-st="al-andalus">الأندلس</text>
+</g>
+<g class="s" data-st="khurais-road">
+<circle class="st" cx="768" cy="624" r="6" stroke="#984C9D"/>
+<text x="782.4" y="627.99" class="lbl" text-anchor="start" font-size="11.4" data-st="khurais-road">طريق خريص</text>
+</g>
+<g class="s" data-st="as-salam">
+<circle class="st" cx="768" cy="664" r="6" stroke="#984C9D"/>
+<text x="782.4" y="667.99" class="lbl" text-anchor="start" font-size="11.4" data-st="as-salam">السلام</text>
+</g>
+</g>
+</g>
+<g class="route" id="sch-route"></g>
+<text class="title" x="1064" y="40" font-size="21.66" text-anchor="end">مترو الرياض — مخطط الشبكة</text>
+<text class="sub" x="1064" y="57.1" font-size="10.83" text-anchor="end">مخطط تخطيطي غير رسمي (المسافات غير حقيقية) · 6 مسارات · 83 محطة</text>
+<g class="compass"><circle cx="56" cy="48" r="16.8" fill="#fff" stroke="#9ca3af" stroke-width="1.5"/><path d="M56 36 L61.6 53.6 L56 48.8 L50.4 53.6 Z" fill="#374151"/><text x="56" y="28" font-size="9.69" text-anchor="middle" fill="#374151" font-weight="700">N</text></g>
+<g class="legend">
+<rect x="370.34" y="1162.87" width="21.66" height="10.26" rx="5.13" fill="#00ADE5"/>
+<text x="381.17" y="1171.76" font-size="9.12" text-anchor="middle" font-weight="800" fill="#fff">1</text>
+<text x="364.64" y="1171.99" font-size="10.83" text-anchor="end"><tspan font-weight="700">المسار الأزرق</tspan><tspan fill="#6b7280"> · بنك الأول ⇄ الدار البيضاء</tspan></text>
+<rect x="370.34" y="1182.82" width="21.66" height="10.26" rx="5.13" fill="#F0493A"/>
+<text x="381.17" y="1191.71" font-size="9.12" text-anchor="middle" font-weight="800" fill="#fff">2</text>
+<text x="364.64" y="1191.94" font-size="10.83" text-anchor="end"><tspan font-weight="700">المسار الأحمر</tspan><tspan fill="#6b7280"> · جامعة الملك سعود ⇄ مدينة الملك فهد الرياضية</tspan></text>
+<rect x="370.34" y="1202.77" width="21.66" height="10.26" rx="5.13" fill="#F68D39"/>
+<text x="381.17" y="1211.66" font-size="9.12" text-anchor="middle" font-weight="800" fill="#fff">3</text>
+<text x="364.64" y="1211.89" font-size="10.83" text-anchor="end"><tspan font-weight="700">المسار البرتقالي</tspan><tspan fill="#6b7280"> · طريق جدة ⇄ خشم العان</tspan></text>
+<rect x="370.34" y="1222.72" width="21.66" height="10.26" rx="5.13" fill="#FFD105"/>
+<text x="381.17" y="1231.61" font-size="9.12" text-anchor="middle" font-weight="800" fill="#111">4</text>
+<text x="364.64" y="1231.84" font-size="10.83" text-anchor="end"><tspan font-weight="700">المسار الأصفر</tspan><tspan fill="#6b7280"> · المركز المالي ⇄ المطار - الصالة ‎1-2</tspan></text>
+<rect x="370.34" y="1242.67" width="21.66" height="10.26" rx="5.13" fill="#43B649"/>
+<text x="381.17" y="1251.56" font-size="9.12" text-anchor="middle" font-weight="800" fill="#fff">5</text>
+<text x="364.64" y="1251.79" font-size="10.83" text-anchor="end"><tspan font-weight="700">المسار الأخضر</tspan><tspan fill="#6b7280"> · وزارة التعليم ⇄ المتحف الوطني</tspan></text>
+<rect x="370.34" y="1262.62" width="21.66" height="10.26" rx="5.13" fill="#984C9D"/>
+<text x="381.17" y="1271.51" font-size="9.12" text-anchor="middle" font-weight="800" fill="#fff">6</text>
+<text x="364.64" y="1271.74" font-size="10.83" text-anchor="end"><tspan font-weight="700">المسار البنفسجي</tspan><tspan fill="#6b7280"> · المركز المالي ⇄ النسيم</tspan></text>
+<circle cx="381.17" cy="1287.7" r="8" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="364.64" y="1291.69" font-size="10.83" text-anchor="end">محطة تبادل بين المسارات</text>
+<text class="sub" x="392" y="1309.65" font-size="9.12" text-anchor="end">المسار الأصفر والبنفسجي يتشاركان المحطات الأربع من المركز المالي إلى سابك</text>
+</g>
+</svg>

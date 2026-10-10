@@ -1,0 +1,2866 @@
+{
+ "type": "FeatureCollection",
+ "name": "Riyadh Metro — stations",
+ "metadata": {
+  "generated": "2026-10-10T01:46:06.889Z",
+  "crs": "EPSG:4326",
+  "source": "Riyadh public-transport open route data; unofficial community project"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "id": "station-sab-bank",
+   "properties": {
+    "kind": "station",
+    "id": "sab-bank",
+    "name_ar": "بنك الأول",
+    "name_en": "SAB Bank",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.829492%2C46.616769",
+    "google_earth": "https://earth.google.com/web/@24.829492,46.616769,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.616769,
+     24.829492
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-dr-sulaiman-al-habib",
+   "properties": {
+    "kind": "station",
+    "id": "dr-sulaiman-al-habib",
+    "name_ar": "د. سليمان الحبيب",
+    "name_en": "Dr. Sulaiman Al Habib",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.811587%2C46.625689",
+    "google_earth": "https://earth.google.com/web/@24.811587,46.625689,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.625689,
+     24.811587
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-kafd",
+   "properties": {
+    "kind": "station",
+    "id": "kafd",
+    "name_ar": "المركز المالي",
+    "name_en": "KAFD",
+    "lines": [
+     "1",
+     "4",
+     "6"
+    ],
+    "line_names_en": [
+     "Blue Line",
+     "Yellow Line",
+     "Purple Line"
+    ],
+    "interchange": true,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated",
+     "4": "elevated",
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.767874%2C46.643009",
+    "google_earth": "https://earth.google.com/web/@24.767874,46.643009,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.643009,
+     24.767874
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-murooj",
+   "properties": {
+    "kind": "station",
+    "id": "al-murooj",
+    "name_ar": "المروج",
+    "name_en": "Al Murooj",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.754529%2C46.654453",
+    "google_earth": "https://earth.google.com/web/@24.754529,46.654453,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.654453,
+     24.754529
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-fahad-district",
+   "properties": {
+    "kind": "station",
+    "id": "king-fahad-district",
+    "name_ar": "حي الملك فهد",
+    "name_en": "King Fahad District",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.745196%2C46.659143",
+    "google_earth": "https://earth.google.com/web/@24.745196,46.659143,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.659143,
+     24.745196
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-fahad-district-2",
+   "properties": {
+    "kind": "station",
+    "id": "king-fahad-district-2",
+    "name_ar": "حي الملك فهد 2",
+    "name_en": "King Fahad District 2",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.736581%2C46.663508",
+    "google_earth": "https://earth.google.com/web/@24.736581,46.663508,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.663508,
+     24.736581
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-stc",
+   "properties": {
+    "kind": "station",
+    "id": "stc",
+    "name_ar": "stc",
+    "name_en": "stc",
+    "lines": [
+     "1",
+     "2"
+    ],
+    "line_names_en": [
+     "Blue Line",
+     "Red Line"
+    ],
+    "interchange": true,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground",
+     "2": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.728617%2C46.665673",
+    "google_earth": "https://earth.google.com/web/@24.728617,46.665673,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.665673,
+     24.728617
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-wurud-2",
+   "properties": {
+    "kind": "station",
+    "id": "al-wurud-2",
+    "name_ar": "الورود 2",
+    "name_en": "Al Wurud 2",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.721021%2C46.671378",
+    "google_earth": "https://earth.google.com/web/@24.721021,46.671378,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.671378,
+     24.721021
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-urubah",
+   "properties": {
+    "kind": "station",
+    "id": "al-urubah",
+    "name_ar": "العروبة",
+    "name_en": "Al Urubah",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.713921%2C46.674953",
+    "google_earth": "https://earth.google.com/web/@24.713921,46.674953,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.674953,
+     24.713921
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-alinma-bank",
+   "properties": {
+    "kind": "station",
+    "id": "alinma-bank",
+    "name_ar": "مصرف الإنماء",
+    "name_en": "Alinma Bank",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.703002%2C46.680460",
+    "google_earth": "https://earth.google.com/web/@24.703002,46.680460,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.68046,
+     24.703002
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-bank-albilad",
+   "properties": {
+    "kind": "station",
+    "id": "bank-albilad",
+    "name_ar": "بنك البلاد",
+    "name_en": "Bank Albilad",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.694988%2C46.684502",
+    "google_earth": "https://earth.google.com/web/@24.694988,46.684502,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.684502,
+     24.694988
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-fahad-library",
+   "properties": {
+    "kind": "station",
+    "id": "king-fahad-library",
+    "name_ar": "مكتبة الملك فهد",
+    "name_en": "King Fahad Library",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.690295%2C46.687035",
+    "google_earth": "https://earth.google.com/web/@24.690295,46.687035,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.687035,
+     24.690295
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ministry-of-interior",
+   "properties": {
+    "kind": "station",
+    "id": "ministry-of-interior",
+    "name_ar": "وزارة الداخلية",
+    "name_en": "Ministry of Interior",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.674525%2C46.694842",
+    "google_earth": "https://earth.google.com/web/@24.674525,46.694842,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.694842,
+     24.674525
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-murabba",
+   "properties": {
+    "kind": "station",
+    "id": "al-murabba",
+    "name_ar": "المربع",
+    "name_en": "Al Murabba",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.664925%2C46.702307",
+    "google_earth": "https://earth.google.com/web/@24.664925,46.702307,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.702307,
+     24.664925
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-passport-department",
+   "properties": {
+    "kind": "station",
+    "id": "passport-department",
+    "name_ar": "الجوازات",
+    "name_en": "Passport Department",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.659847%2C46.704256",
+    "google_earth": "https://earth.google.com/web/@24.659847,46.704256,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.704256,
+     24.659847
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-national-museum",
+   "properties": {
+    "kind": "station",
+    "id": "national-museum",
+    "name_ar": "المتحف الوطني",
+    "name_en": "National Museum",
+    "lines": [
+     "1",
+     "5"
+    ],
+    "line_names_en": [
+     "Blue Line",
+     "Green Line"
+    ],
+    "interchange": true,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground",
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.645274%2C46.713158",
+    "google_earth": "https://earth.google.com/web/@24.645274,46.713158,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.713158,
+     24.645274
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-batha",
+   "properties": {
+    "kind": "station",
+    "id": "al-batha",
+    "name_ar": "البطحاء",
+    "name_en": "Al Bat'ha",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.637035%2C46.714766",
+    "google_earth": "https://earth.google.com/web/@24.637035,46.714766,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.714766,
+     24.637035
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-qasr-al-hokm",
+   "properties": {
+    "kind": "station",
+    "id": "qasr-al-hokm",
+    "name_ar": "قصر الحكم",
+    "name_en": "Qasr Al Hokm",
+    "lines": [
+     "1",
+     "3"
+    ],
+    "line_names_en": [
+     "Blue Line",
+     "Orange Line"
+    ],
+    "interchange": true,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground",
+     "3": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.628853%2C46.716015",
+    "google_earth": "https://earth.google.com/web/@24.628853,46.716015,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.716015,
+     24.628853
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-owd",
+   "properties": {
+    "kind": "station",
+    "id": "al-owd",
+    "name_ar": "العود",
+    "name_en": "Al Owd",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.625734%2C46.721450",
+    "google_earth": "https://earth.google.com/web/@24.625734,46.721450,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.72145,
+     24.625734
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-skirinah",
+   "properties": {
+    "kind": "station",
+    "id": "skirinah",
+    "name_ar": "سكيرينة",
+    "name_en": "Skirinah",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.617853%2C46.725348",
+    "google_earth": "https://earth.google.com/web/@24.617853,46.725348,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.725348,
+     24.617853
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-manfouhah",
+   "properties": {
+    "kind": "station",
+    "id": "manfouhah",
+    "name_ar": "منفوحة",
+    "name_en": "Manfouhah",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.610544%2C46.727522",
+    "google_earth": "https://earth.google.com/web/@24.610544,46.727522,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.727522,
+     24.610544
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-iman-hospital",
+   "properties": {
+    "kind": "station",
+    "id": "al-iman-hospital",
+    "name_ar": "مستشفى الإيمان",
+    "name_en": "Al Iman Hospital",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.600514%2C46.735841",
+    "google_earth": "https://earth.google.com/web/@24.600514,46.735841,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.735841,
+     24.600514
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-transportation-center",
+   "properties": {
+    "kind": "station",
+    "id": "transportation-center",
+    "name_ar": "مركز النقل العام",
+    "name_en": "Transportation Center",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.598293%2C46.745102",
+    "google_earth": "https://earth.google.com/web/@24.598293,46.745102,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.745102,
+     24.598293
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-aziziah",
+   "properties": {
+    "kind": "station",
+    "id": "al-aziziah",
+    "name_ar": "العزيزية",
+    "name_en": "Al Aziziah",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.587331%2C46.760904",
+    "google_earth": "https://earth.google.com/web/@24.587331,46.760904,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.760904,
+     24.587331
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ad-dar-al-baida",
+   "properties": {
+    "kind": "station",
+    "id": "ad-dar-al-baida",
+    "name_ar": "الدار البيضاء",
+    "name_en": "Ad Dar Al Baida",
+    "lines": [
+     "1"
+    ],
+    "line_names_en": [
+     "Blue Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "1": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.560102%2C46.776391",
+    "google_earth": "https://earth.google.com/web/@24.560102,46.776391,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#00ADE5",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.776391,
+     24.560102
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-saud-university",
+   "properties": {
+    "kind": "station",
+    "id": "king-saud-university",
+    "name_ar": "جامعة الملك سعود",
+    "name_en": "King Saud University",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "2": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.710306%2C46.628357",
+    "google_earth": "https://earth.google.com/web/@24.710306,46.628357,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.628357,
+     24.710306
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-salman-oasis",
+   "properties": {
+    "kind": "station",
+    "id": "king-salman-oasis",
+    "name_ar": "واحة الملك سلمان",
+    "name_en": "King Salman Oasis",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.717063%2C46.638607",
+    "google_earth": "https://earth.google.com/web/@24.717063,46.638607,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.638607,
+     24.717063
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-kacst",
+   "properties": {
+    "kind": "station",
+    "id": "kacst",
+    "name_ar": "المدينة التقنية",
+    "name_en": "KACST",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.721102%2C46.648138",
+    "google_earth": "https://earth.google.com/web/@24.721102,46.648138,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.648138,
+     24.721102
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-at-takhassussi",
+   "properties": {
+    "kind": "station",
+    "id": "at-takhassussi",
+    "name_ar": "التخصصي",
+    "name_en": "At Takhassussi",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.723844%2C46.654579",
+    "google_earth": "https://earth.google.com/web/@24.723844,46.654579,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.654579,
+     24.723844
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-wurud",
+   "properties": {
+    "kind": "station",
+    "id": "al-wurud",
+    "name_ar": "الورود",
+    "name_en": "Al Wurud",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.733350%2C46.677091",
+    "google_earth": "https://earth.google.com/web/@24.733350,46.677091,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.677091,
+     24.73335
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-abdulaziz-road",
+   "properties": {
+    "kind": "station",
+    "id": "king-abdulaziz-road",
+    "name_ar": "طريق الملك عبدالعزيز",
+    "name_en": "King Abdulaziz Road",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.736825%2C46.685355",
+    "google_earth": "https://earth.google.com/web/@24.736825,46.685355,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.685355,
+     24.736825
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ministry-of-education",
+   "properties": {
+    "kind": "station",
+    "id": "ministry-of-education",
+    "name_ar": "وزارة التعليم",
+    "name_en": "Ministry of Education",
+    "lines": [
+     "2",
+     "5"
+    ],
+    "line_names_en": [
+     "Red Line",
+     "Green Line"
+    ],
+    "interchange": true,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "at_grade",
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.740113%2C46.694842",
+    "google_earth": "https://earth.google.com/web/@24.740113,46.694842,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.694842,
+     24.740113
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-an-nuzhah",
+   "properties": {
+    "kind": "station",
+    "id": "an-nuzhah",
+    "name_ar": "النزهة",
+    "name_en": "An Nuzhah",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "at_grade"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.748190%2C46.712296",
+    "google_earth": "https://earth.google.com/web/@24.748190,46.712296,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.712296,
+     24.74819
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-riyadh-exhibition-center",
+   "properties": {
+    "kind": "station",
+    "id": "riyadh-exhibition-center",
+    "name_ar": "مركز الرياض للمعارض",
+    "name_en": "Riyadh Exhibition Center",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.754602%2C46.727109",
+    "google_earth": "https://earth.google.com/web/@24.754602,46.727109,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.727109,
+     24.754602
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-khalid-bin-alwaleed-road",
+   "properties": {
+    "kind": "station",
+    "id": "khalid-bin-alwaleed-road",
+    "name_ar": "طريق خالد بن الوليد",
+    "name_en": "Khalid Bin Alwaleed Road",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.767801%2C46.759161",
+    "google_earth": "https://earth.google.com/web/@24.767801,46.759161,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.759161,
+     24.767801
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-hamra",
+   "properties": {
+    "kind": "station",
+    "id": "al-hamra",
+    "name_ar": "الحمراء",
+    "name_en": "Al Hamra",
+    "lines": [
+     "2",
+     "6"
+    ],
+    "line_names_en": [
+     "Red Line",
+     "Purple Line"
+    ],
+    "interchange": true,
+    "bus_hub": true,
+    "park_and_ride": true,
+    "structure": {
+     "2": "elevated",
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.775949%2C46.776687",
+    "google_earth": "https://earth.google.com/web/@24.775949,46.776687,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.776687,
+     24.775949
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-khaleej",
+   "properties": {
+    "kind": "station",
+    "id": "al-khaleej",
+    "name_ar": "الخليج",
+    "name_en": "Al Khaleej",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "2": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.782246%2C46.794474",
+    "google_earth": "https://earth.google.com/web/@24.782246,46.794474,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.794474,
+     24.782246
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ishbiliyah",
+   "properties": {
+    "kind": "station",
+    "id": "ishbiliyah",
+    "name_ar": "إشبيلية",
+    "name_en": "Ishbiliyah",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "2": "at_grade"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.792432%2C46.810940",
+    "google_earth": "https://earth.google.com/web/@24.792432,46.810940,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.81094,
+     24.792432
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-fahad-sport-city",
+   "properties": {
+    "kind": "station",
+    "id": "king-fahad-sport-city",
+    "name_ar": "مدينة الملك فهد الرياضية",
+    "name_en": "King Fahad Sport City",
+    "lines": [
+     "2"
+    ],
+    "line_names_en": [
+     "Red Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "2": "at_grade"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.793068%2C46.836596",
+    "google_earth": "https://earth.google.com/web/@24.793068,46.836596,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F0493A",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.836596,
+     24.793068
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-jeddah-road",
+   "properties": {
+    "kind": "station",
+    "id": "jeddah-road",
+    "name_ar": "طريق جدة",
+    "name_en": "Jeddah Road",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.591448%2C46.543547",
+    "google_earth": "https://earth.google.com/web/@24.591448,46.543547,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.543547,
+     24.591448
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-tuwaiq",
+   "properties": {
+    "kind": "station",
+    "id": "tuwaiq",
+    "name_ar": "طويق",
+    "name_en": "Tuwaiq",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.585591%2C46.559825",
+    "google_earth": "https://earth.google.com/web/@24.585591,46.559825,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.559825,
+     24.585591
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ad-douh",
+   "properties": {
+    "kind": "station",
+    "id": "ad-douh",
+    "name_ar": "الدوح",
+    "name_en": "Ad Douh",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.582748%2C46.588328",
+    "google_earth": "https://earth.google.com/web/@24.582748,46.588328,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.588328,
+     24.582748
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-western-station",
+   "properties": {
+    "kind": "station",
+    "id": "western-station",
+    "name_ar": "المحطة الغربية",
+    "name_en": "Western Station",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.581948%2C46.614496",
+    "google_earth": "https://earth.google.com/web/@24.581948,46.614496,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.614496,
+     24.581948
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-aishah-bint-abi-bakr-street",
+   "properties": {
+    "kind": "station",
+    "id": "aishah-bint-abi-bakr-street",
+    "name_ar": "شارع عائشة بنت أبي بكر",
+    "name_en": "Aishah Bint Abi Bakr Street",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.600620%2C46.643853",
+    "google_earth": "https://earth.google.com/web/@24.600620,46.643853,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.643853,
+     24.60062
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-dhahrat-al-badiah",
+   "properties": {
+    "kind": "station",
+    "id": "dhahrat-al-badiah",
+    "name_ar": "ظهرة البديعة",
+    "name_en": "Dhahrat Al Badiah",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.606738%2C46.653789",
+    "google_earth": "https://earth.google.com/web/@24.606738,46.653789,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.653789,
+     24.606738
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-sultanah",
+   "properties": {
+    "kind": "station",
+    "id": "sultanah",
+    "name_ar": "سلطانة",
+    "name_en": "Sultanah",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.614897%2C46.686416",
+    "google_earth": "https://earth.google.com/web/@24.614897,46.686416,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.686416,
+     24.614897
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-jarradiyah",
+   "properties": {
+    "kind": "station",
+    "id": "al-jarradiyah",
+    "name_ar": "الجرادية",
+    "name_en": "Al Jarradiyah",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.618400%2C46.697752",
+    "google_earth": "https://earth.google.com/web/@24.618400,46.697752,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.697752,
+     24.6184
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-courts-complex",
+   "properties": {
+    "kind": "station",
+    "id": "courts-complex",
+    "name_ar": "مجمع المحاكم",
+    "name_en": "Courts Complex",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.626910%2C46.712547",
+    "google_earth": "https://earth.google.com/web/@24.626910,46.712547,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.712547,
+     24.62691
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-hilla",
+   "properties": {
+    "kind": "station",
+    "id": "al-hilla",
+    "name_ar": "الحلة",
+    "name_en": "Al Hilla",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.632332%2C46.721908",
+    "google_earth": "https://earth.google.com/web/@24.632332,46.721908,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.721908,
+     24.632332
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-margab",
+   "properties": {
+    "kind": "station",
+    "id": "al-margab",
+    "name_ar": "المرقب",
+    "name_en": "Al Margab",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.634561%2C46.726364",
+    "google_earth": "https://earth.google.com/web/@24.634561,46.726364,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.726364,
+     24.634561
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-as-salhiyah",
+   "properties": {
+    "kind": "station",
+    "id": "as-salhiyah",
+    "name_ar": "الصالحية",
+    "name_en": "As Salhiyah",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.637835%2C46.732975",
+    "google_earth": "https://earth.google.com/web/@24.637835,46.732975,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.732975,
+     24.637835
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-first-industrial-city",
+   "properties": {
+    "kind": "station",
+    "id": "first-industrial-city",
+    "name_ar": "المدينة الصناعية الأولى",
+    "name_en": "First Industrial City",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.644800%2C46.739317",
+    "google_earth": "https://earth.google.com/web/@24.644800,46.739317,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.739317,
+     24.6448
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-railway",
+   "properties": {
+    "kind": "station",
+    "id": "railway",
+    "name_ar": "سكة الحديد",
+    "name_en": "Railway",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.649658%2C46.740647",
+    "google_earth": "https://earth.google.com/web/@24.649658,46.740647,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.740647,
+     24.649658
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-malaz",
+   "properties": {
+    "kind": "station",
+    "id": "al-malaz",
+    "name_ar": "الملز",
+    "name_en": "Al Malaz",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.660280%2C46.744447",
+    "google_earth": "https://earth.google.com/web/@24.660280,46.744447,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.744447,
+     24.66028
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-jarir-district",
+   "properties": {
+    "kind": "station",
+    "id": "jarir-district",
+    "name_ar": "حي جرير",
+    "name_en": "Jarir District",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.673146%2C46.760446",
+    "google_earth": "https://earth.google.com/web/@24.673146,46.760446,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.760446,
+     24.673146
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-rajhi-grand-mosque",
+   "properties": {
+    "kind": "station",
+    "id": "al-rajhi-grand-mosque",
+    "name_ar": "جامع الراجحي",
+    "name_en": "Al Rajhi Grand Mosque",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.680223%2C46.779400",
+    "google_earth": "https://earth.google.com/web/@24.680223,46.779400,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7794,
+     24.680223
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-harun-ar-rashid-road",
+   "properties": {
+    "kind": "station",
+    "id": "harun-ar-rashid-road",
+    "name_ar": "طريق هارون الرشيد",
+    "name_en": "Harun Ar Rashid Road",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.686197%2C46.796190",
+    "google_earth": "https://earth.google.com/web/@24.686197,46.796190,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.79619,
+     24.686197
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-an-naseem",
+   "properties": {
+    "kind": "station",
+    "id": "an-naseem",
+    "name_ar": "النسيم",
+    "name_en": "An Naseem",
+    "lines": [
+     "3",
+     "6"
+    ],
+    "line_names_en": [
+     "Orange Line",
+     "Purple Line"
+    ],
+    "interchange": true,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "shallow_underground",
+     "6": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.700660%2C46.827361",
+    "google_earth": "https://earth.google.com/web/@24.700660,46.827361,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.827361,
+     24.70066
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-hassan-bin-thabit-street",
+   "properties": {
+    "kind": "station",
+    "id": "hassan-bin-thabit-street",
+    "name_ar": "شارع حسان بن ثابت",
+    "name_en": "Hassan Bin Thabit Street",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.712787%2C46.847537",
+    "google_earth": "https://earth.google.com/web/@24.712787,46.847537,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.847537,
+     24.712787
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-khashm-al-an",
+   "properties": {
+    "kind": "station",
+    "id": "khashm-al-an",
+    "name_ar": "خشم العان",
+    "name_en": "Khashm Al An",
+    "lines": [
+     "3"
+    ],
+    "line_names_en": [
+     "Orange Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "3": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.721698%2C46.860626",
+    "google_earth": "https://earth.google.com/web/@24.721698,46.860626,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#F68D39",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.860626,
+     24.721698
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ar-rabi",
+   "properties": {
+    "kind": "station",
+    "id": "ar-rabi",
+    "name_ar": "الربيع",
+    "name_en": "Ar Rabi",
+    "lines": [
+     "4",
+     "6"
+    ],
+    "line_names_en": [
+     "Yellow Line",
+     "Purple Line"
+    ],
+    "interchange": true,
+    "bus_hub": false,
+    "park_and_ride": true,
+    "structure": {
+     "4": "elevated",
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.786217%2C46.660113",
+    "google_earth": "https://earth.google.com/web/@24.786217,46.660113,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.660113,
+     24.786217
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-uthman-bin-affan-road",
+   "properties": {
+    "kind": "station",
+    "id": "uthman-bin-affan-road",
+    "name_ar": "طريق عثمان بن عفان",
+    "name_en": "Uthman Bin Affan Road",
+    "lines": [
+     "4",
+     "6"
+    ],
+    "line_names_en": [
+     "Yellow Line",
+     "Purple Line"
+    ],
+    "interchange": true,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "4": "elevated",
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.801427%2C46.696216",
+    "google_earth": "https://earth.google.com/web/@24.801427,46.696216,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.696216,
+     24.801427
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-sabic",
+   "properties": {
+    "kind": "station",
+    "id": "sabic",
+    "name_ar": "سابك",
+    "name_en": "SABIC",
+    "lines": [
+     "4",
+     "6"
+    ],
+    "line_names_en": [
+     "Yellow Line",
+     "Purple Line"
+    ],
+    "interchange": true,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "4": "shallow_underground",
+     "6": "shallow_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.807151%2C46.709583",
+    "google_earth": "https://earth.google.com/web/@24.807151,46.709583,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#222222",
+    "marker-size": "large",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.709583,
+     24.807151
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-pnu-1",
+   "properties": {
+    "kind": "station",
+    "id": "pnu-1",
+    "name_ar": "جامعة الأميرة نورة 1",
+    "name_en": "PNU 1",
+    "lines": [
+     "4"
+    ],
+    "line_names_en": [
+     "Yellow Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "4": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.841688%2C46.717380",
+    "google_earth": "https://earth.google.com/web/@24.841688,46.717380,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#FFD105",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.71738,
+     24.841688
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-pnu-2",
+   "properties": {
+    "kind": "station",
+    "id": "pnu-2",
+    "name_ar": "جامعة الأميرة نورة 2",
+    "name_en": "PNU 2",
+    "lines": [
+     "4"
+    ],
+    "line_names_en": [
+     "Yellow Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": true,
+    "structure": {
+     "4": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.859653%2C46.704561",
+    "google_earth": "https://earth.google.com/web/@24.859653,46.704561,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#FFD105",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.704561,
+     24.859653
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-airport-t5",
+   "properties": {
+    "kind": "station",
+    "id": "airport-t5",
+    "name_ar": "المطار - الصالة 5",
+    "name_en": "Airport Terminal 5",
+    "lines": [
+     "4"
+    ],
+    "line_names_en": [
+     "Yellow Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "4": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.941012%2C46.710922",
+    "google_earth": "https://earth.google.com/web/@24.941012,46.710922,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#FFD105",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.710922,
+     24.941012
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-airport-t3-4",
+   "properties": {
+    "kind": "station",
+    "id": "airport-t3-4",
+    "name_ar": "المطار - الصالة ‎3-4",
+    "name_en": "Airport Terminals 3-4",
+    "lines": [
+     "4"
+    ],
+    "line_names_en": [
+     "Yellow Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "4": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.956145%2C46.702253",
+    "google_earth": "https://earth.google.com/web/@24.956145,46.702253,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#FFD105",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.702253,
+     24.956145
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-airport-t1-2",
+   "properties": {
+    "kind": "station",
+    "id": "airport-t1-2",
+    "name_ar": "المطار - الصالة ‎1-2",
+    "name_en": "Airport Terminals 1-2",
+    "lines": [
+     "4"
+    ],
+    "line_names_en": [
+     "Yellow Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "4": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.961040%2C46.699118",
+    "google_earth": "https://earth.google.com/web/@24.961040,46.699118,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#FFD105",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.699118,
+     24.96104
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-salman-park",
+   "properties": {
+    "kind": "station",
+    "id": "king-salman-park",
+    "name_ar": "حديقة الملك سلمان",
+    "name_en": "King Salman Park",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.728332%2C46.700959",
+    "google_earth": "https://earth.google.com/web/@24.728332,46.700959,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.700959,
+     24.728332
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-as-sulimaniyah",
+   "properties": {
+    "kind": "station",
+    "id": "as-sulimaniyah",
+    "name_ar": "السليمانية",
+    "name_en": "As Sulimaniyah",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.712852%2C46.700393",
+    "google_earth": "https://earth.google.com/web/@24.712852,46.700393,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.700393,
+     24.712852
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ad-dhabab",
+   "properties": {
+    "kind": "station",
+    "id": "ad-dhabab",
+    "name_ar": "الضباب",
+    "name_en": "Ad Dhabab",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.709759%2C46.707616",
+    "google_earth": "https://earth.google.com/web/@24.709759,46.707616,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.707616,
+     24.709759
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-abu-dhabi-square",
+   "properties": {
+    "kind": "station",
+    "id": "abu-dhabi-square",
+    "name_ar": "ميدان أبو ظبي",
+    "name_en": "Abu Dhabi Square",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.706054%2C46.716320",
+    "google_earth": "https://earth.google.com/web/@24.706054,46.716320,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.71632,
+     24.706054
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-officers-club",
+   "properties": {
+    "kind": "station",
+    "id": "officers-club",
+    "name_ar": "نادي الضباط",
+    "name_en": "Officers Club",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.697885%2C46.717955",
+    "google_earth": "https://earth.google.com/web/@24.697885,46.717955,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.717955,
+     24.697885
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-gosi",
+   "properties": {
+    "kind": "station",
+    "id": "gosi",
+    "name_ar": "التأمينات الاجتماعية",
+    "name_en": "GOSI",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.686271%2C46.718189",
+    "google_earth": "https://earth.google.com/web/@24.686271,46.718189,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.718189,
+     24.686271
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-wizarat",
+   "properties": {
+    "kind": "station",
+    "id": "al-wizarat",
+    "name_ar": "الوزارات",
+    "name_en": "Al Wizarat",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.676019%2C46.718396",
+    "google_earth": "https://earth.google.com/web/@24.676019,46.718396,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.718396,
+     24.676019
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ministry-of-defence",
+   "properties": {
+    "kind": "station",
+    "id": "ministry-of-defence",
+    "name_ar": "وزارة الدفاع",
+    "name_en": "Ministry of Defence",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.667995%2C46.718270",
+    "google_earth": "https://earth.google.com/web/@24.667995,46.718270,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.71827,
+     24.667995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-king-abdulaziz-hospital",
+   "properties": {
+    "kind": "station",
+    "id": "king-abdulaziz-hospital",
+    "name_ar": "مستشفى الملك عبدالعزيز",
+    "name_en": "King Abdulaziz Hospital",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.659676%2C46.717704",
+    "google_earth": "https://earth.google.com/web/@24.659676,46.717704,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.717704,
+     24.659676
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-ministry-of-finance",
+   "properties": {
+    "kind": "station",
+    "id": "ministry-of-finance",
+    "name_ar": "وزارة المالية",
+    "name_en": "Ministry of Finance",
+    "lines": [
+     "5"
+    ],
+    "line_names_en": [
+     "Green Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "5": "deep_underground"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.652222%2C46.716284",
+    "google_earth": "https://earth.google.com/web/@24.652222,46.716284,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#43B649",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.716284,
+     24.652222
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-granadia",
+   "properties": {
+    "kind": "station",
+    "id": "granadia",
+    "name_ar": "غرناطية",
+    "name_en": "Granadia",
+    "lines": [
+     "6"
+    ],
+    "line_names_en": [
+     "Purple Line"
+    ],
+    "interchange": false,
+    "bus_hub": true,
+    "park_and_ride": false,
+    "structure": {
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.786527%2C46.729283",
+    "google_earth": "https://earth.google.com/web/@24.786527,46.729283,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#984C9D",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.729283,
+     24.786527
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-yarmuk",
+   "properties": {
+    "kind": "station",
+    "id": "al-yarmuk",
+    "name_ar": "اليرموك",
+    "name_en": "Al Yarmuk",
+    "lines": [
+     "6"
+    ],
+    "line_names_en": [
+     "Purple Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.791298%2C46.766240",
+    "google_earth": "https://earth.google.com/web/@24.791298,46.766240,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#984C9D",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.76624,
+     24.791298
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-al-andalus",
+   "properties": {
+    "kind": "station",
+    "id": "al-andalus",
+    "name_ar": "الأندلس",
+    "name_en": "Al Andalus",
+    "lines": [
+     "6"
+    ],
+    "line_names_en": [
+     "Purple Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.756780%2C46.790440",
+    "google_earth": "https://earth.google.com/web/@24.756780,46.790440,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#984C9D",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.79044,
+     24.75678
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-khurais-road",
+   "properties": {
+    "kind": "station",
+    "id": "khurais-road",
+    "name_ar": "طريق خريص",
+    "name_en": "Khurais Road",
+    "lines": [
+     "6"
+    ],
+    "line_names_en": [
+     "Purple Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.740717%2C46.798813",
+    "google_earth": "https://earth.google.com/web/@24.740717,46.798813,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#984C9D",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.798813,
+     24.740717
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station-as-salam",
+   "properties": {
+    "kind": "station",
+    "id": "as-salam",
+    "name_ar": "السلام",
+    "name_en": "As Salam",
+    "lines": [
+     "6"
+    ],
+    "line_names_en": [
+     "Purple Line"
+    ],
+    "interchange": false,
+    "bus_hub": false,
+    "park_and_ride": false,
+    "structure": {
+     "6": "elevated"
+    },
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=24.722751%2C46.811389",
+    "google_earth": "https://earth.google.com/web/@24.722751,46.811389,620a,1400d,35y,0h,50t,0r",
+    "marker-color": "#984C9D",
+    "marker-size": "medium",
+    "marker-symbol": "rail-metro"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.811389,
+     24.722751
+    ]
+   }
+  }
+ ]
+}

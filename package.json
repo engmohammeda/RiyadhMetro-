@@ -1,0 +1,34 @@
+{
+  "name": "riyadh-metro-navigator",
+  "version": "1.0.0",
+  "description": "Riyadh Metro network (6 lines, 83 stations) as KML/KMZ/GeoJSON/GPX/CSV for Google Earth & Google Maps, plus an interactive journey planner web app.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node --test test/*.test.js",
+    "start": "node scripts/serve.js",
+    "route": "node scripts/route.js",
+    "validate": "node scripts/build.js --check"
+  },
+  "keywords": [
+    "riyadh",
+    "metro",
+    "kml",
+    "kmz",
+    "geojson",
+    "google-earth",
+    "google-maps",
+    "transit",
+    "journey-planner",
+    "saudi-arabia"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/engmohammeda/RiyadhMetro-.git"
+  }
+}
