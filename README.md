@@ -104,9 +104,10 @@ npm run route -- المركز المالي المتحف الوطني    # مخط
 ### النشر على GitHub Pages (رابط عام للخريطة)
 
 1. من إعدادات المستودع: **Settings → Pages → Source: GitHub Actions**.
-2. سير العمل جاهز في [`.github/workflows/pages.yml`](.github/workflows/pages.yml) (و[`.github/workflows/ci.yml`](.github/workflows/ci.yml) يشغّل البناء والاختبارات وفحص تقادم المخرجات على كل دفع)؛ كل دفع إلى `main` ينشر الموقع تلقائياً على:
+2. سير عمل النشر مفعّل في [`.github/workflows/pages.yml`](.github/workflows/pages.yml)؛ كل دفع إلى `main` ينشر الموقع تلقائياً على:
    `https://engmohammeda.github.io/RiyadhMetro-/` (يحوّل إلى `web/`).
 3. عدّل `project.siteUrl` في `data/config.json` إن تغيّر العنوان، ثم `npm run build` — فتتحدّث الروابط داخل بالونات KML.
+4. **فعّل CI**: ملف [`docs/workflows/ci.yml`](docs/workflows/ci.yml) ما زال خارج `.github/workflows/` (كان في جذر المستودع فلم يعمل قط — ولذلك شارة CI أعلاه فارغة). نقله بأمر واحد موضّح في [`docs/workflows/`](docs/workflows/).
 
 ### بنية المستودع
 
@@ -116,8 +117,8 @@ src/         وحدات مشتركة (Node + متصفح): geo · network · rout
 scripts/     build.js (التوليد والتحقق) · serve.js (خادم ثابت) · route.js (CLI)
 dist/        المخرجات المولّدة: KMZ · KML · GeoJSON · CSV · GPX · SVG · network.json   ← لا تُحرَّر يدوياً
 web/         التطبيق التفاعلي (index.html · app.js · styles.css · google-maps.html · PWA · vendor/leaflet)
-docs/        design-system.md · improvement-plan.md · google-earth.md · google-maps.md · data-model.md · img/
-.github/     workflows/ci.yml (بناء + اختبارات + فحص تقادم المخرجات) · workflows/pages.yml (نشر GitHub Pages)
+docs/        design-system.md · improvement-plan.md · google-earth.md · google-maps.md · data-model.md · img/ · workflows/ (CI جاهز للتفعيل)
+.github/     workflows/pages.yml (نشر GitHub Pages) ← ci.yml ما زال في docs/workflows/ بانتظار نقله
 test/        node --test
 ```
 
