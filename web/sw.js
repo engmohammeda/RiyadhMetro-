@@ -1,14 +1,15 @@
 /* Riyadh Metro Navigator — service worker (offline app shell).
  * Map tiles are intentionally NOT cached (tile-provider usage policies); everything else works offline. */
-var VERSION = 'rm-v5';
+var VERSION = 'rm-v6';
 var SHELL = [
   './', './index.html', './google-maps.html', './styles.css', './app.js', './i18n.js', './hero.js', './manifest.webmanifest',
   './vendor/fonts/fonts.css',
+  // every face fonts.css declares — the app must not fall back offline
   './vendor/fonts/files/ibm-plex-sans-arabic-arabic-400-normal.woff2',
-  './vendor/fonts/files/ibm-plex-sans-arabic-arabic-500-normal.woff2',
   './vendor/fonts/files/ibm-plex-sans-arabic-arabic-600-normal.woff2',
   './vendor/fonts/files/ibm-plex-sans-arabic-arabic-700-normal.woff2',
   './vendor/fonts/files/ibm-plex-sans-arabic-latin-400-normal.woff2',
+  './vendor/fonts/files/ibm-plex-sans-arabic-latin-600-normal.woff2',
   './vendor/fonts/files/ibm-plex-sans-arabic-latin-700-normal.woff2',
   './data/metro-data.js',
   './lib/geo.js', './lib/network.js', './lib/router.js', './lib/links.js', './lib/kml.js', './lib/geojson.js', './lib/schematic.js', './lib/service.js', './lib/live.js',
