@@ -1,0 +1,1721 @@
+{
+  "_comment": "Riyadh Metro stations — canonical dataset. Coordinates: WGS84 (EPSG:4326). Source: Riyadh Bus / RCRC open route data (see SOURCES.md).",
+  "updated": "2026-10-09",
+  "stations": [
+    {
+      "id": "sab-bank",
+      "name": {
+        "ar": "بنك الأول",
+        "en": "SAB Bank"
+      },
+      "lat": 24.829492,
+      "lng": 46.616769,
+      "lines": [
+        "1"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80001057,
+      "aliases": {
+        "en": [
+          "SABB",
+          "Saudi Awwal Bank",
+          "King Salman Road"
+        ],
+        "ar": [
+          "ساب",
+          "البنك السعودي الأول",
+          "طريق الملك سلمان"
+        ]
+      }
+    },
+    {
+      "id": "dr-sulaiman-al-habib",
+      "name": {
+        "ar": "د. سليمان الحبيب",
+        "en": "Dr. Sulaiman Al Habib"
+      },
+      "lat": 24.811587,
+      "lng": 46.625689,
+      "lines": [
+        "1"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80001058,
+      "aliases": {
+        "en": [
+          "Al Habib",
+          "Anas Bin Malik Road"
+        ],
+        "ar": [
+          "الحبيب",
+          "طريق أنس بن مالك"
+        ]
+      }
+    },
+    {
+      "id": "kafd",
+      "name": {
+        "ar": "المركز المالي",
+        "en": "KAFD"
+      },
+      "lat": 24.767874,
+      "lng": 46.643009,
+      "lines": [
+        "1",
+        "4",
+        "6"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80001059,
+      "aliases": {
+        "en": [
+          "King Abdullah Financial District",
+          "KAFD Grand Mosque",
+          "PIF Tower"
+        ],
+        "ar": [
+          "مركز الملك عبدالله المالي",
+          "كافد"
+        ]
+      }
+    },
+    {
+      "id": "al-murooj",
+      "name": {
+        "ar": "المروج",
+        "en": "Al Murooj"
+      },
+      "lat": 24.754529,
+      "lng": 46.654453,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000416
+    },
+    {
+      "id": "king-fahad-district",
+      "name": {
+        "ar": "حي الملك فهد",
+        "en": "King Fahad District"
+      },
+      "lat": 24.745196,
+      "lng": 46.659143,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000417
+    },
+    {
+      "id": "king-fahad-district-2",
+      "name": {
+        "ar": "حي الملك فهد 2",
+        "en": "King Fahad District 2"
+      },
+      "lat": 24.736581,
+      "lng": 46.663508,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000418
+    },
+    {
+      "id": "stc",
+      "name": {
+        "ar": "stc",
+        "en": "stc"
+      },
+      "lat": 24.728617,
+      "lng": 46.665673,
+      "lines": [
+        "1",
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000419,
+      "aliases": {
+        "en": [
+          "STC",
+          "Olaya",
+          "Al Olaya"
+        ],
+        "ar": [
+          "اس تي سي",
+          "العليا"
+        ]
+      }
+    },
+    {
+      "id": "al-wurud-2",
+      "name": {
+        "ar": "الورود 2",
+        "en": "Al Wurud 2"
+      },
+      "lat": 24.721021,
+      "lng": 46.671378,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001060
+    },
+    {
+      "id": "al-urubah",
+      "name": {
+        "ar": "العروبة",
+        "en": "Al Urubah"
+      },
+      "lat": 24.713921,
+      "lng": 46.674953,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000420,
+      "aliases": {
+        "en": [
+          "Kingdom Centre",
+          "Kingdom Tower",
+          "Al Urubah Road"
+        ],
+        "ar": [
+          "برج المملكة",
+          "طريق العروبة"
+        ]
+      }
+    },
+    {
+      "id": "alinma-bank",
+      "name": {
+        "ar": "مصرف الإنماء",
+        "en": "Alinma Bank"
+      },
+      "lat": 24.703002,
+      "lng": 46.68046,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000421,
+      "aliases": {
+        "en": [
+          "Mousa Bin Nusair Street"
+        ],
+        "ar": [
+          "شارع موسى بن نصير"
+        ]
+      }
+    },
+    {
+      "id": "bank-albilad",
+      "name": {
+        "ar": "بنك البلاد",
+        "en": "Bank Albilad"
+      },
+      "lat": 24.694988,
+      "lng": 46.684502,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000422,
+      "aliases": {
+        "en": [
+          "Tahlia",
+          "Tahlia Street",
+          "Centria Mall",
+          "Prince Mohammed bin Abdulaziz Road"
+        ],
+        "ar": [
+          "التحلية",
+          "شارع التحلية",
+          "سنتريا مول"
+        ]
+      }
+    },
+    {
+      "id": "king-fahad-library",
+      "name": {
+        "ar": "مكتبة الملك فهد",
+        "en": "King Fahad Library"
+      },
+      "lat": 24.690295,
+      "lng": 46.687035,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000423,
+      "aliases": {
+        "en": [
+          "Al Faisaliah",
+          "Faisaliah Tower",
+          "Olaya Street"
+        ],
+        "ar": [
+          "الفيصلية",
+          "برج الفيصلية",
+          "شارع العليا"
+        ]
+      }
+    },
+    {
+      "id": "ministry-of-interior",
+      "name": {
+        "ar": "وزارة الداخلية",
+        "en": "Ministry of Interior"
+      },
+      "lat": 24.674525,
+      "lng": 46.694842,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000424,
+      "aliases": {
+        "en": [
+          "MoI"
+        ],
+        "ar": [
+          "الداخلية"
+        ]
+      }
+    },
+    {
+      "id": "al-murabba",
+      "name": {
+        "ar": "المربع",
+        "en": "Al Murabba"
+      },
+      "lat": 24.664925,
+      "lng": 46.702307,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000425,
+      "aliases": {
+        "en": [
+          "Al Muorabba",
+          "Murabba",
+          "Murabba Palace"
+        ],
+        "ar": [
+          "قصر المربع"
+        ]
+      }
+    },
+    {
+      "id": "passport-department",
+      "name": {
+        "ar": "الجوازات",
+        "en": "Passport Department"
+      },
+      "lat": 24.659847,
+      "lng": 46.704256,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000426,
+      "aliases": {
+        "en": [
+          "Jawazat",
+          "Passports Office"
+        ],
+        "ar": [
+          "الجوازات",
+          "إدارة الجوازات"
+        ]
+      }
+    },
+    {
+      "id": "national-museum",
+      "name": {
+        "ar": "المتحف الوطني",
+        "en": "National Museum"
+      },
+      "lat": 24.645274,
+      "lng": 46.713158,
+      "lines": [
+        "1",
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000427,
+      "aliases": {
+        "en": [
+          "King Abdulaziz Historical Center",
+          "Murabba Palace"
+        ],
+        "ar": [
+          "المركز التاريخي",
+          "مركز الملك عبدالعزيز التاريخي"
+        ]
+      }
+    },
+    {
+      "id": "al-batha",
+      "name": {
+        "ar": "البطحاء",
+        "en": "Al Bat'ha"
+      },
+      "lat": 24.637035,
+      "lng": 46.714766,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000428,
+      "aliases": {
+        "en": [
+          "Batha",
+          "Al Batha",
+          "Bat'ha"
+        ],
+        "ar": [
+          "البطحا",
+          "بطحاء"
+        ]
+      }
+    },
+    {
+      "id": "qasr-al-hokm",
+      "name": {
+        "ar": "قصر الحكم",
+        "en": "Qasr Al Hokm"
+      },
+      "lat": 24.628853,
+      "lng": 46.716015,
+      "lines": [
+        "1",
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000429,
+      "aliases": {
+        "en": [
+          "Al Deira",
+          "Masmak",
+          "Souq Al Zal",
+          "Imam Turki Mosque"
+        ],
+        "ar": [
+          "الديرة",
+          "المصمك",
+          "سوق الزل",
+          "جامع الإمام تركي"
+        ]
+      }
+    },
+    {
+      "id": "al-owd",
+      "name": {
+        "ar": "العود",
+        "en": "Al Owd"
+      },
+      "lat": 24.625734,
+      "lng": 46.72145,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000430,
+      "aliases": {
+        "en": [
+          "Al Oud",
+          "Al Oud Cemetery"
+        ],
+        "ar": [
+          "مقبرة العود"
+        ]
+      }
+    },
+    {
+      "id": "skirinah",
+      "name": {
+        "ar": "سكيرينة",
+        "en": "Skirinah"
+      },
+      "lat": 24.617853,
+      "lng": 46.725348,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000431
+    },
+    {
+      "id": "manfouhah",
+      "name": {
+        "ar": "منفوحة",
+        "en": "Manfouhah"
+      },
+      "lat": 24.610544,
+      "lng": 46.727522,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000432
+    },
+    {
+      "id": "al-iman-hospital",
+      "name": {
+        "ar": "مستشفى الإيمان",
+        "en": "Al Iman Hospital"
+      },
+      "lat": 24.600514,
+      "lng": 46.735841,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000433
+    },
+    {
+      "id": "transportation-center",
+      "name": {
+        "ar": "مركز النقل العام",
+        "en": "Transportation Center"
+      },
+      "lat": 24.598293,
+      "lng": 46.745102,
+      "lines": [
+        "1"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80000438,
+      "aliases": {
+        "en": [
+          "SAPTCO",
+          "Public Transport Center"
+        ],
+        "ar": [
+          "سابتكو",
+          "مركز النقل"
+        ]
+      }
+    },
+    {
+      "id": "al-aziziah",
+      "name": {
+        "ar": "العزيزية",
+        "en": "Al Aziziah"
+      },
+      "lat": 24.587331,
+      "lng": 46.760904,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001061
+    },
+    {
+      "id": "ad-dar-al-baida",
+      "name": {
+        "ar": "الدار البيضاء",
+        "en": "Ad Dar Al Baida"
+      },
+      "lat": 24.560102,
+      "lng": 46.776391,
+      "lines": [
+        "1"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80000440,
+      "aliases": {
+        "en": [
+          "Dar Al Baida"
+        ],
+        "ar": [
+          "الدار البيضا"
+        ]
+      }
+    },
+    {
+      "id": "king-saud-university",
+      "name": {
+        "ar": "جامعة الملك سعود",
+        "en": "King Saud University"
+      },
+      "lat": 24.710306,
+      "lng": 46.628357,
+      "lines": [
+        "2"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80001062,
+      "aliases": {
+        "en": [
+          "KSU",
+          "King Khalid University Hospital",
+          "KKUH"
+        ],
+        "ar": [
+          "جامعة الملك سعود",
+          "مستشفى الملك خالد الجامعي"
+        ]
+      }
+    },
+    {
+      "id": "king-salman-oasis",
+      "name": {
+        "ar": "واحة الملك سلمان",
+        "en": "King Salman Oasis"
+      },
+      "lat": 24.717063,
+      "lng": 46.638607,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001064
+    },
+    {
+      "id": "kacst",
+      "name": {
+        "ar": "المدينة التقنية",
+        "en": "KACST"
+      },
+      "lat": 24.721102,
+      "lng": 46.648138,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001065,
+      "aliases": {
+        "en": [
+          "King Abdulaziz City for Science and Technology"
+        ],
+        "ar": [
+          "مدينة الملك عبدالعزيز للعلوم والتقنية",
+          "كاكست"
+        ]
+      }
+    },
+    {
+      "id": "at-takhassussi",
+      "name": {
+        "ar": "التخصصي",
+        "en": "At Takhassussi"
+      },
+      "lat": 24.723844,
+      "lng": 46.654579,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001066,
+      "aliases": {
+        "en": [
+          "Takhassusi",
+          "Takhasusi Street"
+        ],
+        "ar": [
+          "التخصصي",
+          "شارع التخصصي"
+        ]
+      }
+    },
+    {
+      "id": "al-wurud",
+      "name": {
+        "ar": "الورود",
+        "en": "Al Wurud"
+      },
+      "lat": 24.73335,
+      "lng": 46.677091,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001067,
+      "aliases": {
+        "en": [
+          "Hayat Mall"
+        ],
+        "ar": [
+          "حياة مول"
+        ]
+      }
+    },
+    {
+      "id": "king-abdulaziz-road",
+      "name": {
+        "ar": "طريق الملك عبدالعزيز",
+        "en": "King Abdulaziz Road"
+      },
+      "lat": 24.736825,
+      "lng": 46.685355,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001068,
+      "aliases": {
+        "en": [
+          "Sahara Mall"
+        ],
+        "ar": [
+          "صحارى مول"
+        ]
+      }
+    },
+    {
+      "id": "ministry-of-education",
+      "name": {
+        "ar": "وزارة التعليم",
+        "en": "Ministry of Education"
+      },
+      "lat": 24.740113,
+      "lng": 46.694842,
+      "lines": [
+        "2",
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001069,
+      "aliases": {
+        "en": [
+          "MoE"
+        ],
+        "ar": [
+          "التعليم"
+        ]
+      }
+    },
+    {
+      "id": "an-nuzhah",
+      "name": {
+        "ar": "النزهة",
+        "en": "An Nuzhah"
+      },
+      "lat": 24.74819,
+      "lng": 46.712296,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001070
+    },
+    {
+      "id": "riyadh-exhibition-center",
+      "name": {
+        "ar": "مركز الرياض للمعارض",
+        "en": "Riyadh Exhibition Center"
+      },
+      "lat": 24.754602,
+      "lng": 46.727109,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001071,
+      "aliases": {
+        "en": [
+          "RICEC",
+          "Riyadh International Convention and Exhibition Center"
+        ],
+        "ar": [
+          "مركز الرياض الدولي للمؤتمرات والمعارض",
+          "المعارض"
+        ]
+      }
+    },
+    {
+      "id": "khalid-bin-alwaleed-road",
+      "name": {
+        "ar": "طريق خالد بن الوليد",
+        "en": "Khalid Bin Alwaleed Road"
+      },
+      "lat": 24.767801,
+      "lng": 46.759161,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001072
+    },
+    {
+      "id": "al-hamra",
+      "name": {
+        "ar": "الحمراء",
+        "en": "Al Hamra"
+      },
+      "lat": 24.775949,
+      "lng": 46.776687,
+      "lines": [
+        "2",
+        "6"
+      ],
+      "busHub": true,
+      "parkAndRide": true,
+      "operatorStopId": 80001073,
+      "aliases": {
+        "en": [
+          "Al Hamra Mall"
+        ],
+        "ar": [
+          "الحمرا",
+          "الحمراء مول"
+        ]
+      }
+    },
+    {
+      "id": "al-khaleej",
+      "name": {
+        "ar": "الخليج",
+        "en": "Al Khaleej"
+      },
+      "lat": 24.782246,
+      "lng": 46.794474,
+      "lines": [
+        "2"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80001074
+    },
+    {
+      "id": "ishbiliyah",
+      "name": {
+        "ar": "إشبيلية",
+        "en": "Ishbiliyah"
+      },
+      "lat": 24.792432,
+      "lng": 46.81094,
+      "lines": [
+        "2"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80001075,
+      "aliases": {
+        "en": [
+          "City Centre Ishbiliyah",
+          "Ishbiliya",
+          "Ishbilia"
+        ],
+        "ar": [
+          "سيتي سنتر إشبيلية",
+          "اشبيليا"
+        ]
+      }
+    },
+    {
+      "id": "king-fahad-sport-city",
+      "name": {
+        "ar": "مدينة الملك فهد الرياضية",
+        "en": "King Fahad Sport City"
+      },
+      "lat": 24.793068,
+      "lng": 46.836596,
+      "lines": [
+        "2"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001076,
+      "aliases": {
+        "en": [
+          "King Fahd Stadium",
+          "King Fahad International Stadium"
+        ],
+        "ar": [
+          "استاد الملك فهد",
+          "ملعب الملك فهد الدولي"
+        ]
+      }
+    },
+    {
+      "id": "jeddah-road",
+      "name": {
+        "ar": "طريق جدة",
+        "en": "Jeddah Road"
+      },
+      "lat": 24.591448,
+      "lng": 46.543547,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001077,
+      "aliases": {
+        "en": [
+          "Makkah Road"
+        ],
+        "ar": [
+          "طريق مكة"
+        ]
+      }
+    },
+    {
+      "id": "tuwaiq",
+      "name": {
+        "ar": "طويق",
+        "en": "Tuwaiq"
+      },
+      "lat": 24.585591,
+      "lng": 46.559825,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001078
+    },
+    {
+      "id": "ad-douh",
+      "name": {
+        "ar": "الدوح",
+        "en": "Ad Douh"
+      },
+      "lat": 24.582748,
+      "lng": 46.588328,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001079
+    },
+    {
+      "id": "western-station",
+      "name": {
+        "ar": "المحطة الغربية",
+        "en": "Western Station"
+      },
+      "lat": 24.581948,
+      "lng": 46.614496,
+      "lines": [
+        "3"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80001080,
+      "aliases": {
+        "en": [
+          "Al Mahattah Al Gharbiyah"
+        ],
+        "ar": [
+          "المحطة الغربيه"
+        ]
+      }
+    },
+    {
+      "id": "aishah-bint-abi-bakr-street",
+      "name": {
+        "ar": "شارع عائشة بنت أبي بكر",
+        "en": "Aishah Bint Abi Bakr Street"
+      },
+      "lat": 24.60062,
+      "lng": 46.643853,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001081
+    },
+    {
+      "id": "dhahrat-al-badiah",
+      "name": {
+        "ar": "ظهرة البديعة",
+        "en": "Dhahrat Al Badiah"
+      },
+      "lat": 24.606738,
+      "lng": 46.653789,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001082
+    },
+    {
+      "id": "sultanah",
+      "name": {
+        "ar": "سلطانة",
+        "en": "Sultanah"
+      },
+      "lat": 24.614897,
+      "lng": 46.686416,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001084
+    },
+    {
+      "id": "al-jarradiyah",
+      "name": {
+        "ar": "الجرادية",
+        "en": "Al Jarradiyah"
+      },
+      "lat": 24.6184,
+      "lng": 46.697752,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001084
+    },
+    {
+      "id": "courts-complex",
+      "name": {
+        "ar": "مجمع المحاكم",
+        "en": "Courts Complex"
+      },
+      "lat": 24.62691,
+      "lng": 46.712547,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001085
+    },
+    {
+      "id": "al-hilla",
+      "name": {
+        "ar": "الحلة",
+        "en": "Al Hilla"
+      },
+      "lat": 24.632332,
+      "lng": 46.721908,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001087
+    },
+    {
+      "id": "al-margab",
+      "name": {
+        "ar": "المرقب",
+        "en": "Al Margab"
+      },
+      "lat": 24.634561,
+      "lng": 46.726364,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001086
+    },
+    {
+      "id": "as-salhiyah",
+      "name": {
+        "ar": "الصالحية",
+        "en": "As Salhiyah"
+      },
+      "lat": 24.637835,
+      "lng": 46.732975,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001088
+    },
+    {
+      "id": "first-industrial-city",
+      "name": {
+        "ar": "المدينة الصناعية الأولى",
+        "en": "First Industrial City"
+      },
+      "lat": 24.6448,
+      "lng": 46.739317,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001089
+    },
+    {
+      "id": "railway",
+      "name": {
+        "ar": "سكة الحديد",
+        "en": "Railway"
+      },
+      "lat": 24.649658,
+      "lng": 46.740647,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001090,
+      "aliases": {
+        "en": [
+          "Riyadh Railway Station",
+          "SAR",
+          "Train Station",
+          "Riyadh Train"
+        ],
+        "ar": [
+          "محطة القطار",
+          "محطة قطار الرياض",
+          "سار"
+        ]
+      }
+    },
+    {
+      "id": "al-malaz",
+      "name": {
+        "ar": "الملز",
+        "en": "Al Malaz"
+      },
+      "lat": 24.66028,
+      "lng": 46.744447,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001091,
+      "aliases": {
+        "en": [
+          "Malaz",
+          "Prince Faisal bin Fahd Stadium",
+          "Riyadh Zoo"
+        ],
+        "ar": [
+          "ملعب الملز",
+          "حديقة الحيوان"
+        ]
+      }
+    },
+    {
+      "id": "jarir-district",
+      "name": {
+        "ar": "حي جرير",
+        "en": "Jarir District"
+      },
+      "lat": 24.673146,
+      "lng": 46.760446,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001092
+    },
+    {
+      "id": "al-rajhi-grand-mosque",
+      "name": {
+        "ar": "جامع الراجحي",
+        "en": "Al Rajhi Grand Mosque"
+      },
+      "lat": 24.680223,
+      "lng": 46.7794,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001093
+    },
+    {
+      "id": "harun-ar-rashid-road",
+      "name": {
+        "ar": "طريق هارون الرشيد",
+        "en": "Harun Ar Rashid Road"
+      },
+      "lat": 24.686197,
+      "lng": 46.79619,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001094
+    },
+    {
+      "id": "an-naseem",
+      "name": {
+        "ar": "النسيم",
+        "en": "An Naseem"
+      },
+      "lat": 24.70066,
+      "lng": 46.827361,
+      "lines": [
+        "3",
+        "6"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001095,
+      "aliases": {
+        "en": [
+          "Naseem",
+          "Al Naseem"
+        ],
+        "ar": [
+          "نسيم"
+        ]
+      }
+    },
+    {
+      "id": "hassan-bin-thabit-street",
+      "name": {
+        "ar": "شارع حسان بن ثابت",
+        "en": "Hassan Bin Thabit Street"
+      },
+      "lat": 24.712787,
+      "lng": 46.847537,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001096
+    },
+    {
+      "id": "khashm-al-an",
+      "name": {
+        "ar": "خشم العان",
+        "en": "Khashm Al An"
+      },
+      "lat": 24.721698,
+      "lng": 46.860626,
+      "lines": [
+        "3"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001097,
+      "aliases": {
+        "en": [
+          "Khashm Alan"
+        ],
+        "ar": [
+          "خشم العان"
+        ]
+      }
+    },
+    {
+      "id": "ar-rabi",
+      "name": {
+        "ar": "الربيع",
+        "en": "Ar Rabi"
+      },
+      "lat": 24.786217,
+      "lng": 46.660113,
+      "lines": [
+        "4",
+        "6"
+      ],
+      "busHub": false,
+      "parkAndRide": true,
+      "operatorStopId": 80001099
+    },
+    {
+      "id": "uthman-bin-affan-road",
+      "name": {
+        "ar": "طريق عثمان بن عفان",
+        "en": "Uthman Bin Affan Road"
+      },
+      "lat": 24.801427,
+      "lng": 46.696216,
+      "lines": [
+        "4",
+        "6"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001100
+    },
+    {
+      "id": "sabic",
+      "name": {
+        "ar": "سابك",
+        "en": "SABIC"
+      },
+      "lat": 24.807151,
+      "lng": 46.709583,
+      "lines": [
+        "4",
+        "6"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001101,
+      "aliases": {
+        "en": [
+          "Imam University",
+          "Imam Mohammad Ibn Saud Islamic University"
+        ],
+        "ar": [
+          "جامعة الإمام",
+          "جامعة الإمام محمد بن سعود الإسلامية"
+        ]
+      }
+    },
+    {
+      "id": "pnu-1",
+      "name": {
+        "ar": "جامعة الأميرة نورة 1",
+        "en": "PNU 1"
+      },
+      "lat": 24.841688,
+      "lng": 46.71738,
+      "lines": [
+        "4"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001102,
+      "aliases": {
+        "en": [
+          "PNU",
+          "Princess Nourah University"
+        ],
+        "ar": [
+          "جامعة نورة",
+          "جامعة الأميرة نورة بنت عبدالرحمن"
+        ]
+      }
+    },
+    {
+      "id": "pnu-2",
+      "name": {
+        "ar": "جامعة الأميرة نورة 2",
+        "en": "PNU 2"
+      },
+      "lat": 24.859653,
+      "lng": 46.704561,
+      "lines": [
+        "4"
+      ],
+      "busHub": false,
+      "parkAndRide": true,
+      "operatorStopId": 80001103,
+      "aliases": {
+        "en": [
+          "PNU",
+          "Princess Nourah University",
+          "Governmental Complex"
+        ],
+        "ar": [
+          "جامعة نورة",
+          "المجمع الحكومي"
+        ]
+      }
+    },
+    {
+      "id": "airport-t5",
+      "name": {
+        "ar": "المطار - الصالة 5",
+        "en": "Airport Terminal 5"
+      },
+      "lat": 24.941012,
+      "lng": 46.710922,
+      "lines": [
+        "4"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001105,
+      "aliases": {
+        "en": [
+          "Terminal 5"
+        ],
+        "ar": [
+          "الصالة 5"
+        ]
+      }
+    },
+    {
+      "id": "airport-t3-4",
+      "name": {
+        "ar": "المطار - الصالة ‎3-4",
+        "en": "Airport Terminals 3-4"
+      },
+      "lat": 24.956145,
+      "lng": 46.702253,
+      "lines": [
+        "4"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001106,
+      "aliases": {
+        "en": [
+          "Terminal 3",
+          "Terminal 4"
+        ],
+        "ar": [
+          "الصالة 3",
+          "الصالة 4"
+        ]
+      }
+    },
+    {
+      "id": "airport-t1-2",
+      "name": {
+        "ar": "المطار - الصالة ‎1-2",
+        "en": "Airport Terminals 1-2"
+      },
+      "lat": 24.96104,
+      "lng": 46.699118,
+      "lines": [
+        "4"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001107,
+      "aliases": {
+        "en": [
+          "Airport",
+          "King Khalid International Airport",
+          "KKIA",
+          "Terminal 1",
+          "Terminal 2"
+        ],
+        "ar": [
+          "المطار",
+          "مطار الملك خالد الدولي",
+          "الصالة 1",
+          "الصالة 2"
+        ]
+      }
+    },
+    {
+      "id": "king-salman-park",
+      "name": {
+        "ar": "حديقة الملك سلمان",
+        "en": "King Salman Park"
+      },
+      "lat": 24.728332,
+      "lng": 46.700959,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001108,
+      "aliases": {
+        "en": [
+          "Salahaddin",
+          "Salah Ad Din"
+        ],
+        "ar": [
+          "صلاح الدين"
+        ]
+      }
+    },
+    {
+      "id": "as-sulimaniyah",
+      "name": {
+        "ar": "السليمانية",
+        "en": "As Sulimaniyah"
+      },
+      "lat": 24.712852,
+      "lng": 46.700393,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001109
+    },
+    {
+      "id": "ad-dhabab",
+      "name": {
+        "ar": "الضباب",
+        "en": "Ad Dhabab"
+      },
+      "lat": 24.709759,
+      "lng": 46.707616,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001110
+    },
+    {
+      "id": "abu-dhabi-square",
+      "name": {
+        "ar": "ميدان أبو ظبي",
+        "en": "Abu Dhabi Square"
+      },
+      "lat": 24.706054,
+      "lng": 46.71632,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001111,
+      "aliases": {
+        "en": [
+          "Abu Dhabi Roundabout"
+        ],
+        "ar": [
+          "دوار أبو ظبي"
+        ]
+      }
+    },
+    {
+      "id": "officers-club",
+      "name": {
+        "ar": "نادي الضباط",
+        "en": "Officers Club"
+      },
+      "lat": 24.697885,
+      "lng": 46.717955,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001112
+    },
+    {
+      "id": "gosi",
+      "name": {
+        "ar": "التأمينات الاجتماعية",
+        "en": "GOSI"
+      },
+      "lat": 24.686271,
+      "lng": 46.718189,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001113,
+      "aliases": {
+        "en": [
+          "General Organization for Social Insurance",
+          "Social Insurance"
+        ],
+        "ar": [
+          "المؤسسة العامة للتأمينات الاجتماعية",
+          "التأمينات"
+        ]
+      }
+    },
+    {
+      "id": "al-wizarat",
+      "name": {
+        "ar": "الوزارات",
+        "en": "Al Wizarat"
+      },
+      "lat": 24.676019,
+      "lng": 46.718396,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001114
+    },
+    {
+      "id": "ministry-of-defence",
+      "name": {
+        "ar": "وزارة الدفاع",
+        "en": "Ministry of Defence"
+      },
+      "lat": 24.667995,
+      "lng": 46.71827,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001115,
+      "aliases": {
+        "en": [
+          "Ministry of Defense",
+          "MoD"
+        ],
+        "ar": [
+          "الدفاع"
+        ]
+      }
+    },
+    {
+      "id": "king-abdulaziz-hospital",
+      "name": {
+        "ar": "مستشفى الملك عبدالعزيز",
+        "en": "King Abdulaziz Hospital"
+      },
+      "lat": 24.659676,
+      "lng": 46.717704,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001116,
+      "aliases": {
+        "en": [
+          "MEW&A",
+          "Ministry of Environment, Water and Agriculture",
+          "Prince Sultan Military Medical City"
+        ],
+        "ar": [
+          "وزارة البيئة والمياه والزراعة",
+          "مدينة الأمير سلطان الطبية العسكرية"
+        ]
+      }
+    },
+    {
+      "id": "ministry-of-finance",
+      "name": {
+        "ar": "وزارة المالية",
+        "en": "Ministry of Finance"
+      },
+      "lat": 24.652222,
+      "lng": 46.716284,
+      "lines": [
+        "5"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001117,
+      "aliases": {
+        "en": [
+          "MoF"
+        ],
+        "ar": [
+          "المالية"
+        ]
+      }
+    },
+    {
+      "id": "granadia",
+      "name": {
+        "ar": "غرناطية",
+        "en": "Granadia"
+      },
+      "lat": 24.786527,
+      "lng": 46.729283,
+      "lines": [
+        "6"
+      ],
+      "busHub": true,
+      "parkAndRide": false,
+      "operatorStopId": 80001119,
+      "aliases": {
+        "en": [
+          "Granada",
+          "Granada Mall",
+          "Granada Business Park"
+        ],
+        "ar": [
+          "غرناطة",
+          "غرناطة مول"
+        ]
+      }
+    },
+    {
+      "id": "al-yarmuk",
+      "name": {
+        "ar": "اليرموك",
+        "en": "Al Yarmuk"
+      },
+      "lat": 24.791298,
+      "lng": 46.76624,
+      "lines": [
+        "6"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001120
+    },
+    {
+      "id": "al-andalus",
+      "name": {
+        "ar": "الأندلس",
+        "en": "Al Andalus"
+      },
+      "lat": 24.75678,
+      "lng": 46.79044,
+      "lines": [
+        "6"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001121
+    },
+    {
+      "id": "khurais-road",
+      "name": {
+        "ar": "طريق خريص",
+        "en": "Khurais Road"
+      },
+      "lat": 24.740717,
+      "lng": 46.798813,
+      "lines": [
+        "6"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001122
+    },
+    {
+      "id": "as-salam",
+      "name": {
+        "ar": "السلام",
+        "en": "As Salam"
+      },
+      "lat": 24.722751,
+      "lng": 46.811389,
+      "lines": [
+        "6"
+      ],
+      "busHub": false,
+      "parkAndRide": false,
+      "operatorStopId": 80001123
+    }
+  ]
+}

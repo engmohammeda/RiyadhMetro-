@@ -1,0 +1,1481 @@
+{
+ "type": "FeatureCollection",
+ "name": "Riyadh Metro — places",
+ "metadata": {
+  "generated": "2026-10-10T01:46:06.889Z",
+  "crs": "EPSG:4326",
+  "source": "Riyadh public-transport open route data; unofficial community project"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "id": "place-kingdom-centre",
+   "properties": {
+    "kind": "place",
+    "id": "kingdom-centre",
+    "name": "Kingdom Centre",
+    "name_ar": "برج المملكة",
+    "name_en": "Kingdom Centre",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "al-urubah",
+    "nearest_station_en": "Al Urubah",
+    "nearest_station_ar": "العروبة",
+    "nearest_station_lines": "1",
+    "walk_m": 286,
+    "walk_min": 4,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6744,
+     24.7114
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-al-faisaliah-tower",
+   "properties": {
+    "kind": "place",
+    "id": "al-faisaliah-tower",
+    "name": "Al Faisaliah Tower",
+    "name_ar": "برج الفيصلية",
+    "name_en": "Al Faisaliah Tower",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "king-fahad-library",
+    "nearest_station_en": "King Fahad Library",
+    "nearest_station_ar": "مكتبة الملك فهد",
+    "nearest_station_lines": "1",
+    "walk_m": 176,
+    "walk_min": 2,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6853,
+     24.6902
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-masmak-fortress",
+   "properties": {
+    "kind": "place",
+    "id": "masmak-fortress",
+    "name": "Masmak Fortress",
+    "name_ar": "قصر المصمك",
+    "name_en": "Masmak Fortress",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "qasr-al-hokm",
+    "nearest_station_en": "Qasr Al Hokm",
+    "nearest_station_ar": "قصر الحكم",
+    "nearest_station_lines": "1;3",
+    "walk_m": 386,
+    "walk_min": 5,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7133,
+     24.6313
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-souq-al-zal",
+   "properties": {
+    "kind": "place",
+    "id": "souq-al-zal",
+    "name": "Souq Al Zal",
+    "name_ar": "سوق الزل",
+    "name_en": "Souq Al Zal",
+    "category": "market",
+    "category_en": "Market",
+    "approximate": true,
+    "nearest_station": "qasr-al-hokm",
+    "nearest_station_en": "Qasr Al Hokm",
+    "nearest_station_ar": "قصر الحكم",
+    "nearest_station_lines": "1;3",
+    "walk_m": 570,
+    "walk_min": 8,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7114,
+     24.6318
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-thumairi-gold-souq",
+   "properties": {
+    "kind": "place",
+    "id": "thumairi-gold-souq",
+    "name": "Thumairi Gold Souq",
+    "name_ar": "سوق الذهب (الثميري)",
+    "name_en": "Thumairi Gold Souq",
+    "category": "market",
+    "category_en": "Market",
+    "approximate": true,
+    "nearest_station": "qasr-al-hokm",
+    "nearest_station_en": "Qasr Al Hokm",
+    "nearest_station_ar": "قصر الحكم",
+    "nearest_station_lines": "1;3",
+    "walk_m": 240,
+    "walk_min": 3,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.714,
+     24.63
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-imam-turki-mosque",
+   "properties": {
+    "kind": "place",
+    "id": "imam-turki-mosque",
+    "name": "Imam Turki bin Abdullah Grand Mosque",
+    "name_ar": "جامع الإمام تركي بن عبدالله",
+    "name_en": "Imam Turki bin Abdullah Grand Mosque",
+    "category": "mosque",
+    "category_en": "Mosque",
+    "approximate": true,
+    "nearest_station": "qasr-al-hokm",
+    "nearest_station_en": "Qasr Al Hokm",
+    "nearest_station_ar": "قصر الحكم",
+    "nearest_station_lines": "1;3",
+    "walk_m": 367,
+    "walk_min": 5,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7127,
+     24.6302
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-national-museum",
+   "properties": {
+    "kind": "place",
+    "id": "national-museum",
+    "name": "National Museum",
+    "name_ar": "المتحف الوطني",
+    "name_en": "National Museum",
+    "category": "museum",
+    "category_en": "Museum",
+    "approximate": true,
+    "nearest_station": "national-museum",
+    "nearest_station_en": "National Museum",
+    "nearest_station_ar": "المتحف الوطني",
+    "nearest_station_lines": "1;5",
+    "walk_m": 358,
+    "walk_min": 5,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7104,
+     24.6473
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-murabba-palace",
+   "properties": {
+    "kind": "place",
+    "id": "murabba-palace",
+    "name": "Murabba Palace",
+    "name_ar": "قصر المربع",
+    "name_en": "Murabba Palace",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "ministry-of-finance",
+    "nearest_station_en": "Ministry of Finance",
+    "nearest_station_ar": "وزارة المالية",
+    "nearest_station_lines": "5",
+    "walk_m": 807,
+    "walk_min": 11,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7083,
+     24.652
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-kkia-airport",
+   "properties": {
+    "kind": "place",
+    "id": "kkia-airport",
+    "name": "King Khalid International Airport",
+    "name_ar": "مطار الملك خالد الدولي",
+    "name_en": "King Khalid International Airport",
+    "category": "transport",
+    "category_en": "Transport",
+    "approximate": false,
+    "nearest_station": "airport-t1-2",
+    "nearest_station_en": "Airport Terminals 1-2",
+    "nearest_station_ar": "المطار - الصالة ‎1-2",
+    "nearest_station_lines": "4",
+    "walk_m": 362,
+    "walk_min": 5,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6988,
+     24.9578
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-kafd",
+   "properties": {
+    "kind": "place",
+    "id": "kafd",
+    "name": "King Abdullah Financial District (KAFD)",
+    "name_ar": "مركز الملك عبدالله المالي",
+    "name_en": "King Abdullah Financial District (KAFD)",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "kafd",
+    "nearest_station_en": "KAFD",
+    "nearest_station_ar": "المركز المالي",
+    "nearest_station_lines": "1;4;6",
+    "walk_m": 285,
+    "walk_min": 4,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6405,
+     24.7667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-riyadh-front",
+   "properties": {
+    "kind": "place",
+    "id": "riyadh-front",
+    "name": "Riyadh Front",
+    "name_ar": "واجهة الرياض",
+    "name_en": "Riyadh Front",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "pnu-1",
+    "nearest_station_en": "PNU 1",
+    "nearest_station_ar": "جامعة الأميرة نورة 1",
+    "nearest_station_lines": "4",
+    "walk_m": 1247,
+    "walk_min": 17,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.729,
+     24.8455
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-pnu",
+   "properties": {
+    "kind": "place",
+    "id": "pnu",
+    "name": "Princess Nourah University (PNU)",
+    "name_ar": "جامعة الأميرة نورة",
+    "name_en": "Princess Nourah University (PNU)",
+    "category": "university",
+    "category_en": "University",
+    "approximate": true,
+    "nearest_station": "pnu-1",
+    "nearest_station_en": "PNU 1",
+    "nearest_station_ar": "جامعة الأميرة نورة 1",
+    "nearest_station_lines": "4",
+    "walk_m": 656,
+    "walk_min": 9,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.712,
+     24.845
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-ksu",
+   "properties": {
+    "kind": "place",
+    "id": "ksu",
+    "name": "King Saud University",
+    "name_ar": "جامعة الملك سعود",
+    "name_en": "King Saud University",
+    "category": "university",
+    "category_en": "University",
+    "approximate": true,
+    "nearest_station": "king-saud-university",
+    "nearest_station_en": "King Saud University",
+    "nearest_station_ar": "جامعة الملك سعود",
+    "nearest_station_lines": "2",
+    "walk_m": 1014,
+    "walk_min": 14,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.619,
+     24.7136
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-imam-university",
+   "properties": {
+    "kind": "place",
+    "id": "imam-university",
+    "name": "Imam Mohammad Ibn Saud Islamic University",
+    "name_ar": "جامعة الإمام محمد بن سعود الإسلامية",
+    "name_en": "Imam Mohammad Ibn Saud Islamic University",
+    "category": "university",
+    "category_en": "University",
+    "approximate": true,
+    "nearest_station": "sabic",
+    "nearest_station_en": "SABIC",
+    "nearest_station_ar": "سابك",
+    "nearest_station_lines": "4;6",
+    "walk_m": 1006,
+    "walk_min": 13,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7018,
+     24.8128
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-prince-sultan-university",
+   "properties": {
+    "kind": "place",
+    "id": "prince-sultan-university",
+    "name": "Prince Sultan University",
+    "name_ar": "جامعة الأمير سلطان",
+    "name_en": "Prince Sultan University",
+    "category": "university",
+    "category_en": "University",
+    "approximate": true,
+    "nearest_station": "king-salman-park",
+    "nearest_station_en": "King Salman Park",
+    "nearest_station_ar": "حديقة الملك سلمان",
+    "nearest_station_lines": "5",
+    "walk_m": 649,
+    "walk_min": 9,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7025,
+     24.734
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-king-fahd-stadium",
+   "properties": {
+    "kind": "place",
+    "id": "king-fahd-stadium",
+    "name": "King Fahd International Stadium",
+    "name_ar": "استاد الملك فهد الدولي",
+    "name_en": "King Fahd International Stadium",
+    "category": "stadium",
+    "category_en": "Stadium",
+    "approximate": true,
+    "nearest_station": "king-fahad-sport-city",
+    "nearest_station_en": "King Fahad Sport City",
+    "nearest_station_ar": "مدينة الملك فهد الرياضية",
+    "nearest_station_lines": "2",
+    "walk_m": 61,
+    "walk_min": 1,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.836,
+     24.793
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-al-awwal-park",
+   "properties": {
+    "kind": "place",
+    "id": "al-awwal-park",
+    "name": "Al-Awwal Park (KSU Stadium)",
+    "name_ar": "ملعب الأول بارك (جامعة الملك سعود)",
+    "name_en": "Al-Awwal Park (KSU Stadium)",
+    "category": "stadium",
+    "category_en": "Stadium",
+    "approximate": true,
+    "nearest_station": "king-saud-university",
+    "nearest_station_en": "King Saud University",
+    "nearest_station_ar": "جامعة الملك سعود",
+    "nearest_station_lines": "2",
+    "walk_m": 2307,
+    "walk_min": 31,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6116,
+     24.7244
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-prince-faisal-bin-fahd-stadium",
+   "properties": {
+    "kind": "place",
+    "id": "prince-faisal-bin-fahd-stadium",
+    "name": "Prince Faisal bin Fahd Stadium (Malaz)",
+    "name_ar": "ملعب الأمير فيصل بن فهد (الملز)",
+    "name_en": "Prince Faisal bin Fahd Stadium (Malaz)",
+    "category": "stadium",
+    "category_en": "Stadium",
+    "approximate": true,
+    "nearest_station": "al-malaz",
+    "nearest_station_en": "Al Malaz",
+    "nearest_station_ar": "الملز",
+    "nearest_station_lines": "3",
+    "walk_m": 945,
+    "walk_min": 13,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7382,
+     24.6666
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-boulevard-city",
+   "properties": {
+    "kind": "place",
+    "id": "boulevard-city",
+    "name": "Boulevard City / Kingdom Arena",
+    "name_ar": "بوليفارد رياض سيتي / كنغدوم أرينا",
+    "name_en": "Boulevard City / Kingdom Arena",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "kafd",
+    "nearest_station_en": "KAFD",
+    "nearest_station_ar": "المركز المالي",
+    "nearest_station_lines": "1;4;6",
+    "walk_m": 3530,
+    "walk_min": 47,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6082,
+     24.7708
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-diplomatic-quarter",
+   "properties": {
+    "kind": "place",
+    "id": "diplomatic-quarter",
+    "name": "Diplomatic Quarter",
+    "name_ar": "الحي الدبلوماسي",
+    "name_en": "Diplomatic Quarter",
+    "category": "district",
+    "category_en": "District",
+    "approximate": true,
+    "nearest_station": "king-saud-university",
+    "nearest_station_en": "King Saud University",
+    "nearest_station_ar": "جامعة الملك سعود",
+    "nearest_station_lines": "2",
+    "walk_m": 2365,
+    "walk_min": 32,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6235,
+     24.6895
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-diriyah",
+   "properties": {
+    "kind": "place",
+    "id": "diriyah",
+    "name": "Diriyah (At-Turaif & Bujairi)",
+    "name_ar": "الدرعية (الطريف والبجيري)",
+    "name_en": "Diriyah (At-Turaif & Bujairi)",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "king-saud-university",
+    "nearest_station_en": "King Saud University",
+    "nearest_station_ar": "جامعة الملك سعود",
+    "nearest_station_lines": "2",
+    "walk_m": 6181,
+    "walk_min": 82,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.573,
+     24.734
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-riyadh-railway-station",
+   "properties": {
+    "kind": "place",
+    "id": "riyadh-railway-station",
+    "name": "Riyadh Railway Station (SAR – Dammam line)",
+    "name_ar": "محطة قطار الرياض (سار – الدمام)",
+    "name_en": "Riyadh Railway Station (SAR – Dammam line)",
+    "category": "transport",
+    "category_en": "Transport",
+    "approximate": true,
+    "nearest_station": "railway",
+    "nearest_station_en": "Railway",
+    "nearest_station_ar": "سكة الحديد",
+    "nearest_station_lines": "3",
+    "walk_m": 307,
+    "walk_min": 4,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.743,
+     24.6514
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-saptco",
+   "properties": {
+    "kind": "place",
+    "id": "saptco",
+    "name": "Public Transport Center (SAPTCO)",
+    "name_ar": "مركز النقل العام (سابتكو)",
+    "name_en": "Public Transport Center (SAPTCO)",
+    "category": "transport",
+    "category_en": "Transport",
+    "approximate": true,
+    "nearest_station": "transportation-center",
+    "nearest_station_en": "Transportation Center",
+    "nearest_station_ar": "مركز النقل العام",
+    "nearest_station_lines": "1",
+    "walk_m": 1,
+    "walk_min": 1,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7451,
+     24.5983
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-riyadh-gallery-mall",
+   "properties": {
+    "kind": "place",
+    "id": "riyadh-gallery-mall",
+    "name": "Riyadh Gallery Mall",
+    "name_ar": "الرياض جاليري",
+    "name_en": "Riyadh Gallery Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "al-murooj",
+    "nearest_station_en": "Al Murooj",
+    "nearest_station_ar": "المروج",
+    "nearest_station_lines": "1",
+    "walk_m": 696,
+    "walk_min": 9,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6556,
+     24.7607
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-riyadh-park-mall",
+   "properties": {
+    "kind": "place",
+    "id": "riyadh-park-mall",
+    "name": "Riyadh Park Mall",
+    "name_ar": "الرياض بارك",
+    "name_en": "Riyadh Park Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "kafd",
+    "nearest_station_en": "KAFD",
+    "nearest_station_ar": "المركز المالي",
+    "nearest_station_lines": "1;4;6",
+    "walk_m": 2234,
+    "walk_min": 30,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.623,
+     24.7593
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-panorama-mall",
+   "properties": {
+    "kind": "place",
+    "id": "panorama-mall",
+    "name": "Panorama Mall",
+    "name_ar": "بانوراما مول",
+    "name_en": "Panorama Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "alinma-bank",
+    "nearest_station_en": "Alinma Bank",
+    "nearest_station_ar": "مصرف الإنماء",
+    "nearest_station_lines": "1",
+    "walk_m": 1346,
+    "walk_min": 18,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.67,
+     24.6955
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-centria-mall",
+   "properties": {
+    "kind": "place",
+    "id": "centria-mall",
+    "name": "Centria Mall",
+    "name_ar": "سنتريا مول",
+    "name_en": "Centria Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "bank-albilad",
+    "nearest_station_en": "Bank Albilad",
+    "nearest_station_ar": "بنك البلاد",
+    "nearest_station_lines": "1",
+    "walk_m": 187,
+    "walk_min": 2,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.686,
+     24.694
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-olaya-tahlia",
+   "properties": {
+    "kind": "place",
+    "id": "olaya-tahlia",
+    "name": "Olaya Street / Tahlia Street",
+    "name_ar": "شارع العليا / شارع التحلية",
+    "name_en": "Olaya Street / Tahlia Street",
+    "category": "district",
+    "category_en": "District",
+    "approximate": true,
+    "nearest_station": "bank-albilad",
+    "nearest_station_en": "Bank Albilad",
+    "nearest_station_ar": "بنك البلاد",
+    "nearest_station_lines": "1",
+    "walk_m": 74,
+    "walk_min": 1,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.685,
+     24.6945
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-al-nakheel-mall",
+   "properties": {
+    "kind": "place",
+    "id": "al-nakheel-mall",
+    "name": "Al Nakheel Mall",
+    "name_ar": "النخيل مول",
+    "name_en": "Al Nakheel Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "riyadh-exhibition-center",
+    "nearest_station_en": "Riyadh Exhibition Center",
+    "nearest_station_ar": "مركز الرياض للمعارض",
+    "nearest_station_lines": "2",
+    "walk_m": 817,
+    "walk_min": 11,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7262,
+     24.7619
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-granada-mall",
+   "properties": {
+    "kind": "place",
+    "id": "granada-mall",
+    "name": "Granada Mall",
+    "name_ar": "غرناطة مول",
+    "name_en": "Granada Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "granadia",
+    "nearest_station_en": "Granadia",
+    "nearest_station_ar": "غرناطية",
+    "nearest_station_lines": "6",
+    "walk_m": 637,
+    "walk_min": 8,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7293,
+     24.7808
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-al-hamra-mall",
+   "properties": {
+    "kind": "place",
+    "id": "al-hamra-mall",
+    "name": "Al Hamra Mall",
+    "name_ar": "الحمراء مول",
+    "name_en": "Al Hamra Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "al-hamra",
+    "nearest_station_en": "Al Hamra",
+    "nearest_station_ar": "الحمراء",
+    "nearest_station_lines": "2;6",
+    "walk_m": 502,
+    "walk_min": 7,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7745,
+     24.78
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-sahara-mall",
+   "properties": {
+    "kind": "place",
+    "id": "sahara-mall",
+    "name": "Sahara Mall",
+    "name_ar": "صحارى مول",
+    "name_en": "Sahara Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "king-abdulaziz-road",
+    "nearest_station_en": "King Abdulaziz Road",
+    "nearest_station_ar": "طريق الملك عبدالعزيز",
+    "nearest_station_lines": "2",
+    "walk_m": 299,
+    "walk_min": 4,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6826,
+     24.7378
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-hayat-mall",
+   "properties": {
+    "kind": "place",
+    "id": "hayat-mall",
+    "name": "Hayat Mall",
+    "name_ar": "حياة مول",
+    "name_en": "Hayat Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "al-wurud",
+    "nearest_station_en": "Al Wurud",
+    "nearest_station_ar": "الورود",
+    "nearest_station_lines": "2",
+    "walk_m": 205,
+    "walk_min": 3,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6755,
+     24.7345
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-al-qasr-mall",
+   "properties": {
+    "kind": "place",
+    "id": "al-qasr-mall",
+    "name": "Al Qasr Mall",
+    "name_ar": "القصر مول",
+    "name_en": "Al Qasr Mall",
+    "category": "mall",
+    "category_en": "Mall",
+    "approximate": true,
+    "nearest_station": "al-jarradiyah",
+    "nearest_station_en": "Al Jarradiyah",
+    "nearest_station_ar": "الجرادية",
+    "nearest_station_lines": "3",
+    "walk_m": 951,
+    "walk_min": 13,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.696,
+     24.61
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-lulu-batha",
+   "properties": {
+    "kind": "place",
+    "id": "lulu-batha",
+    "name": "Lulu Hypermarket – Batha",
+    "name_ar": "لولو هايبر ماركت – البطحاء",
+    "name_en": "Lulu Hypermarket – Batha",
+    "category": "market",
+    "category_en": "Market",
+    "approximate": true,
+    "nearest_station": "al-batha",
+    "nearest_station_en": "Al Bat'ha",
+    "nearest_station_ar": "البطحاء",
+    "nearest_station_lines": "1",
+    "walk_m": 170,
+    "walk_min": 2,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.716,
+     24.636
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-haraj-bin-qasim",
+   "properties": {
+    "kind": "place",
+    "id": "haraj-bin-qasim",
+    "name": "Haraj Bin Qasim",
+    "name_ar": "حراج بن قاسم",
+    "name_en": "Haraj Bin Qasim",
+    "category": "market",
+    "category_en": "Market",
+    "approximate": true,
+    "nearest_station": "al-aziziah",
+    "nearest_station_en": "Al Aziziah",
+    "nearest_station_ar": "العزيزية",
+    "nearest_station_lines": "1",
+    "walk_m": 1371,
+    "walk_min": 18,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.761,
+     24.575
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-king-fahad-medical-city",
+   "properties": {
+    "kind": "place",
+    "id": "king-fahad-medical-city",
+    "name": "King Fahad Medical City",
+    "name_ar": "مدينة الملك فهد الطبية",
+    "name_en": "King Fahad Medical City",
+    "category": "hospital",
+    "category_en": "Hospital",
+    "approximate": true,
+    "nearest_station": "gosi",
+    "nearest_station_en": "GOSI",
+    "nearest_station_ar": "التأمينات الاجتماعية",
+    "nearest_station_lines": "5",
+    "walk_m": 1346,
+    "walk_min": 18,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.705,
+     24.688
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-king-faisal-specialist-hospital",
+   "properties": {
+    "kind": "place",
+    "id": "king-faisal-specialist-hospital",
+    "name": "King Faisal Specialist Hospital",
+    "name_ar": "مستشفى الملك فيصل التخصصي",
+    "name_en": "King Faisal Specialist Hospital",
+    "category": "hospital",
+    "category_en": "Hospital",
+    "approximate": true,
+    "nearest_station": "ministry-of-interior",
+    "nearest_station_en": "Ministry of Interior",
+    "nearest_station_ar": "وزارة الداخلية",
+    "nearest_station_lines": "1",
+    "walk_m": 2827,
+    "walk_min": 38,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.667,
+     24.672
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-prince-sultan-military-medical-city",
+   "properties": {
+    "kind": "place",
+    "id": "prince-sultan-military-medical-city",
+    "name": "Prince Sultan Military Medical City",
+    "name_ar": "مدينة الأمير سلطان الطبية العسكرية",
+    "name_en": "Prince Sultan Military Medical City",
+    "category": "hospital",
+    "category_en": "Hospital",
+    "approximate": true,
+    "nearest_station": "ministry-of-defence",
+    "nearest_station_en": "Ministry of Defence",
+    "nearest_station_ar": "وزارة الدفاع",
+    "nearest_station_lines": "5",
+    "walk_m": 651,
+    "walk_min": 9,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7238,
+     24.665
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-king-khalid-university-hospital",
+   "properties": {
+    "kind": "place",
+    "id": "king-khalid-university-hospital",
+    "name": "King Khalid University Hospital",
+    "name_ar": "مستشفى الملك خالد الجامعي",
+    "name_en": "King Khalid University Hospital",
+    "category": "hospital",
+    "category_en": "Hospital",
+    "approximate": true,
+    "nearest_station": "king-salman-oasis",
+    "nearest_station_en": "King Salman Oasis",
+    "nearest_station_ar": "واحة الملك سلمان",
+    "nearest_station_lines": "2",
+    "walk_m": 1167,
+    "walk_min": 16,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.646,
+     24.709
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-king-saud-medical-city",
+   "properties": {
+    "kind": "place",
+    "id": "king-saud-medical-city",
+    "name": "King Saud Medical City (Shumaisi)",
+    "name_ar": "مدينة الملك سعود الطبية (الشميسي)",
+    "name_en": "King Saud Medical City (Shumaisi)",
+    "category": "hospital",
+    "category_en": "Hospital",
+    "approximate": true,
+    "nearest_station": "al-jarradiyah",
+    "nearest_station_en": "Al Jarradiyah",
+    "nearest_station_ar": "الجرادية",
+    "nearest_station_lines": "3",
+    "walk_m": 1296,
+    "walk_min": 17,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.6965,
+     24.63
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-riyadh-zoo",
+   "properties": {
+    "kind": "place",
+    "id": "riyadh-zoo",
+    "name": "Riyadh Zoo",
+    "name_ar": "حديقة حيوان الرياض",
+    "name_en": "Riyadh Zoo",
+    "category": "park",
+    "category_en": "Park",
+    "approximate": true,
+    "nearest_station": "al-malaz",
+    "nearest_station_en": "Al Malaz",
+    "nearest_station_ar": "الملز",
+    "nearest_station_lines": "3",
+    "walk_m": 847,
+    "walk_min": 11,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7405,
+     24.667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-king-abdullah-park",
+   "properties": {
+    "kind": "place",
+    "id": "king-abdullah-park",
+    "name": "King Abdullah Park (Malaz)",
+    "name_ar": "حديقة الملك عبدالله (الملز)",
+    "name_en": "King Abdullah Park (Malaz)",
+    "category": "park",
+    "category_en": "Park",
+    "approximate": true,
+    "nearest_station": "ministry-of-defence",
+    "nearest_station_en": "Ministry of Defence",
+    "nearest_station_ar": "وزارة الدفاع",
+    "nearest_station_lines": "5",
+    "walk_m": 1306,
+    "walk_min": 17,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.731,
+     24.67
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-king-salman-park",
+   "properties": {
+    "kind": "place",
+    "id": "king-salman-park",
+    "name": "King Salman Park",
+    "name_ar": "حديقة الملك سلمان",
+    "name_en": "King Salman Park",
+    "category": "park",
+    "category_en": "Park",
+    "approximate": true,
+    "nearest_station": "king-salman-park",
+    "nearest_station_en": "King Salman Park",
+    "nearest_station_ar": "حديقة الملك سلمان",
+    "nearest_station_lines": "5",
+    "walk_m": 5,
+    "walk_min": 1,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.701,
+     24.7283
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-sama",
+   "properties": {
+    "kind": "place",
+    "id": "sama",
+    "name": "Saudi Central Bank (SAMA)",
+    "name_ar": "البنك المركزي السعودي (ساما)",
+    "name_en": "Saudi Central Bank (SAMA)",
+    "category": "government",
+    "category_en": "Government",
+    "approximate": true,
+    "nearest_station": "ministry-of-interior",
+    "nearest_station_en": "Ministry of Interior",
+    "nearest_station_ar": "وزارة الداخلية",
+    "nearest_station_lines": "1",
+    "walk_m": 614,
+    "walk_min": 8,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.699,
+     24.6705
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-ministry-of-foreign-affairs",
+   "properties": {
+    "kind": "place",
+    "id": "ministry-of-foreign-affairs",
+    "name": "Ministry of Foreign Affairs",
+    "name_ar": "وزارة الخارجية",
+    "name_en": "Ministry of Foreign Affairs",
+    "category": "government",
+    "category_en": "Government",
+    "approximate": true,
+    "nearest_station": "passport-department",
+    "nearest_station_en": "Passport Department",
+    "nearest_station_ar": "الجوازات",
+    "nearest_station_lines": "1",
+    "walk_m": 955,
+    "walk_min": 13,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7065,
+     24.6515
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-jawazat",
+   "properties": {
+    "kind": "place",
+    "id": "jawazat",
+    "name": "Jawazat (Passports Office)",
+    "name_ar": "الجوازات",
+    "name_en": "Jawazat (Passports Office)",
+    "category": "government",
+    "category_en": "Government",
+    "approximate": true,
+    "nearest_station": "passport-department",
+    "nearest_station_en": "Passport Department",
+    "nearest_station_ar": "الجوازات",
+    "nearest_station_lines": "1",
+    "walk_m": 7,
+    "walk_min": 1,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7043,
+     24.6598
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-riyadh-exhibition-center",
+   "properties": {
+    "kind": "place",
+    "id": "riyadh-exhibition-center",
+    "name": "Riyadh International Convention & Exhibition Center",
+    "name_ar": "مركز الرياض الدولي للمؤتمرات والمعارض",
+    "name_en": "Riyadh International Convention & Exhibition Center",
+    "category": "landmark",
+    "category_en": "Landmark",
+    "approximate": true,
+    "nearest_station": "riyadh-exhibition-center",
+    "nearest_station_en": "Riyadh Exhibition Center",
+    "nearest_station_ar": "مركز الرياض للمعارض",
+    "nearest_station_lines": "2",
+    "walk_m": 1,
+    "walk_min": 1,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7271,
+     24.7546
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-al-rajhi-grand-mosque",
+   "properties": {
+    "kind": "place",
+    "id": "al-rajhi-grand-mosque",
+    "name": "Al Rajhi Grand Mosque",
+    "name_ar": "جامع الراجحي",
+    "name_en": "Al Rajhi Grand Mosque",
+    "category": "mosque",
+    "category_en": "Mosque",
+    "approximate": true,
+    "nearest_station": "al-rajhi-grand-mosque",
+    "nearest_station_en": "Al Rajhi Grand Mosque",
+    "nearest_station_ar": "جامع الراجحي",
+    "nearest_station_lines": "3",
+    "walk_m": 3,
+    "walk_min": 1,
+    "marker-color": "#6b7280",
+    "marker-size": "small",
+    "marker-symbol": "marker"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.7794,
+     24.6802
+    ]
+   }
+  }
+ ]
+}

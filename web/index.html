@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>مترو الرياض — دليل التنقل | Riyadh Metro Navigator</title>
+  <meta name="description" content="مخطط وخريطة تفاعلية لشبكة مترو الرياض كاملة (6 مسارات، 83 محطة): خطّط رحلتك بين المحطات والأماكن مع أوقات التشغيل والأسعار، وصدّر الشبكة إلى Google Earth وخرائط Google (KML/KMZ/GeoJSON). Riyadh Metro diagram, map & journey planner with hours, fares and Google Earth / Google Maps exports.">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:title" content="مترو الرياض — دليل التنقل | Riyadh Metro Navigator">
+  <meta property="og:description" content="خطّط رحلتك عبر شبكة مترو الرياض كاملة — مخطط، خريطة، أوقات، أسعار، وتصدير إلى Google Earth وخرائط Google.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="icons/favicon.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="icons/icon-192.png" alt="">
+      <div>
+        <h1 data-i18n="app.title">مترو الرياض — دليل التنقل</h1>
+        <span data-i18n="app.subtitle">Riyadh Metro Navigator · 6 مسارات · 83 محطة</span>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <span class="status-chip" id="status-chip" title=""></span>
+      <select id="lang-select" aria-label="Language"></select>
+      <a class="hide-sm primary" href="../dist/riyadh-metro.kmz" download data-i18n="top.kmz">⬇ KMZ لـ Google Earth</a>
+      <a class="hide-sm" href="https://github.com/engmohammeda/RiyadhMetro-" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <aside class="panel" id="panel">
+      <div class="panel-toggle" id="panel-toggle" data-label="اضغط لفتح اللوحة"><span></span></div>
+      <div class="tabs" role="tablist">
+        <button data-tab="plan" class="active" data-i18n="tab.plan">🧭 خطّط رحلتك</button>
+        <button data-tab="lines" data-i18n="tab.lines">🚇 المسارات</button>
+        <button data-tab="info" data-i18n="tab.info">ℹ️ معلومات</button>
+        <button data-tab="export" data-i18n="tab.export">🌍 Earth / Maps</button>
+      </div>
+
+      <!-- ===== Planner ===== -->
+      <section id="tab-plan" class="tab active">
+        <div class="planner">
+          <div class="field">
+            <label for="from"><span class="abm a">A</span> <span data-i18n="plan.from">من</span></label>
+            <input id="from" placeholder="محطة أو مكان: العليا، برج المملكة، المطار…" data-i18n-ph="plan.search" autocomplete="off" enterkeyhint="search">
+            <button class="icon-btn" id="btn-locate" title="أقرب محطة لموقعي" data-i18n-title="plan.locate">📍</button>
+            <div class="suggest" id="from-suggest"></div>
+          </div>
+          <div class="swap-row"><button class="swap" id="btn-swap" title="تبديل" data-i18n-title="plan.swap">⇅</button></div>
+          <div class="field">
+            <label for="to"><span class="abm b">B</span> <span data-i18n="plan.to">إلى</span></label>
+            <input id="to" placeholder="محطة أو مكان: العليا، برج المملكة، المطار…" data-i18n-ph="plan.search" autocomplete="off" enterkeyhint="search">
+            <button class="icon-btn" id="btn-clear-to" title="مسح" data-i18n-title="plan.clear">✕</button>
+            <div class="suggest" id="to-suggest"></div>
+          </div>
+          <div class="options">
+            <label class="depart"><span data-i18n="plan.leaveAt">🕒 المغادرة</span> <select id="depart"></select></label>
+          </div>
+          <div class="options">
+            <label><input type="radio" name="mode" value="fastest" checked> <span data-i18n="plan.fastest">⚡ الأسرع</span></label>
+            <label><input type="radio" name="mode" value="fewest-transfers"> <span data-i18n="plan.fewest">🔁 أقل تبديل</span></label>
+          </div>
+          <button class="btn primary" id="btn-plan" data-i18n="plan.go">عرض المسار</button>
+          <p class="hint" data-i18n="plan.hint">اكتب اسم محطة أو مكان (تُقبل الأسماء القديمة مثل «العليا»)، أو انقر على محطتين في المخطط. الأزمنة تقديرية.</p>
+        </div>
+        <div id="popular"></div>
+        <div id="nearby"></div>
+        <div id="result"></div>
+        <div id="station-card"></div>
+      </section>
+
+      <!-- ===== Lines ===== -->
+      <section id="tab-lines" class="tab">
+        <p class="hint" style="margin:0 0 10px" data-i18n="lines.hint">فعّل/أخفِ المسارات على الخريطة، وافتح أي مسار لعرض محطاته بالترتيب. المحطات ذات الإطار الأسود هي محطات تبادل.</p>
+        <div id="lines-list"></div>
+      </section>
+
+      <!-- ===== Info: hours, fares, about ===== -->
+      <section id="tab-info" class="tab">
+        <div id="info-content"></div>
+      </section>
+
+      <!-- ===== Export / integrations ===== -->
+      <section id="tab-export" class="tab">
+        <div id="export-content"></div>
+      </section>
+    </aside>
+
+    <div class="stage">
+      <div id="map"></div>
+      <div id="diagram" hidden>
+        <div class="sch-viewport" id="sch-viewport"><div class="sch-canvas" id="sch-canvas"></div></div>
+        <div class="sch-hint" id="sch-hint" hidden></div>
+        <div class="sch-zoom">
+          <button id="sch-zoom-in" title="+">＋</button>
+          <button id="sch-zoom-out" title="−">－</button>
+        </div>
+      </div>
+      <div class="view-switch" role="tablist">
+        <button data-view="diagram" data-i18n="view.diagram">🚇 المخطط</button>
+        <button data-view="map" data-i18n="view.map">🗺️ الخريطة</button>
+      </div>
+      <div class="map-toolbar">
+        <button id="btn-basemap" title="تغيير الخلفية" data-i18n-title="map.basemap">🛰️</button>
+        <button id="btn-fit" title="عرض الشبكة كاملة" data-i18n-title="map.fit">⤢</button>
+        <button id="btn-clear" title="مسح المسار" data-i18n-title="map.clear" style="display:none">🧹</button>
+      </div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="data/metro-data.js"></script>
+  <script src="lib/geo.js"></script>
+  <script src="lib/network.js"></script>
+  <script src="lib/router.js"></script>
+  <script src="lib/links.js"></script>
+  <script src="lib/kml.js"></script>
+  <script src="lib/geojson.js"></script>
+  <script src="lib/schematic.js"></script>
+  <script src="lib/service.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

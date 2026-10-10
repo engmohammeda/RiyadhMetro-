@@ -1,0 +1,119 @@
+# نموذج البيانات — Data model
+
+كل شيء يُولَّد من ثلاثة ملفات JSON صغيرة في `data/` (المصدر الوحيد للحقيقة). لا تُحرَّر ملفات `dist/` أو `web/data/` أو `web/lib/` يدوياً — شغّل `npm run build`.
+
+## `data/stations.json`
+
+```jsonc
+{
+  "id": "kafd",                              // slug ثابت يُستخدم في الروابط (#station=kafd)
+  "name": { "ar": "المركز المالي", "en": "KAFD" },
+  "lat": 24.767874, "lng": 46.643009,        // WGS84
+  "lines": ["1", "4", "6"],                  // تُعاد حسابها من lines.json عند البناء
+  "busHub": true,                            // محور حافلات (من بيانات المشغّل)
+  "parkAndRide": false,                      // مواقف اركن واركب
+  "operatorStopId": 80001059                 // معرّف التوقف في بيانات المشغّل
+}
+```
+
+## `data/lines.json`
+
+```jsonc
+{
+  "id": "4", "number": 4, "color": "#FFD105",
+  "name": { "ar": "المسار الأصفر", "en": "Yellow Line" },
+  "colorName": { "ar": "الأصفر", "en": "Yellow" },
+  "corridor": { "ar": "طريق مطار الملك خالد الدولي", "en": "King Khalid International Airport Road" },
+  "officialLengthKm": 29.6, "openedOn": "2024-12-01",
+  "stations": [                              // بالترتيب من الطرف الأول إلى الأخير
+    { "station": "kafd", "structure": "elevated" },
+    { "station": "ar-rabi", "structure": "elevated" },
+    …
+  ]
+}
+```
+
+`structure` ∈ `elevated` | `deep_underground` | `shallow_underground` | `at_grade` (قد يختلف للمحطة نفسها بين مسارين).
+
+## `data/shapes.json`
+
+`{ "shapes": { "1": [[lat, lng], …], … } }` — المسار الهندسي لكل خط. الاتجاه لا يهم: البناء يوجّهه تلقائياً من المحطة الأولى إلى الأخيرة.
+
+## `data/config.json`
+
+- `project.siteUrl` / `repoUrl`: تُستخدم في روابط بالونات KML وروابط المشاركة.
+- `travelModel`: `cruiseKmh`, `stopPenaltySec`, `transferMinutes`, `transferOverrides[]`, `walkingKmh`.
+- `service.hours`: قواعد ساعات التشغيل (`days` بأرقام أيام الأسبوع 0=الأحد … 6=السبت، `open`/`close` بصيغة HH:MM و`24:00` = منتصف الليل)، و`travelModel.initialWaitMinutes` زمن انتظار القطار المضاف عند «المغادرة الآن». تُستخدم في `src/service.js` لحساب حالة الخدمة ووقت الوصول والتنبيهات.
+- `fares.tickets[]`: التذاكر (`price` عادي، `firstClass` الدرجة الأولى، `validMinutes` للتذكرة المحدودة). التطبيق يختار أرخص تذكرة تغطي مدة الرحلة.
+- `popularTrips[]`: رحلات شائعة تظهر كأزرار في المخطِّط (`from`/`to` معرّفات محطات، و`label` اختياري).
+
+## `places.json` — الأماكن والوجهات
+
+كل عنصر: `id` (slug)، `name{ar,en}`، `aliases{ar[],en[]}` اختياري، `category` (من `categories`)، `lat`/`lng` (تقريبية — `approx: true`)، و`station` اختياري لتثبيت محطة محددة. عند البناء تُحسب أقرب 3 محطات ومسافة/زمن المشي (`walkingKmh` من `config.json`) وتُدمج في `network.places`، وتُصدَّر إلى `dist/riyadh-metro-places.{geojson,csv}` ومجلد «أماكن ووجهات» في KML.
+
+## `schematic.json` — المخطط التخطيطي
+
+- `unit` حجم خلية الشبكة بالبكسل، `bounds` حدود اللوحة بوحدات الشبكة.
+- `stations[id] = [x, y, labelMode, overrides?]`: الموقع على الشبكة واتجاه التسمية (`E`/`W` أفقي، `N`/`S` مائل 45°، `n`/`s` فوق/تحت، `NE`/`NW`/`SE`/`SW` قطري) و`overrides.text{ar,en}` لنص من سطرين (`\n`) أو `dx`/`dy` لإزاحة التسمية.
+- `via[line]["a|b"] = [[x,y],…]`: نقاط انعطاف بين محطتين متتاليتين (يجب أن تبقى كل القطع أفقية/رأسية/قطرية — البناء يرفض غير ذلك).
+- `districts[]` تسميات الأحياء، و`legend`/`title`/`compass` مواضع العناصر. المحرّك `src/schematic.js` يولّد SVG واحداً يُستخدم في التطبيق (تفاعلي) وفي `dist/`.
+
+## الأسماء البديلة `stations[].aliases`
+
+`aliases{ar[],en[]}` أسماء قديمة/شائعة/راعية (مثل «العليا» لمحطة stc، «الفيصلية» لمكتبة الملك فهد، KKIA للمطار). يبحث فيها `searchStations`/`searchAll` بوزن أقل قليلاً من الاسم الرسمي.
+
+## الشبكة المبنية (`RMNetwork.buildNetwork`) → `dist/riyadh-metro-network.json`
+
+```jsonc
+{
+  "stations": { "kafd": { …, "lines": ["1","4","6"], "interchange": true, "structure": { "1": "elevated", … } } },
+  "lines": {
+    "4": {
+      "stations": ["kafd", "ar-rabi", …], "termini": { "first": "kafd", "last": "airport-t1-2" },
+      "shape": [[lat,lng], …], "lengthM": 29050,
+      "segments": [ { "from": "kafd", "to": "ar-rabi", "distanceM": 3204, "seconds": 227, "geometry": [[lat,lng], …] }, … ],
+      "snapOffsets": [28, 12, …]               // بُعد كل محطة عن المسار (م) — للفحص
+    }
+  },
+  "lineOrder": ["1","2","3","4","5","6"],
+  "transfers": [ { "station": "kafd", "from": "1", "to": "4", "minutes": 7 }, … ],
+  "params": { "cruiseKmh": 65, "stopPenaltySec": 50, "transferMinutes": 5, … }
+}
+```
+
+كيف تُبنى المقاطع: تُسقَط كل محطة عمودياً على المسار الهندسي (بنافذة بحث متقدمة لضمان الترتيب)، ثم يُقطع المسار عند نقاط الإسقاط؛ فتحصل كل وصلة بين محطتين متجاورتين على هندستها الحقيقية ومسافتها على طول السكة وزمنها التقديري `distance / cruise + stopPenalty`.
+
+## محرك التوجيه (`RMRouter`)
+
+- رسم بياني: عقدة لكل زوج (محطة، مسار). حواف الركوب بين المحطات المتجاورة على نفس المسار (الزمن التقديري)، وحواف التبديل بين مسارات المحطة نفسها (زمن التبديل، + عقوبة كبيرة في وضع «أقل تبديل»).
+- Dijkstra من جميع عقد محطة البداية إلى أي عقدة لمحطة الوصول.
+- النتيجة `itinerary`: `legs[]` (المسار، المحطات، الاتجاه = الطرف الذي يتجه إليه القطار، المسافة، الدقائق، الهندسة)، `transfers[]`، `totalMinutes`, `stops`, `transferCount`, `stations[]`.
+- `describeItinerary(network, itinerary, 'ar' | 'en')` → تعليمات نصية خطوة بخطوة بجموع عربية صحيحة.
+
+## الاستخدام البرمجي
+
+```js
+const net = require('./src/network'), router = require('./src/router');
+const NET = net.buildNetwork({ stations, lines, shapes, config });   // أو JSON.parse(dist/riyadh-metro-network.json)
+const trip = router.planRoute(NET, 'jeddah-road', 'airport-t1-2', { mode: 'fastest' });
+console.log(router.describeItinerary(NET, trip, 'ar').join('\n'));
+```
+
+في المتصفح تُحمَّل نفس الملفات كـ `<script>` وتتوفر على `window.RMGeo / RMNetwork / RMRouter / RMLinks / RMKml / RMGeoJson`.
+
+## سطر الأوامر
+
+```
+node scripts/route.js المركز المالي المتحف الوطني
+node scripts/route.js "Jeddah Road" "Airport Terminals 1-2" --en --fewest
+node scripts/route.js kafd an-naseem --json
+node scripts/route.js --list
+node scripts/route.js --near 24.7114 46.6745
+```
+
+## إضافة أو تعديل محطة
+
+1. أضف/عدّل السجل في `data/stations.json` (معرّف slug جديد فريد).
+2. أدرج المحطة في موضعها الصحيح ضمن `stations[]` للمسار في `data/lines.json`.
+3. `npm run build` ← يفشل البناء إن كانت المحطة بعيدة عن المسار الهندسي (> 400 م) أو خارج ترتيبها، ويعيد توليد كل الملفات.
+4. `npm test`.

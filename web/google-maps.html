@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مترو الرياض على Google Maps API — Riyadh Metro on Google Maps</title>
+  <link rel="icon" type="image/png" href="icons/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gm-panel { padding: 14px; overflow-y: auto; }
+    .gm-panel select { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 8px; background: #fff; }
+    #gmap { flex: 1; }
+    .keybox { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px; padding: 12px; font-size: 13px; line-height: 1.7; }
+    .keybox input { width: 100%; padding: 9px; border-radius: 8px; border: 1px solid var(--border); margin: 6px 0; direction: ltr; }
+    .gm-steps { font-size: 13px; line-height: 1.8; padding-inline-start: 18px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="icons/icon-192.png" alt=""><div><h1>مترو الرياض على Google Maps</h1><span>Google Maps JavaScript API integration</span></div></div>
+    <nav class="top-actions"><a href="index.html">← الخريطة التفاعلية</a><a class="hide-sm" href="../dist/riyadh-metro.kmz" download>⬇ KMZ</a></nav>
+  </header>
+  <main class="layout">
+    <aside class="panel gm-panel" id="panel">
+      <div id="keybox" class="keybox">
+        <b>مفتاح Google Maps API مطلوب</b><br>
+        هذه الصفحة ترسم الشبكة ومخطط الرحلات مباشرة فوق Google Maps باستخدام Maps JavaScript API. أدخل مفتاحك (يُحفظ محلياً في متصفحك فقط)، أو افتح الصفحة بالشكل <code dir="ltr">google-maps.html?key=YOUR_KEY</code>.
+        <input id="key" placeholder="AIza..." autocomplete="off">
+        <button class="btn primary" id="btn-key">تحميل الخريطة</button>
+        <p class="hint">احصل على مفتاح من <a href="https://console.cloud.google.com/google/maps-apis" target="_blank" rel="noopener">Google Cloud Console</a> مع تفعيل «Maps JavaScript API». البديل بدون مفتاح: استورد <code>riyadh-metro.kml</code> في <a href="https://www.google.com/maps/d/" target="_blank" rel="noopener">Google My Maps</a>.</p>
+      </div>
+      <div id="planner" style="display:none">
+        <label class="hint">من محطة</label>
+        <select id="from"></select>
+        <label class="hint">إلى محطة</label>
+        <select id="to"></select>
+        <button class="btn primary" id="btn-plan">عرض المسار على Google Maps</button>
+        <div class="btn-row">
+          <button class="btn small" id="btn-clear">مسح</button>
+          <button class="btn small" id="btn-kml-layer" title="يعمل فقط عندما يكون الموقع منشوراً على رابط عام (GitHub Pages)">طبقة KML عبر KmlLayer</button>
+        </div>
+        <div id="result"></div>
+        <p class="hint">الأزمنة تقديرية. المحطات ذات الإطار الأسود محطات تبادل. انقر على محطة لعرض معلوماتها.</p>
+      </div>
+    </aside>
+    <div id="gmap"></div>
+  </main>
+
+  <script src="data/metro-data.js"></script>
+  <script src="lib/geo.js"></script>
+  <script src="lib/network.js"></script>
+  <script src="lib/router.js"></script>
+  <script src="lib/links.js"></script>
+  <script>
+  (function () {
+    var DATA = window.RIYADH_METRO_DATA, NET = RMNetwork.buildNetwork(DATA);
+    var SITE = (DATA.config.project && DATA.config.project.siteUrl) || '';
+    var map, overlays = [], routeOverlays = [], info, kmlLayer = null;
+    var $ = function (s) { return document.querySelector(s); };
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+    var params = new URLSearchParams(location.search);
+    var key = params.get('key') || localStorage.getItem('rm.gmkey');
+    if (key) { $('#key').value = key; loadMaps(key); }
+    $('#btn-key').addEventListener('click', function () { var k = $('#key').value.trim(); if (k) { localStorage.setItem('rm.gmkey', k); loadMaps(k); } });
+
+    function loadMaps(k) {
+      window.__rmInit = initMap;
+      var s = document.createElement('script');
+      s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(k) + '&callback=__rmInit&language=ar&region=SA&v=weekly';
+      s.async = true; s.onerror = function () { alert('تعذّر تحميل Google Maps API — تحقق من المفتاح.'); };
+      document.head.appendChild(s);
+    }
+
+    function circle(color, interchange) {
+      return { path: google.maps.SymbolPath.CIRCLE, scale: interchange ? 8 : 6, fillColor: interchange ? '#ffffff' : color, fillOpacity: 1,
+        strokeColor: interchange ? '#1f1f1f' : '#ffffff', strokeWeight: interchange ? 3 : 2 };
+    }
+
+    function initMap() {
+      $('#keybox').style.display = 'none'; $('#planner').style.display = '';
+      map = new google.maps.Map($('#gmap'), { center: { lat: 24.72, lng: 46.70 }, zoom: 11, mapTypeControl: true, streetViewControl: false, fullscreenControl: true });
+      info = new google.maps.InfoWindow();
+      var bounds = new google.maps.LatLngBounds();
+      NET.lineOrder.forEach(function (lid) {
+        var line = NET.lines[lid];
+        var path = line.shape.map(function (p) { bounds.extend({ lat: p[0], lng: p[1] }); return { lat: p[0], lng: p[1] }; });
+        overlays.push(new google.maps.Polyline({ path: path, strokeColor: '#ffffff', strokeOpacity: 0.9, strokeWeight: 9, map: map, zIndex: 1 }));
+        overlays.push(new google.maps.Polyline({ path: path, strokeColor: line.color, strokeOpacity: 0.95, strokeWeight: 5, map: map, zIndex: 2 }));
+      });
+      Object.keys(NET.stations).forEach(function (id) {
+        var s = NET.stations[id];
+        var m = new google.maps.Marker({ position: { lat: s.lat, lng: s.lng }, map: map, title: s.name.ar + ' • ' + s.name.en,
+          icon: circle(NET.lines[s.lines[0]].color, s.interchange), zIndex: s.interchange ? 20 : 10 });
+        m.addListener('click', function () {
+          info.setContent('<div dir="rtl" style="font-family:Tahoma,Arial;min-width:220px"><b style="font-size:15px">' + esc(s.name.ar) + '</b><br><span style="color:#666">' + esc(s.name.en) + '</span><br>' +
+            s.lines.map(function (l) { var ln = NET.lines[l]; return '<span style="background:' + ln.color + ';color:' + (l === '4' ? '#222' : '#fff') + ';padding:1px 8px;border-radius:10px;font-size:12px;margin:2px">' + ln.number + ' ' + esc(ln.name.ar) + '</span>'; }).join(' ') +
+            '<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"><button onclick="window.__rmFrom(\'' + id + '\')">من هنا</button><button onclick="window.__rmTo(\'' + id + '\')">إلى هنا</button>' +
+            '<a href="' + RMLinks.googleMapsPlace(s.lat, s.lng) + '" target="_blank">خرائط Google</a> <a href="' + RMLinks.googleEarth(s.lat, s.lng) + '" target="_blank">Earth</a></div></div>');
+          info.open({ anchor: m, map: map });
+        });
+        overlays.push(m);
+      });
+      map.fitBounds(bounds);
+
+      var opts = Object.keys(NET.stations).sort(function (a, b) { return NET.stations[a].name.ar.localeCompare(NET.stations[b].name.ar, 'ar'); })
+        .map(function (id) { return '<option value="' + id + '">' + esc(NET.stations[id].name.ar) + ' — ' + esc(NET.stations[id].name.en) + '</option>'; }).join('');
+      $('#from').innerHTML = '<option value="">—</option>' + opts; $('#to').innerHTML = '<option value="">—</option>' + opts;
+      window.__rmFrom = function (id) { $('#from').value = id; info.close(); if ($('#to').value) plan(); };
+      window.__rmTo = function (id) { $('#to').value = id; info.close(); if ($('#from').value) plan(); };
+      $('#btn-plan').addEventListener('click', plan);
+      $('#btn-clear').addEventListener('click', function () { clearRoute(); $('#result').innerHTML = ''; });
+      $('#btn-kml-layer').addEventListener('click', function () {
+        if (kmlLayer) { kmlLayer.setMap(null); kmlLayer = null; return; }
+        var url = SITE.replace(/\/?$/, '/') + 'dist/riyadh-metro.kml';
+        kmlLayer = new google.maps.KmlLayer({ url: url, map: map, preserveViewport: true });
+        kmlLayer.addListener('status_changed', function () { if (kmlLayer.getStatus() !== 'OK') alert('KmlLayer status: ' + kmlLayer.getStatus() + ' — يجب أن يكون الملف على رابط عام: ' + url); });
+      });
+    }
+
+    function clearRoute() { routeOverlays.forEach(function (o) { o.setMap(null); }); routeOverlays = []; overlays.forEach(function (o) { if (o.setOptions) o.setOptions({ strokeOpacity: o.get('strokeColor') === '#ffffff' ? 0.9 : 0.95 }); }); }
+
+    function plan() {
+      var from = $('#from').value, to = $('#to').value;
+      if (!from || !to || from === to) return;
+      clearRoute();
+      var it = RMRouter.planRoute(NET, from, to, { mode: 'fastest' });
+      var b = new google.maps.LatLngBounds();
+      overlays.forEach(function (o) { if (o.setOptions && o.get('strokeColor')) o.setOptions({ strokeOpacity: 0.15 }); });
+      it.legs.forEach(function (leg) {
+        var path = leg.geometry.map(function (p) { b.extend({ lat: p[0], lng: p[1] }); return { lat: p[0], lng: p[1] }; });
+        routeOverlays.push(new google.maps.Polyline({ path: path, strokeColor: '#fff', strokeWeight: 13, strokeOpacity: 0.95, map: map, zIndex: 30 }));
+        routeOverlays.push(new google.maps.Polyline({ path: path, strokeColor: NET.lines[leg.line].color, strokeWeight: 8, map: map, zIndex: 31 }));
+      });
+      [[it.from, '#16a34a'], [it.to, '#dc2626']].forEach(function (x) {
+        var s = NET.stations[x[0]];
+        routeOverlays.push(new google.maps.Marker({ position: { lat: s.lat, lng: s.lng }, map: map, zIndex: 40, icon: { path: google.maps.SymbolPath.CIRCLE, scale: 11, fillColor: x[1], fillOpacity: 1, strokeColor: '#fff', strokeWeight: 3 } }));
+      });
+      map.fitBounds(b, 60);
+      var steps = RMRouter.describeItinerary(NET, it, 'ar');
+      var f = NET.stations[it.from], tt = NET.stations[it.to];
+      $('#result').innerHTML = '<div class="card"><ol class="gm-steps">' + steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>' +
+        '<a class="btn" target="_blank" href="' + RMLinks.googleMapsDirections({ origin: [f.lat, f.lng], destination: [tt.lat, tt.lng], travelmode: 'transit' }) + '">🗺️ افتح نفس الرحلة في تطبيق خرائط Google</a></div>';
+    }
+  })();
+  </script>
+</body>
+</html>

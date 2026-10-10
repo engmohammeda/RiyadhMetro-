@@ -1,0 +1,95 @@
+﻿line_id,line_name_en,line_name_ar,sequence,station_id,name_ar,name_en,latitude,longitude,structure,distance_from_prev_m,est_seconds_from_prev,cumulative_m
+1,Blue Line,المسار الأزرق,1,sab-bank,بنك الأول,SAB Bank,24.829492,46.616769,elevated,0,0,0
+1,Blue Line,المسار الأزرق,2,dr-sulaiman-al-habib,د. سليمان الحبيب,Dr. Sulaiman Al Habib,24.811587,46.625689,elevated,2185,171,2185
+1,Blue Line,المسار الأزرق,3,kafd,المركز المالي,KAFD,24.767874,46.643009,elevated,5297,343,7482
+1,Blue Line,المسار الأزرق,4,al-murooj,المروج,Al Murooj,24.754529,46.654453,deep_underground,2003,161,9485
+1,Blue Line,المسار الأزرق,5,king-fahad-district,حي الملك فهد,King Fahad District,24.745196,46.659143,deep_underground,1141,113,10626
+1,Blue Line,المسار الأزرق,6,king-fahad-district-2,حي الملك فهد 2,King Fahad District 2,24.736581,46.663508,deep_underground,1055,108,11681
+1,Blue Line,المسار الأزرق,7,stc,stc,stc,24.728617,46.665673,deep_underground,953,103,12634
+1,Blue Line,المسار الأزرق,8,al-wurud-2,الورود 2,Al Wurud 2,24.721021,46.671378,deep_underground,1183,116,13817
+1,Blue Line,المسار الأزرق,9,al-urubah,العروبة,Al Urubah,24.713921,46.674953,deep_underground,868,98,14685
+1,Blue Line,المسار الأزرق,10,alinma-bank,مصرف الإنماء,Alinma Bank,24.703002,46.680460,deep_underground,1336,124,16021
+1,Blue Line,المسار الأزرق,11,bank-albilad,بنك البلاد,Bank Albilad,24.694988,46.684502,deep_underground,980,104,17001
+1,Blue Line,المسار الأزرق,12,king-fahad-library,مكتبة الملك فهد,King Fahad Library,24.690295,46.687035,deep_underground,581,82,17582
+1,Blue Line,المسار الأزرق,13,ministry-of-interior,وزارة الداخلية,Ministry of Interior,24.674525,46.694842,deep_underground,1923,156,19505
+1,Blue Line,المسار الأزرق,14,al-murabba,المربع,Al Murabba,24.664925,46.702307,deep_underground,1331,124,20836
+1,Blue Line,المسار الأزرق,15,passport-department,الجوازات,Passport Department,24.659847,46.704256,deep_underground,598,83,21434
+1,Blue Line,المسار الأزرق,16,national-museum,المتحف الوطني,National Museum,24.645274,46.713158,deep_underground,1951,158,23385
+1,Blue Line,المسار الأزرق,17,al-batha,البطحاء,Al Bat'ha,24.637035,46.714766,deep_underground,945,102,24330
+1,Blue Line,المسار الأزرق,18,qasr-al-hokm,قصر الحكم,Qasr Al Hokm,24.628853,46.716015,deep_underground,919,101,25249
+1,Blue Line,المسار الأزرق,19,al-owd,العود,Al Owd,24.625734,46.721450,deep_underground,662,87,25911
+1,Blue Line,المسار الأزرق,20,skirinah,سكيرينة,Skirinah,24.617853,46.725348,elevated,961,103,26872
+1,Blue Line,المسار الأزرق,21,manfouhah,منفوحة,Manfouhah,24.610544,46.727522,elevated,847,97,27719
+1,Blue Line,المسار الأزرق,22,al-iman-hospital,مستشفى الإيمان,Al Iman Hospital,24.600514,46.735841,elevated,1523,134,29242
+1,Blue Line,المسار الأزرق,23,transportation-center,مركز النقل العام,Transportation Center,24.598293,46.745102,elevated,1395,127,30637
+1,Blue Line,المسار الأزرق,24,al-aziziah,العزيزية,Al Aziziah,24.587331,46.760904,elevated,2772,204,33409
+1,Blue Line,المسار الأزرق,25,ad-dar-al-baida,الدار البيضاء,Ad Dar Al Baida,24.560102,46.776391,elevated,3422,239,36831
+2,Red Line,المسار الأحمر,1,king-saud-university,جامعة الملك سعود,King Saud University,24.710306,46.628357,elevated,0,0,0
+2,Red Line,المسار الأحمر,2,king-salman-oasis,واحة الملك سلمان,King Salman Oasis,24.717063,46.638607,elevated,1353,125,1353
+2,Red Line,المسار الأحمر,3,kacst,المدينة التقنية,KACST,24.721102,46.648138,shallow_underground,1062,109,2415
+2,Red Line,المسار الأحمر,4,at-takhassussi,التخصصي,At Takhassussi,24.723844,46.654579,shallow_underground,719,90,3134
+2,Red Line,المسار الأحمر,5,stc,stc,stc,24.728617,46.665673,deep_underground,1299,122,4433
+2,Red Line,المسار الأحمر,6,al-wurud,الورود,Al Wurud,24.733350,46.677091,deep_underground,1330,124,5763
+2,Red Line,المسار الأحمر,7,king-abdulaziz-road,طريق الملك عبدالعزيز,King Abdulaziz Road,24.736825,46.685355,shallow_underground,920,101,6683
+2,Red Line,المسار الأحمر,8,ministry-of-education,وزارة التعليم,Ministry of Education,24.740113,46.694842,at_grade,1023,107,7706
+2,Red Line,المسار الأحمر,9,an-nuzhah,النزهة,An Nuzhah,24.748190,46.712296,at_grade,1977,160,9683
+2,Red Line,المسار الأحمر,10,riyadh-exhibition-center,مركز الرياض للمعارض,Riyadh Exhibition Center,24.754602,46.727109,elevated,1658,142,11341
+2,Red Line,المسار الأحمر,11,khalid-bin-alwaleed-road,طريق خالد بن الوليد,Khalid Bin Alwaleed Road,24.767801,46.759161,shallow_underground,3555,247,14896
+2,Red Line,المسار الأحمر,12,al-hamra,الحمراء,Al Hamra,24.775949,46.776687,elevated,1992,160,16888
+2,Red Line,المسار الأحمر,13,al-khaleej,الخليج,Al Khaleej,24.782246,46.794474,shallow_underground,1965,159,18853
+2,Red Line,المسار الأحمر,14,ishbiliyah,إشبيلية,Ishbiliyah,24.792432,46.810940,at_grade,2011,161,20864
+2,Red Line,المسار الأحمر,15,king-fahad-sport-city,مدينة الملك فهد الرياضية,King Fahad Sport City,24.793068,46.836596,at_grade,3383,237,24247
+3,Orange Line,المسار البرتقالي,1,jeddah-road,طريق جدة,Jeddah Road,24.591448,46.543547,elevated,0,0,0
+3,Orange Line,المسار البرتقالي,2,tuwaiq,طويق,Tuwaiq,24.585591,46.559825,elevated,2482,187,2482
+3,Orange Line,المسار البرتقالي,3,ad-douh,الدوح,Ad Douh,24.582748,46.588328,elevated,3102,222,5584
+3,Orange Line,المسار البرتقالي,4,western-station,المحطة الغربية,Western Station,24.581948,46.614496,elevated,3484,243,9068
+3,Orange Line,المسار البرتقالي,5,aishah-bint-abi-bakr-street,شارع عائشة بنت أبي بكر,Aishah Bint Abi Bakr Street,24.600620,46.643853,elevated,3641,252,12709
+3,Orange Line,المسار البرتقالي,6,dhahrat-al-badiah,ظهرة البديعة,Dhahrat Al Badiah,24.606738,46.653789,elevated,1213,117,13922
+3,Orange Line,المسار البرتقالي,7,sultanah,سلطانة,Sultanah,24.614897,46.686416,elevated,3567,248,17489
+3,Orange Line,المسار البرتقالي,8,al-jarradiyah,الجرادية,Al Jarradiyah,24.618400,46.697752,elevated,1213,117,18702
+3,Orange Line,المسار البرتقالي,9,courts-complex,مجمع المحاكم,Courts Complex,24.626910,46.712547,deep_underground,1780,149,20482
+3,Orange Line,المسار البرتقالي,10,qasr-al-hokm,قصر الحكم,Qasr Al Hokm,24.628853,46.716015,deep_underground,413,73,20895
+3,Orange Line,المسار البرتقالي,11,al-hilla,الحلة,Al Hilla,24.632332,46.721908,deep_underground,714,90,21609
+3,Orange Line,المسار البرتقالي,12,al-margab,المرقب,Al Margab,24.634561,46.726364,deep_underground,514,78,22123
+3,Orange Line,المسار البرتقالي,13,as-salhiyah,الصالحية,As Salhiyah,24.637835,46.732975,deep_underground,761,92,22884
+3,Orange Line,المسار البرتقالي,14,first-industrial-city,المدينة الصناعية الأولى,First Industrial City,24.644800,46.739317,deep_underground,1129,113,24013
+3,Orange Line,المسار البرتقالي,15,railway,سكة الحديد,Railway,24.649658,46.740647,deep_underground,573,82,24586
+3,Orange Line,المسار البرتقالي,16,al-malaz,الملز,Al Malaz,24.660280,46.744447,deep_underground,1344,124,25930
+3,Orange Line,المسار البرتقالي,17,jarir-district,حي جرير,Jarir District,24.673146,46.760446,elevated,2269,176,28199
+3,Orange Line,المسار البرتقالي,18,al-rajhi-grand-mosque,جامع الراجحي,Al Rajhi Grand Mosque,24.680223,46.779400,elevated,2074,165,30273
+3,Orange Line,المسار البرتقالي,19,harun-ar-rashid-road,طريق هارون الرشيد,Harun Ar Rashid Road,24.686197,46.796190,shallow_underground,1826,151,32099
+3,Orange Line,المسار البرتقالي,20,an-naseem,النسيم,An Naseem,24.700660,46.827361,shallow_underground,3538,246,35637
+3,Orange Line,المسار البرتقالي,21,hassan-bin-thabit-street,شارع حسان بن ثابت,Hassan Bin Thabit Street,24.712787,46.847537,shallow_underground,2448,186,38085
+3,Orange Line,المسار البرتقالي,22,khashm-al-an,خشم العان,Khashm Al An,24.721698,46.860626,shallow_underground,1660,142,39745
+4,Yellow Line,المسار الأصفر,1,kafd,المركز المالي,KAFD,24.767874,46.643009,elevated,0,0,0
+4,Yellow Line,المسار الأصفر,2,ar-rabi,الربيع,Ar Rabi,24.786217,46.660113,elevated,3204,227,3204
+4,Yellow Line,المسار الأصفر,3,uthman-bin-affan-road,طريق عثمان بن عفان,Uthman Bin Affan Road,24.801427,46.696216,elevated,4018,273,7222
+4,Yellow Line,المسار الأصفر,4,sabic,سابك,SABIC,24.807151,46.709583,shallow_underground,1492,133,8714
+4,Yellow Line,المسار الأصفر,5,pnu-1,جامعة الأميرة نورة 1,PNU 1,24.841688,46.717380,elevated,4351,291,13065
+4,Yellow Line,المسار الأصفر,6,pnu-2,جامعة الأميرة نورة 2,PNU 2,24.859653,46.704561,elevated,2411,184,15476
+4,Yellow Line,المسار الأصفر,7,airport-t5,المطار - الصالة 5,Airport Terminal 5,24.941012,46.710922,elevated,11008,660,26484
+4,Yellow Line,المسار الأصفر,8,airport-t3-4,المطار - الصالة ‎3-4,Airport Terminals 3-4,24.956145,46.702253,elevated,1900,155,28384
+4,Yellow Line,المسار الأصفر,9,airport-t1-2,المطار - الصالة ‎1-2,Airport Terminals 1-2,24.961040,46.699118,elevated,630,85,29014
+5,Green Line,المسار الأخضر,1,ministry-of-education,وزارة التعليم,Ministry of Education,24.740113,46.694842,deep_underground,0,0,0
+5,Green Line,المسار الأخضر,2,king-salman-park,حديقة الملك سلمان,King Salman Park,24.728332,46.700959,deep_underground,1604,139,1604
+5,Green Line,المسار الأخضر,3,as-sulimaniyah,السليمانية,As Sulimaniyah,24.712852,46.700393,deep_underground,2150,169,3754
+5,Green Line,المسار الأخضر,4,ad-dhabab,الضباب,Ad Dhabab,24.709759,46.707616,deep_underground,808,95,4562
+5,Green Line,المسار الأخضر,5,abu-dhabi-square,ميدان أبو ظبي,Abu Dhabi Square,24.706054,46.716320,deep_underground,987,105,5549
+5,Green Line,المسار الأخضر,6,officers-club,نادي الضباط,Officers Club,24.697885,46.717955,deep_underground,957,103,6506
+5,Green Line,المسار الأخضر,7,gosi,التأمينات الاجتماعية,GOSI,24.686271,46.718189,deep_underground,1292,122,7798
+5,Green Line,المسار الأخضر,8,al-wizarat,الوزارات,Al Wizarat,24.676019,46.718396,deep_underground,1140,113,8938
+5,Green Line,المسار الأخضر,9,ministry-of-defence,وزارة الدفاع,Ministry of Defence,24.667995,46.718270,deep_underground,892,99,9830
+5,Green Line,المسار الأخضر,10,king-abdulaziz-hospital,مستشفى الملك عبدالعزيز,King Abdulaziz Hospital,24.659676,46.717704,deep_underground,927,101,10757
+5,Green Line,المسار الأخضر,11,ministry-of-finance,وزارة المالية,Ministry of Finance,24.652222,46.716284,deep_underground,842,97,11599
+5,Green Line,المسار الأخضر,12,national-museum,المتحف الوطني,National Museum,24.645274,46.713158,deep_underground,801,94,12400
+6,Purple Line,المسار البنفسجي,1,kafd,المركز المالي,KAFD,24.767874,46.643009,elevated,0,0,0
+6,Purple Line,المسار البنفسجي,2,ar-rabi,الربيع,Ar Rabi,24.786217,46.660113,elevated,3178,226,3178
+6,Purple Line,المسار البنفسجي,3,uthman-bin-affan-road,طريق عثمان بن عفان,Uthman Bin Affan Road,24.801427,46.696216,elevated,4017,272,7195
+6,Purple Line,المسار البنفسجي,4,sabic,سابك,SABIC,24.807151,46.709583,shallow_underground,1492,133,8687
+6,Purple Line,المسار البنفسجي,5,granadia,غرناطية,Granadia,24.786527,46.729283,elevated,3744,257,12431
+6,Purple Line,المسار البنفسجي,6,al-yarmuk,اليرموك,Al Yarmuk,24.791298,46.766240,elevated,4620,306,17051
+6,Purple Line,المسار البنفسجي,7,al-hamra,الحمراء,Al Hamra,24.775949,46.776687,elevated,2033,163,19084
+6,Purple Line,المسار البنفسجي,8,al-andalus,الأندلس,Al Andalus,24.756780,46.790440,elevated,2560,192,21644
+6,Purple Line,المسار البنفسجي,9,khurais-road,طريق خريص,Khurais Road,24.740717,46.798813,elevated,2080,165,23724
+6,Purple Line,المسار البنفسجي,10,as-salam,السلام,As Salam,24.722751,46.811389,elevated,2376,182,26100
+6,Purple Line,المسار البنفسجي,11,an-naseem,النسيم,An Naseem,24.700660,46.827361,shallow_underground,2939,213,29039

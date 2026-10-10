@@ -1,0 +1,33 @@
+/* Riyadh Metro Navigator — service worker (offline app shell).
+ * Map tiles are intentionally NOT cached (tile-provider usage policies); everything else works offline. */
+var VERSION = 'rm-v2';
+var SHELL = [
+  './', './index.html', './styles.css', './app.js', './manifest.webmanifest',
+  './data/metro-data.js',
+  './lib/geo.js', './lib/network.js', './lib/router.js', './lib/links.js', './lib/kml.js', './lib/geojson.js', './lib/schematic.js', './lib/service.js',
+  './vendor/leaflet/leaflet.js', './vendor/leaflet/leaflet.css',
+  './vendor/leaflet/images/marker-icon.png', './vendor/leaflet/images/marker-shadow.png', './vendor/leaflet/images/layers.png',
+  './icons/favicon.png', './icons/icon-192.png', './icons/icon-512.png'
+];
+
+self.addEventListener('install', function (e) {
+  e.waitUntil(caches.open(VERSION).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));
+});
+self.addEventListener('activate', function (e) {
+  e.waitUntil(caches.keys().then(function (keys) {
+    return Promise.all(keys.filter(function (k) { return k !== VERSION; }).map(function (k) { return caches.delete(k); }));
+  }).then(function () { return self.clients.claim(); }));
+});
+self.addEventListener('fetch', function (e) {
+  var url = new URL(e.request.url);
+  if (e.request.method !== 'GET' || url.origin !== location.origin) return; // tiles & external links: network only
+  e.respondWith(
+    caches.match(e.request).then(function (cached) {
+      var fresh = fetch(e.request).then(function (res) {
+        if (res && res.ok) { var copy = res.clone(); caches.open(VERSION).then(function (c) { c.put(e.request, copy); }); }
+        return res;
+      }).catch(function () { return cached; });
+      return cached || fresh;
+    })
+  );
+});
