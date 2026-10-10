@@ -38,6 +38,7 @@
       <div class="tabs" role="tablist">
         <button data-tab="plan" class="active" data-i18n="tab.plan">🧭 خطّط رحلتك</button>
         <button data-tab="lines" data-i18n="tab.lines">🚇 المسارات</button>
+        <button data-tab="guide" data-i18n="tab.guide">📖 دليل الركاب</button>
         <button data-tab="info" data-i18n="tab.info">ℹ️ معلومات</button>
         <button data-tab="export" data-i18n="tab.export">🌍 Earth / Maps</button>
       </div>
@@ -70,8 +71,14 @@
         </div>
         <div id="popular"></div>
         <div id="nearby"></div>
+        <div id="live"></div>
         <div id="result"></div>
         <div id="station-card"></div>
+      </section>
+
+      <!-- ===== Passenger guide (rules, etiquette, first-ride tips) ===== -->
+      <section id="tab-guide" class="tab">
+        <div id="guide-content"></div>
       </section>
 
       <!-- ===== Lines ===== -->
@@ -108,12 +115,27 @@
       </div>
       <div class="map-toolbar">
         <button id="btn-basemap" title="تغيير الخلفية" data-i18n-title="map.basemap">🛰️</button>
+        <button id="btn-track" title="تتبع مباشر عبر GPS" data-i18n-title="track.btn">📍</button>
         <button id="btn-fit" title="عرض الشبكة كاملة" data-i18n-title="map.fit">⤢</button>
         <button id="btn-clear" title="مسح المسار" data-i18n-title="map.clear" style="display:none">🧹</button>
       </div>
       <div class="legend" id="legend"></div>
+      <div class="live-banner info" id="live-banner" hidden></div>
     </div>
   </main>
+
+  <!-- ===== First-visit tips modal ===== -->
+  <div class="fv-overlay" id="fv-overlay" hidden>
+    <div class="fv-modal">
+      <h2 data-i18n="fv.title">🚇 أول مرة تركب مترو الرياض؟</h2>
+      <p data-i18n="fv.sub">هذه أكثر خمسة أخطاء يقع فيها الركاب الجدد — دقيقة واحدة توفّر عليك الغرامات والحيرة:</p>
+      <ol class="fv-list" id="fv-list"></ol>
+      <div class="fv-actions">
+        <button class="btn primary" id="fv-guide" data-i18n="fv.open">📖 افتح دليل الركاب الكامل</button>
+        <button class="btn" id="fv-dismiss" data-i18n="fv.dismiss">فهمت ✓ لا تظهرها مرة أخرى</button>
+      </div>
+    </div>
+  </div>
 
   <div class="toast" id="toast"></div>
 
@@ -127,6 +149,7 @@
   <script src="lib/geojson.js"></script>
   <script src="lib/schematic.js"></script>
   <script src="lib/service.js"></script>
+  <script src="lib/live.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -158,6 +158,7 @@
         </div>
 
         <div id="result"></div>
+        <div id="live"></div>
         <div id="detail-card"></div>
         <p class="gm-foot" data-i18n="gm.foot">الأزمنة تقديرية (سرعة متوسطة + توقف لكل محطة + زمن التبديل). ساعات الخدمة والأسعار معلومات عامة — المرجع الرسمي تطبيق درب. المحطات ذات الإطار الأسود محطات تبادل؛ انقر على خط لإبرازه وعلى محطة لبطاقتها.</p>
       </div>
@@ -169,6 +170,7 @@
       <div class="gm-toolbar" id="gm-toolbar" hidden>
         <button id="btn-fit" title="عرض الشبكة كاملة" data-i18n-title="map.fit">⤢</button>
         <button id="btn-base" title="تغيير الخلفية" data-i18n-title="map.basemap">🛰️</button>
+        <button id="btn-track" title="تتبع مباشر عبر GPS" data-i18n-title="track.btn">📍</button>
         <button id="btn-full" title="ملء الشاشة" data-i18n-title="map.fullscreen">⛶</button>
         <button id="btn-kmlover" title="طبقة KML" data-i18n-title="map.kml">🗂️</button>
         <button id="btn-clear" title="مسح المسار" data-i18n-title="map.clear" hidden>🧹</button>
@@ -185,6 +187,7 @@
       </div>
 
       <div class="rm-flowtip" id="gm-tip"></div>
+      <div class="live-banner info" id="live-banner" hidden></div>
 
       <div class="gm-overlay" id="gm-loading" hidden>
         <div class="box"><div class="gm-spinner"></div><b data-i18n="gm.loading">جارٍ تحميل Google Maps…</b></div>
@@ -209,6 +212,7 @@
   <script src="lib/kml.js"></script>
   <script src="lib/geojson.js"></script>
   <script src="lib/service.js"></script>
+  <script src="lib/live.js"></script>
   <script>
   /* Riyadh Metro on Google Maps — professional Google Maps Platform integration.
    * Network rendering: official line colours with white casing over the real alignments,
@@ -295,7 +299,18 @@
         'toast.copied': 'تم نسخ الرابط ✓', 'toast.kml': 'تم تنزيل ملف KML — افتحه في Google Earth',
         'toast.kmlon': 'طبقة KML معروضة (تتطلب نشراً على رابط عام)', 'toast.kmloff': 'أُزيلت طبقة KML',
         'toast.kmlfail': 'تعذّر تحميل طبقة KML — الملف يجب أن يكون على رابط عام ({s})',
-        'popular.from': 'من {a} إلى {b}'
+        'popular.from': 'من {a} إلى {b}',
+        'track.btn': 'تتبع مباشر عبر GPS', 'track.err': 'تعذّر الوصول إلى موقعك — اسمح بالوصول إلى الموقع من إعدادات المتصفح.',
+        'track.started': 'التتبع المباشر مفعّل 📍', 'track.stopped': 'تم إيقاف التتبع المباشر',
+        'track.live': '📍 أنت الآن هنا — تتبع مباشر', 'track.acc': 'دقة الموقع ~{n} م',
+        'track.nearestTitle': 'أقرب محطة إليك الآن — اركب منها', 'track.board': 'اركب من هنا',
+        'track.setDest': 'الآن اختر وجهتك في الأعلى ↑ وسيُحسب المسار من أقرب محطة إليك.',
+        'track.trip': '🚆 رحلتك المباشرة', 'track.at': 'أنت قرب محطة «{s}»',
+        'track.remain': 'المتبقي: {n} محطة حتى «{s}»', 'track.toEnd': '{d} حتى وجهتك',
+        'track.prepAlight': '🔔 استعد للنزول — محطتك «{s}» على بُعد {d}',
+        'track.arrived': '🎉 وصلت إلى «{s}» — لا تنسَ تمرير البطاقة عند بوابة الخروج',
+        'track.prepTransfer': '🔁 استعد للتبديل في «{s}» إلى {line} — على بُعد {d}',
+        'track.info': '📍 أقرب محطة على رحلتك: «{s}» · المتبقي {n} محطة'
       },
       en: {
         'gm.title': 'Riyadh Metro on Google Maps',
@@ -354,7 +369,18 @@
         'toast.copied': 'Link copied ✓', 'toast.kml': 'KML downloaded — open it in Google Earth',
         'toast.kmlon': 'KML layer shown (requires a public URL)', 'toast.kmloff': 'KML layer removed',
         'toast.kmlfail': 'KML layer failed — the file must be on a public URL ({s})',
-        'popular.from': '{a} → {b}'
+        'popular.from': '{a} → {b}',
+        'track.btn': 'Live GPS tracking', 'track.err': 'Could not access your location — please allow location access in your browser settings.',
+        'track.started': 'Live tracking on 📍', 'track.stopped': 'Live tracking stopped',
+        'track.live': '📍 You are here — live tracking', 'track.acc': 'accuracy ~{n} m',
+        'track.nearestTitle': 'Nearest station to you right now — board from it', 'track.board': 'Board here',
+        'track.setDest': 'Now choose your destination above ↑ and the route will start from your nearest station.',
+        'track.trip': '🚆 Your live trip', 'track.at': 'You are near {s} station',
+        'track.remain': '{n} stops left to {s}', 'track.toEnd': '{d} to your destination',
+        'track.prepAlight': '🔔 Get ready to alight — your station {s} is {d} away',
+        'track.arrived': '🎉 You have arrived at {s} — remember to tap out at the exit gate',
+        'track.prepTransfer': '🔁 Get ready to change at {s} to {line} — {d} away',
+        'track.info': '📍 Nearest station on your trip: {s} · {n} stops left'
       }
     };
     var DOW = {
@@ -369,7 +395,8 @@
       mode: 'fastest', depart: 'now',
       itins: [], activeIt: 0,
       hidden: {}, showPlaces: false, focusedLine: null,
-      baseIdx: 0, mapReady: false, key: null
+      baseIdx: 0, mapReady: false, key: null,
+      track: { on: false, watchId: null, follow: true, lat: null, lng: null, acc: null, lastAlert: '' }
     };
 
     function $(s) { return document.querySelector(s); }
@@ -963,6 +990,7 @@
       $('#btn-rgeojson').addEventListener('click', function () {
         download('riyadh-metro-route-' + it.from + '-' + it.to + '.geojson', JSON.stringify(RMGeoJson.routeGeoJson(NET, it), null, 1), 'application/geo+json');
       });
+      renderLiveCard(); updateLiveBanner();
     }
 
     /* ----------------------------------------------------- station / place cards */
@@ -1100,9 +1128,122 @@
       $('#lang-select').value = state.lang;
       renderLegend(); renderPopular(); renderDepartOptions(); renderStatus(); fillInputs();
       Object.keys(labelMarkers).forEach(function (id) { labelMarkers[id]._el.textContent = NET.stations[id].name[NL()]; });
+      if (state.track.on) { renderLiveCard(); updateLiveBanner(); }
       if (state.itins.length) renderJourney();
       if (state.focusedLine) renderLineCard(state.focusedLine);
       localStorage.setItem('rm.lang', state.lang);
+    }
+
+
+    /* ------------------------------------------------- live GPS tracking */
+    var userMarker = null, userCircle = null;
+
+    function toggleTrack() { if (state.track.on) stopTrack(); else startTrack(); }
+
+    function startTrack() {
+      if (!navigator.geolocation) { toast(t('track.err')); return; }
+      state.track.on = true; state.track.follow = true;
+      $('#btn-track').classList.add('active-track');
+      state.track.watchId = navigator.geolocation.watchPosition(onTrackPos, onTrackErr, { enableHighAccuracy: true, maximumAge: 3000, timeout: 15000 });
+      if (window.innerWidth <= 860) $('#panel').classList.remove('collapsed');
+      renderLiveCard(); updateLiveBanner();
+      toast(t('track.started'));
+    }
+
+    function stopTrack(silent) {
+      if (state.track.watchId != null && navigator.geolocation) navigator.geolocation.clearWatch(state.track.watchId);
+      state.track = { on: false, watchId: null, follow: true, lat: null, lng: null, acc: null, lastAlert: '' };
+      $('#btn-track').classList.remove('active-track');
+      if (userMarker) { userMarker.set('map', null); userMarker = null; }
+      if (userCircle) { userCircle.set('map', null); userCircle = null; }
+      $('#live').innerHTML = '';
+      $('#live-banner').hidden = true;
+      if (!silent) toast(t('track.stopped'));
+    }
+
+    function onTrackErr() { toast(t('track.err')); stopTrack(true); }
+    function vibrate(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (e) { /* unsupported */ } }
+
+    function onTrackPos(pos) {
+      state.track.lat = pos.coords.latitude; state.track.lng = pos.coords.longitude;
+      state.track.acc = pos.coords.accuracy || 0;
+      drawTrackUser();
+      if (state.track.follow) map.panTo({ lat: state.track.lat, lng: state.track.lng });
+      renderLiveCard(); updateLiveBanner();
+    }
+
+    function drawTrackUser() {
+      var ll = { lat: state.track.lat, lng: state.track.lng };
+      if (!userMarker) {
+        var el = document.createElement('div');
+        el.className = 'gm-user'; el.innerHTML = '<div class="pulse"></div>';
+        userMarker = makeMarker({ position: ll, zIndex: 90, clickable: false, content: el, legacy: { position: ll, map: map } });
+      } else userMarker.set('position', ll);
+      var r = Math.min(state.track.acc || 40, 400);
+      if (!userCircle) {
+        userCircle = new google.maps.Circle({ center: ll, radius: r, map: map, fillColor: '#2563eb', fillOpacity: 0.08, strokeColor: '#2563eb', strokeWeight: 1, clickable: false, zIndex: 1 });
+      } else { userCircle.setCenter(ll); userCircle.setRadius(r); }
+    }
+
+    /** Live card: nearest stations ("board here") + progress of the planned trip. */
+    function renderLiveCard() {
+      var box = $('#live');
+      if (!state.track.on || state.track.lat == null) { if (!state.track.on) box.innerHTML = ''; return; }
+      var lat = state.track.lat, lng = state.track.lng;
+      var walkKmh = (CFG.travelModel && CFG.travelModel.walkingKmh) || 4.5;
+      var near = RMNetwork.nearestStations(NET, lat, lng, 3);
+      var html = '<div class="card"><h3>' + t('track.live') + '</h3>' +
+        '<div class="muted" style="font-size:12px;margin:2px 0 4px">' + t('track.acc', { n: Math.round(state.track.acc || 0) }) + '</div>' +
+        '<div class="section-title" style="margin:6px 0 2px;font-size:13px">🚉 ' + t('track.nearestTitle') + '</div>';
+      html += near.map(function (n) {
+        var st = n.station;
+        return '<div class="live-row">' + st.lines.map(function (l) { return badge(l, true); }).join('') +
+          '<b>' + esc(st.name[NL()]) + '</b><span class="walk">' + fmtDist(n.distanceM) + ' · ' + RMLive.walkMinutes(n.distanceM, walkKmh) + ' ' + t('min') + '</span>' +
+          '<span style="margin-inline-start:auto;display:flex;gap:4px">' +
+          '<button class="btn small" data-board="' + st.id + '">🚆 ' + t('track.board') + '</button>' +
+          '<a class="btn small" target="_blank" rel="noopener" href="' + RMLinks.googleMapsDirections({ origin: [lat, lng], destination: [st.lat, st.lng], travelmode: 'walking' }) + '">🚶</a></span></div>';
+      }).join('');
+      if (!state.to) html += '<p class="hint">' + t('track.setDest') + '</p>';
+
+      var it = state.itins[state.activeIt];
+      if (it) {
+        var prog = RMLive.statusAt(NET, it, lat, lng);
+        if (prog) {
+          html += '<div class="section-title" style="margin:8px 0 2px;font-size:13px">' + t('track.trip') + '</div>' +
+            '<div class="live-row"><b>' + t('track.at', { s: sname(prog.nearestStation) }) + '</b><span class="walk">' + fmtDist(prog.nearestDistanceM) + '</span></div>' +
+            '<div class="live-row"><span>' + t('track.remain', { n: prog.remainingStops, s: sname(prog.destination) }) + '</span><span class="walk">' + t('track.toEnd', { d: fmtDist(prog.distanceToEndM) }) + '</span></div>' +
+            (prog.nextTransfer ? '<div class="live-row"><span>🔁 ' + esc(sname(prog.nextTransfer.station)) + ' ' + badge(prog.nextTransfer.toLine, true) + '</span><span class="walk">' + fmtDist(prog.distanceToTransferM) + '</span></div>' : '');
+        }
+      }
+      box.innerHTML = html + '</div>';
+      $$('#live [data-board]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          state.from = b.dataset.board; state.fromPlace = null; fillInputs();
+          if (state.to) plan(); else { updateHash(); $('#to').focus(); }
+        });
+      });
+    }
+
+    /** Floating alert banner: prepare to transfer / prepare to alight / arrived. */
+    function updateLiveBanner() {
+      var banner = $('#live-banner');
+      var it = state.itins[state.activeIt];
+      if (!state.track.on || !it || state.track.lat == null) { banner.hidden = true; return; }
+      var prog = RMLive.statusAt(NET, it, state.track.lat, state.track.lng);
+      if (!prog) { banner.hidden = true; return; }
+      var cls = 'info', msg = t('track.info', { s: sname(prog.nearestStation), n: prog.remainingStops });
+      if (prog.prepareTransfer && prog.nextTransfer) {
+        cls = 'prep'; msg = t('track.prepTransfer', { s: sname(prog.nextTransfer.station), line: lname(prog.nextTransfer.toLine), d: fmtDist(prog.distanceToTransferM) });
+      }
+      if (prog.prepareAlight) { cls = 'prep'; msg = t('track.prepAlight', { s: sname(prog.destination), d: fmtDist(prog.distanceToEndM) }); }
+      if (prog.arrived) { cls = 'ok'; msg = t('track.arrived', { s: sname(prog.destination) }); }
+      banner.className = 'live-banner ' + cls;
+      banner.innerHTML = msg;
+      banner.hidden = false;
+      if (state.track.lastAlert !== cls + msg) {
+        if (cls === 'ok') vibrate([200, 80, 200]); else if (cls === 'prep') vibrate(150);
+        state.track.lastAlert = cls + msg;
+      }
     }
 
     /* ------------------------------------------------------------ map setup */
@@ -1129,6 +1270,8 @@
 
       map.addListener('zoom_changed', updateLabels);
       map.addListener('click', function () { hideLineTip(); });
+      map.addListener('dragstart', function () { if (state.track.on) state.track.follow = false; });
+      $('#btn-track').addEventListener('click', toggleTrack);
 
       // toolbar
       $('#gm-toolbar').hidden = false;
@@ -1188,6 +1331,7 @@
       $('#result').innerHTML = '';
       setNetworkOpacity(state.focusedLine);
       updateLabels();
+      renderLiveCard(); updateLiveBanner();
     }
 
     /* ------------------------------------------------------------------ wire */

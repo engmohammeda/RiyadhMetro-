@@ -35,7 +35,7 @@
       'app.title': 'مترو الرياض — دليل التنقل',
       'app.subtitle': 'Riyadh Metro Navigator · 6 مسارات · 83 محطة',
       'top.kmz': '⬇ KMZ لـ Google Earth',
-      'tab.plan': '🧭 خطّط رحلتك', 'tab.lines': '🚇 المسارات', 'tab.info': 'ℹ️ معلومات', 'tab.export': '🌍 Earth / Maps',
+      'tab.plan': '🧭 خطّط رحلتك', 'tab.lines': '🚇 المسارات', 'tab.guide': '📖 دليل الركاب', 'tab.info': 'ℹ️ معلومات', 'tab.export': '🌍 Earth / Maps',
       'plan.from': 'من', 'plan.to': 'إلى', 'plan.search': 'محطة أو مكان: العليا، برج المملكة، المطار…',
       'plan.locate': 'أقرب محطة لموقعي', 'plan.swap': 'تبديل', 'plan.clear': 'مسح',
       'plan.leaveAt': '🕒 المغادرة', 'plan.now': 'الآن',
@@ -81,13 +81,27 @@
       'info.hours': '🕒 ساعات التشغيل', 'info.fares': '🎫 التذاكر والأسعار', 'info.ticket': 'التذكرة', 'info.standard': 'عادي', 'info.first': 'الدرجة الأولى',
       'info.tips': '💡 نصائح', 'info.destinations': '📍 وجهات شائعة وأقرب محطة لها', 'info.about': 'ℹ️ عن المشروع', 'info.support': 'الدعم',
       'info.aboutText': 'مشروع مجتمعي مفتوح المصدر وغير رسمي، لا يتبع الهيئة الملكية لمدينة الرياض أو مشغّل المترو. يجمع بين خريطة جغرافية دقيقة لمسارات المترو (للاستيراد في Google Earth وخرائط Google)، ومخطط تخطيطي للشبكة، ومخطِّط رحلات يعمل بالكامل داخل المتصفح. إحداثيات المحطات ومسارات الخطوط من بيانات المسارات المفتوحة للنقل العام بالرياض؛ الأوقات والأسعار معلومات عامة قد تتغير؛ مواقع الأماكن تقريبية الغرض منها اختيار المحطة المناسبة فقط.',
-      'info.credits': 'استُلهمت تجربة الاستخدام (المخطط التفاعلي، اختيار المحطتين بالنقر، الروابط القصيرة، ساعات العمل والأسعار) من مشاريع مجتمعية مثل riyadhmetro.fyi — مع بيانات وشيفرة ورسوم مستقلة بالكامل.'
+      'info.credits': 'استُلهمت تجربة الاستخدام (المخطط التفاعلي، اختيار المحطتين بالنقر، الروابط القصيرة، ساعات العمل والأسعار) من مشاريع مجتمعية مثل riyadhmetro.fyi — مع بيانات وشيفرة ورسوم مستقلة بالكامل.',
+      'track.btn': 'تتبع مباشر عبر GPS', 'track.err': 'تعذّر الوصول إلى موقعك — اسمح بالوصول إلى الموقع من إعدادات المتصفح.',
+      'track.started': 'التتبع المباشر مفعّل 📍', 'track.stopped': 'تم إيقاف التتبع المباشر',
+      'track.live': '📍 أنت الآن هنا — تتبع مباشر', 'track.acc': 'دقة الموقع ~{n} م',
+      'track.nearestTitle': 'أقرب محطة إليك الآن — اركب منها', 'track.board': 'اركب من هنا',
+      'track.setDest': 'الآن اختر وجهتك في الأعلى ↑ وسيُحسب المسار من أقرب محطة إليك.',
+      'track.trip': '🚆 رحلتك المباشرة', 'track.at': 'أنت قرب محطة «{s}»',
+      'track.remain': 'المتبقي: {n} محطة حتى «{s}»', 'track.toEnd': '{d} حتى وجهتك',
+      'track.prepAlight': '🔔 استعد للنزول — محطتك «{s}» على بُعد {d}',
+      'track.arrived': '🎉 وصلت إلى «{s}» — لا تنسَ تمرير البطاقة عند بوابة الخروج',
+      'track.prepTransfer': '🔁 استعد للتبديل في «{s}» إلى {line} — على بُعد {d}',
+      'track.info': '📍 أقرب محطة على رحلتك: «{s}» · المتبقي {n} محطة',
+      'fv.title': '🚇 أول مرة تركب مترو الرياض؟',
+      'fv.sub': 'هذه أكثر خمسة أخطاء يقع فيها الركاب الجدد — دقيقة واحدة توفّر عليك الغرامات والحيرة:',
+      'fv.open': '📖 افتح دليل الركاب الكامل', 'fv.dismiss': 'فهمت ✓ لا تظهرها مرة أخرى'
     },
     en: {
       'app.title': 'Riyadh Metro Navigator',
       'app.subtitle': 'مترو الرياض · 6 lines · 83 stations',
       'top.kmz': '⬇ KMZ for Google Earth',
-      'tab.plan': '🧭 Plan a trip', 'tab.lines': '🚇 Lines', 'tab.info': 'ℹ️ Info', 'tab.export': '🌍 Earth / Maps',
+      'tab.plan': '🧭 Plan a trip', 'tab.lines': '🚇 Lines', 'tab.guide': '📖 Rider guide', 'tab.info': 'ℹ️ Info', 'tab.export': '🌍 Earth / Maps',
       'plan.from': 'From', 'plan.to': 'To', 'plan.search': 'Station or place: Olaya, Kingdom Centre, airport…',
       'plan.locate': 'Nearest station to me', 'plan.swap': 'Swap', 'plan.clear': 'Clear',
       'plan.leaveAt': '🕒 Leave at', 'plan.now': 'Now',
@@ -133,11 +147,25 @@
       'info.hours': '🕒 Operating hours', 'info.fares': '🎫 Tickets & fares', 'info.ticket': 'Ticket', 'info.standard': 'Standard', 'info.first': 'First class',
       'info.tips': '💡 Tips', 'info.destinations': '📍 Popular destinations and their nearest station', 'info.about': 'ℹ️ About', 'info.support': 'Support',
       'info.aboutText': 'An unofficial, open-source community project — not affiliated with the Royal Commission for Riyadh City or the metro operator. It combines an accurate geographic map of the metro alignments (importable into Google Earth and Google Maps), a schematic network diagram and a journey planner that runs entirely in your browser. Station coordinates and alignments come from Riyadh public-transport open route data; hours and fares are public information that may change; place locations are approximate and only meant to pick the right station.',
-      'info.credits': 'The user experience (interactive diagram, tap-to-plan, short links, hours & fares) is inspired by community projects such as riyadhmetro.fyi — with fully independent data, code and artwork.'
+      'info.credits': 'The user experience (interactive diagram, tap-to-plan, short links, hours & fares) is inspired by community projects such as riyadhmetro.fyi — with fully independent data, code and artwork.',
+      'track.btn': 'Live GPS tracking', 'track.err': 'Could not access your location — please allow location access in your browser settings.',
+      'track.started': 'Live tracking on 📍', 'track.stopped': 'Live tracking stopped',
+      'track.live': '📍 You are here — live tracking', 'track.acc': 'accuracy ~{n} m',
+      'track.nearestTitle': 'Nearest station to you right now — board from it', 'track.board': 'Board here',
+      'track.setDest': 'Now choose your destination above ↑ and the route will start from your nearest station.',
+      'track.trip': '🚆 Your live trip', 'track.at': 'You are near {s} station',
+      'track.remain': '{n} stops left to {s}', 'track.toEnd': '{d} to your destination',
+      'track.prepAlight': '🔔 Get ready to alight — your station {s} is {d} away',
+      'track.arrived': '🎉 You have arrived at {s} — remember to tap out at the exit gate',
+      'track.prepTransfer': '🔁 Get ready to change at {s} to {line} — {d} away',
+      'track.info': '📍 Nearest station on your trip: {s} · {n} stops left',
+      'fv.title': '🚇 First time on the Riyadh Metro?',
+      'fv.sub': 'The five most common first-ride mistakes — one minute saves you fines and confusion:',
+      'fv.open': '📖 Open the full rider guide', 'fv.dismiss': 'Got it ✓ don\u2019t show again'
     },
     ur: {
       'app.title': 'ریاض میٹرو — سفر گائیڈ',
-      'tab.plan': '🧭 سفر کی منصوبہ بندی', 'tab.lines': '🚇 لائنیں', 'tab.info': 'ℹ️ معلومات', 'tab.export': '🌍 Earth / Maps',
+      'tab.plan': '🧭 سفر کی منصوبہ بندی', 'tab.lines': '🚇 لائنیں', 'tab.guide': '📖 مسافر گائیڈ', 'tab.info': 'ℹ️ معلومات', 'tab.export': '🌍 Earth / Maps',
       'plan.from': 'کہاں سے', 'plan.to': 'کہاں تک', 'plan.search': 'اسٹیشن یا جگہ تلاش کریں…', 'plan.leaveAt': '🕒 روانگی', 'plan.now': 'ابھی',
       'plan.fastest': '⚡ تیز ترین', 'plan.fewest': '🔁 کم تبدیلی', 'plan.go': 'راستہ دکھائیں', 'plan.new': 'نیا سفر', 'plan.locate': 'میرے قریب ترین اسٹیشن',
       'plan.hint': 'اسٹیشن یا جگہ کا نام لکھیں، یا ڈایاگرام پر دو اسٹیشنوں پر ٹیپ کریں۔ اوقات تخمینی ہیں۔', 'plan.popular': 'مقبول سفر',
@@ -162,7 +190,7 @@
     },
     hi: {
       'app.title': 'रियाद मेट्रो — यात्रा गाइड',
-      'tab.plan': '🧭 यात्रा योजना', 'tab.lines': '🚇 लाइनें', 'tab.info': 'ℹ️ जानकारी', 'tab.export': '🌍 Earth / Maps',
+      'tab.plan': '🧭 यात्रा योजना', 'tab.lines': '🚇 लाइनें', 'tab.guide': '📖 यात्री गाइड', 'tab.info': 'ℹ️ जानकारी', 'tab.export': '🌍 Earth / Maps',
       'plan.from': 'कहाँ से', 'plan.to': 'कहाँ तक', 'plan.search': 'स्टेशन या जगह खोजें…', 'plan.leaveAt': '🕒 प्रस्थान', 'plan.now': 'अभी',
       'plan.fastest': '⚡ सबसे तेज़', 'plan.fewest': '🔁 कम बदलाव', 'plan.go': 'रास्ता दिखाएँ', 'plan.new': 'नई यात्रा', 'plan.locate': 'मेरे पास का स्टेशन',
       'plan.hint': 'स्टेशन या जगह का नाम लिखें, या डायग्राम पर दो स्टेशन टैप करें। समय अनुमानित हैं।', 'plan.popular': 'लोकप्रिय यात्राएँ',
@@ -187,7 +215,7 @@
     },
     bn: {
       'app.title': 'রিয়াদ মেট্রো — যাত্রা গাইড',
-      'tab.plan': '🧭 যাত্রা পরিকল্পনা', 'tab.lines': '🚇 লাইন', 'tab.info': 'ℹ️ তথ্য', 'tab.export': '🌍 Earth / Maps',
+      'tab.plan': '🧭 যাত্রা পরিকল্পনা', 'tab.lines': '🚇 লাইন', 'tab.guide': '📖 যাত্রী গাইড', 'tab.info': 'ℹ️ তথ্য', 'tab.export': '🌍 Earth / Maps',
       'plan.from': 'কোথা থেকে', 'plan.to': 'কোথায়', 'plan.search': 'স্টেশন বা জায়গা খুঁজুন…', 'plan.leaveAt': '🕒 ছাড়ার সময়', 'plan.now': 'এখন',
       'plan.fastest': '⚡ দ্রুততম', 'plan.fewest': '🔁 কম বদল', 'plan.go': 'রুট দেখান', 'plan.new': 'নতুন যাত্রা', 'plan.locate': 'আমার কাছের স্টেশন',
       'plan.hint': 'স্টেশন বা জায়গার নাম লিখুন, অথবা ডায়াগ্রামে দুটি স্টেশনে ট্যাপ করুন। সময় আনুমানিক।', 'plan.popular': 'জনপ্রিয় যাত্রা',
@@ -212,7 +240,7 @@
     },
     fil: {
       'app.title': 'Riyadh Metro — Gabay sa Biyahe',
-      'tab.plan': '🧭 Magplano', 'tab.lines': '🚇 Mga linya', 'tab.info': 'ℹ️ Impormasyon', 'tab.export': '🌍 Earth / Maps',
+      'tab.plan': '🧭 Magplano', 'tab.lines': '🚇 Mga linya', 'tab.guide': '📖 Gabay sa Biyahe', 'tab.info': 'ℹ️ Impormasyon', 'tab.export': '🌍 Earth / Maps',
       'plan.from': 'Mula sa', 'plan.to': 'Papunta sa', 'plan.search': 'Hanapin ang istasyon o lugar…', 'plan.leaveAt': '🕒 Alis', 'plan.now': 'Ngayon',
       'plan.fastest': '⚡ Pinakamabilis', 'plan.fewest': '🔁 Pinakakaunting lipat', 'plan.go': 'Ipakita ang ruta', 'plan.new': 'Bagong biyahe', 'plan.locate': 'Pinakamalapit na istasyon sa akin',
       'plan.hint': 'I-type ang pangalan ng istasyon o lugar, o i-tap ang dalawang istasyon sa diagram. Tantiya lang ang oras.', 'plan.popular': 'Sikat na biyahe',
@@ -237,7 +265,7 @@
     },
     fr: {
       'app.title': 'Métro de Riyad — Guide de trajet',
-      'tab.plan': '🧭 Itinéraire', 'tab.lines': '🚇 Lignes', 'tab.info': 'ℹ️ Infos', 'tab.export': '🌍 Earth / Maps',
+      'tab.plan': '🧭 Itinéraire', 'tab.lines': '🚇 Lignes', 'tab.guide': '📖 Guide du passager', 'tab.info': 'ℹ️ Infos', 'tab.export': '🌍 Earth / Maps',
       'plan.from': 'Départ', 'plan.to': 'Arrivée', 'plan.search': 'Station ou lieu…', 'plan.leaveAt': '🕒 Départ à', 'plan.now': 'Maintenant',
       'plan.fastest': '⚡ Le plus rapide', 'plan.fewest': '🔁 Moins de correspondances', 'plan.go': 'Afficher l’itinéraire', 'plan.new': 'Nouveau trajet', 'plan.locate': 'Station la plus proche de moi',
       'plan.hint': 'Saisissez une station ou un lieu (les anciens noms comme « Olaya » fonctionnent), ou touchez deux stations sur le plan. Durées estimées.', 'plan.popular': 'Trajets fréquents',
@@ -262,7 +290,7 @@
     },
     ru: {
       'app.title': 'Метро Эр-Рияда — навигатор',
-      'tab.plan': '🧭 Маршрут', 'tab.lines': '🚇 Линии', 'tab.info': 'ℹ️ Инфо', 'tab.export': '🌍 Earth / Maps',
+      'tab.plan': '🧭 Маршрут', 'tab.lines': '🚇 Линии', 'tab.guide': '📖 Гид пассажира', 'tab.info': 'ℹ️ Инфо', 'tab.export': '🌍 Earth / Maps',
       'plan.from': 'Откуда', 'plan.to': 'Куда', 'plan.search': 'Станция или место…', 'plan.leaveAt': '🕒 Отправление', 'plan.now': 'Сейчас',
       'plan.fastest': '⚡ Быстрее всего', 'plan.fewest': '🔁 Меньше пересадок', 'plan.go': 'Показать маршрут', 'plan.new': 'Новый маршрут', 'plan.locate': 'Ближайшая станция ко мне',
       'plan.hint': 'Введите станцию или место (старые названия вроде «Olaya» тоже работают) или нажмите две станции на схеме. Время приблизительное.', 'plan.popular': 'Популярные маршруты',
@@ -305,6 +333,144 @@
     ]
   };
 
+  /* ------------------------------------------------- passenger guide data */
+  var GUIDE = {
+    ar: {
+      title: 'دليل ركاب مترو الرياض — قواعد وآداب ونصائح أول رحلة',
+      sections: [
+        { icon: '🎫', title: 'قبل أن تركب', html:
+          '<ul><li>احصل على بطاقة <b>درب</b> أو استخدم تطبيق درب أو بطاقتك البنكية اللاتلامسية، واشحنها قبل الوصول إلى المحطة.</li>' +
+          '<li>مرّر بطاقتك على <b>بوابة الدخول</b> عند الدخول وعلى <b>بوابة الخروج</b> عند الخروج — نسيان التمرير عند الخروج مخالفة وقد تُعتبر رحلتك غير مكتملة.</li>' +
+          '<li>خطّط رحلتك مسبقاً من هذا التطبيق واعرف <b>رقم المسار واتجاهه</b> قبل الوصول إلى الرصيف.</li>' +
+          '<li>آخر قطار قد يغادر محطتك قبل موعد الإغلاق المعلن — تحقق مبكراً للرحلات المتأخرة.</li></ul>' },
+        { icon: '🚉', title: 'محطات الصعود والنزول — هل هناك فرق؟', html:
+          '<ul><li><b>لا يوجد فرق</b>: كل محطة في مترو الرياض تصعد منها وتنزل فيها؛ لا توجد «محطة صعود» وأخرى «نزول».</li>' +
+          '<li>الذي يحدد رحلتك هو <b>اتجاه القطار</b>: لكل مسار نهايتان والقطار يتجه نحو إحداهما. قبل الصعود تحقق من شاشات ولافتات الرصيف: <b>«نحو …»</b> (اسم المحطة الأخيرة في ذلك الاتجاه).</li>' +
+          '<li>إذا صعدت بالاتجاه الخطأ: انزل في المحطة التالية واعبر إلى الرصيف المقابل — القطارات تعمل في الاتجاهين على نفس المسار.</li>' +
+          '<li>في رحلات التبديل، محطة التبديل هي محطة <b>نزول وصعود معاً</b>: انزل فيها واتبع لوحات «التبديل» إلى رصيف المسار التالي.</li>' +
+          '<li>داخل القطار تابع أسماء المحطات في الشاشات والإعلانات الصوتية، أو فعّل <b>التتبع المباشر 📍</b> في هذا التطبيق ليصلك تنبيه قبل محطتك.</li></ul>' },
+        { icon: '⚠️', title: 'المخالفات التي تجنّبك الغرامات', html:
+          '<ul><li class="viol">الركوب دون تذكرة سارية، أو عدم تمرير البطاقة عند بوابات الدخول والخروج.</li>' +
+          '<li class="viol">ركوب <b>عربات الدرجة الأولى</b> بتذكرة عادية — الدرجة الأولى تتطلب تذكرة أو بطاقة درجة أولى.</li>' +
+          '<li class="viol"><b>التدخين</b> — بما فيه السجائر الإلكترونية — في المحطات والقطارات وكل مرافق المترو.</li>' +
+          '<li class="viol">الأكل والشرب داخل عربات القطار.</li>' +
+          '<li class="viol">رمي المخلفات في المحطات أو القطارات.</li>' +
+          '<li class="viol">عرقلة إغلاق أبواب القطار أو التعلق بها.</li>' +
+          '<li class="viol">العبث بمعدات الطوارئ والسلامة دون سبب.</li>' +
+          '<li class="viol">تشغيل الأصوات مرتفعاً أو إزعاج الركاب.</li>' +
+          '<li class="viol">وضع الأقدام على المقاعد أو الإضرار بمرافق المترو.</li></ul>' +
+          '<div class="note">⚖️ قيم الغرامات تُحدَّد وفق لوائح الجهة المختصة وقد تتغيّر — تحقق من المصادر الرسمية (الهيئة الملكية لمدينة الرياض وتطبيق درب).</div>' },
+        { icon: '🎒', title: 'الممنوعات والأمتعة', html:
+          '<ul><li class="viol">المواد القابلة للاشتعال أو الانفجار والمواد الكيميائية الخطرة.</li>' +
+          '<li class="viol">الأدوات الحادة غير المغلّفة وكل ما قد يؤذي الركاب.</li>' +
+          '<li>الأمتعة الضخمة التي تعيق الممرات والأبواب — الحقائب الشخصية وحقائب السفر المعقولة مسموحة.</li>' +
+          '<li>الحيوانات — باستثناء <b>كلاب الإرشاد</b> المرافقة لذوي الإعاقة البصرية.</li>' +
+          '<li>الدراجات غير المطوية في أوقات الذروة؛ السكوترات المطوية أسهل في النقل.</li>' +
+          '<li>عربات الأطفال والكراسي المتحركة مسموحة — استخدم المصاعد وثبّتها جيداً داخل القطار.</li></ul>' },
+        { icon: '✅', title: 'سلوكيات صحيحة تسهّل عليك وعلى الآخرين', html:
+          '<ul><li class="ok-do">أفسح المجال للنازلين قبل الصعود، وانتظر جانبي الباب لا أمامه.</li>' +
+          '<li class="ok-do">قف خلف <b>الخط الأصفر</b> على حافة الرصيف حتى يتوقف القطار تماماً.</li>' +
+          '<li class="ok-do">قدّم مقاعد الأولوية لكبار السن وذوي الإعاقة والحوامل ومن يحتاجها.</li>' +
+          '<li class="ok-do">تمسّك بالمقابض أثناء الحركة، وابتعد عن الأبواب أثناء فتحها وإغلاقها.</li>' +
+          '<li class="ok-do">بعض العربات للعائلات وأخرى للدرجة الأولى — لاحظ اللافتات وعلامات الرصيف قبل الصعود.</li>' +
+          '<li class="ok-do">استخدم سماعات الأذن، وجهّز بطاقتك قبل الوصول إلى البوابة لتجنب الازدحام.</li></ul>' },
+        { icon: '🥇', title: 'الدرجة الأولى', html:
+          '<ul><li>تتطلب <b>تذكرة درجة أولى</b> (10 ريالات لساعتين مقابل 4 ريالات للدرجة العادية).</li>' +
+          '<li>عربات الدرجة الأولى محددة بلافتات على الرصيف وفي القطار؛ صعودها بتذكرة عادية <span class="viol">مخالفة تستوجب الغرامة</span>.</li></ul>' },
+        { icon: '👣', title: 'خطوات أول رحلة — من الباب إلى الباب', html:
+          '<ol class="board-steps"><li>توجه إلى أقرب محطة إليك (زر 📍 في هذا التطبيق) وادخل إلى صالة المحطة.</li>' +
+          '<li>مرّر بطاقة درب أو التطبيق أو بطاقتك البنكية على <b>بوابة الدخول</b>.</li>' +
+          '<li>من الشاشات تحقق من رقم مسارك ووجهة القطار (<b>«نحو …»</b>)، ثم اصعد إلى الرصيف الصحيح.</li>' +
+          '<li>قف خلف الخط الأصفر، وأفسح للنازلين، ثم اصعد إلى القطار.</li>' +
+          '<li>راقب أسماء المحطات في شاشات القطار — أو فعّل <b>التتبع المباشر 📍</b> ليصلك تنبيه «استعد للنزول» قبل محطتك.</li>' +
+          '<li>إن كانت رحلتك فيها تبديل: انزل في محطة التبديل واتبع لوحات المسار التالي.</li>' +
+          '<li>عند الوصول إلى محطتك انزل واتبع لوحات <b>«الخروج»</b>.</li>' +
+          '<li>مرّر بطاقتك على <b>بوابة الخروج</b> لتكتمل الرحلة بشكل صحيح.</li></ol>' },
+        { icon: '🚨', title: 'أخطاء شائعة في أول رحلة — وكيف تتجنبها', html:
+          '<ul><li class="viol">نسيان تمرير البطاقة عند الخروج ← اجعلها آخر خطوة في كل رحلة.</li>' +
+          '<li class="viol">الصعود بالاتجاه الخطأ ← تحقق من «نحو …» في شاشة الرصيف قبل الصعود.</li>' +
+          '<li class="viol">الالتباس بين محطة الصعود ومحطة النزول ← لا يوجد فرق؛ الاتجاه هو المهم.</li>' +
+          '<li class="viol">ركوب الدرجة الأولى بتذكرة عادية ← تحقق من لافتة العربة قبل الدخول.</li>' +
+          '<li class="viol">تفويت محطة النزول ← فعّل التتبع المباشر 📍 ليصلك تنبيه قبل الوصول.</li></ul>' }
+      ]
+    },
+    en: {
+      title: 'Riyadh Metro rider guide — rules, etiquette and first-ride tips',
+      sections: [
+        { icon: '🎫', title: 'Before you ride', html:
+          '<ul><li>Get a <b>darb</b> card, the darb app, or use a contactless bank card — and top it up before you arrive.</li>' +
+          '<li>Tap your card at the <b>entry gate</b> and again at the <b>exit gate</b> — forgetting to tap out is a violation and your trip may count as incomplete.</li>' +
+          '<li>Plan your trip in this app first and know your <b>line number and direction</b> before reaching the platform.</li>' +
+          '<li>The last train may leave your station before the advertised closing time — check early for late trips.</li></ul>' },
+        { icon: '🚉', title: 'Boarding and alighting stations — is there a difference?', html:
+          '<ul><li><b>There is no difference</b>: every Riyadh Metro station lets you board and alight; there are no dedicated boarding or alighting stations.</li>' +
+          '<li>What decides your trip is the <b>train\u2019s direction</b>: each line has two termini. Before boarding, check the platform screens and signs for <b>\u201Ctowards \u2026\u201D</b> (the last station in that direction).</li>' +
+          '<li>If you board the wrong direction: alight at the next station and cross to the opposite platform — trains run both ways on every line.</li>' +
+          '<li>On transfer trips the transfer station is for <b>alighting and boarding</b>: get off there and follow the transfer signs to the next line\u2019s platform.</li>' +
+          '<li>On board, follow station names on the screens and announcements, or turn on <b>Live tracking \ud83d\udccd</b> in this app to get an alert before your stop.</li></ul>' },
+        { icon: '⚠️', title: 'Violations that get you fined', html:
+          '<ul><li class="viol">Riding without a valid ticket, or not tapping your card at the entry/exit gates.</li>' +
+          '<li class="viol">Riding <b>first-class cars</b> with a standard ticket — first class requires a first-class ticket or card.</li>' +
+          '<li class="viol"><b>Smoking</b> — including e-cigarettes — anywhere in stations, trains or metro facilities.</li>' +
+          '<li class="viol">Eating and drinking inside train cars.</li>' +
+          '<li class="viol">Littering in stations or trains.</li>' +
+          '<li class="viol">Blocking or holding the train doors.</li>' +
+          '<li class="viol">Tampering with emergency or safety equipment without cause.</li>' +
+          '<li class="viol">Playing audio loudly or disturbing other passengers.</li>' +
+          '<li class="viol">Putting feet on seats or damaging metro property.</li></ul>' +
+          '<div class="note">⚖️ Fine amounts are set by the competent authority and may change — verify with official sources (RCRC and the darb app).</div>' },
+        { icon: '🎒', title: 'Prohibited items and luggage', html:
+          '<ul><li class="viol">Flammable, explosive or hazardous chemicals.</li>' +
+          '<li class="viol">Unwrapped sharp tools and anything that may harm passengers.</li>' +
+          '<li>Oversized luggage that blocks aisles or doors — personal bags and reasonable suitcases are allowed.</li>' +
+          '<li>Animals — except <b>guide dogs</b> assisting visually impaired passengers.</li>' +
+          '<li>Non-folding bicycles during peak hours; folding scooters are easier.</li>' +
+          '<li>Strollers and wheelchairs are welcome — use the lifts and secure them inside the train.</li></ul>' },
+        { icon: '✅', title: 'Good habits that make rides easier', html:
+          '<ul><li class="ok-do">Let passengers alight before boarding; wait at the sides of the doors, not in front of them.</li>' +
+          '<li class="ok-do">Stand behind the <b>yellow line</b> until the train fully stops.</li>' +
+          '<li class="ok-do">Offer priority seats to the elderly, people with disabilities, pregnant women and anyone who needs them.</li>' +
+          '<li class="ok-do">Hold the handrails while moving and keep clear of the doors.</li>' +
+          '<li class="ok-do">Some cars are family cars and some are first class — check the platform markings and signs before boarding.</li>' +
+          '<li class="ok-do">Use headphones, and have your card ready before you reach the gate.</li></ul>' },
+        { icon: '🥇', title: 'First class', html:
+          '<ul><li>Requires a <b>first-class ticket</b> (SAR 10 for 2 hours vs SAR 4 standard).</li>' +
+          '<li>First-class cars are marked on the platform and on the train; boarding them with a standard ticket is a <span class="viol">fined violation</span>.</li></ul>' },
+        { icon: '👣', title: 'Your first ride, step by step', html:
+          '<ol class="board-steps"><li>Head to your nearest station (the \ud83d\udccd button in this app) and enter the station hall.</li>' +
+          '<li>Tap your darb card, the app or your bank card at the <b>entry gate</b>.</li>' +
+          '<li>Check the screens for your line number and the train\u2019s direction (<b>\u201Ctowards \u2026\u201D</b>), then go to the correct platform.</li>' +
+          '<li>Stand behind the yellow line, let people alight, then board.</li>' +
+          '<li>Watch the station names on the train screens — or turn on <b>Live tracking \ud83d\udccd</b> to get a \u201Cget ready to alight\u201D alert before your stop.</li>' +
+          '<li>If your trip has a transfer: alight at the transfer station and follow the signs to the next line.</li>' +
+          '<li>At your destination, get off and follow the <b>Exit</b> signs.</li>' +
+          '<li>Tap your card at the <b>exit gate</b> to complete the trip correctly.</li></ol>' },
+        { icon: '🚨', title: 'Common first-ride mistakes — and how to avoid them', html:
+          '<ul><li class="viol">Forgetting to tap out at the exit gate \u2190 make it the last step of every trip.</li>' +
+          '<li class="viol">Boarding the wrong direction \u2190 check \u201Ctowards \u2026\u201D on the platform screen first.</li>' +
+          '<li class="viol">Confusing boarding vs alighting stations \u2190 there is no difference; the direction is what matters.</li>' +
+          '<li class="viol">Riding first class on a standard ticket \u2190 check the car markings before stepping in.</li>' +
+          '<li class="viol">Missing your station \u2190 turn on Live tracking \ud83d\udccd to be alerted before arrival.</li></ul>' }
+      ]
+    }
+  };
+  var FV_TIPS = {
+    ar: [
+      { ic: '🎫', txt: 'مرّر بطاقتك على بوابة الدخول <b>وبوابة الخروج</b> — نسيان التمرير عند الخروج مخالفة.' },
+      { ic: '🧭', txt: 'لا توجد «محطة صعود» و«محطة نزول» — كل محطة للاثنين، والمهم <b>اتجاه القطار</b> («نحو …») المكتوب في شاشات الرصيف.' },
+      { ic: '🥇', txt: 'الدرجة الأولى تتطلب تذكرة درجة أولى — الصعود إليها بالتذكرة العادية غرامة.' },
+      { ic: '🚭', txt: 'التدخين (حتى الإلكتروني) والأكل والشرب داخل القطار ممنوعة ومعاقب عليها.' },
+      { ic: '📍', txt: 'فعّل زر <b>التتبع المباشر 📍</b> من الخريطة: يحدد أقرب محطة إليك وينبهك قبل محطة النزول.' }
+    ],
+    en: [
+      { ic: '🎫', txt: 'Tap your card at the entry gate <b>and the exit gate</b> — forgetting to tap out is a violation.' },
+      { ic: '🧭', txt: 'There are no \u201Cboarding\u201D and \u201Calighting\u201D stations — every station is both. What matters is the <b>train\u2019s direction</b> (\u201Ctowards \u2026\u201D on platform screens).' },
+      { ic: '🥇', txt: 'First class needs a first-class ticket — boarding it with a standard ticket is fined.' },
+      { ic: '🚭', txt: 'Smoking (including vapes) and eating or drinking on trains are prohibited and fined.' },
+      { ic: '📍', txt: 'Turn on <b>Live tracking \ud83d\udccd</b> on the map: it finds your nearest station and alerts you before your stop.' }
+    ]
+  };
+
   /* ----------------------------------------------------------------- state */
   var DATA = window.RIYADH_METRO_DATA;
   var NET = RMNetwork.buildNetwork(DATA);
@@ -318,7 +484,8 @@
     mode: 'fastest', depart: 'now',
     itineraries: [], activeIt: 0, timing: null,
     station: null,
-    hidden: {}
+    hidden: {},
+    track: { on: false, watchId: null, follow: true, lat: null, lng: null, acc: null, lastAlert: '' }
   };
   var $ = function (sel) { return document.querySelector(sel); };
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
@@ -662,6 +829,8 @@
     $('.stage').classList.toggle('is-diagram', v === 'diagram');
     $$('.view-switch button').forEach(function (b) { b.classList.toggle('active', b.dataset.view === v); });
     $('#btn-basemap').style.display = v === 'map' ? '' : 'none';
+    $('#btn-track').style.display = v === 'map' ? '' : 'none';
+    updateLiveBanner();
     var it = state.itineraries[state.activeIt];
     if (v === 'map') {
       setTimeout(function () {
@@ -758,6 +927,7 @@
     state.itineraries = its; state.activeIt = 0; state.station = null;
     $('#station-card').innerHTML = ''; $('#nearby').innerHTML = '';
     renderItinerary();
+    renderLiveCard(); updateLiveBanner();
     updateHash();                       // normalises legacy links to the short #from~to~lang form
     switchTab('plan');
     collapsePanel(false);
@@ -934,6 +1104,7 @@
     $('#popular').style.display = '';
     drawRoute(null);
     updateHash();
+    renderLiveCard(); updateLiveBanner();
   }
 
   function downloadRouteKml(it) {
@@ -1080,6 +1251,141 @@
       $$('#nearby [data-use]').forEach(function (b) { b.addEventListener('click', function () { setFrom(b.dataset.use, null); $('#to').focus(); if (state.to) plan(); else drawDiagramMarkers(); }); });
       if (state.view === 'map') map.fitBounds(L.latLngBounds([[lat, lng], [near[0].station.lat, near[0].station.lng]]), { padding: [60, 60], maxZoom: 15 });
     }, function () { box.innerHTML = '<div class="error">' + t('near.err') + '</div>'; }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
+  }
+
+
+  /* ------------------------------------------------- live GPS tracking */
+  var trackUserMarker = null, trackAccCircle = null;
+
+  function toggleTrack() { if (state.track.on) stopTrack(); else startTrack(); }
+
+  function startTrack() {
+    if (!navigator.geolocation) { toast(t('track.err')); return; }
+    state.track.on = true; state.track.follow = true;
+    $('#btn-track').classList.add('active-track');
+    state.track.watchId = navigator.geolocation.watchPosition(onTrackPos, onTrackErr, { enableHighAccuracy: true, maximumAge: 3000, timeout: 15000 });
+    if (state.view !== 'map') setView('map');
+    if (window.innerWidth <= 860) collapsePanel(false);
+    renderLiveCard(); updateLiveBanner();
+    toast(t('track.started'));
+  }
+
+  function stopTrack(silent) {
+    if (state.track.watchId != null && navigator.geolocation) navigator.geolocation.clearWatch(state.track.watchId);
+    state.track = { on: false, watchId: null, follow: true, lat: null, lng: null, acc: null, lastAlert: '' };
+    $('#btn-track').classList.remove('active-track');
+    if (trackUserMarker) { userLayer.removeLayer(trackUserMarker); trackUserMarker = null; }
+    if (trackAccCircle) { userLayer.removeLayer(trackAccCircle); trackAccCircle = null; }
+    $('#live').innerHTML = '';
+    $('#live-banner').hidden = true;
+    if (!silent) toast(t('track.stopped'));
+  }
+
+  function onTrackErr() { toast(t('track.err')); stopTrack(true); }
+  function vibrate(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (e) { /* unsupported */ } }
+
+  function onTrackPos(pos) {
+    state.track.lat = pos.coords.latitude; state.track.lng = pos.coords.longitude;
+    state.track.acc = pos.coords.accuracy || 0;
+    drawTrackUser();
+    if (state.track.follow && state.view === 'map') map.panTo([state.track.lat, state.track.lng]);
+    renderLiveCard(); updateLiveBanner();
+  }
+
+  function drawTrackUser() {
+    var ll = [state.track.lat, state.track.lng];
+    if (!trackUserMarker) {
+      trackUserMarker = L.marker(ll, { icon: L.divIcon({ className: 'userdot-wrap', html: '<div class="userdot"><div class="pulse"></div></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 2000, interactive: false, keyboard: false });
+      trackUserMarker.addTo(userLayer);
+    } else trackUserMarker.setLatLng(ll);
+    var r = Math.min(state.track.acc || 40, 400);
+    if (!trackAccCircle) {
+      trackAccCircle = L.circle(ll, { radius: r, color: '#2563eb', weight: 1, fillColor: '#2563eb', fillOpacity: 0.07, interactive: false });
+      trackAccCircle.addTo(userLayer);
+    } else { trackAccCircle.setLatLng(ll); trackAccCircle.setRadius(r); }
+  }
+
+  /** Live card: nearest stations ("board here") + progress of the planned trip. */
+  function renderLiveCard() {
+    var box = $('#live');
+    if (!state.track.on || state.track.lat == null) { if (!state.track.on) box.innerHTML = ''; return; }
+    var lat = state.track.lat, lng = state.track.lng;
+    var walkKmh = (CFG.travelModel && CFG.travelModel.walkingKmh) || 4.5;
+    var near = RMNetwork.nearestStations(NET, lat, lng, 3);
+    var html = '<div class="card"><h3>' + t('track.live') + '</h3>' +
+      '<div class="muted" style="font-size:12px;margin:2px 0 4px">' + t('track.acc', { n: Math.round(state.track.acc || 0) }) + '</div>' +
+      '<div class="section-title" style="margin:6px 0 2px;font-size:13px">🚉 ' + t('track.nearestTitle') + '</div>';
+    html += near.map(function (n) {
+      var st = n.station;
+      return '<div class="live-row">' + st.lines.map(function (l) { return badge(NET.lines[l], true); }).join('') +
+        '<b>' + esc(st.name[NL()]) + '</b><span class="walk">' + fmtDist(n.distanceM) + ' · ' + RMLive.walkMinutes(n.distanceM, walkKmh) + ' ' + t('min') + '</span>' +
+        '<span style="margin-inline-start:auto;display:flex;gap:4px">' +
+        '<button class="btn small" data-board="' + st.id + '">🚆 ' + t('track.board') + '</button>' +
+        '<a class="btn small" target="_blank" rel="noopener" href="' + RMLinks.googleMapsDirections({ origin: [lat, lng], destination: [st.lat, st.lng], travelmode: 'walking' }) + '">🚶</a></span></div>';
+    }).join('');
+    if (!state.to) html += '<p class="hint">' + t('track.setDest') + '</p>';
+
+    var it = state.itineraries[state.activeIt];
+    if (it) {
+      var prog = RMLive.statusAt(NET, it, lat, lng);
+      if (prog) {
+        html += '<div class="section-title" style="margin:8px 0 2px;font-size:13px">' + t('track.trip') + '</div>' +
+          '<div class="live-row"><b>' + t('track.at', { s: name(prog.nearestStation) }) + '</b><span class="walk">' + fmtDist(prog.nearestDistanceM) + '</span></div>' +
+          '<div class="live-row"><span>' + t('track.remain', { n: prog.remainingStops, s: name(prog.destination) }) + '</span><span class="walk">' + t('track.toEnd', { d: fmtDist(prog.distanceToEndM) }) + '</span></div>' +
+          (prog.nextTransfer ? '<div class="live-row"><span>🔁 ' + esc(name(prog.nextTransfer.station)) + ' ' + badge(prog.nextTransfer.toLine, true) + '</span><span class="walk">' + fmtDist(prog.distanceToTransferM) + '</span></div>' : '');
+      }
+    }
+    box.innerHTML = html + '</div>';
+    $$('#live [data-board]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        setFrom(b.dataset.board, null);
+        if (state.to) plan(); else { $('#to').focus(); drawDiagramMarkers(); }
+      });
+    });
+  }
+
+  /** Floating alert banner: prepare to transfer / prepare to alight / arrived. */
+  function updateLiveBanner() {
+    var banner = $('#live-banner');
+    var it = state.itineraries[state.activeIt];
+    if (!state.track.on || !it || state.view !== 'map' || state.track.lat == null) { banner.hidden = true; return; }
+    var prog = RMLive.statusAt(NET, it, state.track.lat, state.track.lng);
+    if (!prog) { banner.hidden = true; return; }
+    var cls = 'info', msg = t('track.info', { s: name(prog.nearestStation), n: prog.remainingStops });
+    if (prog.prepareTransfer && prog.nextTransfer) {
+      cls = 'prep'; msg = t('track.prepTransfer', { s: name(prog.nextTransfer.station), line: lname(prog.nextTransfer.toLine), d: fmtDist(prog.distanceToTransferM) });
+    }
+    if (prog.prepareAlight) { cls = 'prep'; msg = t('track.prepAlight', { s: name(prog.destination), d: fmtDist(prog.distanceToEndM) }); }
+    if (prog.arrived) { cls = 'ok'; msg = t('track.arrived', { s: name(prog.destination) }); }
+    banner.className = 'live-banner ' + cls;
+    banner.innerHTML = msg;
+    banner.hidden = false;
+    if (state.track.lastAlert !== cls + msg) {
+      if (cls === 'ok') vibrate([200, 80, 200]); else if (cls === 'prep') vibrate(150);
+      state.track.lastAlert = cls + msg;
+    }
+  }
+
+  /* ------------------------------------------------- guide & first visit */
+  function renderGuide() {
+    var g = state.lang === 'ar' ? GUIDE.ar : GUIDE.en;
+    $('#guide-content').innerHTML = '<h2 style="margin:2px 0 12px;font-size:17px">' + esc(g.title) + '</h2>' +
+      g.sections.map(function (sec) {
+        return '<div class="guide-sec"><h3>' + sec.icon + ' ' + esc(sec.title) + '</h3><div class="gbody">' + sec.html + '</div></div>';
+      }).join('');
+  }
+
+  function renderFvList() {
+    var tips = state.lang === 'ar' ? FV_TIPS.ar : FV_TIPS.en;
+    $('#fv-list').innerHTML = tips.map(function (tip) {
+      return '<li><span class="ic">' + tip.ic + '</span><span>' + tip.txt + '</span></li>';
+    }).join('');
+  }
+
+  function showFirstVisit() {
+    if (localStorage.getItem('rm.fvSeen')) return;
+    renderFvList();
+    $('#fv-overlay').hidden = false;
   }
 
   /* ------------------------------------------------------------ lines tab */
@@ -1297,7 +1603,9 @@
     $('#lang-select').value = state.lang;
     $('#panel-toggle').dataset.label = t('panel.open');
     fillInput($('#from'), state.from, state.fromPlace); fillInput($('#to'), state.to, state.toPlace);
-    renderLines(); renderExport(); renderInfo(); renderLegend(); renderPopular(); renderStatus(); renderDepartOptions(); updateLabels();
+    renderLines(); renderExport(); renderInfo(); renderGuide(); renderLegend(); renderPopular(); renderStatus(); renderDepartOptions(); updateLabels();
+    if (!$('#fv-overlay').hidden) renderFvList();
+    if (state.track.on) { renderLiveCard(); updateLiveBanner(); }
     if (SCH.svgEl && prevNames !== NL()) buildDiagram(true);
     if (state.itineraries.length) renderItinerary();
     if (state.station) renderStationCard(state.station);
@@ -1340,6 +1648,13 @@
       baseLayers[baseOrder[baseIdx]].addTo(map).bringToBack();
       toast(t('base.' + baseOrder[baseIdx]));
     });
+    $('#btn-track').addEventListener('click', toggleTrack);
+    map.on('dragstart', function () { if (state.track.on) state.track.follow = false; });
+    $('#fv-dismiss').addEventListener('click', function () { localStorage.setItem('rm.fvSeen', '1'); $('#fv-overlay').hidden = true; });
+    $('#fv-guide').addEventListener('click', function () {
+      localStorage.setItem('rm.fvSeen', '1'); $('#fv-overlay').hidden = true;
+      switchTab('guide'); collapsePanel(false);
+    });
     $$('.view-switch button').forEach(function (b) { b.addEventListener('click', function () {
       if (b.dataset.view === 'gmaps') { location.href = 'google-maps.html#' + hashString(); return; }
       setView(b.dataset.view);
@@ -1362,6 +1677,8 @@
     if (state.from && state.to) plan(true);
     else if (state.from && !state.fromPlace) { focusStation(state.from); drawDiagramMarkers(); }
     else if (state.from || state.to) drawDiagramMarkers();
+
+    showFirstVisit();
 
     if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
       navigator.serviceWorker.register('sw.js').catch(function () { /* offline support is optional */ });
