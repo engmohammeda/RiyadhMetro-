@@ -13,13 +13,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+      - name: Install dev dependencies (jsdom for the browser-level suite)
+        run: npm ci
       - name: Validate data & rebuild exports
         run: npm run build
       - name: Fail if committed exports are out of date
         run: |
           git status --porcelain
+          # reproducible builds: the same data must yield byte-identical exports
           if [ -n "$(git status --porcelain -- dist web/data web/lib web/icons)" ]; then
-            echo "::error::dist/ or web/ artefacts are stale — run 'npm run build' and commit the result"; exit 1
+            echo "::error::dist/ or web/ artefacts are stale — run 'npm run build' and commit the result"
+            git diff --stat -- dist web/data web/lib web/icons
+            exit 1
           fi
       - name: Tests
         run: npm test

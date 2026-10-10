@@ -180,3 +180,16 @@ test('schematic SVGs are written by the build and match the renderer', () => {
   const n = network();
   Object.values(n.stations).forEach(s => assert.ok(svgEn.includes('data-st="' + s.id + '"'), 'diagram missing ' + s.id));
 });
+
+test('exports are reproducible: the build time comes from the dataset, not the clock', () => {
+  const { loadData } = require('./helpers');
+  const net = require('../src/network');
+  const pin = '2026-01-01T00:00:00.000Z';
+  const a = net.buildNetwork(Object.assign(loadData(), { buildTime: pin }));
+  const b = net.buildNetwork(Object.assign(loadData(), { buildTime: pin }));
+  assert.equal(a.generatedAt, pin, 'generatedAt is pinned');
+  assert.equal(JSON.stringify(a), JSON.stringify(b), 'two builds of the same data are identical');
+  assert.match(gpx(a), new RegExp('<time>' + pin.replace(/\./g, '\\.') + '</time>'), 'GPX carries the pinned time');
+  // without a pin (the browser path) it still produces a valid timestamp
+  assert.match(net.buildNetwork(loadData()).generatedAt, /^\d{4}-\d{2}-\d{2}T[\d:.]+Z$/);
+});

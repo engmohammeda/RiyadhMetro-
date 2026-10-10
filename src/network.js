@@ -129,7 +129,9 @@
     });
 
     var network = {
-      generatedAt: new Date().toISOString(),
+      // A pinned build time (scripts/build.js) keeps exports byte-identical so
+      // "stale artefacts" can be told apart from "you forgot to commit".
+      generatedAt: data.buildTime || new Date().toISOString(),
       params: model,
       stations: stations,
       lines: lines,

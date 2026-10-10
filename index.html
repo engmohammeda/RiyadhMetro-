@@ -4,24 +4,82 @@
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="0; url=web/">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0c211b">
-  <meta name="description" content="خطّط رحلتك عبر شبكة مترو الرياض — 6 مسارات، 83 محطة، ومخطط تفاعلي باللغة العربية والإنجليزية.">
+  <meta name="theme-color" content="#07100d">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="خطّط رحلتك عبر شبكة مترو الرياض — 6 مسارات، 83 محطة، ومخطط تفاعلي بثماني لغات.">
   <title>مترو الرياض — دليل التنقل | Riyadh Metro Navigator</title>
   <link rel="icon" type="image/png" href="web/icons/favicon.png">
   <style>
-    *{box-sizing:border-box}html,body{min-height:100%;margin:0}body{display:grid;place-items:center;padding:24px;color:#f3f7f3;background:radial-gradient(ellipse at 20% 15%,#173e2e 0,transparent 36%),linear-gradient(135deg,#0b1a16,#102820 56%,#0b1d18);font:16px/1.8 "Segoe UI",Tahoma,Arial,sans-serif}main{width:min(680px,100%);padding:clamp(28px,7vw,58px);border:1px solid #ffffff21;border-radius:28px;background:#10231cdd;box-shadow:0 30px 90px #0005}img{width:56px;height:56px;border-radius:17px}small{display:block;margin-top:22px;color:#c1d3c7;font-size:11px;letter-spacing:.18em}h1{margin:12px 0;font-size:clamp(30px,7vw,54px);line-height:1.25}p{max-width:520px;margin:0;color:#c2d0c7;font-size:14px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}a{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:12px;color:#173628;background:#d3f17b;text-decoration:none;font-size:13px;font-weight:800}a.secondary{color:#eef5ef;background:#ffffff0d;border:1px solid #ffffff28}.lines{display:flex;gap:5px;margin-top:32px}.lines i{height:4px;flex:1;border-radius:3px}.lines i:nth-child(1){background:#00ade5}.lines i:nth-child(2){background:#f0493a}.lines i:nth-child(3){background:#f68d39}.lines i:nth-child(4){background:#ffd105}.lines i:nth-child(5){background:#43b649}.lines i:nth-child(6){background:#984c9d}
+    /* Boot screen: the brand mark, a track being drawn, and the six line colours.
+       Deliberately dependency-free — it must render before the app shell loads. */
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #07100d; --panel: #0d1a15; --ink: #e9f4ee; --muted: #8ba396;
+      --accent: #d3f17b; --border: rgba(233, 246, 238, .12);
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f3f4ee; --panel: #fffefb; --ink: #0f1f18; --muted: #5f7268; --accent: #1c6b48; --border: rgba(15, 31, 24, .14); }
+    }
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: grid; place-items: center; padding: 24px; color: var(--ink); background: var(--bg);
+      font: 16px/1.8 "IBM Plex Sans Arabic", "Segoe UI", Tahoma, "Noto Sans Arabic", Arial, sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 68px 68px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000, transparent 75%);
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000, transparent 75%);
+      opacity: .6;
+    }
+    main {
+      position: relative; width: min(620px, 100%); padding: clamp(28px, 6vw, 52px);
+      background: var(--panel); border: 1px solid var(--border); border-radius: 26px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .45); text-align: center;
+    }
+    main::before {
+      content: ""; position: absolute; inset-inline: 28px; top: -1px; height: 2px; border-radius: 2px;
+      background: linear-gradient(90deg, #00ADE5, #F0493A 20%, #F68D39 40%, #FFD105 60%, #43B649 80%, #984C9D);
+    }
+    svg { width: 62px; height: 62px; margin: 0 auto 18px; }
+    .plate { fill: none; stroke: var(--border); stroke-width: 1.5; }
+    .track { fill: none; stroke: var(--ink); stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 90; stroke-dashoffset: 90; animation: draw 1.6s cubic-bezier(.22, .61, .36, 1) forwards infinite; }
+    @keyframes draw { 0% { stroke-dashoffset: 90; } 55%, 100% { stroke-dashoffset: 0; } }
+    small { display: block; color: var(--muted); font-size: 11px; letter-spacing: .26em; font-weight: 700; }
+    h1 { margin: 12px 0 6px; font-size: clamp(28px, 6.5vw, 46px); line-height: 1.15; letter-spacing: -.02em; }
+    h1 em { font-style: normal; color: var(--accent); }
+    p { max-width: 46ch; margin: 0 auto; color: var(--muted); font-size: 14px; }
+    a { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding: 12px 20px;
+      border-radius: 12px; background: var(--accent); color: #0b1a10; text-decoration: none; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: light) { a { color: #fff; } }
+    .lines { display: flex; gap: 5px; margin-top: 30px; }
+    .lines i { height: 4px; flex: 1; border-radius: 3px; animation: grow .9s cubic-bezier(.22, .61, .36, 1) backwards; }
+    .lines i:nth-child(1) { background: #00ADE5; animation-delay: .05s; }
+    .lines i:nth-child(2) { background: #F0493A; animation-delay: .12s; }
+    .lines i:nth-child(3) { background: #F68D39; animation-delay: .19s; }
+    .lines i:nth-child(4) { background: #FFD105; animation-delay: .26s; }
+    .lines i:nth-child(5) { background: #43B649; animation-delay: .33s; }
+    .lines i:nth-child(6) { background: #984C9D; animation-delay: .40s; }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: none; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .track { stroke-dashoffset: 0; } }
   </style>
 </head>
 <body>
   <main>
-    <img src="web/icons/icon-192.png" width="56" height="56" alt="">
+    <svg viewBox="0 0 40 40" aria-hidden="true">
+      <rect class="plate" x=".75" y=".75" width="38.5" height="38.5" rx="12.5"/>
+      <path class="track" d="M10.5 29.5V14.2l9.5 10.6 9.5-10.6v15.3"/>
+      <circle cx="10.5" cy="12.4" r="2.6" fill="#00ADE5"/>
+      <circle cx="20" cy="26.4" r="2.6" fill="#F0493A"/>
+      <circle cx="29.5" cy="12.4" r="2.6" fill="#FFD105"/>
+    </svg>
     <small>RIYADH METRO · 6 LINES · 83 STATIONS</small>
-    <h1>الرياض،<br>وجهتك أقرب.</h1>
-    <p>جارٍ فتح دليل التنقل التفاعلي. إذا لم يتم التحويل تلقائياً، تابع إلى مخطط الرحلات أو حمّل شبكة المترو لبرنامج Google Earth.</p>
-    <div class="actions">
-      <a href="web/">افتح مخطط الرحلات <span aria-hidden="true">↗</span></a>
-      <a class="secondary" href="dist/riyadh-metro.kmz">تنزيل شبكة KMZ</a>
-    </div>
+    <h1>كلّ الرياض <em>على بُعد محطة.</em></h1>
+    <p>جارٍ فتح دليل التنقل التفاعلي. إن لم يتم التحويل تلقائياً، تابع إلى مخطط الرحلات أو حمّل شبكة المترو لبرنامج Google Earth.</p>
+    <a href="web/">افتح مخطط الرحلات <span aria-hidden="true">↗</span></a>
     <div class="lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </main>
   <script>location.replace('web/' + location.hash);</script>
