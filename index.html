@@ -3,15 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="0; url=web/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c211b">
+  <meta name="description" content="خطّط رحلتك عبر شبكة مترو الرياض — 6 مسارات، 83 محطة، ومخطط تفاعلي باللغة العربية والإنجليزية.">
   <title>مترو الرياض — دليل التنقل | Riyadh Metro Navigator</title>
   <link rel="icon" type="image/png" href="web/icons/favicon.png">
-  <style>body{font-family:Tahoma,Arial,sans-serif;text-align:center;padding:60px 20px;color:#0f172a}a{color:#0ea5e9}</style>
+  <style>
+    *{box-sizing:border-box}html,body{min-height:100%;margin:0}body{display:grid;place-items:center;padding:24px;color:#f3f7f3;background:radial-gradient(ellipse at 20% 15%,#173e2e 0,transparent 36%),linear-gradient(135deg,#0b1a16,#102820 56%,#0b1d18);font:16px/1.8 "Segoe UI",Tahoma,Arial,sans-serif}main{width:min(680px,100%);padding:clamp(28px,7vw,58px);border:1px solid #ffffff21;border-radius:28px;background:#10231cdd;box-shadow:0 30px 90px #0005}img{width:56px;height:56px;border-radius:17px}small{display:block;margin-top:22px;color:#c1d3c7;font-size:11px;letter-spacing:.18em}h1{margin:12px 0;font-size:clamp(30px,7vw,54px);line-height:1.25}p{max-width:520px;margin:0;color:#c2d0c7;font-size:14px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}a{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:12px;color:#173628;background:#d3f17b;text-decoration:none;font-size:13px;font-weight:800}a.secondary{color:#eef5ef;background:#ffffff0d;border:1px solid #ffffff28}.lines{display:flex;gap:5px;margin-top:32px}.lines i{height:4px;flex:1;border-radius:3px}.lines i:nth-child(1){background:#00ade5}.lines i:nth-child(2){background:#f0493a}.lines i:nth-child(3){background:#f68d39}.lines i:nth-child(4){background:#ffd105}.lines i:nth-child(5){background:#43b649}.lines i:nth-child(6){background:#984c9d}
+  </style>
 </head>
 <body>
-  <img src="web/icons/icon-192.png" width="72" height="72" alt="">
-  <h1>مترو الرياض — دليل التنقل</h1>
-  <p>جارٍ التحويل إلى <a href="web/">الخريطة التفاعلية</a>… · Redirecting to the <a href="web/">interactive map</a>…</p>
-  <p><a href="dist/riyadh-metro.kmz">⬇ KMZ لـ Google Earth</a> · <a href="dist/riyadh-metro.kml">KML لـ Google My Maps</a> · <a href="dist/riyadh-metro.geojson">GeoJSON</a></p>
+  <main>
+    <img src="web/icons/icon-192.png" width="56" height="56" alt="">
+    <small>RIYADH METRO · 6 LINES · 83 STATIONS</small>
+    <h1>الرياض،<br>وجهتك أقرب.</h1>
+    <p>جارٍ فتح دليل التنقل التفاعلي. إذا لم يتم التحويل تلقائياً، تابع إلى مخطط الرحلات أو حمّل شبكة المترو لبرنامج Google Earth.</p>
+    <div class="actions">
+      <a href="web/">افتح مخطط الرحلات <span aria-hidden="true">↗</span></a>
+      <a class="secondary" href="dist/riyadh-metro.kmz">تنزيل شبكة KMZ</a>
+    </div>
+    <div class="lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </main>
   <script>location.replace('web/' + location.hash);</script>
 </body>
 </html>

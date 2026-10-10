@@ -32,6 +32,40 @@
   };
   var I18N = {
     ar: {
+      'a11y.skip': 'تخطَّ إلى مخطط الرحلات',
+      'nav.main': 'التنقل الرئيسي', 'nav.explore': 'استكشف الشبكة', 'nav.project': 'عن المشروع', 'nav.github': 'GitHub',
+      'status.label': 'حالة تشغيل المترو', 'lang.label': 'لغة الواجهة', 'brand.aria': 'دليل مترو الرياض',
+      'hero.artAria': 'رسم تخطيطي توضيحي لخطوط مترو الرياض الستة', 'metric.aria': 'إحصاءات شبكة مترو الرياض', 'modal.close': 'إغلاق النافذة',
+      'hero.eyebrow': 'تنقّلٌ أذكى، في مدينة تتحرّك', 'hero.title1': 'الرياض،', 'hero.title2': 'وجهتك أقرب.',
+      'hero.description': 'اكتشف شبكة المترو كاملة، اعثر على الطريق الأنسب، واعرف محطات التبديل قبل أن تغادر — كل ذلك في تجربة واحدة، بالعربية أو بلغتك.',
+      'hero.plan': 'خطّط رحلتك', 'hero.explore': 'استكشف الشبكة', 'hero.firstRide': 'أول مرة؟ افتح دليل الركاب',
+      'hero.searchKicker': 'ابدأ من هنا', 'hero.searchTitle': 'من أين إلى أين؟', 'hero.findRoute': 'اعثر على الطريق',
+      'hero.estimateNote': 'الوقت تقديري — تفاصيل الرحلة تظهر في مساحة الشبكة',
+      'plan.modeAria': 'طريقة اختيار المسار',
+      'journey.emptyTitle': 'رحلتك ستظهر هنا', 'journey.emptyText': 'اختر نقطة الانطلاق والوصول من شريط البحث في الأعلى. سترى المحطات والتبديلات والوقت على المخطط نفسه.', 'journey.emptyAction': 'عدّل رحلتك',
+      'hero.visualKicker': 'شبكة الرياض · عرض توضيحي', 'hero.visualTag': 'مخطط توضيحي للشبكة', 'hero.visualPlace': 'الرياض، المملكة العربية السعودية',
+      'hero.floatTitle': 'شبكة واحدة، 6 مسارات', 'hero.floatBody': 'من المطار إلى قلب المدينة', 'hero.floatKm': 'كم من المسارات', 'hero.floatUpdated': 'شبكة مترو الرياض',
+      'metric.lines': 'مسارات', 'metric.linesSub': 'تربط أنحاء المدينة', 'metric.stations': 'محطة', 'metric.stationsSub': 'على امتداد الشبكة',
+      'metric.km': 'كم', 'metric.kmSub': 'من المسارات المرسومة', 'metric.languages': 'لغات', 'metric.languagesSub': 'لتجربة أقرب للجميع',
+      'workspace.eyebrow': 'خريطتك إلى المدينة', 'workspace.title1': 'كل الشبكة.', 'workspace.title2': 'رحلة واحدة واضحة.',
+      'workspace.description': 'اختر محطتيك أو ابحث عن وجهتك. سنرتّب لك المسار والتبديلات والوقت التقديري — ثم استكشفه على المخطط أو الخريطة.',
+      'workspace.community': 'مشروع مجتمعي مفتوح المصدر', 'workspace.network': '6 مسارات · 83 محطة',
+      'workspace.disclaimer': 'أوقات الرحلات والأسعار إرشادية وقد تتغيّر. تأكّد من آخر المعلومات في تطبيق درب الرسمي.',
+      'panel.aria': 'أدوات مترو الرياض', 'panel.toggle': 'إظهار أو إخفاء أدوات الرحلة', 'panel.eyebrow': 'مساحة التنقّل', 'panel.title': 'مخطّط رحلتك', 'tabs.aria': 'أدوات استكشاف المترو',
+      'planner.heading': 'من أين تبدأ؟', 'planner.subheading': 'اكتب محطة أو مكاناً في الرياض',
+      'plan.fromAria': 'محطة الانطلاق أو المكان', 'plan.toAria': 'محطة الوصول أو المكان',
+      'plan.fromSuggestAria': 'اقتراحات نقطة الانطلاق', 'plan.toSuggestAria': 'اقتراحات نقطة الوصول', 'legend.aria': 'دليل ألوان المسارات والمحطات',
+      'stage.aria': 'مخطط مترو الرياض التفاعلي', 'stage.kicker': 'استكشف من حولك', 'stage.title': 'شبكة مترو الرياض',
+      'map.region': 'الخريطة الجغرافية لمسارات المترو', 'diagram.region': 'المخطط التخطيطي التفاعلي',
+      'view.aria': 'اختيار طريقة عرض الشبكة', 'map.toolbar': 'أدوات الخريطة',
+      'project.eyebrow': 'مبني للمدينة، ومفتوح للجميع', 'project.title1': 'أكثر من خريطة.', 'project.title2': 'رفيقٌ لكل رحلة.',
+      'project.description': 'من البيانات المفتوحة إلى قرار الركوب، جمعنا الأدوات التي تحتاجها في تجربة واحدة: واضحة للمسافر، ومفيدة للمطور، وقابلة للتحقق والمساهمة.',
+      'project.github': 'استكشف المشروع على GitHub',
+      'feature.routeTitle': 'من الباب إلى المحطة', 'feature.routeBody': 'قارن المسارات والتبديلات، ابحث بالمعالم، واعرف وقت الرحلة التقريبي قبل الانطلاق.', 'feature.routeAction': 'خطّط الآن',
+      'feature.networkTitle': 'الشبكة بكل تفاصيلها', 'feature.networkBody': 'استكشف ترتيب المحطات، نقاط التبادل، المسارات الجغرافية والوجهات القريبة.', 'feature.networkAction': 'تصفّح المسارات',
+      'feature.dataTitle': 'بيانات تقدر تثق بها', 'feature.dataBody': 'حمّل بيانات الشبكة بصيغ مفتوحة، وراجع مصادرها وافتراضاتها بكل شفافية.', 'feature.dataAction': 'افتح مركز البيانات',
+      'project.notice': 'مشروع مجتمعي مستقل وغير رسمي، غير تابع للهيئة الملكية لمدينة الرياض أو مشغّل المترو. بيانات الرحلات والأجرة إرشادية وليست بديلاً عن القنوات الرسمية.',
+      'project.sources': 'مصادر البيانات ↗', 'footer.tagline': 'افهم الشبكة. اختر طريقك. تحرّك بثقة.', 'footer.license': 'مشروع مفتوح المصدر · MIT',
       'app.title': 'مترو الرياض — دليل التنقل',
       'app.subtitle': 'Riyadh Metro Navigator · 6 مسارات · 83 محطة',
       'top.kmz': '⬇ KMZ لـ Google Earth',
@@ -98,9 +132,43 @@
       'theme.toggle': 'الوضع الداكن',
       'fv.title': '🚇 أول مرة تركب مترو الرياض؟',
       'fv.sub': 'هذه أكثر خمسة أخطاء يقع فيها الركاب الجدد — دقيقة واحدة توفّر عليك الغرامات والحيرة:',
-      'fv.open': '📖 افتح دليل الركاب الكامل', 'fv.dismiss': 'فهمت ✓ لا تظهرها مرة أخرى'
+      'fv.open': '📖 افتح دليل الركاب الكامل', 'fv.dismiss': 'تمام، فهمت ✓'
     },
     en: {
+      'a11y.skip': 'Skip to the journey planner',
+      'nav.main': 'Main navigation', 'nav.explore': 'Explore the network', 'nav.project': 'About the project', 'nav.github': 'GitHub',
+      'status.label': 'Metro service status', 'lang.label': 'Interface language', 'brand.aria': 'Riyadh Metro Navigator home',
+      'hero.artAria': 'Illustrative diagram of the six Riyadh Metro lines', 'metric.aria': 'Riyadh Metro network statistics', 'modal.close': 'Close dialog',
+      'hero.eyebrow': 'A smarter way to move through the city', 'hero.title1': 'Riyadh,', 'hero.title2': 'within reach.',
+      'hero.description': 'Explore the full metro network, find a better route and know where to transfer before you leave — all in one experience, in Arabic or your language.',
+      'hero.plan': 'Plan your journey', 'hero.explore': 'Explore the network', 'hero.firstRide': 'First ride? Open the rider guide',
+      'hero.searchKicker': 'START HERE', 'hero.searchTitle': 'Where to?', 'hero.findRoute': 'Find my route',
+      'hero.estimateNote': 'Times are estimates — route details appear in the network workspace',
+      'plan.modeAria': 'Choose how to optimise the route',
+      'journey.emptyTitle': 'Your journey will appear here', 'journey.emptyText': 'Choose an origin and destination in the search above. Stops, transfers and estimated time will appear alongside the network.', 'journey.emptyAction': 'Edit your journey',
+      'hero.visualKicker': 'RIYADH NETWORK · ILLUSTRATIVE VIEW', 'hero.visualTag': 'Illustrative network diagram', 'hero.visualPlace': 'Riyadh, Saudi Arabia',
+      'hero.floatTitle': 'One network, six lines', 'hero.floatBody': 'From the airport to the city centre', 'hero.floatKm': 'kilometres of rail', 'hero.floatUpdated': 'Riyadh Metro network',
+      'metric.lines': 'lines', 'metric.linesSub': 'across the city', 'metric.stations': 'stations', 'metric.stationsSub': 'across the network',
+      'metric.km': 'km', 'metric.kmSub': 'of mapped rail', 'metric.languages': 'languages', 'metric.languagesSub': 'designed for everyone',
+      'workspace.eyebrow': 'Your map to the city', 'workspace.title1': 'The whole network.', 'workspace.title2': 'One clear journey.',
+      'workspace.description': 'Choose two stations or search for a destination. Compare routes, transfers and estimated journey times — then explore them on the diagram or map.',
+      'workspace.community': 'Open community project', 'workspace.network': '6 lines · 83 stations',
+      'workspace.disclaimer': 'Journey times and fares are indicative and may change. Check the official darb app for the latest information.',
+      'panel.aria': 'Riyadh Metro tools', 'panel.toggle': 'Show or hide journey tools', 'panel.eyebrow': 'Your trip workspace', 'panel.title': 'Journey planner', 'tabs.aria': 'Metro discovery tools',
+      'planner.heading': 'Where are you going?', 'planner.subheading': 'Search a station or a place in Riyadh',
+      'plan.fromAria': 'Origin station or place', 'plan.toAria': 'Destination station or place',
+      'plan.fromSuggestAria': 'Origin suggestions', 'plan.toSuggestAria': 'Destination suggestions', 'legend.aria': 'Line and station colour legend',
+      'stage.aria': 'Interactive Riyadh Metro network', 'stage.kicker': 'Explore your city', 'stage.title': 'Riyadh Metro network',
+      'map.region': 'Geographic map of the metro lines', 'diagram.region': 'Interactive schematic network diagram',
+      'view.aria': 'Choose a network view', 'map.toolbar': 'Map tools',
+      'project.eyebrow': 'Built for the city. Open to everyone.', 'project.title1': 'More than a map.', 'project.title2': 'A companion for every trip.',
+      'project.description': 'From open data to the moment you board, the tools you need are together in one place: clear for riders, useful for developers and open to review and contribution.',
+      'project.github': 'Explore the project on GitHub',
+      'feature.routeTitle': 'Door to station', 'feature.routeBody': 'Compare routes and transfers, search landmarks and get an estimated journey time before you go.', 'feature.routeAction': 'Plan a trip',
+      'feature.networkTitle': 'The network, in detail', 'feature.networkBody': 'Explore station order, interchange points, geographic routes and nearby destinations.', 'feature.networkAction': 'Browse the lines',
+      'feature.dataTitle': 'Data you can inspect', 'feature.dataBody': 'Download network data in open formats and review its sources and assumptions transparently.', 'feature.dataAction': 'Open data centre',
+      'project.notice': 'Independent, unofficial community project; not affiliated with the Royal Commission for Riyadh City or the metro operator. Journey and fare information is indicative, not a substitute for official channels.',
+      'project.sources': 'Data sources ↗', 'footer.tagline': 'Know the network. Find your way. Move with confidence.', 'footer.license': 'Open-source community project · MIT',
       'app.title': 'Riyadh Metro Navigator',
       'app.subtitle': 'مترو الرياض · 6 lines · 83 stations',
       'top.kmz': '⬇ KMZ for Google Earth',
@@ -167,7 +235,7 @@
       'theme.toggle': 'Dark mode',
       'fv.title': '🚇 First time on the Riyadh Metro?',
       'fv.sub': 'The five most common first-ride mistakes — one minute saves you fines and confusion:',
-      'fv.open': '📖 Open the full rider guide', 'fv.dismiss': 'Got it ✓ don\u2019t show again'
+      'fv.open': '📖 Open the full rider guide', 'fv.dismiss': 'Got it ✓'
     },
     ur: {
       'app.title': 'ریاض میٹرو — سفر گائیڈ',
@@ -851,7 +919,12 @@
     $('#map').hidden = v !== 'map';
     $('#diagram').hidden = v !== 'diagram';
     $('.stage').classList.toggle('is-diagram', v === 'diagram');
-    $$('.view-switch button').forEach(function (b) { b.classList.toggle('active', b.dataset.view === v); });
+    $$('.view-switch button').forEach(function (b) {
+      var selected = b.dataset.view === v;
+      b.classList.toggle('active', selected);
+      b.setAttribute('aria-selected', selected ? 'true' : 'false');
+      b.tabIndex = selected ? 0 : -1;
+    });
     $('#btn-basemap').style.display = v === 'map' ? '' : 'none';
     $('#btn-track').style.display = v === 'map' ? '' : 'none';
     updateLiveBanner();
@@ -935,6 +1008,7 @@
   function plan(fromHash) {
     var A = resolveInput($('#from')), B = resolveInput($('#to'));
     var res = $('#result');
+    $('#planner-empty').hidden = true;
     if (!A || !B) { res.innerHTML = '<div class="error">' + t('err.pick') + '</div>'; return; }
     if (A.unknown) { res.innerHTML = '<div class="error">' + t('err.unknown') + esc(A.unknown) + '</div>'; return; }
     if (B.unknown) { res.innerHTML = '<div class="error">' + t('err.unknown') + esc(B.unknown) + '</div>'; return; }
@@ -955,7 +1029,7 @@
     updateHash();                       // normalises legacy links to the short #from~to~lang form
     switchTab('plan');
     collapsePanel(false);
-    if (!fromHash) $('#result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!fromHash) scrollToElement($('#result'));
   }
 
   function walkLeg(placeId, stationId) {
@@ -977,6 +1051,7 @@
   function renderItinerary() {
     var it = state.itineraries[state.activeIt];
     var res = $('#result');
+    $('#planner-empty').hidden = !!it;
     if (!it) { res.innerHTML = ''; drawRoute(null); $('#popular').style.display = ''; return; }
     $('#popular').style.display = 'none';
     var from = NET.stations[it.from], to = NET.stations[it.to];
@@ -1125,6 +1200,7 @@
   function clearRoute() {
     state.itineraries = []; state.activeIt = 0; state.timing = null;
     $('#result').innerHTML = '';
+    $('#planner-empty').hidden = false;
     $('#popular').style.display = '';
     drawRoute(null);
     updateHash();
@@ -1250,6 +1326,10 @@
 
   /* ------------------------------------------------------------ geolocate */
   function locate() {
+    switchTab('plan');
+    if (state.view !== 'map') setView('map');
+    if (window.innerWidth <= 860) collapsePanel(false);
+    scrollToElement($('#network-workspace'));
     var box = $('#nearby');
     if (!navigator.geolocation) { box.innerHTML = '<div class="error">' + t('near.err') + '</div>'; return; }
     box.innerHTML = '<div class="card">⏳ …</div>';
@@ -1416,14 +1496,20 @@
   }
 
   function showFirstVisit() {
-    if (localStorage.getItem('rm.fvSeen')) return;
     renderFvList();
     $('#fv-overlay').hidden = false;
+    setTimeout(function () { $('#fv-dismiss').focus(); }, 0);
+  }
+  function dismissFirstVisit() {
+    $('#fv-overlay').hidden = true;
+    $('#hero-first-ride').focus();
   }
 
   /* ------------------------------------------------------------- theming */
   function applyTheme() {
     document.documentElement.setAttribute('data-theme', state.theme);
+    var themeMeta = $('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.content = state.theme === 'dark' ? '#101d16' : '#0c211b';
     var btn = $('#btn-theme');
     if (btn) { btn.textContent = state.theme === 'dark' ? '☀️' : '🌙'; btn.title = t('theme.toggle'); }
     if (state.theme === 'dark' && baseOrder[baseIdx] !== 'dark' && mapReady) {
@@ -1590,12 +1676,26 @@
 
   /* ------------------------------------------------------------- helpers */
   function switchTab(id) {
-    $$('.tabs button').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); b.setAttribute('aria-selected', b.dataset.tab === id ? 'true' : 'false'); });
-    $$('.tab').forEach(function (s) { s.classList.toggle('active', s.id === 'tab-' + id); });
+    $$('.tabs button').forEach(function (b) {
+      var selected = b.dataset.tab === id;
+      b.classList.toggle('active', selected);
+      b.setAttribute('aria-selected', selected ? 'true' : 'false');
+      b.tabIndex = selected ? 0 : -1;
+    });
+    $$('.tab').forEach(function (s) {
+      var selected = s.id === 'tab-' + id;
+      s.classList.toggle('active', selected);
+      s.setAttribute('aria-hidden', selected ? 'false' : 'true');
+    });
   }
   function collapsePanel(collapsed) {
     $('#panel').classList.toggle('collapsed', collapsed);
+    $('#panel-toggle').setAttribute('aria-expanded', collapsed ? 'false' : 'true');
     setTimeout(function () { map.invalidateSize(); if (state.view === 'diagram' && SCH.pz && !state.itineraries.length) SCH.pz.fit(true); }, 280);
+  }
+  function scrollToElement(el) {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   }
   function toast(msg) { var el = $('#toast'); el.textContent = msg; el.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(function () { el.classList.remove('show'); }, 2200); }
   function copy(text) {
@@ -1648,6 +1748,7 @@
     $$('[data-i18n]').forEach(function (el) { el.textContent = t(el.dataset.i18n); });
     $$('[data-i18n-ph]').forEach(function (el) { el.placeholder = t(el.dataset.i18nPh); });
     $$('[data-i18n-title]').forEach(function (el) { el.title = t(el.dataset.i18nTitle); });
+    $$('[data-i18n-aria-label]').forEach(function (el) { el.setAttribute('aria-label', t(el.dataset.i18nAriaLabel)); });
     $('#lang-select').value = state.lang;
     $('#panel-toggle').dataset.label = t('panel.open');
     fillInput($('#from'), state.from, state.fromPlace); fillInput($('#to'), state.to, state.toPlace);
@@ -1677,6 +1778,7 @@
     applyTheme();
     drawNetwork();
     applyLang();
+    switchTab('plan');
     setView(state.view === 'map' ? 'map' : 'diagram', true);
 
     setupSuggest($('#from'), $('#from-suggest'), function (r) { var ref = pickToRef(r); setFrom(ref.station, ref.place); if (state.to) plan(); else { $('#to').focus(); drawDiagramMarkers(); updateHash(); } });
@@ -1704,22 +1806,86 @@
       applyTheme();
     });
     map.on('dragstart', function () { if (state.track.on) state.track.follow = false; });
-    $('#fv-dismiss').addEventListener('click', function () { localStorage.setItem('rm.fvSeen', '1'); $('#fv-overlay').hidden = true; });
-    $('#fv-guide').addEventListener('click', function () {
-      localStorage.setItem('rm.fvSeen', '1'); $('#fv-overlay').hidden = true;
-      switchTab('guide'); collapsePanel(false);
+    $('#hero-first-ride').addEventListener('click', showFirstVisit);
+    $('#fv-dismiss').addEventListener('click', dismissFirstVisit);
+    $('#fv-dismiss-secondary').addEventListener('click', dismissFirstVisit);
+    $('#fv-overlay').addEventListener('click', function (e) { if (e.target === $('#fv-overlay')) dismissFirstVisit(); });
+    document.addEventListener('keydown', function (e) {
+      if ($('#fv-overlay').hidden) return;
+      if (e.key === 'Escape') { e.preventDefault(); dismissFirstVisit(); return; }
+      if (e.key !== 'Tab') return;
+      var focusable = $$('#fv-overlay button:not([disabled]), #fv-overlay a[href], #fv-overlay input:not([disabled])');
+      if (!focusable.length) return;
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
-    $$('.view-switch button').forEach(function (b) { b.addEventListener('click', function () {
-      if (b.dataset.view === 'gmaps') { location.href = 'google-maps.html#' + hashString(); return; }
-      setView(b.dataset.view);
-    }); });
+    $('#fv-guide').addEventListener('click', function () {
+      $('#fv-overlay').hidden = true;
+      if (window.innerWidth <= 860) collapsePanel(false);
+      switchTab('guide');
+      scrollToElement($('#network-workspace'));
+      setTimeout(function () { $('#tab-guide').focus(); }, 350);
+    });
+    $$('[data-scroll-target]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var target = document.getElementById(link.dataset.scrollTarget);
+        if (!target) return;
+        e.preventDefault();
+        if (target.id === 'network-workspace' && link.hasAttribute('data-focus-planner')) switchTab('plan');
+        if (target.id === 'network-workspace' && window.innerWidth <= 860) collapsePanel(false);
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        scrollToElement(target);
+        if (link.hasAttribute('data-focus-planner')) setTimeout(function () { $('#from').focus({ preventScroll: true }); }, reduceMotion ? 0 : 420);
+      });
+    });
+    $$('[data-open-tab]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var tab = button.dataset.openTab;
+        if (window.innerWidth <= 860) collapsePanel(false);
+        switchTab(tab);
+        scrollToElement($('#network-workspace'));
+        setTimeout(function () { $('#tab-' + tab).focus(); }, 350);
+      });
+    });
+    $$('.view-switch button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.dataset.view === 'gmaps') { location.href = 'google-maps.html#' + hashString(); return; }
+        setView(b.dataset.view);
+      });
+      b.addEventListener('keydown', function (e) {
+        var buttons = $$('.view-switch button'), i = buttons.indexOf(b), rtl = document.documentElement.dir === 'rtl';
+        var step = e.key === 'ArrowRight' ? (rtl ? -1 : 1) : e.key === 'ArrowLeft' ? (rtl ? 1 : -1) : 0;
+        if (!step && e.key === 'Home') i = 0;
+        else if (!step && e.key === 'End') i = buttons.length - 1;
+        else if (step) i = (i + step + buttons.length) % buttons.length;
+        else return;
+        e.preventDefault(); buttons[i].focus(); buttons[i].click();
+      });
+    });
     $('#sch-zoom-in').addEventListener('click', function () { var vp = $('#sch-viewport'); SCH.pz.zoomAt(1.4, vp.clientWidth / 2, vp.clientHeight / 2, true); });
     $('#sch-zoom-out').addEventListener('click', function () { var vp = $('#sch-viewport'); SCH.pz.zoomAt(1 / 1.4, vp.clientWidth / 2, vp.clientHeight / 2, true); });
-    $$('.tabs button').forEach(function (b) { b.addEventListener('click', function () { switchTab(b.dataset.tab); }); });
+    $$('.tabs button').forEach(function (b) {
+      b.addEventListener('click', function () { switchTab(b.dataset.tab); });
+      b.addEventListener('keydown', function (e) {
+        var buttons = $$('.tabs button'), i = buttons.indexOf(b), rtl = document.documentElement.dir === 'rtl';
+        var step = e.key === 'ArrowRight' ? (rtl ? -1 : 1) : e.key === 'ArrowLeft' ? (rtl ? 1 : -1) : 0;
+        if (!step && e.key === 'Home') i = 0;
+        else if (!step && e.key === 'End') i = buttons.length - 1;
+        else if (step) i = (i + step + buttons.length) % buttons.length;
+        else return;
+        e.preventDefault(); buttons[i].focus(); switchTab(buttons[i].dataset.tab);
+      });
+    });
     $('#panel-toggle').addEventListener('click', function () { collapsePanel(!$('#panel').classList.contains('collapsed')); });
     $$('input[name=mode]').forEach(function (r) { r.addEventListener('change', function () { if (state.from && state.to) plan(); }); });
     $('#depart').addEventListener('change', function () { state.depart = $('#depart').value; if (state.itineraries.length) renderItinerary(); });
-    $('#status-chip').addEventListener('click', function () { switchTab('info'); collapsePanel(false); });
+    $('#status-chip').addEventListener('click', function () {
+      if (window.innerWidth <= 860) collapsePanel(false);
+      switchTab('info');
+      scrollToElement($('#network-workspace'));
+      setTimeout(function () { $('#tab-info').focus(); }, 350);
+    });
     map.on('click', function () { if (window.innerWidth <= 860 && !state.itineraries.length) collapsePanel(true); });
     setInterval(function () { renderStatus(); if (!state.itineraries.length) renderDepartOptions(); }, 60000);
 
@@ -1732,7 +1898,7 @@
     else if (state.from && !state.fromPlace) { focusStation(state.from); drawDiagramMarkers(); }
     else if (state.from || state.to) drawDiagramMarkers();
 
-    showFirstVisit();
+    // Keep first-ride guidance available on demand instead of blocking the landing page.
 
     if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
       navigator.serviceWorker.register('sw.js').catch(function () { /* offline support is optional */ });
