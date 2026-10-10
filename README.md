@@ -50,6 +50,9 @@
 - **أقرب محطة لموقعي** (GPS) مع مسافة ووقت المشي ورابط اتجاهات، ورحلات شائعة بنقرة واحدة.
 - **تتبع مباشر عبر GPS** 📍: نقطة موقعك تنبض على الخريطة وتتحرك معك، وبطاقة «أقرب محطة إليك الآن — اركب منها» تحدّث موقعك باستمرار مع زر «اركب من هنا» يجعل الرحلة تبدأ من أقرب محطة إليك. عند تخطيط رحلة يظهر شريط تنبيه علوي حيّ: «استعد للتبديل في …» ثم «استعد للنزول — محطتك على بُعد …» وأخيراً «🎉 وصلت — لا تنسَ تمرير البطاقة عند الخروج»، مع اهتزاز على الجوال عند كل تنبيه. متوفر في التطبيق التفاعلي وفي صفحة Google Maps.
 - **دليل الركاب** 📖: تبويب كامل بالمخالفات التي تستوجب غرامة (الركوب بلا تذكرة، عدم التمرير عند الخروج، الدرجة الأولى بتذكرة عادية، التدخين، الأكل والشرب…)، الممنوعات والأمتعة، السلوكيات الصحيحة، **خطوات أول رحلة من الباب إلى الباب**، وتوضيح أنه لا فرق بين محطة صعود ومحطة نزول — الاتجاه هو المهم. أول زيارة تعرض نافذة «أول مرة تركب مترو الرياض؟» بأهم خمسة أخطاء يقع فيها الجدد.
+- **بطاقة درب** 💳 داخل الدليل: طرق الدفع الأربع، كيف تحصل على البطاقة من أجهزة البيع ومراكز الخدمة، طرق الشحن (التطبيق/الأجهزة/الموقع/الشحن التلقائي)، وجدول الأسعار الحالي يُقرأ مباشرة من `data/config.json` فلا يتقادم.
+- **الوضع الداكن** 🌙 في التطبيق وصفحة Google Maps (مع نمط خريطة ليلي ونمط نهاري محسّن يبرز الطرق ويُخفت الضوضاء)، يفضّل تفضيل النظام تلقائياً ويُحفظ اختيارك.
+- **«لماذا هذا المشروع؟»** في تبويب معلومات: مقارنة صريحة بما تقدمه خرائط جوجل في وضع النقل العام وما الذي يضيفه المشروع فوقه.
 - بطاقة لكل محطة: المسارات، النوع، المحطة السابقة/التالية، الأسماء الأخرى، الأماكن القريبة، وروابط: 📌 خرائط Google · 🚶 اتجاهات المشي · 🌍 Google Earth · 📱 `geo:`.
 - **تصدير الرحلة**: KML لفتحها في Google Earth، GeoJSON، زر «افتح في خرائط Google (مواصلات)»، و**روابط قصيرة** `#من~إلى~اللغة` (مثل `#kafd~airport-t1-2~ar` أو `#p:kingdom-centre~al-batha~en` لمكان)، مع دعم الروابط القديمة.
 - **8 لغات** للواجهة: العربية، English، اردو، हिन्दी، বাংলা، Filipino، Français، Русский — مع RTL/LTR، متجاوب للجوال، PWA يعمل دون اتصال (عدا بلاطات الخريطة).
@@ -60,7 +63,7 @@
 - `data/*.json` هو المصدر الوحيد للحقيقة؛ `npm run build` يتحقق من سلامته ويولّد كل ما سبق.
 - `src/` وحدات JavaScript بلا اعتماديات تعمل في Node والمتصفح معاً: الهندسة الجغرافية، بناء الشبكة (إسقاط المحطات على السكة وتقطيعها لمقاطع)، Dijkstra مع عقوبات التبديل، توليد KML/GeoJSON، الروابط العميقة، **المخطط التخطيطي** (`schematic.js`)، **ساعات الخدمة والأسعار والتوقيت** (`service.js`)، و**منطق التتبع الحي** (`live.js`: أقرب محطة على الرحلة، التبديل القادم، الاستعداد للنزول، الوصول).
 - واجهة سطر أوامر: `node scripts/route.js المركز المالي المطار`.
-- 56 اختباراً آلياً (`npm test`) تغطي سلامة البيانات، التوجيه بين كل زوج من المحطات (3,403 زوج)، صحة ملفات KML/KMZ/GeoJSON/CSV/GPX، تغطية المخطط لكل المحطات وتعامده، الأماكن وأقرب محطة، البحث بالأسماء البديلة، ساعات التشغيل/التوقيت، **ومنطق التتبع الحي** (الوصول، الاستعداد للنزول، التبديل القادم، العتبات القابلة للضبط).
+- 61 اختباراً آلياً (`npm test`) تغطي سلامة البيانات، التوجيه بين كل زوج من المحطات (3,403 زوج)، صحة ملفات KML/KMZ/GeoJSON/CSV/GPX، تغطية المخطط لكل المحطات وتعامده، الأماكن وأقرب محطة، البحث بالأسماء البديلة، ساعات التشغيل/التوقيت، **منطق التتبع الحي** (الوصول، الاستعداد للنزول، التبديل القادم، العتبات القابلة للضبط)، **وسلامة محتوى دليل الركاب والوضع الداكن وأسباب تميز المشروع**.
 
 ### 4. خارطة طريق التطوير 🧭
 
@@ -85,7 +88,7 @@
 git clone https://github.com/engmohammeda/RiyadhMetro-.git
 cd RiyadhMetro-
 npm run build     # يتحقق من البيانات ويولّد dist/ و web/data و web/lib (لا اعتماديات خارجية)
-npm test          # 56 اختباراً
+npm test          # 61 اختباراً
 npm start         # خادم محلي → http://localhost:8080/web/
 npm run route -- المركز المالي المتحف الوطني    # مخطط الرحلات من الطرفية
 ```
@@ -139,7 +142,8 @@ test/        node --test
 - **Google Maps:** import [`dist/riyadh-metro.kml`](dist/riyadh-metro.kml) (or one `dist/lines/*.kml` per layer) into Google My Maps → visible in the Google Maps app under *Saved → Maps*; deep links for every station (pin, walking directions, transit trip); `web/google-maps.html` for the Maps JavaScript API. ([guide](docs/google-maps.md))
 - **Web app (`web/`):** interactive schematic diagram (pan/zoom, tap A then B to plan) plus a Leaflet map; search stations **and places** (Kingdom Centre, Masmak, airport…) including old/common names (“Olaya” → stc); fastest / fewest-transfers; **“Leave at”** picker with estimated arrival, **ticket price** (standard / first class) and closed/late-service warnings; live “Metro running until 00:00” status; info tab with hours, fares, tips and destinations; nearest station via GPS; popular trips; station cards; route export to KML/GeoJSON; short links `#from~to~lang` (e.g. `#al-batha~al-hamra~en`, `#p:kingdom-centre~airport-t1-2~en`); UI in Arabic, English, Urdu, Hindi, Bengali, Filipino, French and Russian; installable PWA. Run `npm start` → http://localhost:8080/web/ or deploy with the included GitHub Pages workflow (see `docs/workflows/`).
 - **Diagram & destinations:** `dist/riyadh-metro-diagram{,-en}.svg` (printable network diagram generated from the hand-designed octilinear layout in `data/schematic.json`); `dist/riyadh-metro-places.{geojson,csv}` and a hidden *Destinations* folder in the KMZ — ~50 landmarks/malls/hospitals/universities with their nearest station and walking distance.
-- **Open data & engine:** `data/*.json` is the single source of truth; dependency-free modules in `src/` (geodesy, network building, Dijkstra routing, KML/GeoJSON generation, deep links, schematic renderer, service hours/fares/timing, live GPS progress logic) run in Node and the browser; `node scripts/route.js "KAFD" "National Museum" --en`; 56 tests (`npm test`).
+- **Open data & engine:** `data/*.json` is the single source of truth; dependency-free modules in `src/` (geodesy, network building, Dijkstra routing, KML/GeoJSON generation, deep links, schematic renderer, service hours/fares/timing, live GPS progress logic) run in Node and the browser; `node scripts/route.js "KAFD" "National Museum" --en`; 61 tests (`npm test`).
 - **Live GPS tracking & rider guide:** a pulsing "you are here" marker follows you, a card suggests the nearest station to board from, and a live banner alerts you to prepare to transfer, prepare to alight and on arrival (with haptics). A full 📖 rider guide tab covers fines/violations, prohibited items, etiquette, first-ride steps and the boarding-vs-alighting question; a first-visit modal highlights the five most common beginner mistakes.
+- **darb card & payment:** the guide explains the four payment methods, where to get a darb card, how to top it up, and renders the current fare table live from `data/config.json`. A **dark mode** 🌙 (with a night map style and a transit-optimised day style) and a "why this project vs Google transit directions" comparison round it out.
 - UX inspired by community projects such as [riyadhmetro.fyi](https://riyadhmetro.fyi); data, code and artwork are fully independent.
 - Data provenance and accuracy notes: [`data/SOURCES.md`](data/SOURCES.md). Times are estimates; this is an unofficial community project (MIT).

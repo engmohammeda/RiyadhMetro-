@@ -93,6 +93,9 @@
       'track.arrived': '🎉 وصلت إلى «{s}» — لا تنسَ تمرير البطاقة عند بوابة الخروج',
       'track.prepTransfer': '🔁 استعد للتبديل في «{s}» إلى {line} — على بُعد {d}',
       'track.info': '📍 أقرب محطة على رحلتك: «{s}» · المتبقي {n} محطة',
+      'info.whyTitle': '🆚 لماذا هذا المشروع إذا كانت خرائط جوجل تعرض المترو؟',
+      'info.whyText': '<ul><li>جوجل يعطيك <b>اتجاهاً فقط</b>؛ هنا تحصل على الشبكة كلها <b>ملفات مفتوحة</b>: KMZ لـ Google Earth مع جولات طيران افتراضية، وKML وGeoJSON وGPX وCSV لأي تطبيق أو تحليل.</li><li><b>مخطط شبكة تفاعلي وقابل للطباعة</b> — لا يوجد له مكافئ في خرائط جوجل.</li><li>تفاصيل تبديل دقيقة لكل محطة: 7 دقائق في المركز المالي، دقيقتان على الجذع المشترك للأصفر/البنفسجي — جوجل يعرض أزمنة عامة.</li><li><b>الأجرة وساعات التشغيل والدرجة الأولى</b> داخل نتيجة الرحلة نفسها، مع تحذيرات «آخر قطار» و«المترو مغلق» بتوقيت الرياض.</li><li>بحث بالأسماء القديمة والشائعة («العليا» ← stc، «برج المملكة» ← العروبة) وبالوجهات مع مسافة المشي من كل مكان.</li><li><b>دليل الركاب</b>: المخالفات والغرامات والممنوعات وخطوات أول رحلة — غير موجودة في خرائط جوجل.</li><li>يعمل <b>دون اتصال</b> ودون مفاتيح API أو حساب، مع روابط قصيرة لمشاركة أي رحلة أو محطة.</li><li>مشروع <b>مفتوح المصدر</b> يمكنك تعديله والمساهمة فيه — بيانات جوجل صندوق مغلق.</li></ul>',
+      'theme.toggle': 'الوضع الداكن',
       'fv.title': '🚇 أول مرة تركب مترو الرياض؟',
       'fv.sub': 'هذه أكثر خمسة أخطاء يقع فيها الركاب الجدد — دقيقة واحدة توفّر عليك الغرامات والحيرة:',
       'fv.open': '📖 افتح دليل الركاب الكامل', 'fv.dismiss': 'فهمت ✓ لا تظهرها مرة أخرى'
@@ -159,6 +162,9 @@
       'track.arrived': '🎉 You have arrived at {s} — remember to tap out at the exit gate',
       'track.prepTransfer': '🔁 Get ready to change at {s} to {line} — {d} away',
       'track.info': '📍 Nearest station on your trip: {s} · {n} stops left',
+      'info.whyTitle': '🆚 Why use this project when Google Maps shows the metro?',
+      'info.whyText': '<ul><li>Google gives you <b>directions only</b>; here you get the whole network as <b>open files</b>: a KMZ for Google Earth with fly-over tours, plus KML, GeoJSON, GPX and CSV for any app or analysis.</li><li>An <b>interactive, printable network diagram</b> — nothing like it in Google Maps.</li><li>Station-accurate transfer details: 7 minutes at KAFD, 2 minutes on the shared Yellow/Purple trunk — Google shows generic times.</li><li><b>Fares, service hours and first-class details</b> inside the journey result itself, with “last train” and “metro closed” warnings in Riyadh time.</li><li>Search by old and common names (“Olaya” → stc, “Kingdom Centre” → Al Urubah) and by destinations with walking distances.</li><li>A <b>rider guide</b>: violations and fines, prohibited items and first-ride steps — not available in Google Maps.</li><li>Works <b>offline</b>, with no API keys and no account, and short links to share any trip or station.</li><li>An <b>open-source</b> project you can fix and contribute to — Google’s data is a closed box.</li></ul>',
+      'theme.toggle': 'Dark mode',
       'fv.title': '🚇 First time on the Riyadh Metro?',
       'fv.sub': 'The five most common first-ride mistakes — one minute saves you fines and confusion:',
       'fv.open': '📖 Open the full rider guide', 'fv.dismiss': 'Got it ✓ don\u2019t show again'
@@ -343,6 +349,14 @@
           '<li>مرّر بطاقتك على <b>بوابة الدخول</b> عند الدخول وعلى <b>بوابة الخروج</b> عند الخروج — نسيان التمرير عند الخروج مخالفة وقد تُعتبر رحلتك غير مكتملة.</li>' +
           '<li>خطّط رحلتك مسبقاً من هذا التطبيق واعرف <b>رقم المسار واتجاهه</b> قبل الوصول إلى الرصيف.</li>' +
           '<li>آخر قطار قد يغادر محطتك قبل موعد الإغلاق المعلن — تحقق مبكراً للرحلات المتأخرة.</li></ul>' },
+        { icon: '💳', title: 'بطاقة درب وطرق الدفع — كيف تحصل عليها وتشحنها', html:
+          '<ul><li>يمكنك ركوب المترو بأربع طرق: <b>بطاقة درب</b>، <b>تطبيق درب</b>، <b>البطاقة البنكية اللاتلامسية</b> (مدى/فيزا/ماستركارد)، أو المحافظ الرقمية اللاتلامسية مثل Apple Pay.</li>' +
+          '<li><b>الحصول على بطاقة درب</b>: من أجهزة البيع الذاتية ومراكز خدمة العملاء داخل محطات المترو، ثم سجّلها في تطبيق درب لربطها بحسابك.</li>' +
+          '<li><b>شحن البطاقة</b>: فوراً عبر تطبيق درب بعد ربط البطاقة، أو من أجهزة البيع الذاتي في المحطات، أو عبر الموقع الإلكتروني — ويمكنك تفعيل الشحن التلقائي.</li>' +
+          '<li>الأسعار الحالية:</li></ul>{{FARES}}' +
+          '<ul><li class="ok-do">تذكرة واحدة تغطي المترو وحافلات الرياض معاً طوال مدتها، والأطفال دون 6 سنوات مجاناً مع شخص بالغ.</li>' +
+          '<li class="ok-do">استخدم نفس طريقة الدفع عند الدخول وعند الخروج (نفس البطاقة أو نفس الجهاز) حتى تُحتسب الرحلة مكتملة.</li></ul>' +
+          '<div class="note">💳 للاسترشاد فقط — تحقق من الأسعار وخيارات البطاقات في تطبيق درب الرسمي.</div>' },
         { icon: '🚉', title: 'محطات الصعود والنزول — هل هناك فرق؟', html:
           '<ul><li><b>لا يوجد فرق</b>: كل محطة في مترو الرياض تصعد منها وتنزل فيها؛ لا توجد «محطة صعود» وأخرى «نزول».</li>' +
           '<li>الذي يحدد رحلتك هو <b>اتجاه القطار</b>: لكل مسار نهايتان والقطار يتجه نحو إحداهما. قبل الصعود تحقق من شاشات ولافتات الرصيف: <b>«نحو …»</b> (اسم المحطة الأخيرة في ذلك الاتجاه).</li>' +
@@ -402,6 +416,14 @@
           '<li>Tap your card at the <b>entry gate</b> and again at the <b>exit gate</b> — forgetting to tap out is a violation and your trip may count as incomplete.</li>' +
           '<li>Plan your trip in this app first and know your <b>line number and direction</b> before reaching the platform.</li>' +
           '<li>The last train may leave your station before the advertised closing time — check early for late trips.</li></ul>' },
+        { icon: '💳', title: 'The darb card & payment — getting it and topping up', html:
+          '<ul><li>You can ride in four ways: the <b>darb card</b>, the <b>darb app</b>, a <b>contactless bank card</b> (mada/Visa/Mastercard), or a contactless wallet such as Apple Pay.</li>' +
+          '<li><b>Getting a darb card</b>: from ticket vending machines and customer-service desks inside metro stations, then register it in the darb app to link it to your account.</li>' +
+          '<li><b>Topping up</b>: instantly through the darb app after linking your card, at station vending machines, or online — auto-reload can be enabled.</li>' +
+          '<li>Current fares:</li></ul>{{FARES}}' +
+          '<ul><li class="ok-do">One ticket covers both the metro and Riyadh buses for its whole validity, and children under 6 ride free with an adult.</li>' +
+          '<li class="ok-do">Use the same payment method to tap in and tap out (same card or device) so the trip counts as complete.</li></ul>' +
+          '<div class="note">💳 Indicative only — verify fares and card options in the official darb app.</div>' },
         { icon: '🚉', title: 'Boarding and alighting stations — is there a difference?', html:
           '<ul><li><b>There is no difference</b>: every Riyadh Metro station lets you board and alight; there are no dedicated boarding or alighting stations.</li>' +
           '<li>What decides your trip is the <b>train\u2019s direction</b>: each line has two termini. Before boarding, check the platform screens and signs for <b>\u201Ctowards \u2026\u201D</b> (the last station in that direction).</li>' +
@@ -485,6 +507,7 @@
     itineraries: [], activeIt: 0, timing: null,
     station: null,
     hidden: {},
+    theme: localStorage.getItem('rm.theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
     track: { on: false, watchId: null, follow: true, lat: null, lng: null, acc: null, lastAlert: '' }
   };
   var $ = function (sel) { return document.querySelector(sel); };
@@ -529,7 +552,8 @@
     light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, subdomains: 'abcd', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>' }),
     sat: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics' })
   };
-  var baseOrder = ['light', 'map', 'sat'], baseIdx = 0;
+  baseLayers.dark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, subdomains: 'abcd', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>' });
+  var baseOrder = ['light', 'map', 'dark', 'sat'], baseIdx = 0;
   baseLayers[baseOrder[baseIdx]].addTo(map);
 
   var networkLayer = L.layerGroup().addTo(map);
@@ -835,7 +859,7 @@
     if (v === 'map') {
       setTimeout(function () {
         map.invalidateSize();
-        if (!mapReady) { mapReady = true; if (!it) fitNetwork(); }
+        if (!mapReady) { mapReady = true; if (!it) fitNetwork(); applyTheme(); }
         if (it && !keepFit) fitRouteOnMap(it);
       }, 30);
       hideSchHint();
@@ -1367,12 +1391,21 @@
   }
 
   /* ------------------------------------------------- guide & first visit */
+  function fareTableHtml() {
+    var fares = CFG.fares || {};
+    var L2 = state.lang === 'ar' ? 'ar' : 'en';
+    return '<table class="tbl"><tr><th>' + t('info.ticket') + '</th><th class="num">' + t('info.standard') + '</th><th class="num">' + t('info.first') + '</th></tr>' +
+      (fares.tickets || []).map(function (tk) { return '<tr><td>' + esc(tk.name[L2]) + '</td><td class="num">' + tk.price + ' ' + t('res.sar') + '</td><td class="num">' + (tk.firstClass ? tk.firstClass + ' ' + t('res.sar') : '—') + '</td></tr>'; }).join('') + '</table>' +
+      (fares.note ? '<p class="hint">' + esc(fares.note[L2]) + '</p>' : '');
+  }
+
   function renderGuide() {
     var g = state.lang === 'ar' ? GUIDE.ar : GUIDE.en;
-    $('#guide-content').innerHTML = '<h2 style="margin:2px 0 12px;font-size:17px">' + esc(g.title) + '</h2>' +
+    var html = '<h2 style="margin:2px 0 12px;font-size:17px">' + esc(g.title) + '</h2>' +
       g.sections.map(function (sec) {
-        return '<div class="guide-sec"><h3>' + sec.icon + ' ' + esc(sec.title) + '</h3><div class="gbody">' + sec.html + '</div></div>';
+        return '<div class="guide-sec"><h3>' + sec.icon + ' ' + esc(sec.title) + '</h3><div class="gbody">' + sec.html.split('{{FARES}}').join(fareTableHtml()) + '</div></div>';
       }).join('');
+    $('#guide-content').innerHTML = html;
   }
 
   function renderFvList() {
@@ -1386,6 +1419,20 @@
     if (localStorage.getItem('rm.fvSeen')) return;
     renderFvList();
     $('#fv-overlay').hidden = false;
+  }
+
+  /* ------------------------------------------------------------- theming */
+  function applyTheme() {
+    document.documentElement.setAttribute('data-theme', state.theme);
+    var btn = $('#btn-theme');
+    if (btn) { btn.textContent = state.theme === 'dark' ? '☀️' : '🌙'; btn.title = t('theme.toggle'); }
+    if (state.theme === 'dark' && baseOrder[baseIdx] !== 'dark' && mapReady) {
+      map.removeLayer(baseLayers[baseOrder[baseIdx]]); baseIdx = baseOrder.indexOf('dark');
+      baseLayers.dark.addTo(map).bringToBack();
+    } else if (state.theme === 'light' && baseOrder[baseIdx] === 'dark' && mapReady) {
+      map.removeLayer(baseLayers.dark); baseIdx = 0;
+      baseLayers.light.addTo(map).bringToBack();
+    }
   }
 
   /* ------------------------------------------------------------ lines tab */
@@ -1443,6 +1490,7 @@
             ' <small>' + st.lines.map(function (l) { return badge(NET.lines[l], true); }).join('') + ' ' + esc(st.name[NL()]) + ' · ' + fmtDist(p.nearest[0].distanceM) + '</small></button>';
         }).join('') + '</div></div>';
     });
+    html += '<div class="section-title">' + t('info.whyTitle') + '</div>' + t('info.whyText');
     html += '<div class="section-title">' + t('info.about') + '</div><p class="hint">' + esc(t('info.aboutText')) + '</p><p class="hint">' + esc(t('info.credits')) + '</p>' +
       '<p class="hint">' + t('info.support') + ': <a href="tel:' + esc((CFG.project && CFG.project.supportPhone) || '') + '">' + esc((CFG.project && CFG.project.supportPhone) || '') + '</a> · ' +
       '<a href="' + esc((CFG.project && CFG.project.repoUrl) || '#') + '" target="_blank" rel="noopener">GitHub</a></p>';
@@ -1542,7 +1590,7 @@
 
   /* ------------------------------------------------------------- helpers */
   function switchTab(id) {
-    $$('.tabs button').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); });
+    $$('.tabs button').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); b.setAttribute('aria-selected', b.dataset.tab === id ? 'true' : 'false'); });
     $$('.tab').forEach(function (s) { s.classList.toggle('active', s.id === 'tab-' + id); });
   }
   function collapsePanel(collapsed) {
@@ -1626,6 +1674,7 @@
     sel.innerHTML = Object.keys(LANGS).map(function (k) { return '<option value="' + k + '">' + LANGS[k].label + '</option>'; }).join('');
     sel.addEventListener('change', function () { state.lang = sel.value; applyLang(); updateHash(); });
 
+    applyTheme();
     drawNetwork();
     applyLang();
     setView(state.view === 'map' ? 'map' : 'diagram', true);
@@ -1649,6 +1698,11 @@
       toast(t('base.' + baseOrder[baseIdx]));
     });
     $('#btn-track').addEventListener('click', toggleTrack);
+    $('#btn-theme').addEventListener('click', function () {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('rm.theme', state.theme);
+      applyTheme();
+    });
     map.on('dragstart', function () { if (state.track.on) state.track.follow = false; });
     $('#fv-dismiss').addEventListener('click', function () { localStorage.setItem('rm.fvSeen', '1'); $('#fv-overlay').hidden = true; });
     $('#fv-guide').addEventListener('click', function () {

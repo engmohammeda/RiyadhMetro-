@@ -105,6 +105,7 @@
     </div>
     <nav class="top-actions">
       <span class="status-chip" id="status-chip" title=""></span>
+      <button id="btn-theme" title="الوضع الداكن" data-i18n-title="theme.toggle" aria-label="Theme">🌙</button>
       <select id="lang-select" aria-label="Language"></select>
       <a class="hide-sm" href="index.html" data-i18n="gm.back">← الخريطة التفاعلية</a>
       <a class="hide-sm primary" href="../dist/riyadh-metro.kmz" download data-i18n="top.kmz">⬇ KMZ</a>
@@ -157,7 +158,7 @@
           <div id="popular"></div>
         </div>
 
-        <div id="result"></div>
+        <div id="result" aria-live="polite"></div>
         <div id="live"></div>
         <div id="detail-card"></div>
         <p class="gm-foot" data-i18n="gm.foot">الأزمنة تقديرية (سرعة متوسطة + توقف لكل محطة + زمن التبديل). ساعات الخدمة والأسعار معلومات عامة — المرجع الرسمي تطبيق درب. المحطات ذات الإطار الأسود محطات تبادل؛ انقر على خط لإبرازه وعلى محطة لبطاقتها.</p>
@@ -187,7 +188,7 @@
       </div>
 
       <div class="rm-flowtip" id="gm-tip"></div>
-      <div class="live-banner info" id="live-banner" hidden></div>
+      <div class="live-banner info" id="live-banner" role="status" aria-live="assertive" hidden></div>
 
       <div class="gm-overlay" id="gm-loading" hidden>
         <div class="box"><div class="gm-spinner"></div><b data-i18n="gm.loading">جارٍ تحميل Google Maps…</b></div>
@@ -310,7 +311,8 @@
         'track.prepAlight': '🔔 استعد للنزول — محطتك «{s}» على بُعد {d}',
         'track.arrived': '🎉 وصلت إلى «{s}» — لا تنسَ تمرير البطاقة عند بوابة الخروج',
         'track.prepTransfer': '🔁 استعد للتبديل في «{s}» إلى {line} — على بُعد {d}',
-        'track.info': '📍 أقرب محطة على رحلتك: «{s}» · المتبقي {n} محطة'
+        'track.info': '📍 أقرب محطة على رحلتك: «{s}» · المتبقي {n} محطة',
+        'theme.toggle': 'الوضع الداكن'
       },
       en: {
         'gm.title': 'Riyadh Metro on Google Maps',
@@ -380,7 +382,8 @@
         'track.prepAlight': '🔔 Get ready to alight — your station {s} is {d} away',
         'track.arrived': '🎉 You have arrived at {s} — remember to tap out at the exit gate',
         'track.prepTransfer': '🔁 Get ready to change at {s} to {line} — {d} away',
-        'track.info': '📍 Nearest station on your trip: {s} · {n} stops left'
+        'track.info': '📍 Nearest station on your trip: {s} · {n} stops left',
+        'theme.toggle': 'Dark mode'
       }
     };
     var DOW = {
@@ -396,6 +399,7 @@
       itins: [], activeIt: 0,
       hidden: {}, showPlaces: false, focusedLine: null,
       baseIdx: 0, mapReady: false, key: null,
+      theme: localStorage.getItem('rm.theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
       track: { on: false, watchId: null, follow: true, lat: null, lng: null, acc: null, lastAlert: '' }
     };
 
@@ -459,6 +463,45 @@
       if (NET.stations[tok]) return { station: tok, place: null };
       var r = RMNetwork.searchAll(NET, tok.replace(/[-_]+/g, ' '), 1);
       return r.length && r[0].score >= 54 ? { station: r[0].station, place: r[0].kind === 'place' ? r[0].id : null } : null;
+    }
+
+
+    /* ------------------------------------- map styles & theming */
+    /* Transit-optimised light style: muted POIs/business labels, clearer roads. */
+    var GM_TRANSIT_STYLE = [
+      { featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+      { featureType: 'poi.business', stylers: [{ visibility: 'off' }] },
+      { featureType: 'transit', elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+      { featureType: 'landscape', stylers: [{ color: '#f2f4f7' }] },
+      { featureType: 'landscape.natural', stylers: [{ color: '#e4efe0' }] },
+      { featureType: 'road', elementType: 'geometry', stylers: [{ lightness: 18 }] },
+      { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#ffe3a3' }] },
+      { featureType: 'road.highway', elementType: 'geometry.stroke', stylers: [{ color: '#f0c96a' }] },
+      { featureType: 'water', stylers: [{ color: '#a6d4f2' }] },
+      { elementType: 'labels.text.fill', stylers: [{ color: '#5b6472' }] }
+    ];
+    /* Night style for dark mode. */
+    var GM_NIGHT_STYLE = [
+      { elementType: 'geometry', stylers: [{ color: '#1d2735' }] },
+      { elementType: 'labels.text.stroke', stylers: [{ color: '#1d2735' }] },
+      { elementType: 'labels.text.fill', stylers: [{ color: '#8a97ab' }] },
+      { featureType: 'poi', stylers: [{ visibility: 'off' }] },
+      { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#1f3328' }] },
+      { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#2b3a52' }] },
+      { featureType: 'road', elementType: 'geometry.stroke', stylers: [{ color: '#223045' }] },
+      { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#3d4f6b' }] },
+      { featureType: 'road.highway', elementType: 'geometry.stroke', stylers: [{ color: '#31415a' }] },
+      { featureType: 'transit', stylers: [{ visibility: 'off' }] },
+      { featureType: 'water', stylers: [{ color: '#10203a' }] },
+      { featureType: 'administrative', elementType: 'labels.text.fill', stylers: [{ color: '#7f8ca0' }] }
+    ];
+    function gmStyles() { return state.theme === 'dark' ? GM_NIGHT_STYLE : GM_TRANSIT_STYLE; }
+
+    function applyTheme() {
+      document.documentElement.setAttribute('data-theme', state.theme);
+      var btn = $('#btn-theme');
+      if (btn) { btn.textContent = state.theme === 'dark' ? '☀️' : '🌙'; btn.title = t('theme.toggle'); }
+      if (map && mapsReady) map.setOptions({ styles: gmStyles() });
     }
 
     /* -------------------------------------------------------------- api key */
@@ -1261,7 +1304,8 @@
         streetViewControl: false,
         fullscreenControl: false, // own fullscreen button in the toolbar (RTL-safe)
         clickableIcons: false,
-        backgroundColor: '#e5e3df',
+        backgroundColor: state.theme === 'dark' ? '#1d2735' : '#e5e3df',
+        styles: gmStyles(),
         gestureHandling: 'auto'
       });
 
@@ -1354,6 +1398,13 @@
         if (k) { localStorage.setItem('rm.gmkey', k); loadMaps(k); }
       });
       $('#key').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('#btn-key').click(); });
+      $('#btn-theme').addEventListener('click', function () {
+        state.theme = state.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('rm.theme', state.theme);
+        applyTheme();
+      });
+      applyTheme();
+
       $('#btn-retry').addEventListener('click', function () {
         $('#gm-error').hidden = true;
         var k = state.key || $('#key').value.trim();

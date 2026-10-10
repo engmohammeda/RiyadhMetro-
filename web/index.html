@@ -26,6 +26,7 @@
     </div>
     <nav class="top-actions">
       <span class="status-chip" id="status-chip" title=""></span>
+      <button id="btn-theme" title="الوضع الداكن" data-i18n-title="theme.toggle" aria-label="Theme">🌙</button>
       <select id="lang-select" aria-label="Language"></select>
       <a class="hide-sm primary" href="../dist/riyadh-metro.kmz" download data-i18n="top.kmz">⬇ KMZ لـ Google Earth</a>
       <a class="hide-sm" href="https://github.com/engmohammeda/RiyadhMetro-" target="_blank" rel="noopener">GitHub</a>
@@ -72,8 +73,8 @@
         <div id="popular"></div>
         <div id="nearby"></div>
         <div id="live"></div>
-        <div id="result"></div>
-        <div id="station-card"></div>
+        <div id="result" aria-live="polite"></div>
+        <div id="station-card" aria-live="polite"></div>
       </section>
 
       <!-- ===== Passenger guide (rules, etiquette, first-ride tips) ===== -->
@@ -120,7 +121,7 @@
         <button id="btn-clear" title="مسح المسار" data-i18n-title="map.clear" style="display:none">🧹</button>
       </div>
       <div class="legend" id="legend"></div>
-      <div class="live-banner info" id="live-banner" hidden></div>
+      <div class="live-banner info" id="live-banner" role="status" aria-live="assertive" hidden></div>
     </div>
   </main>
 

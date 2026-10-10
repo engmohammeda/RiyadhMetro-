@@ -254,6 +254,8 @@ h1, h2, h3 { margin: 0; }
 }
 
 /* ---------- top bar extras ---------- */
+#btn-theme { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.15); border-radius: 10px; padding: 6px 9px; font-size: 14px; cursor: pointer; line-height: 1; }
+#btn-theme:hover { background: rgba(255,255,255,.2); }
 #lang-select { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.15); border-radius: 10px; padding: 6px 8px; font-size: 13px; cursor: pointer; }
 #lang-select option { color: #0f172a; }
 .status-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); cursor: pointer; white-space: nowrap; }
@@ -381,3 +383,29 @@ h1, h2, h3 { margin: 0; }
 .fv-list .ic { font-size: 19px; flex-shrink: 0; line-height: 1.5; }
 .fv-actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
 .fv-actions .btn { flex: 1; justify-content: center; min-width: 45%; }
+
+/* ---------- dark theme ---------- */
+[data-theme="dark"] { --bg: #0b1220; --panel: #0f1a2b; --ink: #e6edf7; --muted: #8fa0b8; --border: #22314a; --accent: #38bdf8; --accent-ink: #06121f; --shadow: 0 10px 30px rgba(0,0,0,.5); }
+[data-theme="dark"] .field input, [data-theme="dark"] .suggest, [data-theme="dark"] .btn, [data-theme="dark"] .card,
+[data-theme="dark"] .chip-btn, [data-theme="dark"] .options label, [data-theme="dark"] .guide-sec,
+[data-theme="dark"] .fv-modal, [data-theme="dark"] .dl, [data-theme="dark"] .swap, [data-theme="dark"] .view-switch,
+[data-theme="dark"] .map-toolbar button, [data-theme="dark"] .gm-toolbar button, [data-theme="dark"] .gm-linechip,
+[data-theme="dark"] .line-item, [data-theme="dark"] .tbl th { background: #16233a; color: var(--ink); }
+[data-theme="dark"] .btn:hover, [data-theme="dark"] .chip-btn:hover, [data-theme="dark"] .suggest div:hover, [data-theme="dark"] .suggest div.active,
+[data-theme="dark"] .line-item li:hover, [data-theme="dark"] .gm-linechip:hover, [data-theme="dark"] .dl:hover,
+[data-theme="dark"] .map-toolbar button:hover, [data-theme="dark"] .gm-toolbar button:hover { background: #1d2c46; }
+[data-theme="dark"] .planner, [data-theme="dark"] .times, [data-theme="dark"] .summary div, [data-theme="dark"] .neigh a { background: #101c30; }
+[data-theme="dark"] .keybox { background: #2a2113; border-color: #7a5b22; color: #f0d9a8; }
+[data-theme="dark"] .keybox ul { color: #d8b97a; }
+[data-theme="dark"] .legend, [data-theme="dark"] .gm-legend { background: rgba(15,26,43,.96); color: var(--ink); }
+[data-theme="dark"] .station-label, [data-theme="dark"] .rm-lbl { background: rgba(15,26,43,.95); color: #e6edf7; }
+[data-theme="dark"] .notice { background: #2a2113; border-color: #7a5b22; color: #f0d9a8; }
+[data-theme="dark"] .notice.soft { background: #101c30; border-color: var(--border); color: var(--muted); }
+[data-theme="dark"] .error { background: #2b1517; border-color: #7f2d33; color: #f3b7bc; }
+[data-theme="dark"] .leg .transfer-note { background: #2a2113; color: #f0d9a8; }
+[data-theme="dark"] .leg .pin, [data-theme="dark"] .abm { border-color: #16233a; }
+[data-theme="dark"] .leg .pin { background: #16233a; }
+[data-theme="dark"] .fv-list li, [data-theme="dark"] .sc-places div { border-color: #22314a; }
+[data-theme="dark"] .leaflet-container { background: #0b1220; }
+[data-theme="dark"] #diagram { background: #f5f4ef; } /* keep the schematic a printed-paper white */
+[data-theme="dark"] .leaflet-control-zoom a, [data-theme="dark"] .leaflet-bar a { background: #16233a; color: #e6edf7; border-color: #22314a; }
