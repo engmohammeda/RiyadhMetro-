@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0c211b">
-  <meta name="color-scheme" content="light dark">
-  <meta name="description" content="اكتشف شبكة مترو الرياض كاملة وخطّط رحلتك بين 83 محطة على 6 مسارات. مخطط تفاعلي، أوقات وأسعار، وبيانات مفتوحة — Riyadh Metro Navigator.">
-  <meta name="author" content="Riyadh Metro Navigator community project">
-  <meta property="og:title" content="مترو الرياض — دليلك للمدينة">
-  <meta property="og:description" content="خطّط رحلتك، استكشف المسارات، واعرف محطات التبديل قبل أن تغادر.">
+  <meta name="theme-color" content="#07100d">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="خطّط رحلتك على شبكة مترو الرياض: 6 مسارات، 83 محطة، 176 كم. مخطط تفاعلي حيّ، أوقات وأسعار، دليل ركاب، وبيانات مفتوحة — Riyadh Metro Navigator.">
+  <meta name="author" content="Riyadh Metro Navigator — community project">
+  <meta property="og:title" content="مترو الرياض — كلّ المدينة على بُعد محطة">
+  <meta property="og:description" content="مخطط رحلات تفاعلي لشبكة مترو الرياض: ابحث عن محطة أو مكان، واعرف المسار والتبديلات والوقت والأجرة قبل أن تغادر.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ar_SA">
   <meta name="twitter:card" content="summary_large_image">
@@ -16,226 +16,208 @@
   <link rel="icon" type="image/png" href="icons/favicon.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="vendor/fonts/files/ibm-plex-sans-arabic-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="vendor/fonts/files/ibm-plex-sans-arabic-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="vendor/fonts/fonts.css">
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    /* Theme before first paint: no flash of the wrong palette. */
+    (function () {
+      try {
+        var stored = localStorage.getItem('rm.theme');
+        var dark = stored ? stored === 'dark' : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches === false);
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebApplication","name":"Riyadh Metro Navigator","alternateName":"مترو الرياض — دليل التنقل","applicationCategory":"TravelApplication","operatingSystem":"Any","inLanguage":["ar","en","ur","hi","bn","fil","fr","ru"],"description":"An independent community guide and journey planner for the Riyadh Metro network."}
   </script>
 </head>
-<body>
+<body class="landing">
   <a class="skip-link" href="#network-workspace" data-scroll-target="network-workspace" data-i18n="a11y.skip">تخطَّ إلى مخطط الرحلات</a>
 
-  <header class="topbar">
-    <div class="header-inner">
-      <a class="brand" href="./" aria-label="دليل مترو الرياض" data-i18n-aria-label="brand.aria">
+  <div class="scroll-rail" aria-hidden="true"><i class="scroll-rail-fill" id="scroll-progress"></i><span class="scroll-rail-train" id="scroll-train"></span></div>
+
+  <header class="topbar" id="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#top">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 44 44" fill="none">
-            <rect x="1" y="1" width="42" height="42" rx="14" fill="currentColor"/>
-            <path d="M10 30.5V13.5h5.2v2.6c1.2-1.9 3.1-3 5.4-3 2.6 0 4.5 1.1 5.5 3.2 1.3-2.1 3.4-3.2 6-3.2 4 0 6.4 2.6 6.4 7v10.4h-5.4v-9.5c0-2.4-1.1-3.8-3.2-3.8-2.2 0-3.7 1.7-3.7 4.1v9.2h-5.4v-9.5c0-2.4-1.1-3.8-3.2-3.8-2.2 0-3.7 1.7-3.7 4.1v9.2H10Z" fill="#10382d"/>
-            <circle cx="12.7" cy="35.1" r="2.1" fill="#d3f17b"/>
-            <circle cx="20.1" cy="35.1" r="2.1" fill="#00ade5"/>
-            <circle cx="27.5" cy="35.1" r="2.1" fill="#f0493a"/>
-            <circle cx="34.9" cy="35.1" r="2.1" fill="#984c9d"/>
+          <svg viewBox="0 0 40 40" fill="none">
+            <rect x=".75" y=".75" width="38.5" height="38.5" rx="12.5" class="bm-plate"/>
+            <path class="bm-track" d="M10.5 29.5V14.2l9.5 10.6 9.5-10.6v15.3"/>
+            <circle cx="10.5" cy="12.4" r="2.6" fill="#00ADE5"/>
+            <circle cx="20" cy="26.4" r="2.6" fill="#F0493A"/>
+            <circle cx="29.5" cy="12.4" r="2.6" fill="#FFD105"/>
           </svg>
         </span>
         <span class="brand-copy">
-          <span class="brand-overline">RIYADH METRO</span>
-          <span class="brand-name" data-i18n="app.title">مترو الرياض — دليل التنقل</span>
+          <span class="brand-overline" aria-hidden="true">RIYADH METRO</span>
+          <span class="brand-name" data-i18n="app.short">مترو الرياض</span>
         </span>
+        <span class="sr-only" data-i18n="brand.home">— الصفحة الرئيسية</span>
       </a>
 
-      <nav class="primary-nav" aria-label="التنقل الرئيسي" data-i18n-aria-label="nav.main">
+      <nav class="mainnav" aria-label="التنقل الرئيسي" data-i18n-aria-label="nav.main">
         <a href="#network-workspace" data-scroll-target="network-workspace" data-i18n="nav.explore">استكشف الشبكة</a>
-        <a href="#project-story" data-scroll-target="project-story" data-i18n="nav.project">عن المشروع</a>
+        <a href="#lines" data-scroll-target="lines" data-i18n="nav.lines">المسارات</a>
+        <a href="#guide" data-scroll-target="guide" data-i18n="nav.guide">دليل الركاب</a>
+        <a href="#data" data-scroll-target="data" data-i18n="nav.data">بيانات مفتوحة</a>
       </nav>
 
       <div class="top-actions">
-        <button class="status-chip" id="status-chip" type="button" title="" data-i18n-aria-label="status.label" aria-label="حالة تشغيل المترو"></button>
+        <button class="status-chip" id="status-chip" type="button" title="حالة تشغيل المترو" data-i18n-title="status.label"></button>
         <button id="btn-theme" type="button" title="الوضع الداكن" data-i18n-title="theme.toggle" data-i18n-aria-label="theme.toggle" aria-label="تغيير المظهر">🌙</button>
         <label class="sr-only" for="lang-select" data-i18n="lang.label">لغة الواجهة</label>
         <select id="lang-select" aria-label="لغة الواجهة" data-i18n-aria-label="lang.label"></select>
-        <a class="hide-sm top-download" href="../dist/riyadh-metro.kmz" download data-i18n="top.kmz">⬇ KMZ لـ Google Earth</a>
+        <a class="top-cta" href="#network-workspace" data-scroll-target="network-workspace" data-focus-planner data-i18n="nav.cta">خطّط رحلتك</a>
         <a class="hide-sm github-link" href="https://github.com/engmohammeda/RiyadhMetro-" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
       </div>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-ambient hero-ambient-one" aria-hidden="true"></div>
-      <div class="hero-ambient hero-ambient-two" aria-hidden="true"></div>
-      <div class="container hero-inner">
+
+    <!-- ═══════════════════════════════════════════════════════════ hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="hero-glow hero-glow-a"></span>
+        <span class="hero-glow hero-glow-b"></span>
+        <span class="hero-mesh"></span>
+      </div>
+
+      <div class="shell hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="hero.eyebrow">تنقّلٌ أذكى، في مدينة تتحرّك</span></p>
-          <h1 id="hero-title"><span data-i18n="hero.title1">الرياض،</span><span class="hero-title-accent" data-i18n="hero.title2">وجهتك أقرب.</span></h1>
-          <p class="hero-description" data-i18n="hero.description">اكتشف شبكة المترو كاملة، اعثر على الطريق الأنسب، واعرف محطات التبديل قبل أن تغادر — كل ذلك في تجربة واحدة، بالعربية أو بلغتك.</p>
-          <div class="hero-trip-builder" id="hero-trip-builder" role="search" aria-labelledby="hero-builder-title">
-            <div class="hero-builder-heading">
-              <span class="hero-builder-step" aria-hidden="true">01</span>
-              <span class="hero-builder-copy"><small data-i18n="hero.searchKicker">ابدأ من هنا</small><b id="hero-builder-title" data-i18n="hero.searchTitle">من أين إلى أين؟</b></span>
-              <span class="hero-builder-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            <span data-i18n="hero.eyebrow">شبكة مترو الرياض · مشروع مجتمعي مفتوح</span>
+            <span class="eyebrow-rule" aria-hidden="true"></span>
+            <span class="eyebrow-clock" id="hero-clock" dir="ltr" title="Asia/Riyadh"></span>
+          </p>
+
+          <h1 id="hero-title" class="display">
+            <span class="line"><span data-i18n="hero.title1">كلّ الرياض</span></span>
+            <span class="line"><em data-i18n="hero.title2">على بُعد محطة.</em></span>
+          </h1>
+
+          <p class="lede" data-i18n="hero.description">اكتب محطةً أو مكاناً، واضغط محطةً أخرى على الشبكة: نرتّب لك المسار والتبديلات والوقت والأجرة — ثم نرسم رحلتك على الخط نفسه.</p>
+
+          <form class="planner-console" id="hero-trip-builder" role="search" aria-labelledby="hero-builder-title">
+            <div class="console-head">
+              <span class="console-step" aria-hidden="true">01</span>
+              <span class="console-heading">
+                <small data-i18n="hero.builderKicker">ابدأ من هنا</small>
+                <b id="hero-builder-title" data-i18n="hero.builderTitle">من أين إلى أين؟</b>
+              </span>
+              <span class="console-sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
             </div>
-            <div class="hero-route-fields">
-              <div class="field hero-route-field">
+
+            <div class="od">
+              <div class="field od-field">
                 <label for="from"><span class="abm a">A</span> <span data-i18n="plan.from">من</span></label>
                 <input id="from" type="search" placeholder="محطة أو مكان: العليا، برج المملكة، المطار…" data-i18n-ph="plan.search" autocomplete="off" enterkeyhint="search" aria-label="محطة الانطلاق أو المكان" data-i18n-aria-label="plan.fromAria">
                 <button class="icon-btn" id="btn-locate" type="button" title="أقرب محطة لموقعي" data-i18n-title="plan.locate" data-i18n-aria-label="plan.locate" aria-label="أقرب محطة لموقعي">📍</button>
                 <div class="suggest" id="from-suggest" role="listbox" aria-label="اقتراحات نقطة الانطلاق" data-i18n-aria-label="plan.fromSuggestAria"></div>
               </div>
-              <div class="hero-route-link"><span aria-hidden="true"></span><button id="btn-swap" class="hero-swap" type="button" title="تبديل" data-i18n-title="plan.swap" data-i18n-aria-label="plan.swap" aria-label="تبديل نقطة الانطلاق والوصول">⇅</button><span aria-hidden="true"></span></div>
-              <div class="field hero-route-field">
+
+              <div class="od-link">
+                <span class="od-track" aria-hidden="true"><i></i></span>
+                <button id="btn-swap" class="od-swap" type="button" title="تبديل" data-i18n-title="plan.swap" data-i18n-aria-label="plan.swap" aria-label="تبديل نقطة الانطلاق والوصول">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 4 8l4 4M4 8h11a4 4 0 0 1 0 8h-1m-4 4 4-4-4-4M20 16H9a4 4 0 0 1 0-8h1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+
+              <div class="field od-field">
                 <label for="to"><span class="abm b">B</span> <span data-i18n="plan.to">إلى</span></label>
                 <input id="to" type="search" placeholder="محطة أو مكان: العليا، برج المملكة، المطار…" data-i18n-ph="plan.search" autocomplete="off" enterkeyhint="search" aria-label="محطة الوصول أو المكان" data-i18n-aria-label="plan.toAria">
                 <button class="icon-btn" id="btn-clear-to" type="button" title="مسح" data-i18n-title="plan.clear" data-i18n-aria-label="plan.clear" aria-label="مسح محطة الوصول">✕</button>
                 <div class="suggest" id="to-suggest" role="listbox" aria-label="اقتراحات نقطة الوصول" data-i18n-aria-label="plan.toSuggestAria"></div>
               </div>
             </div>
-            <div class="hero-route-options">
-              <label class="depart hero-depart"><span data-i18n="plan.leaveAt">🕒 المغادرة</span><select id="depart" aria-label="وقت المغادرة" data-i18n-aria-label="plan.leaveAt"></select></label>
-              <fieldset class="hero-mode-picker"><legend class="sr-only" data-i18n="plan.modeAria">طريقة اختيار المسار</legend>
+
+            <div class="console-opts">
+              <label class="depart"><span data-i18n="plan.leaveAt">🕒 المغادرة</span><select id="depart" aria-label="وقت المغادرة" data-i18n-aria-label="plan.leaveAt"></select></label>
+              <fieldset class="mode-picker">
+                <legend class="sr-only" data-i18n="plan.modeAria">طريقة اختيار المسار</legend>
                 <label><input type="radio" name="mode" value="fastest" checked><span data-i18n="plan.fastest">⚡ الأسرع</span></label>
                 <label><input type="radio" name="mode" value="fewest-transfers"><span data-i18n="plan.fewest">🔁 أقل تبديل</span></label>
               </fieldset>
+              <button class="btn primary btn-plan" id="btn-plan" type="submit">
+                <span data-i18n="hero.findRoute">اعثر على الطريق</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
             </div>
-            <div class="hero-builder-actions">
-              <button class="hero-submit" id="btn-plan" type="button"><span data-i18n="hero.findRoute">اعثر على الطريق</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-              <a class="hero-button-secondary" href="#network-workspace" data-scroll-target="network-workspace"><span data-i18n="hero.explore">استكشف الشبكة</span><span class="button-arrow" aria-hidden="true">↓</span></a>
+
+            <div class="console-foot">
+              <div id="popular"></div>
+              <button class="ghost-link" id="hero-first-ride" type="button">
+                <span class="ghost-link-mark" aria-hidden="true">✦</span>
+                <span data-i18n="hero.firstRide">أول مرة؟ افتح دليل الركاب</span>
+              </button>
             </div>
-            <p class="hero-estimate-note"><span aria-hidden="true">◌</span><span data-i18n="hero.estimateNote">الوقت تقديري — تفاصيل الرحلة تظهر في مساحة الشبكة</span></p>
-            <div id="popular"></div>
-          </div>
-          <button class="first-ride-link" id="hero-first-ride" type="button">
-            <span class="first-ride-icon" aria-hidden="true">✦</span>
-            <span data-i18n="hero.firstRide">أول مرة؟ افتح دليل الركاب</span>
-            <span aria-hidden="true">↗</span>
-          </button>
+          </form>
+
+          <ul class="hero-stats" id="hero-stats" aria-label="إحصاءات شبكة مترو الرياض" data-i18n-aria-label="metric.aria"></ul>
         </div>
 
-        <div class="hero-visual" role="img" aria-label="رسم تخطيطي ملوّن لخطوط مترو الرياض الستة" data-i18n-aria-label="hero.artAria">
-          <div class="visual-topline">
-            <span><i class="visual-live-dot"></i><span data-i18n="hero.visualKicker">شبكة الرياض · عرض توضيحي</span></span>
-            <span class="visual-index">01 <b>/</b> 06</span>
+        <div class="hero-stage">
+          <div class="stage-card">
+            <div class="stage-card-head">
+              <span class="live-badge"><i aria-hidden="true"></i><span data-i18n="hero.stageKicker">الشبكة الحيّة</span></span>
+              <b data-i18n="hero.stageTitle">شبكة مترو الرياض</b>
+              <a class="stage-open" href="#network-workspace" data-scroll-target="network-workspace" data-i18n="hero.stageOpen">المخطط الكامل <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="stage-canvas" id="hero-net" role="img" aria-label="مخطط تفاعلي لخطوط مترو الرياض الستة" data-i18n-aria-label="hero.artAria"></div>
+            <p class="stage-caption" id="hero-caption" role="status" aria-live="polite"></p>
           </div>
-          <svg class="hero-network" viewBox="0 0 760 540" fill="none" aria-hidden="true" focusable="false">
-            <defs>
-              <pattern id="hero-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-                <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity=".045" stroke-width="1"/>
-                <circle cx="0" cy="0" r="1.2" fill="#d3f17b" fill-opacity=".25"/>
-              </pattern>
-              <radialGradient id="hero-glow-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(392 263) rotate(90) scale(250)">
-                <stop stop-color="#2d8e6d" stop-opacity=".34"/><stop offset="1" stop-color="#0b211b" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="hero-surface" x1="380" y1="0" x2="380" y2="540" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#17362d"/><stop offset="1" stop-color="#0b1d19"/>
-              </linearGradient>
-              <filter id="hero-soft-glow" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <rect width="760" height="540" rx="26" fill="url(#hero-surface)"/>
-            <rect width="760" height="540" rx="26" fill="url(#hero-glow-a)"/>
-            <rect width="760" height="540" rx="26" fill="url(#hero-grid)"/>
-            <g opacity=".14" stroke="#d7e4d9" stroke-width="1">
-              <path d="M-20 110 170 0M28 180 300 0M85 240 440 0M250 540 760 155M395 540 760 325M548 540 760 415"/>
-              <path d="M540 0v540M624 0v540M708 0v540M0 92h760M0 174h760M0 456h760" stroke-dasharray="3 9"/>
-            </g>
-            <g fill="#c7ded0" opacity=".08">
-              <path d="M52 478h42v-74H52zM104 478h54V370h-54zM169 478h42v-54h-42zM228 478h53V392h-53zM298 478h39v-92h-39zM349 478h64v-128h-64zM425 478h41v-74h-41zM481 478h57V367h-57zM550 478h42v-60h-42zM603 478h58v-98h-58zM674 478h39v-54h-39z"/>
-              <path d="M52 478h661" stroke="#d7e4d9" stroke-width="2"/>
-            </g>
-            <g fill="none" stroke="#f4f7f4" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" opacity=".82">
-              <path d="M73 295h141l69-69h130l67 67h204"/>
-              <path d="M151 76v108l97 97h156v91l115 112"/>
-              <path d="M76 428h137l76-76h163l80-80h216"/>
-              <path d="M394 43v113l66 66v136l115 116"/>
-              <path d="M229 56v108l70 70v158l47 48"/>
-              <path d="M82 175h137l82 82h143l82-82h185"/>
-            </g>
-            <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
-              <path d="M73 295h141l69-69h130l67 67h204" stroke="#00ADE5"/>
-              <path d="M151 76v108l97 97h156v91l115 112" stroke="#F0493A"/>
-              <path d="M76 428h137l76-76h163l80-80h216" stroke="#F68D39"/>
-              <path d="M394 43v113l66 66v136l115 116" stroke="#FFD105"/>
-              <path d="M229 56v108l70 70v158l47 48" stroke="#43B649"/>
-              <path d="M82 175h137l82 82h143l82-82h185" stroke="#984C9D"/>
-            </g>
-            <g fill="#0e241e" stroke="#fff" stroke-width="3">
-              <circle cx="114" cy="295" r="6"/><circle cx="214" cy="295" r="6"/><circle cx="283" cy="226" r="6"/><circle cx="348" cy="226" r="6"/><circle cx="480" cy="293" r="6"/><circle cx="610" cy="293" r="6"/>
-              <circle cx="151" cy="129" r="6"/><circle cx="248" cy="281" r="6"/><circle cx="404" cy="281" r="6"/><circle cx="455" cy="372" r="6"/>
-              <circle cx="132" cy="428" r="6"/><circle cx="289" cy="352" r="6"/><circle cx="452" cy="352" r="6"/><circle cx="548" cy="272" r="6"/>
-              <circle cx="394" cy="101" r="6"/><circle cx="460" cy="222" r="6"/><circle cx="460" cy="291" r="6"/><circle cx="575" cy="474" r="6"/>
-              <circle cx="229" cy="108" r="6"/><circle cx="299" cy="234" r="6"/><circle cx="299" cy="315" r="6"/>
-              <circle cx="150" cy="175" r="6"/><circle cx="301" cy="257" r="6"/><circle cx="442" cy="257" r="6"/><circle cx="610" cy="175" r="6"/>
-            </g>
-            <g filter="url(#hero-soft-glow)">
-              <circle cx="300" cy="257" r="13" fill="#0d251e" stroke="#e1f6aa" stroke-width="3"/>
-              <circle cx="300" cy="257" r="4" fill="#d3f17b"/>
-              <circle cx="460" cy="291" r="13" fill="#0d251e" stroke="#e1f6aa" stroke-width="3"/>
-              <circle cx="460" cy="291" r="4" fill="#d3f17b"/>
-            </g>
-            <g fill="#d7e6dc" font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.1" opacity=".78">
-              <text x="323" y="244">KAFD</text><text x="477" y="279">STC</text><text x="91" y="160">NORTH RIYADH</text><text x="556" y="450">SOUTH RIYADH</text>
-            </g>
-            <g fill="#d3f17b" opacity=".8"><circle cx="71" cy="295" r="3"/><circle cx="677" cy="295" r="3"/><circle cx="76" cy="428" r="3"/><circle cx="688" cy="428" r="3"/><circle cx="394" cy="43" r="3"/></g>
-            <rect x=".75" y=".75" width="758.5" height="538.5" rx="25.25" stroke="#e5f6e9" stroke-opacity=".13" stroke-width="1.5"/>
-          </svg>
-          <div class="hero-map-label"><span class="label-pin" aria-hidden="true"></span><span><small data-i18n="hero.visualTag">تخطيط بصري للشبكة</small><b data-i18n="hero.visualPlace">الرياض، المملكة العربية السعودية</b></span></div>
-          <div class="hero-float-card hero-float-lines">
-            <span class="float-card-icon" aria-hidden="true">✳</span>
-            <span><small data-i18n="hero.floatTitle">شبكة واحدة، 6 مسارات</small><b data-i18n="hero.floatBody">من المطار إلى قلب المدينة</b></span>
-          </div>
-          <div class="hero-float-card hero-float-distance">
-            <span class="float-distance-number">176<span>.4</span></span>
-            <span><small data-i18n="hero.floatKm">كم من المسارات</small><b data-i18n="hero.floatUpdated">شبكة مترو الرياض</b></span>
-          </div>
+          <div class="line-rail" id="hero-line-rail" role="group" aria-label="مسارات مترو الرياض" data-i18n-aria-label="hero.railAria"></div>
         </div>
       </div>
 
-      <div class="container hero-metrics" aria-label="إحصاءات شبكة مترو الرياض" data-i18n-aria-label="metric.aria">
-        <div class="metric-item"><span class="metric-value">06</span><span class="metric-copy"><b data-i18n="metric.lines">مسارات</b><small data-i18n="metric.linesSub">تربط أنحاء المدينة</small></span><span class="metric-mark metric-mark-lines" aria-hidden="true"><i></i><i></i><i></i></span></div>
-        <div class="metric-item"><span class="metric-value">83</span><span class="metric-copy"><b data-i18n="metric.stations">محطة</b><small data-i18n="metric.stationsSub">على امتداد الشبكة</small></span><span class="metric-icon" aria-hidden="true">◎</span></div>
-        <div class="metric-item"><span class="metric-value">176</span><span class="metric-copy"><b data-i18n="metric.km">كم</b><small data-i18n="metric.kmSub">من المسارات المرسومة</small></span><span class="metric-icon" aria-hidden="true">↗</span></div>
-        <div class="metric-item"><span class="metric-value">08</span><span class="metric-copy"><b data-i18n="metric.languages">لغات</b><small data-i18n="metric.languagesSub">لتجربة أقرب للجميع</small></span><span class="metric-icon" aria-hidden="true">文</span></div>
-      </div>
+      <a class="hero-scroll" href="#network-workspace" data-scroll-target="network-workspace">
+        <span data-i18n="hero.scroll">استكشف الشبكة</span>
+        <i aria-hidden="true">↓</i>
+      </a>
     </section>
 
-    <section class="workspace-section" id="network-workspace" aria-labelledby="workspace-title">
-      <div class="container">
-        <div class="workspace-heading">
-          <div class="workspace-heading-copy">
-            <p class="section-eyebrow"><span class="section-eyebrow-line"></span><span data-i18n="workspace.eyebrow">خريطتك إلى المدينة</span></p>
-            <h2 id="workspace-title"><span data-i18n="workspace.title1">كل الشبكة.</span> <em data-i18n="workspace.title2">رحلة واحدة واضحة.</em></h2>
-            <p class="workspace-description" data-i18n="workspace.description">اختر محطتيك أو ابحث عن وجهتك. سنرتّب لك المسار والتبديلات والوقت التقديري — ثم استكشفه على المخطط أو الخريطة.</p>
-          </div>
-          <div class="workspace-pills">
-            <span class="workspace-pill"><span class="pill-dot"></span><span data-i18n="workspace.community">مشروع مجتمعي مفتوح المصدر</span></span>
-            <span class="workspace-pill workspace-pill-muted"><span data-i18n="workspace.network">6 مسارات · 83 محطة</span></span>
-          </div>
-        </div>
+    <!-- ══════════════════════════════════════════════════ workspace -->
+    <section class="workspace" id="network-workspace" aria-labelledby="workspace-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="section-eyebrow"><span class="section-eyebrow-line" aria-hidden="true"></span><span data-i18n="workspace.eyebrow">خريطتك إلى المدينة</span></p>
+          <h2 id="workspace-title" class="section-title-h"><span data-i18n="workspace.title1">كل الشبكة.</span> <em data-i18n="workspace.title2">رحلة واحدة واضحة.</em></h2>
+          <p class="section-desc" data-i18n="workspace.description">اختر محطتيك أو ابحث عن وجهتك. سنرتّب لك المسار والتبديلات والوقت التقديري — ثم استكشفه على المخطط أو الخريطة.</p>
+        </header>
 
-        <div class="layout" id="journey-planner">
+        <div class="workspace-shell" id="journey-planner">
           <aside class="panel" id="panel" aria-label="أدوات مترو الرياض" data-i18n-aria-label="panel.aria">
             <button class="panel-toggle" id="panel-toggle" type="button" data-label="اضغط لفتح اللوحة" aria-label="إظهار أو إخفاء أدوات الرحلة" aria-expanded="true" data-i18n-aria-label="panel.toggle"><span></span></button>
+
             <div class="panel-heading">
-              <div class="panel-heading-icon" aria-hidden="true">
+              <span class="panel-heading-icon" aria-hidden="true">
                 <svg viewBox="0 0 28 28" fill="none"><path d="M5 7h11.5a4 4 0 0 1 0 8H9M5 7l3 2.8M5 7l3-2.8M23 21H11.5a4 4 0 0 1 0-8H19m4 8-3-2.8m3 2.8-3 2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div><span data-i18n="panel.eyebrow">مساحة التنقّل</span><b data-i18n="panel.title">مخطّط رحلتك</b></div>
-              <span class="panel-step">01 <i>/</i> 03</span>
+              </span>
+              <span class="panel-heading-copy"><small data-i18n="panel.eyebrow">مساحة التنقّل</small><b data-i18n="panel.title">مخطّط رحلتك</b></span>
+              <span class="panel-step">02 <i>/</i> 03</span>
             </div>
+
             <div class="tabs" role="tablist" aria-label="أدوات استكشاف المترو" data-i18n-aria-label="tabs.aria">
-              <button id="tab-plan-button" type="button" role="tab" aria-controls="tab-plan" aria-selected="true" tabindex="0" data-tab="plan" class="active" data-i18n="tab.plan">🧭 خطّط رحلتك</button>
+              <button id="tab-plan-button" type="button" role="tab" aria-controls="tab-plan" aria-selected="true" tabindex="0" data-tab="plan" class="active" data-i18n="tab.plan">🧭 خطّط</button>
               <button id="tab-lines-button" type="button" role="tab" aria-controls="tab-lines" aria-selected="false" tabindex="-1" data-tab="lines" data-i18n="tab.lines">🚇 المسارات</button>
-              <button id="tab-guide-button" type="button" role="tab" aria-controls="tab-guide" aria-selected="false" tabindex="-1" data-tab="guide" data-i18n="tab.guide">📖 دليل الركاب</button>
+              <button id="tab-guide-button" type="button" role="tab" aria-controls="tab-guide" aria-selected="false" tabindex="-1" data-tab="guide" data-i18n="tab.guide">📖 الدليل</button>
               <button id="tab-info-button" type="button" role="tab" aria-controls="tab-info" aria-selected="false" tabindex="-1" data-tab="info" data-i18n="tab.info">ℹ️ معلومات</button>
-              <button id="tab-export-button" type="button" role="tab" aria-controls="tab-export" aria-selected="false" tabindex="-1" data-tab="export" data-i18n="tab.export">🌍 Earth / Maps</button>
+              <button id="tab-export-button" type="button" role="tab" aria-controls="tab-export" aria-selected="false" tabindex="-1" data-tab="export" data-i18n="tab.export">🌍 البيانات</button>
             </div>
 
             <section id="tab-plan" class="tab active" role="tabpanel" aria-labelledby="tab-plan-button" tabindex="0">
               <div id="result" aria-live="polite"></div>
               <div class="planner-empty" id="planner-empty">
-                <span class="empty-route-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-                <div><b data-i18n="journey.emptyTitle">رحلتك ستظهر هنا</b><p data-i18n="journey.emptyText">اختر نقطة الانطلاق والوصول من شريط البحث في الأعلى. سترى المحطات والتبديلات والوقت على المخطط نفسه.</p></div>
+                <span class="empty-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                <div>
+                  <b data-i18n="journey.emptyTitle">رحلتك ستظهر هنا</b>
+                  <p data-i18n="journey.emptyText">اختر نقطة الانطلاق والوصول من شريط البحث في الأعلى، أو اضغط محطتين على المخطط.</p>
+                </div>
                 <a class="empty-return" href="#hero-trip-builder" data-scroll-target="hero-trip-builder"><span data-i18n="journey.emptyAction">عدّل رحلتك</span><span aria-hidden="true">↑</span></a>
               </div>
               <div id="nearby"></div>
@@ -252,90 +234,147 @@
             <section id="tab-export" class="tab" role="tabpanel" aria-labelledby="tab-export-button" tabindex="0"><div id="export-content"></div></section>
           </aside>
 
-          <div class="stage" aria-label="مخطط مترو الرياض التفاعلي" data-i18n-aria-label="stage.aria">
+          <div class="stage" role="group" aria-label="مخطط مترو الرياض التفاعلي" data-i18n-aria-label="stage.aria">
             <div id="map" role="region" aria-label="الخريطة الجغرافية لمسارات المترو" data-i18n-aria-label="map.region"></div>
             <div id="diagram" hidden role="region" aria-label="المخطط التخطيطي التفاعلي" data-i18n-aria-label="diagram.region">
               <div class="sch-viewport" id="sch-viewport"><div class="sch-canvas" id="sch-canvas"></div></div>
               <div class="sch-hint" id="sch-hint" hidden></div>
-              <div class="sch-zoom" aria-label="تكبير المخطط">
+              <div class="sch-zoom" role="group" aria-label="تكبير المخطط">
                 <button id="sch-zoom-in" type="button" title="تكبير" aria-label="تكبير المخطط">＋</button>
                 <button id="sch-zoom-out" type="button" title="تصغير" aria-label="تصغير المخطط">－</button>
               </div>
             </div>
+
             <div class="stage-label">
               <span class="stage-label-icon" aria-hidden="true">◎</span>
               <span><small data-i18n="stage.kicker">استكشف من حولك</small><b data-i18n="stage.title">شبكة مترو الرياض</b></span>
             </div>
+
             <div class="view-switch" role="tablist" aria-label="اختيار طريقة عرض الشبكة" data-i18n-aria-label="view.aria">
               <button type="button" id="view-diagram-button" data-view="diagram" role="tab" aria-selected="true" class="active" data-i18n="view.diagram">🚇 المخطط</button>
               <button type="button" id="view-map-button" data-view="map" role="tab" aria-selected="false" data-i18n="view.map">🗺️ الخريطة</button>
               <button type="button" id="view-gmaps-button" data-view="gmaps" role="tab" aria-selected="false" title="Google Maps JavaScript API" data-i18n="view.gmaps">🌐 Google Maps</button>
             </div>
+
             <div class="map-toolbar" role="toolbar" aria-label="أدوات الخريطة" data-i18n-aria-label="map.toolbar">
               <button id="btn-basemap" type="button" title="تغيير الخلفية" data-i18n-title="map.basemap" data-i18n-aria-label="map.basemap" aria-label="تغيير خلفية الخريطة">◐</button>
               <button id="btn-track" type="button" title="تتبع مباشر عبر GPS" data-i18n-title="track.btn" data-i18n-aria-label="track.btn" aria-label="تتبع الموقع عبر GPS">📍</button>
               <button id="btn-fit" type="button" title="عرض الشبكة كاملة" data-i18n-title="map.fit" data-i18n-aria-label="map.fit" aria-label="عرض الشبكة كاملة">⤢</button>
               <button id="btn-clear" type="button" title="مسح المسار" data-i18n-title="map.clear" data-i18n-aria-label="map.clear" aria-label="مسح الرحلة" style="display:none">⌫</button>
             </div>
-            <div class="legend" id="legend" aria-label="دليل ألوان الخطوط" data-i18n-aria-label="legend.aria"></div>
+
+            <div class="legend" id="legend" role="group" aria-label="دليل ألوان الخطوط" data-i18n-aria-label="legend.aria"></div>
             <div class="live-banner info" id="live-banner" role="status" aria-live="assertive" hidden></div>
           </div>
         </div>
+
         <p class="workspace-footnote"><span class="footnote-mark" aria-hidden="true">i</span><span data-i18n="workspace.disclaimer">أوقات الرحلات والأسعار إرشادية وقد تتغيّر. تأكّد من آخر المعلومات في تطبيق درب الرسمي.</span></p>
       </div>
     </section>
 
-    <section class="project-section" id="project-story" aria-labelledby="project-title">
-      <div class="container project-grid">
-        <div class="project-intro">
-          <p class="section-eyebrow section-eyebrow-light"><span class="section-eyebrow-line"></span><span data-i18n="project.eyebrow">مبني للمدينة، ومفتوح للجميع</span></p>
-          <h2 id="project-title"><span data-i18n="project.title1">أكثر من خريطة.</span><br><em data-i18n="project.title2">رفيقٌ لكل رحلة.</em></h2>
+    <!-- ══════════════════════════════════════════════════════ lines -->
+    <section class="lines-section" id="lines" aria-labelledby="lines-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="section-eyebrow"><span class="section-eyebrow-line" aria-hidden="true"></span><span data-i18n="linesShowcase.eyebrow">ستة مسارات، مدينة واحدة</span></p>
+          <h2 id="lines-title" class="section-title-h"><span data-i18n="linesShowcase.title1">كل مسار</span> <em data-i18n="linesShowcase.title2">يحكي محوراً من المدينة.</em></h2>
+          <p class="section-desc" data-i18n="linesShowcase.description">من المطار شمالاً إلى الحائر جنوباً، ومن جامعة الملك سعود غرباً إلى خشم العان شرقاً — اختر مساراً لترى محطاته على الشبكة.</p>
+        </header>
+        <div class="lines-grid" id="lines-showcase"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ guide -->
+    <section class="guide-section" id="guide" aria-labelledby="guide-title">
+      <div class="shell guide-grid">
+        <header class="section-head">
+          <p class="section-eyebrow"><span class="section-eyebrow-line" aria-hidden="true"></span><span data-i18n="guideShowcase.eyebrow">قبل أن تركب</span></p>
+          <h2 id="guide-title" class="section-title-h"><span data-i18n="guideShowcase.title1">أول رحلة؟</span> <em data-i18n="guideShowcase.title2">دقيقة توفّر عليك غرامة.</em></h2>
+          <p class="section-desc" data-i18n="guideShowcase.description">هذه أكثر خمسة أخطاء يقع فيها الركاب الجدد. الدليل الكامل يشرح المخالفات والغرامات، بطاقة درب وطرق الدفع، وخطوات الرحلة من الباب إلى الباب.</p>
+          <div class="guide-actions">
+            <button class="btn primary" type="button" data-open-tab="guide"><span data-i18n="guideShowcase.open">📖 افتح دليل الركاب الكامل</span></button>
+            <button class="btn ghost" type="button" id="guide-fv" data-i18n="guideShowcase.quick">⚡ الأخطاء الخمسة</button>
+          </div>
+        </header>
+        <ol class="mistakes" id="guide-mistakes"></ol>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ data -->
+    <section class="data-section" id="data" aria-labelledby="data-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="section-eyebrow"><span class="section-eyebrow-line" aria-hidden="true"></span><span data-i18n="dataShowcase.eyebrow">مفتوح للمطوّرين</span></p>
+          <h2 id="data-title" class="section-title-h"><span data-i18n="dataShowcase.title1">بيانات الشبكة</span> <em data-i18n="dataShowcase.title2">بصيغ تستخدمها فعلاً.</em></h2>
+          <p class="section-desc" data-i18n="dataShowcase.description">نفس مصدر الحقيقة الذي يبني هذا الموقع: KML/KMZ لـ Google Earth وMy Maps، وGeoJSON وCSV وGPX للخرائط والتحليل، وملف الشبكة القابل للتوجيه.</p>
+        </header>
+        <div class="data-grid" id="data-grid"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ about -->
+    <section class="about-section" id="project-story" aria-labelledby="project-title">
+      <div class="shell about-grid">
+        <div class="about-copy">
+          <p class="section-eyebrow"><span class="section-eyebrow-line" aria-hidden="true"></span><span data-i18n="project.eyebrow">مبني للمدينة، ومفتوح للجميع</span></p>
+          <h2 id="project-title" class="section-title-h"><span data-i18n="project.title1">أكثر من خريطة.</span><br><em data-i18n="project.title2">رفيقٌ لكل رحلة.</em></h2>
           <p data-i18n="project.description">من البيانات المفتوحة إلى قرار الركوب، جمعنا الأدوات التي تحتاجها في تجربة واحدة: واضحة للمسافر، ومفيدة للمطور، وقابلة للتحقق والمساهمة.</p>
-          <a class="project-link" href="https://github.com/engmohammeda/RiyadhMetro-" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">استكشف المشروع على GitHub</span><span aria-hidden="true">↗</span></a>
+          <div class="about-links">
+            <a class="btn" href="https://github.com/engmohammeda/RiyadhMetro-" target="_blank" rel="noopener noreferrer"><span data-i18n="project.github">استكشف المشروع على GitHub</span><span aria-hidden="true">↗</span></a>
+            <a class="btn ghost" href="../data/SOURCES.md" data-i18n="project.sources">مصادر البيانات</a>
+          </div>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-icon feature-icon-route" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="6" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 18h3a3 3 0 0 0 3-3v-3a3 3 0 0 1 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-            <span class="feature-number">01</span>
+        <div class="about-cards">
+          <article class="about-card">
+            <span class="about-card-num" aria-hidden="true">01</span>
             <h3 data-i18n="feature.routeTitle">من الباب إلى المحطة</h3>
             <p data-i18n="feature.routeBody">قارن المسارات والتبديلات، ابحث بالمعالم، واعرف وقت الرحلة التقريبي قبل الانطلاق.</p>
-            <button class="feature-action" type="button" data-open-tab="plan"><span data-i18n="feature.routeAction">خطّط الآن</span><span aria-hidden="true">↗</span></button>
+            <button class="link-btn" type="button" data-open-tab="plan"><span data-i18n="feature.routeAction">خطّط الآن</span><span aria-hidden="true">↗</span></button>
           </article>
-          <article class="feature-card">
-            <span class="feature-icon feature-icon-network" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2" stroke="currentColor" stroke-width="1.7"/><circle cx="18.5" cy="5" r="2" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="18" r="2" stroke="currentColor" stroke-width="1.7"/><path d="m7 6 9.5-1M6.5 7.5l4.5 8.8m6-9.3L13 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-            <span class="feature-number">02</span>
+          <article class="about-card">
+            <span class="about-card-num" aria-hidden="true">02</span>
             <h3 data-i18n="feature.networkTitle">الشبكة بكل تفاصيلها</h3>
             <p data-i18n="feature.networkBody">استكشف ترتيب المحطات، نقاط التبادل، المسارات الجغرافية والوجهات القريبة.</p>
-            <button class="feature-action" type="button" data-open-tab="lines"><span data-i18n="feature.networkAction">تصفّح المسارات</span><span aria-hidden="true">↗</span></button>
+            <button class="link-btn" type="button" data-open-tab="lines"><span data-i18n="feature.networkAction">تصفّح المسارات</span><span aria-hidden="true">↗</span></button>
           </article>
-          <article class="feature-card">
-            <span class="feature-icon feature-icon-data" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.8 4.5 7.6v8.8l7.5 3.8 7.5-3.8V7.6L12 3.8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m4.8 7.8 7.2 3.8 7.2-3.8M12 11.8v8" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
-            <span class="feature-number">03</span>
+          <article class="about-card">
+            <span class="about-card-num" aria-hidden="true">03</span>
             <h3 data-i18n="feature.dataTitle">بيانات تقدر تثق بها</h3>
             <p data-i18n="feature.dataBody">حمّل بيانات الشبكة بصيغ مفتوحة، وراجع مصادرها وافتراضاتها بكل شفافية.</p>
-            <button class="feature-action" type="button" data-open-tab="export"><span data-i18n="feature.dataAction">افتح مركز البيانات</span><span aria-hidden="true">↗</span></button>
+            <button class="link-btn" type="button" data-open-tab="export"><span data-i18n="feature.dataAction">افتح مركز البيانات</span><span aria-hidden="true">↗</span></button>
           </article>
         </div>
       </div>
-      <div class="container project-notice">
+      <div class="shell about-notice">
         <span class="notice-symbol" aria-hidden="true">!</span>
         <p data-i18n="project.notice">مشروع مجتمعي مستقل وغير رسمي، غير تابع للهيئة الملكية لمدينة الرياض أو مشغّل المترو. بيانات الرحلات والأجرة إرشادية وليست بديلاً عن القنوات الرسمية.</p>
-        <a href="../data/SOURCES.md" data-i18n="project.sources">مصادر البيانات ↗</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="footer-brand" href="#main-content" data-scroll-target="main-content"><span class="footer-mark" aria-hidden="true">م</span><span><b data-i18n="app.title">مترو الرياض — دليل التنقل</b><small data-i18n="footer.tagline">افهم الشبكة. اختر طريقك. تحرّك بثقة.</small></span></a>
-      <div class="footer-links">
+    <div class="shell footer-grid">
+      <a class="footer-brand" href="#top" data-scroll-target="top">
+        <span class="footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path class="bm-track" d="M10.5 29.5V14.2l9.5 10.6 9.5-10.6v15.3"/><circle cx="10.5" cy="12.4" r="2.6" fill="#00ADE5"/><circle cx="20" cy="26.4" r="2.6" fill="#F0493A"/><circle cx="29.5" cy="12.4" r="2.6" fill="#FFD105"/></svg>
+        </span>
+        <span><b data-i18n="app.title">مترو الرياض — دليل التنقل</b><small data-i18n="footer.tagline">افهم الشبكة. اختر طريقك. تحرّك بثقة.</small></span>
+      </a>
+      <nav class="footer-links" aria-label="روابط التذييل" data-i18n-aria-label="footer.nav">
         <a href="#network-workspace" data-scroll-target="network-workspace" data-i18n="nav.explore">استكشف الشبكة</a>
-        <a href="#project-story" data-scroll-target="project-story" data-i18n="nav.project">عن المشروع</a>
+        <a href="#lines" data-scroll-target="lines" data-i18n="nav.lines">المسارات</a>
+        <a href="#guide" data-scroll-target="guide" data-i18n="nav.guide">دليل الركاب</a>
+        <a href="#data" data-scroll-target="data" data-i18n="nav.data">بيانات مفتوحة</a>
         <a href="https://github.com/engmohammeda/RiyadhMetro-" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+      <div class="footer-meta">
+        <span class="footer-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="footer-license" data-i18n="footer.license">مشروع مفتوح المصدر · MIT</span>
       </div>
-      <span class="footer-license" data-i18n="footer.license">مشروع مفتوح المصدر · MIT</span>
     </div>
   </footer>
+
+  <button class="to-top" id="btn-top" type="button" title="إلى الأعلى" data-i18n-title="top.back" data-i18n-aria-label="top.back" aria-label="إلى الأعلى" hidden>↑</button>
 
   <div class="fv-overlay" id="fv-overlay" hidden>
     <div class="fv-modal" role="dialog" aria-modal="true" aria-labelledby="first-ride-title" aria-describedby="first-ride-description">
@@ -345,7 +384,7 @@
       <ol class="fv-list" id="fv-list"></ol>
       <div class="fv-actions">
         <button class="btn primary" id="fv-guide" type="button" data-i18n="fv.open">📖 افتح دليل الركاب الكامل</button>
-        <button class="btn" id="fv-dismiss-secondary" type="button" data-i18n="fv.dismiss">فهمت ✓</button>
+        <button class="btn ghost" id="fv-dismiss-secondary" type="button" data-i18n="fv.dismiss">فهمت ✓</button>
       </div>
     </div>
   </div>
@@ -363,6 +402,8 @@
   <script src="lib/schematic.js"></script>
   <script src="lib/service.js"></script>
   <script src="lib/live.js"></script>
+  <script src="i18n.js"></script>
+  <script src="hero.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

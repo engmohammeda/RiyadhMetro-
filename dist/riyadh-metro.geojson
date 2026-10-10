@@ -2,7 +2,7 @@
  "type": "FeatureCollection",
  "name": "Riyadh Metro — all",
  "metadata": {
-  "generated": "2026-10-10T03:00:43.651Z",
+  "generated": "2026-10-09T00:00:00.000Z",
   "crs": "EPSG:4326",
   "source": "Riyadh public-transport open route data; unofficial community project"
  },
