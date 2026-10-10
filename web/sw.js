@@ -1,8 +1,8 @@
 /* Riyadh Metro Navigator — service worker (offline app shell).
  * Map tiles are intentionally NOT cached (tile-provider usage policies); everything else works offline. */
-var VERSION = 'rm-v2';
+var VERSION = 'rm-v3';
 var SHELL = [
-  './', './index.html', './styles.css', './app.js', './manifest.webmanifest',
+  './', './index.html', './google-maps.html', './styles.css', './app.js', './manifest.webmanifest',
   './data/metro-data.js',
   './lib/geo.js', './lib/network.js', './lib/router.js', './lib/links.js', './lib/kml.js', './lib/geojson.js', './lib/schematic.js', './lib/service.js',
   './vendor/leaflet/leaflet.js', './vendor/leaflet/leaflet.css',

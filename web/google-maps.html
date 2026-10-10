@@ -2,146 +2,1249 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>مترو الرياض على Google Maps API — Riyadh Metro on Google Maps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>مترو الرياض على Google Maps — المسارات فوق خريطة جوجل | Riyadh Metro on Google Maps</title>
+  <meta name="description" content="شبكة مترو الرياض كاملة (6 مسارات، 83 محطة) مدمجة احترافياً في Google Maps JavaScript API: مسارات بألوانها الرسمية فوق الخريطة، محطات تفاعلية، مخطط رحلات مع الأوقات والأسعار، واتجاهات متحركة. Riyadh Metro network professionally integrated into the Google Maps JavaScript API with interactive stations and an animated journey planner.">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:title" content="مترو الرياض على Google Maps | Riyadh Metro on Google Maps">
+  <meta property="og:description" content="المسارات الستة والمحطات فوق خريطة Google مباشرة — مخطط رحلات، أوقات، أسعار، وتصدير.">
+  <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="icons/favicon.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .gm-panel { padding: 14px; overflow-y: auto; }
-    .gm-panel select { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 8px; background: #fff; }
-    #gmap { flex: 1; }
-    .keybox { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px; padding: 12px; font-size: 13px; line-height: 1.7; }
-    .keybox input { width: 100%; padding: 9px; border-radius: 8px; border: 1px solid var(--border); margin: 6px 0; direction: ltr; }
-    .gm-steps { font-size: 13px; line-height: 1.8; padding-inline-start: 18px; }
+    /* ================= Google Maps page — scoped styles ================= */
+    [hidden] { display: none !important; }
+    .gm-stage { flex: 1; min-width: 0; position: relative; background: #e5e3df; }
+    #gmap { position: absolute; inset: 0; }
+    #gmap.gm-not-loaded { background: linear-gradient(160deg, #dbe4ee 0%, #e8edf4 55%, #f3f6fa 100%); }
+
+    /* panel */
+    .gm-scroll { overflow-y: auto; padding: 14px; flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 12px; }
+    .keybox { background: #fff7ed; border: 1px solid #fed7aa; border-radius: var(--radius); padding: 14px; font-size: 13px; line-height: 1.8; }
+    .keybox b { font-size: 14px; }
+    .keybox input { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); margin: 8px 0; direction: ltr; font-size: 13px; }
+    .keybox .btn { width: 100%; justify-content: center; }
+    .keybox ul { margin: 6px 0 0; padding-inline-start: 18px; color: #9a3412; font-size: 12px; }
+
+    /* floating overlays on the map */
+    .gm-toolbar { position: absolute; top: 12px; inset-inline-end: 12px; z-index: 4; display: flex; flex-direction: column; gap: 6px; }
+    .gm-toolbar button { background: #fff; border: 1px solid var(--border); border-radius: 10px; min-width: 40px; padding: 8px 10px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.18); font-size: 15px; line-height: 1.2; }
+    .gm-toolbar button:hover { background: #f8fafc; }
+    .gm-toolbar button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    .gm-legend { position: absolute; bottom: 26px; inset-inline-start: 12px; z-index: 4; background: rgba(255,255,255,.96); border-radius: 14px; box-shadow: var(--shadow); padding: 10px 12px; max-width: 250px; }
+    .gm-legend h3 { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .gm-legend .rows { display: grid; gap: 3px; }
+    .gm-linechip { display: flex; align-items: center; gap: 8px; border: 0; background: transparent; cursor: pointer; padding: 3px 4px; border-radius: 8px; font-size: 12.5px; text-align: start; }
+    .gm-linechip:hover { background: var(--bg); }
+    .gm-linechip i { width: 26px; height: 7px; border-radius: 4px; flex-shrink: 0; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(15,23,42,.15); }
+    .gm-linechip .cnt { color: var(--muted); font-size: 11px; margin-inline-start: auto; }
+    .gm-linechip.off { opacity: .38; }
+    .gm-linechip.off i { filter: grayscale(1); }
+    .gm-legend .divider { border-top: 1px solid var(--border); margin: 7px 0 5px; }
+    .gm-legend .xsample { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #1f1f1f; display: inline-block; flex-shrink: 0; }
+
+    /* station / place / label markers (AdvancedMarker content).
+       AdvancedMarkerElement anchors content at its BOTTOM-centre, so circles are
+       nudged down 50% to sit centred on the exact station coordinate. */
+    .rm-st { cursor: pointer; transition: transform .12s ease; display: block; transform: translateY(50%); filter: drop-shadow(0 2px 3px rgba(0,0,0,.35)); }
+    .rm-st:hover { transform: translateY(50%) scale(1.22); }
+    .gm-dim .rm-st, .gm-dim .rm-lbl, .gm-dim .rm-place { opacity: .28; }
+    .rm-lbl { pointer-events: none; background: rgba(255,255,255,.94); border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.28); padding: 1px 6px; font-size: 11px; font-weight: 700; color: #0f172a; white-space: nowrap; transform: translateY(-14px); display: block; }
+    .rm-place { cursor: pointer; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 3px solid #64748b; box-shadow: 0 2px 6px rgba(0,0,0,.3); font-size: 14px; line-height: 1; transition: transform .12s ease; transform: translateY(50%); }
+    .rm-place:hover { transform: translateY(50%) scale(1.15); }
+    .rm-pin { display: block; filter: drop-shadow(0 3px 4px rgba(0,0,0,.4)); }
+    .rm-trbadge { display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: #1f2937; color: #fff; border: 2.5px solid #fff; font-size: 12px; font-weight: 800; box-shadow: 0 2px 5px rgba(0,0,0,.35); transform: translateY(50%); }
+    .rm-flowtip { position: absolute; z-index: 5; pointer-events: none; background: var(--ink); color: #fff; border-radius: 999px; padding: 5px 11px; font-size: 12px; font-weight: 600; white-space: nowrap; transform: translate(-50%, -160%); box-shadow: var(--shadow); display: none; }
+
+    /* loading / error overlays */
+    .gm-overlay { position: absolute; inset: 0; z-index: 6; display: flex; align-items: center; justify-content: center; background: rgba(229,227,223,.82); backdrop-filter: blur(2px); }
+    .gm-overlay[hidden] { display: none; }
+    .gm-overlay .box { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 26px; max-width: 420px; text-align: center; font-size: 14px; line-height: 1.9; }
+    .gm-overlay .box b { font-size: 16px; }
+    .gm-spinner { width: 42px; height: 42px; margin: 0 auto 12px; border-radius: 50%; border: 4px solid var(--border); border-top-color: var(--accent); animation: gm-spin .9s linear infinite; }
+    @keyframes gm-spin { to { transform: rotate(360deg); } }
+
+    /* journey card bits */
+    .route-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+    .route-head .big { font-size: 30px; font-weight: 800; line-height: 1; }
+    .route-head .unit { color: var(--muted); font-size: 13px; }
+    .times-row { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; }
+    .times-row .arrow { color: var(--muted); }
+
+    /* line card */
+    .line-card header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .line-card .stats { display: flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin: 6px 0 10px; }
+    .line-card .corridor { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+    /* station card extras */
+    .sc-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .sc-places { margin-top: 10px; font-size: 12px; }
+    .sc-places div { display: flex; align-items: center; gap: 6px; padding: 4px 0; border-top: 1px dashed var(--border); }
+    .sc-places button { border: 0; background: transparent; color: var(--accent); cursor: pointer; font-size: 12px; padding: 0; margin-inline-start: auto; }
+
+    .gm-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .gm-actions .btn { flex: 1; justify-content: center; min-width: 45%; }
+    .gm-foot { font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+
+    @media (max-width: 860px) {
+      .gm-legend { display: none; }
+      .gm-scroll { padding: 10px 12px; }
+    }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><img src="icons/icon-192.png" alt=""><div><h1>مترو الرياض على Google Maps</h1><span>Google Maps JavaScript API integration</span></div></div>
-    <nav class="top-actions"><a href="index.html">← الخريطة التفاعلية</a><a class="hide-sm" href="../dist/riyadh-metro.kmz" download>⬇ KMZ</a></nav>
-  </header>
-  <main class="layout">
-    <aside class="panel gm-panel" id="panel">
-      <div id="keybox" class="keybox">
-        <b>مفتاح Google Maps API مطلوب</b><br>
-        هذه الصفحة ترسم الشبكة ومخطط الرحلات مباشرة فوق Google Maps باستخدام Maps JavaScript API. أدخل مفتاحك (يُحفظ محلياً في متصفحك فقط)، أو افتح الصفحة بالشكل <code dir="ltr">google-maps.html?key=YOUR_KEY</code>.
-        <input id="key" placeholder="AIza..." autocomplete="off">
-        <button class="btn primary" id="btn-key">تحميل الخريطة</button>
-        <p class="hint">احصل على مفتاح من <a href="https://console.cloud.google.com/google/maps-apis" target="_blank" rel="noopener">Google Cloud Console</a> مع تفعيل «Maps JavaScript API». البديل بدون مفتاح: استورد <code>riyadh-metro.kml</code> في <a href="https://www.google.com/maps/d/" target="_blank" rel="noopener">Google My Maps</a>.</p>
+    <div class="brand">
+      <img src="icons/icon-192.png" alt="">
+      <div>
+        <h1 data-i18n="gm.title">مترو الرياض على Google Maps</h1>
+        <span data-i18n="gm.subtitle">المسارات والمحطات فوق خريطة Google مباشرة · 6 مسارات · 83 محطة</span>
       </div>
-      <div id="planner" style="display:none">
-        <label class="hint">من محطة</label>
-        <select id="from"></select>
-        <label class="hint">إلى محطة</label>
-        <select id="to"></select>
-        <button class="btn primary" id="btn-plan">عرض المسار على Google Maps</button>
-        <div class="btn-row">
-          <button class="btn small" id="btn-clear">مسح</button>
-          <button class="btn small" id="btn-kml-layer" title="يعمل فقط عندما يكون الموقع منشوراً على رابط عام (GitHub Pages)">طبقة KML عبر KmlLayer</button>
+    </div>
+    <nav class="top-actions">
+      <span class="status-chip" id="status-chip" title=""></span>
+      <select id="lang-select" aria-label="Language"></select>
+      <a class="hide-sm" href="index.html" data-i18n="gm.back">← الخريطة التفاعلية</a>
+      <a class="hide-sm primary" href="../dist/riyadh-metro.kmz" download data-i18n="top.kmz">⬇ KMZ</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <aside class="panel" id="panel">
+      <div class="panel-toggle" id="panel-toggle" data-label="اضغط لفتح اللوحة"><span></span></div>
+      <div class="gm-scroll">
+
+        <!-- API key gate -->
+        <div id="keybox" class="keybox">
+          <b>🔑 <span data-i18n="gm.key.title">مفتاح Google Maps API مطلوب</span></b>
+          <p style="margin:6px 0" data-i18n="gm.key.body">هذه الصفحة تدمج شبكة مترو الرياض كاملة داخل Google Maps باستخدام Maps JavaScript API: المسارات بألوانها الرسمية فوق الخريطة، محطات تفاعلية ببطاقات معلومات، ومخطط رحلات مع اتجاهات متحركة. أدخل مفتاحك — يُحفظ محلياً في متصفحك فقط.</p>
+          <input id="key" placeholder="AIza…" autocomplete="off" spellcheck="false" dir="ltr">
+          <button class="btn primary" id="btn-key" data-i18n="gm.key.load">تحميل الخريطة</button>
+          <ul>
+            <li data-i18n="gm.key.howto1">أنشئ مفتاحاً من Google Cloud Console وفعّل «Maps JavaScript API».</li>
+            <li data-i18n="gm.key.howto2">أو افتح الصفحة بالرابط: <code dir="ltr">google-maps.html?key=YOUR_KEY</code></li>
+            <li data-i18n="gm.key.howto3">بديل بدون مفتاح: استورد <code>dist/riyadh-metro.kml</code> في Google My Maps.</li>
+          </ul>
         </div>
+
+        <!-- Planner (visible after the map loads) -->
+        <div id="planner" hidden>
+          <div class="planner">
+            <div class="field">
+              <label for="from"><span class="abm a">A</span> <span data-i18n="plan.from">من</span></label>
+              <input id="from" placeholder="محطة أو مكان: العليا، برج المملكة، المطار…" data-i18n-ph="plan.search" autocomplete="off" enterkeyhint="search">
+              <div class="suggest" id="from-suggest"></div>
+            </div>
+            <div class="swap-row"><button class="swap" id="btn-swap" title="تبديل" data-i18n-title="plan.swap">⇅</button></div>
+            <div class="field">
+              <label for="to"><span class="abm b">B</span> <span data-i18n="plan.to">إلى</span></label>
+              <input id="to" placeholder="محطة أو مكان: العليا، برج المملكة، المطار…" data-i18n-ph="plan.search" autocomplete="off" enterkeyhint="search">
+              <button class="icon-btn" id="btn-clear-to" title="مسح" data-i18n-title="plan.clear">✕</button>
+              <div class="suggest" id="to-suggest"></div>
+            </div>
+            <div class="options">
+              <label class="depart"><span data-i18n="plan.leaveAt">🕒 المغادرة</span> <select id="depart"></select></label>
+            </div>
+            <div class="options">
+              <label><input type="radio" name="mode" value="fastest" checked> <span data-i18n="plan.fastest">⚡ الأسرع</span></label>
+              <label><input type="radio" name="mode" value="fewest-transfers"> <span data-i18n="plan.fewest">🔁 أقل تبديل</span></label>
+            </div>
+            <button class="btn primary" id="btn-plan" data-i18n="plan.go">عرض المسار</button>
+            <p class="hint" data-i18n="gm.hint">اكتب محطة أو مكاناً (تُقبل الأسماء القديمة مثل «العليا»)، أو انقر محطة على الخريطة ثم اختر «من هنا / إلى هنا». الأزمنة تقديرية.</p>
+          </div>
+          <div id="popular"></div>
+        </div>
+
         <div id="result"></div>
-        <p class="hint">الأزمنة تقديرية. المحطات ذات الإطار الأسود محطات تبادل. انقر على محطة لعرض معلوماتها.</p>
+        <div id="detail-card"></div>
+        <p class="gm-foot" data-i18n="gm.foot">الأزمنة تقديرية (سرعة متوسطة + توقف لكل محطة + زمن التبديل). ساعات الخدمة والأسعار معلومات عامة — المرجع الرسمي تطبيق درب. المحطات ذات الإطار الأسود محطات تبادل؛ انقر على خط لإبرازه وعلى محطة لبطاقتها.</p>
       </div>
     </aside>
-    <div id="gmap"></div>
+
+    <div class="gm-stage">
+      <div id="gmap" class="gm-not-loaded"></div>
+
+      <div class="gm-toolbar" id="gm-toolbar" hidden>
+        <button id="btn-fit" title="عرض الشبكة كاملة" data-i18n-title="map.fit">⤢</button>
+        <button id="btn-base" title="تغيير الخلفية" data-i18n-title="map.basemap">🛰️</button>
+        <button id="btn-full" title="ملء الشاشة" data-i18n-title="map.fullscreen">⛶</button>
+        <button id="btn-kmlover" title="طبقة KML" data-i18n-title="map.kml">🗂️</button>
+        <button id="btn-clear" title="مسح المسار" data-i18n-title="map.clear" hidden>🧹</button>
+      </div>
+
+      <div class="gm-legend" id="gm-legend" hidden>
+        <h3 data-i18n="legend.title">مسارات مترو الرياض</h3>
+        <div class="rows" id="legend-rows"></div>
+        <div class="divider"></div>
+        <div class="rows">
+          <button class="gm-linechip" id="chip-places"><span style="font-size:15px">📍</span><span data-i18n="legend.places">الوجهات والأماكن</span><span class="cnt" id="places-cnt"></span></button>
+          <div class="gm-linechip" style="cursor:default"><span class="xsample"></span><span data-i18n="legend.x">محطة تبادل</span></div>
+        </div>
+      </div>
+
+      <div class="rm-flowtip" id="gm-tip"></div>
+
+      <div class="gm-overlay" id="gm-loading" hidden>
+        <div class="box"><div class="gm-spinner"></div><b data-i18n="gm.loading">جارٍ تحميل Google Maps…</b></div>
+      </div>
+      <div class="gm-overlay" id="gm-error" hidden>
+        <div class="box">
+          <b>⚠️ <span data-i18n="gm.err.title">تعذّر تحميل Google Maps</span></b>
+          <p id="gm-error-msg" class="hint" style="margin-top:8px"></p>
+          <button class="btn primary" id="btn-retry" style="margin-top:8px" data-i18n="gm.retry">إعادة المحاولة</button>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <div class="toast" id="toast"></div>
 
   <script src="data/metro-data.js"></script>
   <script src="lib/geo.js"></script>
   <script src="lib/network.js"></script>
   <script src="lib/router.js"></script>
   <script src="lib/links.js"></script>
+  <script src="lib/kml.js"></script>
+  <script src="lib/geojson.js"></script>
+  <script src="lib/service.js"></script>
   <script>
+  /* Riyadh Metro on Google Maps — professional Google Maps Platform integration.
+   * Network rendering: official line colours with white casing over the real alignments,
+   * AdvancedMarker stations (interchange rings, zoom-based labels, hover states),
+   * optional destinations layer, line focus mode, and a full journey planner with
+   * animated direction flow along the chosen route. Same hash format as index.html:
+   *   google-maps.html#kafd~airport-t1-2~ar          (stations)
+   *   google-maps.html#p:kingdom-centre~al-batha~en  (places)
+   */
   (function () {
-    var DATA = window.RIYADH_METRO_DATA, NET = RMNetwork.buildNetwork(DATA);
-    var SITE = (DATA.config.project && DATA.config.project.siteUrl) || '';
-    var map, overlays = [], routeOverlays = [], info, kmlLayer = null;
-    var $ = function (s) { return document.querySelector(s); };
-    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    'use strict';
 
+    var DATA = window.RIYADH_METRO_DATA;
+    var NET = RMNetwork.buildNetwork(DATA);
+    var CFG = DATA.config || {};
+    var SITE = (CFG.project && CFG.project.siteUrl) || '';
+
+    /* ------------------------------------------------------------------ i18n */
+    var LANGS = {
+      ar: { label: 'العربية', dir: 'rtl', names: 'ar' },
+      en: { label: 'English', dir: 'ltr', names: 'en' },
+      ur: { label: 'اردو', dir: 'rtl', names: 'ar' },
+      hi: { label: 'हिन्दी', dir: 'ltr', names: 'en' },
+      bn: { label: 'বাংলা', dir: 'ltr', names: 'en' },
+      fil: { label: 'Filipino', dir: 'ltr', names: 'en' },
+      fr: { label: 'Français', dir: 'ltr', names: 'en' },
+      ru: { label: 'Русский', dir: 'ltr', names: 'en' }
+    };
+    var I18N = {
+      ar: {
+        'gm.title': 'مترو الرياض على Google Maps',
+        'gm.subtitle': 'المسارات والمحطات فوق خريطة Google مباشرة · 6 مسارات · 83 محطة',
+        'gm.back': '← الخريطة التفاعلية', 'top.kmz': '⬇ KMZ لـ Google Earth',
+        'gm.key.title': 'مفتاح Google Maps API مطلوب',
+        'gm.key.body': 'هذه الصفحة تدمج شبكة مترو الرياض كاملة داخل Google Maps باستخدام Maps JavaScript API: المسارات بألوانها الرسمية فوق الخريطة، محطات تفاعلية ببطاقات معلومات، ومخطط رحلات مع اتجاهات متحركة. أدخل مفتاحك — يُحفظ محلياً في متصفحك فقط.',
+        'gm.key.load': 'تحميل الخريطة',
+        'gm.key.howto1': 'أنشئ مفتاحاً من Google Cloud Console وفعّل «Maps JavaScript API».',
+        'gm.key.howto2': 'أو افتح الصفحة بالرابط: ‎google-maps.html?key=YOUR_KEY‎',
+        'gm.key.howto3': 'بديل بدون مفتاح: استورد dist/riyadh-metro.kml في Google My Maps.',
+        'gm.loading': 'جارٍ تحميل Google Maps…',
+        'gm.err.title': 'تعذّر تحميل Google Maps',
+        'gm.err.auth': 'رفضت Google المفتاح المقدَّم (خطأ في المصادقة). تحقّق من المفتاح، ومن تفعيل «Maps JavaScript API» لمشروعك، ومن قيود الإحالة (HTTP referrer) إن كانت مفعّلة — يجب أن تشمل رابط هذه الصفحة.',
+        'gm.err.load': 'تعذّر الوصول إلى خوادم Google أو انتهاء مهلة التحميل. تحقّق من اتصال الإنترنت ثم أعد المحاولة.',
+        'gm.retry': 'إعادة المحاولة',
+        'gm.hint': 'اكتب محطة أو مكاناً (تُقبل الأسماء القديمة مثل «العليا»)، أو انقر محطة على الخريطة ثم اختر «من هنا / إلى هنا». الأزمنة تقديرية.',
+        'gm.foot': 'الأزمنة تقديرية (سرعة متوسطة + توقف لكل محطة + زمن التبديل). ساعات الخدمة والأسعار معلومات عامة — المرجع الرسمي تطبيق درب. المحطات ذات الإطار الأسود محطات تبادل؛ انقر على خط لإبرازه وعلى محطة لبطاقتها.',
+        'plan.from': 'من', 'plan.to': 'إلى', 'plan.search': 'محطة أو مكان: العليا، برج المملكة، المطار…',
+        'plan.swap': 'تبديل', 'plan.clear': 'مسح', 'plan.leaveAt': '🕒 المغادرة', 'plan.now': 'الآن',
+        'plan.fastest': '⚡ الأسرع', 'plan.fewest': '🔁 أقل تبديل', 'plan.go': 'عرض المسار على الخريطة',
+        'plan.popular': 'رحلات شائعة',
+        'err.pick': 'اختر محطة البداية ومحطة الوصول.', 'err.same': 'محطة البداية هي نفسها محطة الوصول.',
+        'err.samePlace': 'المكانان يتبعان المحطة نفسها ({s}) — المسافة بينهما تُقطع مشياً.',
+        'err.unknown': 'لم أتعرف على المحطة أو المكان: ',
+        'res.title': 'الرحلة المقترحة', 'res.min': 'دقيقة', 'res.stops': 'محطة', 'res.transfers': 'تبديل', 'res.none': 'بدون تبديل',
+        'res.distance': 'المسافة', 'res.fare': 'التذكرة', 'res.firstClass': 'الدرجة الأولى', 'res.standard': 'عادي', 'res.sar': 'ريال',
+        'res.depart': 'المغادرة', 'res.arrive': 'الوصول', 'res.wait': 'يشمل ~{n} د انتظار القطار',
+        'res.est': 'الأزمنة تقديرية — تحقّق من تطبيق درب.',
+        'res.board': 'اركب', 'res.towards': 'باتجاه', 'res.alight': 'انزل في', 'res.stopsN': '{n} محطات',
+        'res.change': 'بدّل إلى', 'res.transferTime': '~{n} د للتبديل',
+        'res.showStops': 'عرض المحطات على الطريق',
+        'res.start': 'البداية', 'res.end': 'الوصول',
+        'res.walkFrom': '🚶 امشِ {d} (~{n} د) من {p} إلى محطة {s}',
+        'res.walkTo': '🚶 ثم امشِ {d} (~{n} د) إلى {p}',
+        'res.gmaps': '🗺️ افتح في خرائط Google (مواصلات)', 'res.kml': '⬇ KML للرحلة', 'res.geojson': 'GeoJSON', 'res.share': '🔗 نسخ رابط الرحلة',
+        'res.alt.fastest': '⚡ الأسرع', 'res.alt.fewest': '🔁 أقل تبديل',
+        'warn.closed': 'المترو لا يعمل في وقت المغادرة المختار — الأوقات أدناه محسوبة من أول قطار الساعة {t}.',
+        'warn.late': 'الوصول المتوقع بعد انتهاء الخدمة ({t}) — غادر مبكراً أو تحقّق من موعد آخر قطار.',
+        'warn.tight': 'ستصل قبل انتهاء الخدمة ({t}) بقليل — قد يغادر آخر قطار في اتجاهك مبكراً.',
+        'status.open': 'المترو يعمل الآن · حتى {t}', 'status.closed': 'المترو مغلق الآن · يفتح {t}', 'status.closedDay': 'المترو مغلق الآن · يفتح {d} {t}',
+        'st.lines': 'المسارات', 'st.interchange': 'محطة تبادل', 'st.bus': 'محور حافلات', 'st.pr': 'مواقف اركن واركب',
+        'st.prev': 'المحطة السابقة', 'st.next': 'المحطة التالية', 'st.terminus': 'نهاية المسار',
+        'st.fromHere': 'من هنا', 'st.toHere': 'إلى هنا', 'st.gmaps': '📌 خرائط Google', 'st.dir': '🚶 اتجاهات المشي',
+        'st.earth': '🌍 Google Earth', 'st.geo': '📱 تطبيق الخرائط', 'st.nearby': 'أماكن قريبة',
+        'struct.elevated': 'مرتفعة (جسر)', 'struct.deep_underground': 'نفقية عميقة', 'struct.shallow_underground': 'نفقية سطحية', 'struct.at_grade': 'على مستوى الأرض',
+        'line.stations': 'محطة', 'line.km': 'كم', 'line.opened': 'افتُتح', 'line.corridor': 'المحور',
+        'line.back': '→ عودة إلى الشبكة', 'line.focus.hint': 'خط مُبرَز — انقر للعودة',
+        'map.fit': 'عرض الشبكة كاملة', 'map.basemap': 'تغيير الخلفية', 'map.clear': 'مسح المسار',
+        'map.fullscreen': 'ملء الشاشة',
+        'map.kml': 'طبقة KML الكاملة',
+        'legend.title': 'مسارات مترو الرياض', 'legend.places': 'الوجهات والأماكن', 'legend.x': 'محطة تبادل',
+        'base.map': 'خريطة', 'base.sat': 'قمر صناعي', 'base.hybrid': 'هجين',
+        'place.near': 'أقرب محطة', 'place.approx': 'موقع تقريبي', 'place.goto': 'وجّهني إليها',
+        'km': 'كم', 'm': 'م', 'min': 'د',
+        'toast.copied': 'تم نسخ الرابط ✓', 'toast.kml': 'تم تنزيل ملف KML — افتحه في Google Earth',
+        'toast.kmlon': 'طبقة KML معروضة (تتطلب نشراً على رابط عام)', 'toast.kmloff': 'أُزيلت طبقة KML',
+        'toast.kmlfail': 'تعذّر تحميل طبقة KML — الملف يجب أن يكون على رابط عام ({s})',
+        'popular.from': 'من {a} إلى {b}'
+      },
+      en: {
+        'gm.title': 'Riyadh Metro on Google Maps',
+        'gm.subtitle': 'Lines & stations directly on Google Maps · 6 lines · 83 stations',
+        'gm.back': '← Interactive map', 'top.kmz': '⬇ KMZ for Google Earth',
+        'gm.key.title': 'A Google Maps API key is required',
+        'gm.key.body': 'This page integrates the full Riyadh Metro network into Google Maps via the Maps JavaScript API: official line colours over the map, interactive stations with info cards, and a journey planner with animated directions. Enter your key — it is stored only in your browser.',
+        'gm.key.load': 'Load the map',
+        'gm.key.howto1': 'Create a key in Google Cloud Console and enable the “Maps JavaScript API”.',
+        'gm.key.howto2': 'Or open the page as: google-maps.html?key=YOUR_KEY',
+        'gm.key.howto3': 'Key-free alternative: import dist/riyadh-metro.kml into Google My Maps.',
+        'gm.loading': 'Loading Google Maps…',
+        'gm.err.title': 'Google Maps failed to load',
+        'gm.err.auth': 'Google rejected the key (authentication failure). Check the key, that the “Maps JavaScript API” is enabled for your project, and — if enabled — that your HTTP-referrer restrictions include this page’s URL.',
+        'gm.err.load': 'Could not reach Google’s servers or the request timed out. Check your connection and retry.',
+        'gm.retry': 'Retry',
+        'gm.hint': 'Type a station or place (old names such as “Olaya” work), or click a station on the map and choose “From here / To here”. Times are estimates.',
+        'gm.foot': 'Times are estimates (average speed + dwell per station + transfer time). Hours and fares are public information — the darb app is the official reference. Black-ringed stations are interchanges; click a line to highlight it and a station for its card.',
+        'plan.from': 'From', 'plan.to': 'To', 'plan.search': 'Station or place: Olaya, Kingdom Centre, airport…',
+        'plan.swap': 'Swap', 'plan.clear': 'Clear', 'plan.leaveAt': '🕒 Leave at', 'plan.now': 'Now',
+        'plan.fastest': '⚡ Fastest', 'plan.fewest': '🔁 Fewest transfers', 'plan.go': 'Show route on the map',
+        'plan.popular': 'Popular trips',
+        'err.pick': 'Choose an origin and a destination.', 'err.same': 'Origin and destination are the same station.',
+        'err.samePlace': 'Both places are served by the same station ({s}) — it is a walk between them.',
+        'err.unknown': 'Unknown station or place: ',
+        'res.title': 'Suggested journey', 'res.min': 'min', 'res.stops': 'stops', 'res.transfers': 'transfers', 'res.none': 'no transfers',
+        'res.distance': 'Distance', 'res.fare': 'Ticket', 'res.firstClass': 'First class', 'res.standard': 'Standard', 'res.sar': 'SAR',
+        'res.depart': 'Depart', 'res.arrive': 'Arrive', 'res.wait': 'includes ~{n} min waiting for the train',
+        'res.est': 'Times are estimates — check the darb app.',
+        'res.board': 'Board', 'res.towards': 'towards', 'res.alight': 'Alight at', 'res.stopsN': '{n} stops',
+        'res.change': 'Change to', 'res.transferTime': '~{n} min transfer',
+        'res.showStops': 'Show stations en route',
+        'res.start': 'Start', 'res.end': 'Arrive',
+        'res.walkFrom': '🚶 Walk {d} (~{n} min) from {p} to {s} station',
+        'res.walkTo': '🚶 Then walk {d} (~{n} min) to {p}',
+        'res.gmaps': '🗺️ Open in Google Maps (transit)', 'res.kml': '⬇ Route KML', 'res.geojson': 'GeoJSON', 'res.share': '🔗 Copy trip link',
+        'res.alt.fastest': '⚡ Fastest', 'res.alt.fewest': '🔁 Fewest transfers',
+        'warn.closed': 'The metro is not running at the chosen departure time — times below are counted from the first train at {t}.',
+        'warn.late': 'Expected arrival is after the end of service ({t}) — leave earlier or check the last train.',
+        'warn.tight': 'You arrive shortly before the end of service ({t}) — the last train in your direction may leave earlier.',
+        'status.open': 'Metro running · until {t}', 'status.closed': 'Metro closed · opens {t}', 'status.closedDay': 'Metro closed · opens {d} {t}',
+        'st.lines': 'Lines', 'st.interchange': 'Interchange station', 'st.bus': 'Bus hub', 'st.pr': 'Park & Ride',
+        'st.prev': 'Previous station', 'st.next': 'Next station', 'st.terminus': 'End of line',
+        'st.fromHere': 'From here', 'st.toHere': 'To here', 'st.gmaps': '📌 Google Maps', 'st.dir': '🚶 Walking directions',
+        'st.earth': '🌍 Google Earth', 'st.geo': '📱 Maps app', 'st.nearby': 'Nearby places',
+        'struct.elevated': 'Elevated', 'struct.deep_underground': 'Deep underground', 'struct.shallow_underground': 'Shallow underground', 'struct.at_grade': 'At grade',
+        'line.stations': 'stations', 'line.km': 'km', 'line.opened': 'opened', 'line.corridor': 'Corridor',
+        'line.back': '→ Back to the network', 'line.focus.hint': 'Line highlighted — click to go back',
+        'map.fit': 'Show whole network', 'map.basemap': 'Change basemap', 'map.clear': 'Clear route',
+        'map.fullscreen': 'Fullscreen',
+        'map.kml': 'Full KML layer',
+        'legend.title': 'Riyadh Metro lines', 'legend.places': 'Destinations & places', 'legend.x': 'Interchange',
+        'base.map': 'Map', 'base.sat': 'Satellite', 'base.hybrid': 'Hybrid',
+        'place.near': 'Nearest station', 'place.approx': 'approximate location', 'place.goto': 'Route me there',
+        'km': 'km', 'm': 'm', 'min': 'min',
+        'toast.copied': 'Link copied ✓', 'toast.kml': 'KML downloaded — open it in Google Earth',
+        'toast.kmlon': 'KML layer shown (requires a public URL)', 'toast.kmloff': 'KML layer removed',
+        'toast.kmlfail': 'KML layer failed — the file must be on a public URL ({s})',
+        'popular.from': '{a} → {b}'
+      }
+    };
+    var DOW = {
+      ar: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+      en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    };
+
+    /* ---------------------------------------------------------------- state */
+    var state = {
+      lang: localStorage.getItem('rm.lang') && LANGS[localStorage.getItem('rm.lang')] ? localStorage.getItem('rm.lang') : 'ar',
+      from: null, fromPlace: null, to: null, toPlace: null,
+      mode: 'fastest', depart: 'now',
+      itins: [], activeIt: 0,
+      hidden: {}, showPlaces: false, focusedLine: null,
+      baseIdx: 0, mapReady: false, key: null
+    };
+
+    function $(s) { return document.querySelector(s); }
+    function $$(s) { return Array.prototype.slice.call(document.querySelectorAll(s)); }
+    function esc(s) { return String(s).replace(/[&<>\"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function t(key, vars) {
+      var s = (I18N[state.lang] && I18N[state.lang][key]) || I18N.en[key] || I18N.ar[key] || key;
+      if (vars) Object.keys(vars).forEach(function (k) { s = s.replace('{' + k + '}', vars[k]); });
+      return s;
+    }
+    function NL() { return LANGS[state.lang].names; }
+    function OL() { return NL() === 'ar' ? 'en' : 'ar'; }
+    function isRtl() { return LANGS[state.lang].dir === 'rtl'; }
+    function sname(id) { return NET.stations[id].name[NL()]; }
+    function pname(id) { return NET.places[id].name[NL()]; }
+    function lname(id) { return NET.lines[id].name[NL()]; }
+    function fmtDist(m) { return RMGeo.formatDistance(m, NL()); }
+    function isDarkLine(line) { return hexLuma(line.color) > 0.6; }
+    function badge(lid, small) {
+      var line = NET.lines[lid];
+      return '<span class="badge' + (isDarkLine(line) ? ' dark' : '') + '" style="background:' + line.color + '"><span class="num">' + line.number + '</span>' + (small ? '' : esc(line.name[NL()])) + '</span>';
+    }
+    function toast(msg) { var el = $('#toast'); el.textContent = msg; el.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(function () { el.classList.remove('show'); }, 2400); }
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+      var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) { /* ignore */ }
+      document.body.removeChild(ta); return Promise.resolve();
+    }
+    function download(filename, content, mime) {
+      var blob = new Blob([content], { type: mime || 'application/octet-stream' });
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = filename;
+      document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    }
+    function refLabel(st, pl) { return pl ? pname(pl) : (st ? sname(st) : ''); }
+    function refToken(st, pl) { return pl ? 'p:' + pl : (st || ''); }
+    function hashString() {
+      var h = refToken(state.from, state.fromPlace) + '~' + refToken(state.to, state.toPlace) + '~' + state.lang;
+      if (state.from && state.to && state.mode !== 'fastest') h += '~' + state.mode;
+      return h;
+    }
+    function updateHash() { history.replaceState(null, '', '#' + hashString()); }
+    function shareUrl() { return location.href.split('#')[0] + '#' + hashString(); }
+    function readHash() {
+      var raw = location.hash.replace(/^#/, '');
+      try { raw = decodeURIComponent(raw); } catch (e) { /* keep raw */ }
+      if (!raw) return {};
+      if (raw.indexOf('=') >= 0) {
+        var out = {};
+        raw.split('&').forEach(function (kv) { var p = kv.split('='); if (p[0]) out[p[0]] = p[1] || ''; });
+        if (out.station) { out.from = out.station; out.to = ''; }
+        return out;
+      }
+      var p = raw.split('~');
+      return { from: p[0] || '', to: p[1] || '', lang: p[2] || '', mode: p[3] || '' };
+    }
+    function resolveRef(tok) {
+      if (!tok) return null;
+      if (tok.indexOf('p:') === 0 || tok.indexOf('p_') === 0) { var pl = NET.places[tok.slice(2)]; return pl ? { station: pl.station, place: pl.id } : null; }
+      if (NET.stations[tok]) return { station: tok, place: null };
+      var r = RMNetwork.searchAll(NET, tok.replace(/[-_]+/g, ' '), 1);
+      return r.length && r[0].score >= 54 ? { station: r[0].station, place: r[0].kind === 'place' ? r[0].id : null } : null;
+    }
+
+    /* -------------------------------------------------------------- api key */
     var params = new URLSearchParams(location.search);
-    var key = params.get('key') || localStorage.getItem('rm.gmkey');
-    if (key) { $('#key').value = key; loadMaps(key); }
-    $('#btn-key').addEventListener('click', function () { var k = $('#key').value.trim(); if (k) { localStorage.setItem('rm.gmkey', k); loadMaps(k); } });
+    var map = null, mapsReady = false, authFailed = false;
+    var lineLayers = {}, stationMarkers = {}, labelMarkers = {}, placeMarkers = {};
+    var routeOverlays = [], flowLines = [], flowTimer = null, flowPhase = 0, kmlLayer = null;
+    var networkBounds = null, tipEl = $('#gm-tip'), mapEl = $('#gmap');
 
-    function loadMaps(k) {
-      window.__rmInit = initMap;
+    window.gm_authFailure = function () {
+      authFailed = true;
+      showMapError(t('gm.err.auth'));
+    };
+
+    function showMapError(msg) {
+      $('#gm-loading').hidden = true;
+      $('#gm-error-msg').textContent = msg;
+      $('#gm-error').hidden = false;
+    }
+
+    function loadMaps(key) {
+      state.key = key;
+      $('#gm-error').hidden = true;
+      $('#gm-loading').hidden = false;
+      window.__rmInit = onMapsReady;
       var s = document.createElement('script');
-      s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(k) + '&callback=__rmInit&language=ar&region=SA&v=weekly';
-      s.async = true; s.onerror = function () { alert('تعذّر تحميل Google Maps API — تحقق من المفتاح.'); };
+      var extra = params.get('mapid') ? '&map_ids=' + encodeURIComponent(params.get('mapid')) : '';
+      s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(key) +
+        '&callback=__rmInit&loading=async&language=' + (state.lang === 'ar' ? 'ar' : 'en') + '&region=SA&v=weekly' + extra;
+      s.async = true;
+      s.onerror = function () { if (!authFailed) showMapError(t('gm.err.load')); };
       document.head.appendChild(s);
+      setTimeout(function () { if (!mapsReady && !authFailed) showMapError(t('gm.err.load')); }, 20000);
     }
 
-    function circle(color, interchange) {
-      return { path: google.maps.SymbolPath.CIRCLE, scale: interchange ? 8 : 6, fillColor: interchange ? '#ffffff' : color, fillOpacity: 1,
-        strokeColor: interchange ? '#1f1f1f' : '#ffffff', strokeWeight: interchange ? 3 : 2 };
+    /* ------------------------------------------------------------ rendering */
+    function latlng(p) { return { lat: p[0], lng: p[1] }; }
+    function hexLuma(hex) {
+      var c = String(hex).replace('#', '');
+      var r = parseInt(c.substr(0, 2), 16) / 255, g = parseInt(c.substr(2, 2), 16) / 255, b = parseInt(c.substr(4, 2), 16) / 255;
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
     }
 
-    function initMap() {
-      $('#keybox').style.display = 'none'; $('#planner').style.display = '';
-      map = new google.maps.Map($('#gmap'), { center: { lat: 24.72, lng: 46.70 }, zoom: 11, mapTypeControl: true, streetViewControl: false, fullscreenControl: true });
-      info = new google.maps.InfoWindow();
-      var bounds = new google.maps.LatLngBounds();
+    function stationSvg(s) {
+      if (s.interchange) {
+        return '<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">' +
+          '<circle cx="13" cy="13" r="9.5" fill="#ffffff" stroke="#111827" stroke-width="3.2"/></svg>';
+      }
+      var color = NET.lines[s.lines[0]].color;
+      return '<svg width="19" height="19" viewBox="0 0 19 19" aria-hidden="true">' +
+        '<circle cx="9.5" cy="9.5" r="6.6" fill="' + color + '" stroke="#ffffff" stroke-width="2.6"/></svg>';
+    }
+
+    function pinSvg(letter, color) {
+      return '<svg class="rm-pin" width="36" height="48" viewBox="0 0 36 48" aria-hidden="true">' +
+        '<path d="M18 1C8.6 1 1 8.6 1 18 1 30.5 18 47 18 47s17-16.5 17-29C35 8.6 27.4 1 18 1z" fill="' + color + '" stroke="#ffffff" stroke-width="2.4"/>' +
+        '<circle cx="18" cy="18" r="11" fill="#ffffff"/>' +
+        '<text x="18" y="23" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="' + color + '">' + letter + '</text></svg>';
+    }
+
+    function makeMarker(opts) {
+      var AME = google.maps.marker && google.maps.marker.AdvancedMarkerElement;
+      if (!AME) return new google.maps.Marker(opts.legacy); // very old API fallback
+      var m = new AME({ position: opts.position, map: map, zIndex: opts.zIndex, title: opts.title, gmpClickable: !!opts.clickable, content: opts.content });
+      if (opts.collision && google.maps.CollisionBehavior) m.collisionBehavior = google.maps.CollisionBehavior.OPTIONAL_AND_HIDES_LOWER;
+      return m;
+    }
+
+    function drawNetwork() {
+      networkBounds = new google.maps.LatLngBounds();
       NET.lineOrder.forEach(function (lid) {
         var line = NET.lines[lid];
-        var path = line.shape.map(function (p) { bounds.extend({ lat: p[0], lng: p[1] }); return { lat: p[0], lng: p[1] }; });
-        overlays.push(new google.maps.Polyline({ path: path, strokeColor: '#ffffff', strokeOpacity: 0.9, strokeWeight: 9, map: map, zIndex: 1 }));
-        overlays.push(new google.maps.Polyline({ path: path, strokeColor: line.color, strokeOpacity: 0.95, strokeWeight: 5, map: map, zIndex: 2 }));
+        var path = line.shape.map(function (p) { networkBounds.extend(latlng(p)); return latlng(p); });
+        var casing = new google.maps.Polyline({
+          path: path, map: map, strokeColor: '#ffffff', strokeOpacity: 0.92, strokeWeight: 9,
+          zIndex: 5, clickable: false
+        });
+        var colored = new google.maps.Polyline({
+          path: path, map: map, strokeColor: line.color, strokeOpacity: 0.96, strokeWeight: 5.5,
+          zIndex: 10 + (+lid), clickable: true
+        });
+        colored.addListener('click', function () { focusLine(lid); });
+        colored.addListener('mousemove', function (e) { showLineTip(line, e.domEvent || e); });
+        colored.addListener('mouseout', hideLineTip);
+        lineLayers[lid] = { casing: casing, colored: colored };
       });
+
       Object.keys(NET.stations).forEach(function (id) {
         var s = NET.stations[id];
-        var m = new google.maps.Marker({ position: { lat: s.lat, lng: s.lng }, map: map, title: s.name.ar + ' • ' + s.name.en,
-          icon: circle(NET.lines[s.lines[0]].color, s.interchange), zIndex: s.interchange ? 20 : 10 });
-        m.addListener('click', function () {
-          info.setContent('<div dir="rtl" style="font-family:Tahoma,Arial;min-width:220px"><b style="font-size:15px">' + esc(s.name.ar) + '</b><br><span style="color:#666">' + esc(s.name.en) + '</span><br>' +
-            s.lines.map(function (l) { var ln = NET.lines[l]; return '<span style="background:' + ln.color + ';color:' + (l === '4' ? '#222' : '#fff') + ';padding:1px 8px;border-radius:10px;font-size:12px;margin:2px">' + ln.number + ' ' + esc(ln.name.ar) + '</span>'; }).join(' ') +
-            '<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"><button onclick="window.__rmFrom(\'' + id + '\')">من هنا</button><button onclick="window.__rmTo(\'' + id + '\')">إلى هنا</button>' +
-            '<a href="' + RMLinks.googleMapsPlace(s.lat, s.lng) + '" target="_blank">خرائط Google</a> <a href="' + RMLinks.googleEarth(s.lat, s.lng) + '" target="_blank">Earth</a></div></div>');
-          info.open({ anchor: m, map: map });
+        var el = document.createElement('div');
+        el.className = 'rm-st'; el.innerHTML = stationSvg(s);
+        var m = makeMarker({
+          position: { lat: s.lat, lng: s.lng }, zIndex: s.interchange ? 22 : 12,
+          title: s.name.ar + ' • ' + s.name.en, clickable: true, collision: true, content: el,
+          legacy: { position: { lat: s.lat, lng: s.lng }, map: map, title: s.name.ar, icon: { path: google.maps.SymbolPath.CIRCLE, scale: s.interchange ? 8 : 6, fillColor: '#fff', fillOpacity: 1, strokeColor: '#111827', strokeWeight: 2 } }
         });
-        overlays.push(m);
-      });
-      map.fitBounds(bounds);
+        m.addListener('click', function () { showStationCard(id); });
+        m._el = el; m._station = s;
+        stationMarkers[id] = m;
 
-      var opts = Object.keys(NET.stations).sort(function (a, b) { return NET.stations[a].name.ar.localeCompare(NET.stations[b].name.ar, 'ar'); })
-        .map(function (id) { return '<option value="' + id + '">' + esc(NET.stations[id].name.ar) + ' — ' + esc(NET.stations[id].name.en) + '</option>'; }).join('');
-      $('#from').innerHTML = '<option value="">—</option>' + opts; $('#to').innerHTML = '<option value="">—</option>' + opts;
-      window.__rmFrom = function (id) { $('#from').value = id; info.close(); if ($('#to').value) plan(); };
-      window.__rmTo = function (id) { $('#to').value = id; info.close(); if ($('#from').value) plan(); };
-      $('#btn-plan').addEventListener('click', plan);
-      $('#btn-clear').addEventListener('click', function () { clearRoute(); $('#result').innerHTML = ''; });
-      $('#btn-kml-layer').addEventListener('click', function () {
-        if (kmlLayer) { kmlLayer.setMap(null); kmlLayer = null; return; }
+        var lbl = document.createElement('div');
+        lbl.className = 'rm-lbl'; lbl.textContent = s.name[NL()];
+        var lm = makeMarker({ position: { lat: s.lat, lng: s.lng }, zIndex: 30, clickable: false, content: lbl,
+          legacy: { position: { lat: s.lat, lng: s.lng }, map: null } });
+        lm._el = lbl; lm._st = s;
+        lm.set('map', null); // labels are toggle-managed
+        labelMarkers[id] = lm;
+      });
+      updateLabels();
+
+      NET.placeOrder.forEach(function (pid) {
+        var p = NET.places[pid];
+        var cat = NET.placeCategories[p.category] || {};
+        var el = document.createElement('div');
+        el.className = 'rm-place'; el.textContent = cat.icon || '📍';
+        el.title = p.name.ar + ' • ' + p.name.en;
+        var m = makeMarker({ position: { lat: p.lat, lng: p.lng }, zIndex: 8, clickable: true, collision: true, content: el,
+          legacy: { position: { lat: p.lat, lng: p.lng }, map: null, title: p.name.en } });
+        m.addListener('click', function () { showPlaceCard(pid); });
+        m._place = p;
+        placeMarkers[pid] = m;
+      });
+      $('#places-cnt').textContent = NET.placeOrder.length;
+    }
+
+    function showLineTip(line, ev) {
+      if (!ev || ev.clientX === undefined || state.focusedLine) return;
+      var rect = mapEl.getBoundingClientRect();
+      tipEl.innerHTML = badge(line.id, true) + ' <span style="margin-inline-start:4px">' + esc(line.name[NL()]) + '</span>';
+      tipEl.style.left = (ev.clientX - rect.left) + 'px';
+      tipEl.style.top = (ev.clientY - rect.top) + 'px';
+      tipEl.style.display = 'block';
+    }
+    function hideLineTip() { tipEl.style.display = 'none'; }
+
+    function updateLabels() {
+      if (!mapsReady) return;
+      var z = map.getZoom();
+      Object.keys(labelMarkers).forEach(function (id) {
+        var lm = labelMarkers[id], s = lm._st;
+        var show = z >= 14 || (z >= 13 && s.interchange);
+        if (show && s.lines.every(function (l) { return state.hidden[l]; })) show = false;
+        if (state.focusedLine && s.lines.indexOf(state.focusedLine) < 0) show = false;
+        lm.set('map', show ? map : null);
+        if (lm._el) lm._el.textContent = s.name[NL()];
+      });
+    }
+
+    function updateLineVisibility() {
+      NET.lineOrder.forEach(function (lid) {
+        var on = !state.hidden[lid];
+        lineLayers[lid].casing.set('map', on ? map : null);
+        lineLayers[lid].colored.set('map', on ? map : null);
+      });
+      Object.keys(stationMarkers).forEach(function (id) {
+        var s = stationMarkers[id]._station;
+        var vis = s.lines.some(function (l) { return !state.hidden[l]; });
+        stationMarkers[id].set('map', vis ? map : null);
+      });
+      updateLabels();
+    }
+
+    function setPlacesVisible(on) {
+      state.showPlaces = on;
+      NET.placeOrder.forEach(function (pid) { placeMarkers[pid].set('map', on ? map : null); });
+      $('#chip-places').setAttribute('aria-pressed', on ? 'true' : 'false');
+      $('#chip-places').classList.toggle('off', !on);
+    }
+
+    /* ---------------------------------------------------------- line focus */
+    function setNetworkOpacity(focus) {
+      NET.lineOrder.forEach(function (lid) {
+        var on = !focus || lid === focus;
+        lineLayers[lid].casing.setOptions({ strokeOpacity: on ? 0.92 : 0.12, zIndex: on ? 5 : 3 });
+        lineLayers[lid].colored.setOptions({ strokeOpacity: on ? 0.96 : 0.12 });
+        if (state.hidden[lid]) { lineLayers[lid].casing.set('map', null); lineLayers[lid].colored.set('map', null); }
+        else { lineLayers[lid].casing.set('map', map); lineLayers[lid].colored.set('map', map); }
+      });
+      Object.keys(stationMarkers).forEach(function (id) {
+        var s = stationMarkers[id]._station;
+        var dimmed = focus && s.lines.indexOf(focus) < 0;
+        stationMarkers[id]._el.classList.toggle('gm-dim', dimmed);
+        var vis = s.lines.some(function (l) { return !state.hidden[l]; });
+        stationMarkers[id].set('map', vis ? map : null);
+      });
+    }
+
+    function focusLine(lid) {
+      if (state.itins.length) return; // route view owns the map while a trip is shown
+      state.focusedLine = lid;
+      setNetworkOpacity(lid);
+      updateLabels();
+      renderLineCard(lid);
+      var line = NET.lines[lid];
+      var b = new google.maps.LatLngBounds();
+      line.shape.forEach(function (p) { b.extend(latlng(p)); });
+      map.fitBounds(b, 60);
+      hideLineTip();
+    }
+
+    function unfocusLine() {
+      state.focusedLine = null;
+      setNetworkOpacity(null);
+      updateLabels();
+      $('#detail-card').innerHTML = '';
+    }
+
+    /* -------------------------------------------------------------- planner */
+    function fillInputs() {
+      var f = $('#from'), tt = $('#to');
+      if (f !== document.activeElement) f.value = refLabel(state.from, state.fromPlace);
+      if (tt !== document.activeElement) tt.value = refLabel(state.to, state.toPlace);
+    }
+
+    function suggestionHtml(r) {
+      if (r.kind === 'station') {
+        var s = r.item;
+        return '<div data-kind="station" data-id="' + s.id + '">' + s.lines.map(function (l) { return badge(l, true); }).join('') +
+          '<span>' + esc(s.name[NL()]) + '<small class="sub">' + esc(s.name[OL()]) + '</small></span></div>';
+      }
+      var p = r.item, st = NET.stations[p.station], n = p.nearest[0];
+      var cat = NET.placeCategories[p.category] || {};
+      return '<div data-kind="place" data-id="' + p.id + '"><span class="pico">' + (cat.icon || '📍') + '</span>' +
+        '<span>' + esc(p.name[NL()]) + '<small class="sub">' + esc(cat[NL()] || cat.en || '') + ' · ' + t('place.near') + ': ' + esc(st.name[NL()]) + ' · ' + fmtDist(n.distanceM) + '</small></span></div>';
+    }
+
+    function setupSuggest(input, box, onPick) {
+      var active = -1, items = [];
+      function render(list) {
+        items = list; active = -1;
+        box.innerHTML = list.map(suggestionHtml).join('');
+        box.classList.toggle('open', list.length > 0);
+      }
+      function close() { box.classList.remove('open'); active = -1; }
+      input.addEventListener('input', function () {
+        var q = input.value.trim();
+        if (!q) { close(); return; }
+        render(RMNetwork.searchAll(NET, q, 8));
+      });
+      input.addEventListener('focus', function () { if (input.value.trim()) render(RMNetwork.searchAll(NET, input.value.trim(), 8)); });
+      input.addEventListener('keydown', function (e) {
+        var els = box.children;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          active = (active + (e.key === 'ArrowDown' ? 1 : -1) + els.length) % Math.max(1, els.length);
+          for (var i = 0; i < els.length; i++) els[i].classList.toggle('active', i === active);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          var el = els[active] || els[0];
+          if (el) pick(el); else if (items.length === 0) onPick(resolveRef(input.value.trim()));
+        } else if (e.key === 'Escape') close();
+      });
+      box.addEventListener('mousedown', function (e) {
+        var el = e.target.closest('div[data-id]');
+        if (el) { e.preventDefault(); pick(el); }
+      });
+      document.addEventListener('click', function (e) { if (!box.contains(e.target) && e.target !== input) close(); });
+      function pick(el) {
+        var id = el.getAttribute('data-id'), kind = el.getAttribute('data-kind');
+        onPick({ station: kind === 'place' ? NET.places[id].station : id, place: kind === 'place' ? id : null });
+        close();
+      }
+    }
+
+    function renderDepartOptions() {
+      var sel = $('#depart');
+      var opts = RMService.departureOptions(RMService.riyadhNow());
+      sel.innerHTML = opts.map(function (o) {
+        return '<option value="' + o.value + '">' + (o.value === 'now' ? t('plan.now') : o.label) + '</option>';
+      }).join('');
+      sel.value = state.depart;
+    }
+
+    function renderStatus() {
+      var st = RMService.status(CFG);
+      var chip = $('#status-chip');
+      var label;
+      if (st.open) label = t('status.open', { t: st.closesAt });
+      else if (st.opensDow === RMService.riyadhNow().dow) label = t('status.closed', { t: st.opensAt });
+      else label = t('status.closedDay', { d: (DOW[NL()] || DOW.en)[st.opensDow], t: st.opensAt });
+      chip.textContent = label;
+      chip.className = 'status-chip ' + (st.open ? 'open' : 'closed');
+    }
+
+    function renderPopular() {
+      var trips = CFG.popularTrips || [];
+      if (!trips.length) { $('#popular').innerHTML = ''; return; }
+      var html = '<div class="popular"><div class="section-title">⭐ ' + t('plan.popular') + '</div><div class="chips">' +
+        trips.map(function (tr, i) {
+          var lbl = (tr.label && tr.label[NL()]) || t('popular.from', { a: sname(tr.from), b: sname(tr.to) });
+          return '<button class="chip-btn" data-i="' + i + '">' + esc(lbl) + '</button>';
+        }).join('') + '</div></div>';
+      $('#popular').innerHTML = html;
+      $$('#popular .chip-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var tr = trips[+b.dataset.i];
+          state.from = tr.from; state.fromPlace = null; state.to = tr.to; state.toPlace = null;
+          fillInputs(); plan();
+        });
+      });
+    }
+
+    /* ------------------------------------------------------- route drawing */
+    function clearRouteOverlays() {
+      stopFlow();
+      routeOverlays.forEach(function (o) { o.setMap(null); });
+      routeOverlays = []; flowLines = [];
+      mapEl.classList.remove('gm-dim');
+      $('#btn-clear').hidden = true;
+    }
+
+    function stopFlow() { if (flowTimer) { clearInterval(flowTimer); flowTimer = null; } }
+
+    function startFlow() {
+      stopFlow();
+      if (!flowLines.length) return;
+      flowTimer = setInterval(function () {
+        flowPhase = (flowPhase + 3) % 100;
+        flowLines.forEach(function (pl) {
+          var icons = pl.get('icons');
+          for (var j = 0; j < icons.length; j++) icons[j].offset = ((j * 100 / icons.length + flowPhase) % 100) + '%';
+          pl.set('icons', icons);
+        });
+      }, 150);
+    }
+
+    function arrowIcons(color, count) {
+      var icons = [];
+      for (var i = 0; i < count; i++) {
+        icons.push({
+          icon: { path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW, scale: 2.6, fillColor: color, fillOpacity: 1, strokeColor: color, strokeWeight: 1 },
+          offset: (i * 100 / count) + '%'
+        });
+      }
+      return icons;
+    }
+
+    function drawRoute(it, walkFrom, walkTo) {
+      clearRouteOverlays();
+      var b = new google.maps.LatLngBounds();
+      function ext(p) { b.extend(latlng(p)); }
+
+      // dim the base network behind the chosen route
+      NET.lineOrder.forEach(function (lid) {
+        lineLayers[lid].casing.setOptions({ strokeOpacity: 0.18 });
+        lineLayers[lid].colored.setOptions({ strokeOpacity: 0.18 });
+      });
+      mapEl.classList.add('gm-dim');
+
+      // walking connectors (place ↔ station) as dashed lines
+      [[walkFrom, '#64748b'], [walkTo, '#64748b']].forEach(function (w) {
+        if (!w[0]) return;
+        var p = w[0];
+        var pl = new google.maps.Polyline({
+          path: [latlng(p.from), latlng(p.to)], map: map, strokeColor: w[1], strokeOpacity: 0,
+          strokeWeight: 4, zIndex: 40,
+          icons: [{ icon: { path: 'M 0,-1 0,1', strokeColor: w[1], strokeOpacity: 0.95, scale: 2.4 }, offset: '0', repeat: '11px' }]
+        });
+        routeOverlays.push(pl); ext(p.from); ext(p.to);
+      });
+
+      // ride legs: casing + colour + animated direction arrows
+      it.legs.forEach(function (leg) {
+        var line = NET.lines[leg.line];
+        var path = leg.geometry.map(latlng);
+        leg.geometry.forEach(ext);
+        routeOverlays.push(new google.maps.Polyline({ path: path, map: map, strokeColor: '#ffffff', strokeOpacity: 0.95, strokeWeight: 14, zIndex: 42 }));
+        routeOverlays.push(new google.maps.Polyline({ path: path, map: map, strokeColor: line.color, strokeOpacity: 1, strokeWeight: 8.5, zIndex: 43 }));
+        var arrowColor = hexLuma(line.color) > 0.62 ? '#1f2937' : '#ffffff';
+        var flow = new google.maps.Polyline({ path: path, map: map, strokeOpacity: 0, strokeWeight: 2, zIndex: 44, icons: arrowIcons(arrowColor, 6) });
+        routeOverlays.push(flow); flowLines.push(flow);
+      });
+
+      // transfer badges (numbered)
+      it.transfers.forEach(function (tr, i) {
+        var s = NET.stations[tr.station];
+        var el = document.createElement('div'); el.className = 'rm-trbadge'; el.textContent = String(i + 1);
+        var m = makeMarker({ position: { lat: s.lat, lng: s.lng }, zIndex: 60, clickable: false, content: el, legacy: { position: { lat: s.lat, lng: s.lng }, map: map } });
+        routeOverlays.push(m);
+      });
+
+      // place pins
+      [[walkFrom, '#0ea5e9'], [walkTo, '#0ea5e9']].forEach(function (w) {
+        if (!w[0] || !w[0].placePos) return;
+        var el2 = document.createElement('div'); el2.className = 'rm-place'; el2.style.borderColor = '#0ea5e9'; el2.textContent = w[0].emoji || '📍';
+        var m2 = makeMarker({ position: latlng(w[0].placePos), zIndex: 55, clickable: false, content: el2, legacy: { position: latlng(w[0].placePos), map: map } });
+        routeOverlays.push(m2); ext(w[0].placePos);
+      });
+
+      // A / B pins
+      var fSt = NET.stations[it.from], tSt = NET.stations[it.to];
+      [[fSt, 'A', '#16a34a'], [tSt, 'B', '#dc2626']].forEach(function (x) {
+        var el = document.createElement('div'); el.innerHTML = pinSvg(x[1], x[2]);
+        var m = makeMarker({ position: { lat: x[0].lat, lng: x[0].lng }, zIndex: 70, clickable: false, content: el, legacy: { position: { lat: x[0].lat, lng: x[0].lng }, map: map } });
+        routeOverlays.push(m);
+      });
+
+      map.fitBounds(b, 80);
+      $('#btn-clear').hidden = false;
+      startFlow();
+    }
+
+    /* -------------------------------------------------------------- results */
+    function plan(silent) {
+      var A = { station: state.from, place: state.fromPlace };
+      var B = { station: state.to, place: state.toPlace };
+      var err = $('#result');
+      if (!A.station || !B.station) { err.innerHTML = '<div class="card error">' + t('err.pick') + '</div>'; return; }
+      if (A.station === B.station) {
+        var msg = (A.place && B.place) ? t('err.samePlace', { s: esc(sname(A.station)) }) : t('err.same');
+        err.innerHTML = '<div class="card error">' + msg + '</div>';
+        return;
+      }
+      var fastest = RMRouter.planRoute(NET, A.station, B.station, { mode: 'fastest' });
+      var fewest = RMRouter.planRoute(NET, A.station, B.station, { mode: 'fewest-transfers' });
+      var itins = [fastest];
+      if (fewest && JSON.stringify(fewest.legs.map(function (l) { return l.line + l.from + l.to; })) !== JSON.stringify(fastest.legs.map(function (l) { return l.line + l.from + l.to; }))) itins.push(fewest);
+      state.itins = itins;
+      state.activeIt = state.mode === 'fewest-transfers' && itins.length > 1 ? 1 : 0;
+
+      var walkFrom = null, walkTo = null;
+      if (A.place) {
+        var pa = NET.places[A.place];
+        walkFrom = { from: [pa.lat, pa.lng], to: [NET.stations[pa.station].lat, NET.stations[pa.station].lng], distanceM: pa.nearest[0].distanceM, minutes: pa.nearest[0].walkMinutes, placePos: [pa.lat, pa.lng], emoji: (NET.placeCategories[pa.category] || {}).icon };
+      }
+      if (B.place) {
+        var pb = NET.places[B.place];
+        walkTo = { from: [NET.stations[pb.station].lat, NET.stations[pb.station].lng], to: [pb.lat, pb.lng], distanceM: pb.nearest[0].distanceM, minutes: pb.nearest[0].walkMinutes, placePos: [pb.lat, pb.lng], emoji: (NET.placeCategories[pb.category] || {}).icon };
+      }
+      state.walkFrom = walkFrom; state.walkTo = walkTo;
+      updateHash();
+      renderJourney();
+      if (!silent && window.innerWidth <= 860) $('#panel').classList.remove('collapsed');
+    }
+
+    function totalMinutes(it) {
+      var m = it.totalMinutes;
+      if (state.walkFrom) m += state.walkFrom.minutes;
+      if (state.walkTo) m += state.walkTo.minutes;
+      return m;
+    }
+
+    function renderJourney() {
+      var it = state.itins[state.activeIt];
+      if (!it) return;
+      drawRoute(it, state.walkFrom, state.walkTo);
+
+      var mins = totalMinutes(it);
+      var dep = RMService.parseDeparture(state.depart);
+      var timing = RMService.tripTiming(CFG, dep, mins);
+      var fare = RMService.fareFor(CFG, mins);
+      var f = NET.stations[it.from], tt = NET.stations[it.to];
+
+      var html = '<div class="card">';
+      html += '<div class="res-head"><h2>' + t('res.title') + '</h2><span class="chip">' + fmtDist(it.totalDistanceM + (state.walkFrom ? state.walkFrom.distanceM : 0) + (state.walkTo ? state.walkTo.distanceM : 0)) + '</span></div>';
+      html += '<div class="route-head"><span class="big">' + mins + '</span><span class="unit">' + t('res.min') + '</span>' +
+        '<span class="chip">' + it.stops + ' ' + t('res.stops') + '</span>' +
+        '<span class="chip' + (it.transferCount ? ' x' : '') + '">' + (it.transferCount ? it.transferCount + ' ' + t('res.transfers') : t('res.none')) + '</span></div>';
+
+      if (state.itins.length > 1) {
+        html += '<div class="alts">' + state.itins.map(function (x, i) {
+          var lbl = x.mode === 'fewest-transfers' ? t('res.alt.fewest') : t('res.alt.fastest');
+          return '<button class="' + (i === state.activeIt ? 'active' : '') + '" data-alt="' + i + '">' + lbl + ' · ' + totalMinutes(x) + ' ' + t('res.min') + '</button>';
+        }).join('') + '</div>';
+      }
+
+      html += '<div class="times"><div class="times-row"><span>' + t('res.depart') + ' ' + timing.departAt + '</span><span class="arrow">' + (isRtl() ? '←' : '→') + '</span><span>' + t('res.arrive') + ' ' + timing.arriveAt + '</span></div>' +
+        (timing.waitMinutes ? '<small>' + t('res.wait', { n: timing.waitMinutes }) + '</small>' : '') + '</div>';
+
+      timing.warnings.forEach(function (w) {
+        var key = w === 'closed' ? 'warn.closed' : w === 'late' ? 'warn.late' : 'warn.tight';
+        html += '<div class="notice">' + t(key, { t: w === 'closed' ? timing.opensAt : timing.closesAt }) + '</div>';
+      });
+
+      if (fare) {
+        html += '<div class="fare">🎫 ' + t('res.fare') + ': <b>' + fare.standard + ' ' + t('res.sar') + '</b> ' + t('res.standard') +
+          ' · <b>' + fare.first + ' ' + t('res.sar') + '</b> ' + t('res.firstClass') + '</div>';
+      }
+
+      // timeline
+      html += '<ul class="timeline">';
+      if (state.walkFrom) {
+        html += '<li class="leg walk"><span class="pin start"></span><div class="where">' + esc(refLabel(state.from, state.fromPlace)) + '</div>' +
+          '<div class="what">' + t('res.walkFrom', { d: fmtDist(state.walkFrom.distanceM), n: state.walkFrom.minutes, p: esc(pname(state.fromPlace)), s: esc(sname(state.from)) }) + '</div></li>';
+      }
+      html += '<li class="leg"><span class="pin ' + (state.walkFrom ? 'transfer' : 'start') + '"></span><div class="where">' + esc(sname(it.from)) + '<small>' + esc(NET.stations[it.from].name[OL()]) + '</small></div></li>';
+      it.legs.forEach(function (leg, i) {
+        var line = NET.lines[leg.line];
+        var mid = leg.stations.slice(1, -1);
+        html += '<li class="leg" style="--leg-color:' + line.color + '"><span class="pin"></span>' +
+          '<div class="what">' + badge(leg.line) + ' ' + t('res.board') + ' ' + t('res.towards') + ' «' + esc(sname(leg.direction)) + '» — ' +
+          t('res.stopsN', { n: leg.stops }) + ' (~' + Math.max(1, leg.minutes) + ' ' + t('min') + ')</div>' +
+          (mid.length ? '<details><summary>' + t('res.showStops') + '</summary><ol>' + mid.map(function (id) { return '<li>' + esc(sname(id)) + '</li>'; }).join('') + '</ol></details>' : '') + '</li>';
+        if (i < it.legs.length - 1) {
+          var tr = it.transfers[i];
+          html += '<li class="leg"><span class="pin transfer"></span><div class="where">' + esc(sname(leg.to)) + '</div>' +
+            '<div class="transfer-note">⇄ ' + t('res.change') + ' ' + badge(it.legs[i + 1].line, true) + ' · ' + t('res.transferTime', { n: tr.minutes }) + '</div></li>';
+        }
+      });
+      html += '<li class="leg' + (state.walkTo ? '' : ' last') + '"><span class="pin ' + (state.walkTo ? 'transfer' : 'end') + '"></span><div class="where">' + t('res.end') + ': ' + esc(sname(it.to)) + '<small>' + esc(NET.stations[it.to].name[OL()]) + '</small></div></li>';
+      if (state.walkTo) {
+        html += '<li class="leg walk last"><span class="pin end"></span><div class="what">' + t('res.walkTo', { d: fmtDist(state.walkTo.distanceM), n: state.walkTo.minutes, p: esc(pname(state.toPlace)) }) + '</div>' +
+          '<div class="where">' + esc(refLabel(state.to, state.toPlace)) + '</div></li>';
+      }
+      html += '</ul>';
+
+      // actions
+      html += '<div class="gm-actions">' +
+        '<a class="btn" target="_blank" rel="noopener" href="' + RMLinks.googleMapsDirections({ origin: [f.lat, f.lng], destination: [tt.lat, tt.lng], travelmode: 'transit' }) + '">' + t('res.gmaps') + '</a>' +
+        '<button class="btn" id="btn-share">' + t('res.share') + '</button>' +
+        '<button class="btn" id="btn-rkml">' + t('res.kml') + '</button>' +
+        '<button class="btn" id="btn-rgeojson">' + t('res.geojson') + '</button>' +
+        '</div>';
+      html += '<p class="hint">' + t('res.est') + '</p></div>';
+
+      $('#result').innerHTML = html;
+
+      $$('#result [data-alt]').forEach(function (b) {
+        b.addEventListener('click', function () { state.activeIt = +b.dataset.alt; state.mode = state.itins[state.activeIt].mode; renderJourney(); });
+      });
+      $('#btn-share').addEventListener('click', function () { copyText(shareUrl()).then(function () { toast(t('toast.copied')); }); });
+      $('#btn-rkml').addEventListener('click', function () {
+        var steps = RMRouter.describeItinerary(NET, it, NL() === 'ar' ? 'ar' : 'en');
+        download('riyadh-metro-route-' + it.from + '-' + it.to + '.kml',
+          RMKml.routeKml(NET, it, { siteUrl: SITE, repoUrl: CFG.project && CFG.project.repoUrl, steps: steps, lang: NL() }),
+          'application/vnd.google-earth.kml+xml');
+        toast(t('toast.kml'));
+      });
+      $('#btn-rgeojson').addEventListener('click', function () {
+        download('riyadh-metro-route-' + it.from + '-' + it.to + '.geojson', JSON.stringify(RMGeoJson.routeGeoJson(NET, it), null, 1), 'application/geo+json');
+      });
+    }
+
+    /* ----------------------------------------------------- station / place cards */
+    function showStationCard(id) {
+      var s = NET.stations[id];
+      state.focusedLine = null;
+      if (!state.itins.length) setNetworkOpacity(null);
+      var html = '<div class="card station-card"><div class="res-head"><h2 class="name" style="font-size:18px">' + esc(s.name[NL()]) + '</h2>' +
+        '<button class="btn small" id="sc-close">✕</button></div>' +
+        '<div class="meta">' + esc(s.name[OL()]) + '</div>' +
+        '<div style="margin:6px 0">' + s.lines.map(function (l) { return badge(l); }).join(' ') + '</div>' +
+        '<div>' + (s.interchange ? '<span class="chip x">' + t('st.interchange') + '</span>' : '') +
+        (s.busHub ? '<span class="chip">🚌 ' + t('st.bus') + '</span>' : '') +
+        (s.parkAndRide ? '<span class="chip">🅿️ ' + t('st.pr') + '</span>' : '') + '</div>';
+
+      s.lines.forEach(function (lid) {
+        var line = NET.lines[lid], idx = line.stations.indexOf(id);
+        var prev = idx > 0 ? line.stations[idx - 1] : null, next = idx < line.stations.length - 1 ? line.stations[idx + 1] : null;
+        var struct = s.structure[lid];
+        html += '<div class="neigh" style="margin-top:10px"><a class="st-link" data-st="' + (prev || '') + '">' +
+          '<span>' + (prev ? t('st.prev') + ' · ' + badge(lid, true) : t('st.terminus') + ' · ' + badge(lid, true)) + '</span>' + (prev ? esc(sname(prev)) : '—') + '</a>' +
+          '<a class="st-link" data-st="' + (next || '') + '"><span>' + (next ? t('st.next') + ' · ' + badge(lid, true) : t('st.terminus') + ' · ' + badge(lid, true)) + '</span>' + (next ? esc(sname(next)) : '—') + '</a></div>' +
+          (struct ? '<div class="meta">🏗️ ' + t('struct.' + struct) + '</div>' : '');
+      });
+
+      html += '<div class="btn-row">' +
+        '<button class="btn small primary" id="sc-from" style="width:auto;color:#fff;background:var(--ok);border-color:transparent">🟢 ' + t('st.fromHere') + '</button>' +
+        '<button class="btn small primary" id="sc-to" style="width:auto;color:#fff;background:var(--danger);border-color:transparent">🔴 ' + t('st.toHere') + '</button></div>';
+
+      html += '<div class="sc-links">' +
+        '<a class="btn small" target="_blank" rel="noopener" href="' + RMLinks.googleMapsPlace(s.lat, s.lng) + '">' + t('st.gmaps') + '</a>' +
+        '<a class="btn small" target="_blank" rel="noopener" href="' + RMLinks.googleMapsDirections({ destination: [s.lat, s.lng], travelmode: 'walking' }) + '">' + t('st.dir') + '</a>' +
+        '<a class="btn small" target="_blank" rel="noopener" href="' + RMLinks.googleEarth(s.lat, s.lng) + '">' + t('st.earth') + '</a>' +
+        '<a class="btn small" href="' + RMLinks.geoUri(s.lat, s.lng, s.name.en) + '">' + t('st.geo') + '</a></div>';
+
+      var nearPlaces = NET.placeOrder.filter(function (pid) { return NET.places[pid].station === id || NET.places[pid].nearest.some(function (n) { return n.station === id && n.distanceM <= 900; }); });
+      if (nearPlaces.length) {
+        html += '<div class="sc-places"><b>' + t('st.nearby') + '</b>' + nearPlaces.slice(0, 6).map(function (pid) {
+          var p = NET.places[pid];
+          return '<div><span>' + ((NET.placeCategories[p.category] || {}).icon || '📍') + '</span> ' + esc(p.name[NL()]) +
+            ' <span class="muted">· ' + fmtDist(p.nearest[0].distanceM) + '</span><button class="pl-go" data-p="' + pid + '">' + t('place.goto') + '</button></div>';
+        }).join('') + '</div>';
+      }
+      html += '</div>';
+
+      $('#detail-card').innerHTML = html;
+      $('#sc-close').addEventListener('click', function () { $('#detail-card').innerHTML = ''; });
+      $('#sc-from').addEventListener('click', function () { state.from = id; state.fromPlace = null; fillInputs(); if (state.to) plan(); updateHash(); });
+      $('#sc-to').addEventListener('click', function () { state.to = id; state.toPlace = null; fillInputs(); if (state.from) plan(); updateHash(); });
+      $$('#detail-card .st-link').forEach(function (a) {
+        a.addEventListener('click', function (e) { e.preventDefault(); var sid = a.getAttribute('data-st'); if (sid) showStationCard(sid); });
+      });
+      $$('#detail-card .pl-go').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var p = NET.places[b.dataset.p];
+          state.to = p.station; state.toPlace = p.id; fillInputs(); if (state.from) plan(); updateHash();
+        });
+      });
+      if (window.innerWidth <= 860) $('#panel').classList.remove('collapsed');
+    }
+
+    function showPlaceCard(pid) {
+      var p = NET.places[pid];
+      var cat = NET.placeCategories[p.category] || {};
+      var st = NET.stations[p.station], n = p.nearest[0];
+      var html = '<div class="card"><div class="res-head"><h2 style="font-size:17px">' + (cat.icon || '📍') + ' ' + esc(p.name[NL()]) + '</h2>' +
+        '<button class="btn small" id="pl-close">✕</button></div>' +
+        '<div class="meta">' + esc(p.name[OL()]) + ' · ' + esc(cat[NL()] || cat.en || '') + (p.approx ? ' · <span class="muted">' + t('place.approx') + '</span>' : '') + '</div>' +
+        '<div class="notice soft">' + t('place.near') + ': <b>' + esc(st.name[NL()]) + '</b> ' + st.lines.map(function (l) { return badge(l, true); }).join(' ') +
+        ' · 🚶 ' + fmtDist(n.distanceM) + ' (~' + n.walkMinutes + ' ' + t('min') + ')</div>' +
+        '<div class="btn-row">' +
+        '<button class="btn small" id="pl-to" style="background:var(--danger);color:#fff;border-color:transparent">🔴 ' + t('st.toHere') + '</button>' +
+        '<button class="btn small" id="pl-from" style="background:var(--ok);color:#fff;border-color:transparent">🟢 ' + t('st.fromHere') + '</button>' +
+        '<a class="btn small" target="_blank" rel="noopener" href="' + RMLinks.googleMapsPlace(p.lat, p.lng) + '">' + t('st.gmaps') + '</a>' +
+        '<a class="btn small" target="_blank" rel="noopener" href="' + RMLinks.googleMapsDirections({ destination: [p.lat, p.lng], travelmode: 'walking' }) + '">' + t('st.dir') + '</a></div></div>';
+      $('#detail-card').innerHTML = html;
+      $('#pl-close').addEventListener('click', function () { $('#detail-card').innerHTML = ''; });
+      $('#pl-to').addEventListener('click', function () { state.to = p.station; state.toPlace = p.id; fillInputs(); if (state.from) plan(); updateHash(); });
+      $('#pl-from').addEventListener('click', function () { state.from = p.station; state.fromPlace = p.id; fillInputs(); if (state.to) plan(); updateHash(); });
+      if (window.innerWidth <= 860) $('#panel').classList.remove('collapsed');
+    }
+
+    function renderLineCard(lid) {
+      var line = NET.lines[lid];
+      var lenKm = line.officialLengthKm || (line.lengthM ? Math.round(line.lengthM / 100) / 10 : null);
+      var html = '<div class="card line-card"><header>' + badge(lid) +
+        '<div><b>' + esc(line.name[NL()]) + '</b><div class="meta" style="margin:0">' + esc(line.name[OL()]) + '</div></div>' +
+        '<button class="btn small" id="lc-back" style="margin-inline-start:auto">' + t('line.back') + '</button></header>' +
+        '<div class="stats"><span>🚉 ' + line.stations.length + ' ' + t('line.stations') + '</span>' +
+        (lenKm ? '<span>📏 ' + lenKm + ' ' + t('line.km') + '</span>' : '') +
+        (line.openedOn ? '<span>📅 ' + t('line.opened') + ' ' + line.openedOn.slice(0, 7) + '</span>' : '') + '</div>' +
+        (line.corridor ? '<div class="corridor">' + t('line.corridor') + ': ' + esc(line.corridor[NL()] || line.corridor.en || '') + '</div>' : '') +
+        '<div class="chips" style="margin-top:10px">' + line.stations.map(function (id, i) {
+          var s = NET.stations[id];
+          return '<button class="chip-btn" data-st="' + id + '">' + (s.interchange ? '⭕ ' : '') + esc(sname(id)) + '</button>';
+        }).join('') + '</div>' +
+        '<p class="hint">' + t('line.focus.hint') + '</p></div>';
+      $('#detail-card').innerHTML = html;
+      $('#lc-back').addEventListener('click', function () { unfocusLine(); fitNetwork(); });
+      $$('#detail-card [data-st]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var s = NET.stations[b.dataset.st];
+          map.panTo({ lat: s.lat, lng: s.lng }); map.setZoom(15);
+          showStationCard(b.dataset.st);
+        });
+      });
+    }
+
+    /* -------------------------------------------------------------- legend */
+    function renderLegend() {
+      $('#legend-rows').innerHTML = NET.lineOrder.map(function (lid) {
+        var line = NET.lines[lid];
+        return '<button class="gm-linechip' + (state.hidden[lid] ? ' off' : '') + '" data-line="' + lid + '" aria-pressed="' + (!state.hidden[lid]) + '">' +
+          '<i style="background:' + line.color + '"></i><span>' + line.number + ' · ' + esc(line.name[NL()]) + '</span>' +
+          '<span class="cnt">' + line.stations.length + '</span></button>';
+      }).join('');
+      $$('#legend-rows .gm-linechip').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var lid = b.dataset.line;
+          state.hidden[lid] = !state.hidden[lid];
+          updateLineVisibility(); renderLegend();
+        });
+      });
+    }
+
+    function fitNetwork() { if (networkBounds) map.fitBounds(networkBounds, 40); }
+
+    /* ------------------------------------------------------------ i18n apply */
+    function applyLang() {
+      document.documentElement.lang = state.lang;
+      document.documentElement.dir = LANGS[state.lang].dir;
+      $$('[data-i18n]').forEach(function (el) { el.textContent = t(el.dataset.i18n); });
+      $$('[data-i18n-ph]').forEach(function (el) { el.placeholder = t(el.dataset.i18nPh); });
+      $$('[data-i18n-title]').forEach(function (el) { el.title = t(el.dataset.i18nTitle); });
+      $('#lang-select').value = state.lang;
+      renderLegend(); renderPopular(); renderDepartOptions(); renderStatus(); fillInputs();
+      Object.keys(labelMarkers).forEach(function (id) { labelMarkers[id]._el.textContent = NET.stations[id].name[NL()]; });
+      if (state.itins.length) renderJourney();
+      if (state.focusedLine) renderLineCard(state.focusedLine);
+      localStorage.setItem('rm.lang', state.lang);
+    }
+
+    /* ------------------------------------------------------------ map setup */
+    function onMapsReady() {
+      if (mapsReady) return;
+      mapsReady = true;
+      $('#gm-loading').hidden = true;
+      mapEl.classList.remove('gm-not-loaded');
+
+      map = new google.maps.Map(mapEl, {
+        center: { lat: 24.713, lng: 46.72 },
+        zoom: 11,
+        mapId: params.get('mapid') || 'DEMO_MAP_ID',
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false, // own fullscreen button in the toolbar (RTL-safe)
+        clickableIcons: false,
+        backgroundColor: '#e5e3df',
+        gestureHandling: 'auto'
+      });
+
+      drawNetwork();
+      fitNetwork();
+
+      map.addListener('zoom_changed', updateLabels);
+      map.addListener('click', function () { hideLineTip(); });
+
+      // toolbar
+      $('#gm-toolbar').hidden = false;
+      $('#gm-legend').hidden = false;
+      $('#keybox').style.display = 'none';
+      $('#planner').hidden = false;
+
+      $('#btn-fit').addEventListener('click', function () { unfocusLine(); clearRoute(); fitNetwork(); });
+      $('#btn-full').addEventListener('click', function () {
+        var stg = document.querySelector('.gm-stage');
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (stg && stg.requestFullscreen) stg.requestFullscreen();
+        setTimeout(function () { if (map) google.maps.event.trigger(map, 'resize'); }, 300);
+      });
+      var bases = ['roadmap', 'satellite', 'hybrid'];
+      $('#btn-base').addEventListener('click', function () {
+        state.baseIdx = (state.baseIdx + 1) % bases.length;
+        map.setMapTypeId(bases[state.baseIdx]);
+        toast(t(bases[state.baseIdx] === 'roadmap' ? 'base.map' : bases[state.baseIdx] === 'satellite' ? 'base.sat' : 'base.hybrid'));
+      });
+      $('#btn-kmlover').addEventListener('click', function () {
+        if (kmlLayer) { kmlLayer.setMap(null); kmlLayer = null; $('#btn-kmlover').setAttribute('aria-pressed', 'false'); toast(t('toast.kmloff')); return; }
         var url = SITE.replace(/\/?$/, '/') + 'dist/riyadh-metro.kml';
         kmlLayer = new google.maps.KmlLayer({ url: url, map: map, preserveViewport: true });
-        kmlLayer.addListener('status_changed', function () { if (kmlLayer.getStatus() !== 'OK') alert('KmlLayer status: ' + kmlLayer.getStatus() + ' — يجب أن يكون الملف على رابط عام: ' + url); });
+        $('#btn-kmlover').setAttribute('aria-pressed', 'true');
+        kmlLayer.addListener('status_changed', function () {
+          if (kmlLayer && kmlLayer.getStatus() !== 'OK') {
+            kmlLayer.setMap(null); kmlLayer = null; $('#btn-kmlover').setAttribute('aria-pressed', 'false');
+            toast(t('toast.kmlfail', { s: url }));
+          } else if (kmlLayer) toast(t('toast.kmlon'));
+        });
       });
+      $('#btn-clear').addEventListener('click', clearRoute);
+      $('#chip-places').addEventListener('click', function () { setPlacesVisible(!state.showPlaces); });
+
+      renderLegend();
+      setPlacesVisible(false);
+      state.mapReady = true;
+
+      // restore deep link
+      var h = readHash();
+      if (h.lang && LANGS[h.lang] && h.lang !== state.lang) { state.lang = h.lang; applyLang(); }
+      var A = resolveRef(h.from), B = resolveRef(h.to);
+      if (A) { state.from = A.station; state.fromPlace = A.place; }
+      if (B) { state.to = B.station; state.toPlace = B.place; }
+      if (h.mode === 'fewest-transfers' || h.mode === 'fewest') {
+        state.mode = 'fewest-transfers';
+        var r = document.querySelector('input[name=mode][value=fewest-transfers]'); if (r) r.checked = true;
+      }
+      fillInputs();
+      if (state.from && state.to) plan(true);
     }
 
-    function clearRoute() { routeOverlays.forEach(function (o) { o.setMap(null); }); routeOverlays = []; overlays.forEach(function (o) { if (o.setOptions) o.setOptions({ strokeOpacity: o.get('strokeColor') === '#ffffff' ? 0.9 : 0.95 }); }); }
-
-    function plan() {
-      var from = $('#from').value, to = $('#to').value;
-      if (!from || !to || from === to) return;
-      clearRoute();
-      var it = RMRouter.planRoute(NET, from, to, { mode: 'fastest' });
-      var b = new google.maps.LatLngBounds();
-      overlays.forEach(function (o) { if (o.setOptions && o.get('strokeColor')) o.setOptions({ strokeOpacity: 0.15 }); });
-      it.legs.forEach(function (leg) {
-        var path = leg.geometry.map(function (p) { b.extend({ lat: p[0], lng: p[1] }); return { lat: p[0], lng: p[1] }; });
-        routeOverlays.push(new google.maps.Polyline({ path: path, strokeColor: '#fff', strokeWeight: 13, strokeOpacity: 0.95, map: map, zIndex: 30 }));
-        routeOverlays.push(new google.maps.Polyline({ path: path, strokeColor: NET.lines[leg.line].color, strokeWeight: 8, map: map, zIndex: 31 }));
-      });
-      [[it.from, '#16a34a'], [it.to, '#dc2626']].forEach(function (x) {
-        var s = NET.stations[x[0]];
-        routeOverlays.push(new google.maps.Marker({ position: { lat: s.lat, lng: s.lng }, map: map, zIndex: 40, icon: { path: google.maps.SymbolPath.CIRCLE, scale: 11, fillColor: x[1], fillOpacity: 1, strokeColor: '#fff', strokeWeight: 3 } }));
-      });
-      map.fitBounds(b, 60);
-      var steps = RMRouter.describeItinerary(NET, it, 'ar');
-      var f = NET.stations[it.from], tt = NET.stations[it.to];
-      $('#result').innerHTML = '<div class="card"><ol class="gm-steps">' + steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>' +
-        '<a class="btn" target="_blank" href="' + RMLinks.googleMapsDirections({ origin: [f.lat, f.lng], destination: [tt.lat, tt.lng], travelmode: 'transit' }) + '">🗺️ افتح نفس الرحلة في تطبيق خرائط Google</a></div>';
+    function clearRoute() {
+      clearRouteOverlays();
+      state.itins = []; state.activeIt = 0; state.walkFrom = null; state.walkTo = null;
+      $('#result').innerHTML = '';
+      setNetworkOpacity(state.focusedLine);
+      updateLabels();
     }
+
+    /* ------------------------------------------------------------------ wire */
+    function init() {
+      var h = readHash();
+      if (h.lang && LANGS[h.lang]) state.lang = h.lang;
+      else if (!localStorage.getItem('rm.lang')) {
+        var nav = (navigator.language || 'ar').slice(0, 2).toLowerCase();
+        if (nav === 'tl') nav = 'fil';
+        if (LANGS[nav]) state.lang = nav;
+      }
+      var sel = $('#lang-select');
+      sel.innerHTML = Object.keys(LANGS).map(function (k) { return '<option value="' + k + '">' + LANGS[k].label + '</option>'; }).join('');
+      sel.addEventListener('change', function () { state.lang = sel.value; applyLang(); updateHash(); });
+
+      applyLang();
+
+      $('#btn-key').addEventListener('click', function () {
+        var k = $('#key').value.trim();
+        if (k) { localStorage.setItem('rm.gmkey', k); loadMaps(k); }
+      });
+      $('#key').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('#btn-key').click(); });
+      $('#btn-retry').addEventListener('click', function () {
+        $('#gm-error').hidden = true;
+        var k = state.key || $('#key').value.trim();
+        if (k) loadMaps(k);
+      });
+
+      setupSuggest($('#from'), $('#from-suggest'), function (r) {
+        if (!r) return; state.from = r.station; state.fromPlace = r.place; fillInputs();
+        if (state.to && state.mapReady) plan(); updateHash();
+      });
+      setupSuggest($('#to'), $('#to-suggest'), function (r) {
+        if (!r) return; state.to = r.station; state.toPlace = r.place; fillInputs();
+        if (state.from && state.mapReady) plan(); updateHash();
+      });
+      $('#btn-clear-to').addEventListener('click', function () { state.to = null; state.toPlace = null; fillInputs(); clearRoute(); updateHash(); $('#to').focus(); });
+      $('#btn-swap').addEventListener('click', function () {
+        var f = state.from, fp = state.fromPlace, tt = state.to, tp = state.toPlace;
+        state.from = tt; state.fromPlace = tp; state.to = f; state.toPlace = fp;
+        fillInputs(); if (state.from && state.to && state.mapReady) plan(); updateHash();
+      });
+      $('#btn-plan').addEventListener('click', function () { if (state.mapReady) plan(); });
+      $$('input[name=mode]').forEach(function (r) {
+        r.addEventListener('change', function () { state.mode = r.value; if (state.from && state.to && state.mapReady) plan(); });
+      });
+      $('#depart').addEventListener('change', function () { state.depart = $('#depart').value; if (state.itins.length) renderJourney(); });
+      $('#panel-toggle').addEventListener('click', function () { $('#panel').classList.toggle('collapsed'); });
+
+      var key = params.get('key') || localStorage.getItem('rm.gmkey');
+      if (key) { $('#key').value = key; loadMaps(key); }
+
+      setInterval(renderStatus, 60000);
+      setInterval(function () { if (!state.itins.length) renderDepartOptions(); }, 60000);
+    }
+
+    init();
   })();
   </script>
 </body>

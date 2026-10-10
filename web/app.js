@@ -42,7 +42,7 @@
       'plan.fastest': '⚡ الأسرع', 'plan.fewest': '🔁 أقل تبديل', 'plan.go': 'عرض المسار', 'plan.new': 'رحلة جديدة',
       'plan.hint': 'اكتب اسم محطة أو مكان (تُقبل الأسماء القديمة مثل «العليا»)، أو انقر على محطتين في المخطط. الأزمنة تقديرية.',
       'plan.popular': 'رحلات شائعة',
-      'view.map': '🗺️ الخريطة', 'view.diagram': '🚇 المخطط',
+      'view.map': '🗺️ الخريطة', 'view.diagram': '🚇 المخطط', 'view.gmaps': '🌐 خريطة Google',
       'status.open': 'المترو يعمل الآن · حتى {t}', 'status.closed': 'المترو مغلق الآن · يفتح {t}', 'status.closedDay': 'المترو مغلق الآن · يفتح {d} {t}',
       'lines.hint': 'فعّل/أخفِ المسارات على الخريطة، وافتح أي مسار لعرض محطاته بالترتيب. المحطات ذات الإطار الأسود هي محطات تبادل.',
       'map.basemap': 'تغيير الخلفية', 'map.fit': 'عرض الشبكة كاملة', 'map.clear': 'مسح المسار',
@@ -94,7 +94,7 @@
       'plan.fastest': '⚡ Fastest', 'plan.fewest': '🔁 Fewest transfers', 'plan.go': 'Show route', 'plan.new': 'New trip',
       'plan.hint': 'Type a station or a place (old names such as “Olaya” work too), or tap two stations on the diagram. Times are estimates.',
       'plan.popular': 'Popular trips',
-      'view.map': '🗺️ Map', 'view.diagram': '🚇 Diagram',
+      'view.map': '🗺️ Map', 'view.diagram': '🚇 Diagram', 'view.gmaps': '🌐 Google Maps',
       'status.open': 'Metro running · until {t}', 'status.closed': 'Metro closed · opens {t}', 'status.closedDay': 'Metro closed · opens {d} {t}',
       'lines.hint': 'Toggle lines on the map and expand a line to see its stations in order. Stations with a black ring are interchanges.',
       'map.basemap': 'Change basemap', 'map.fit': 'Show whole network', 'map.clear': 'Clear route',
@@ -141,7 +141,7 @@
       'plan.from': 'کہاں سے', 'plan.to': 'کہاں تک', 'plan.search': 'اسٹیشن یا جگہ تلاش کریں…', 'plan.leaveAt': '🕒 روانگی', 'plan.now': 'ابھی',
       'plan.fastest': '⚡ تیز ترین', 'plan.fewest': '🔁 کم تبدیلی', 'plan.go': 'راستہ دکھائیں', 'plan.new': 'نیا سفر', 'plan.locate': 'میرے قریب ترین اسٹیشن',
       'plan.hint': 'اسٹیشن یا جگہ کا نام لکھیں، یا ڈایاگرام پر دو اسٹیشنوں پر ٹیپ کریں۔ اوقات تخمینی ہیں۔', 'plan.popular': 'مقبول سفر',
-      'view.map': '🗺️ نقشہ', 'view.diagram': '🚇 ڈایاگرام',
+      'view.map': '🗺️ نقشہ', 'view.diagram': '🚇 ڈایاگرام', 'view.gmaps': '🌐 گوگل میپس',
       'status.open': 'میٹرو چل رہی ہے · {t} تک', 'status.closed': 'میٹرو بند ہے · {t} بجے کھلے گی', 'status.closedDay': 'میٹرو بند ہے · {d} {t} کھلے گی',
       'err.pick': 'روانگی اور منزل کا اسٹیشن منتخب کریں۔', 'err.same': 'روانگی اور منزل ایک ہی اسٹیشن ہیں۔', 'err.unknown': 'نامعلوم اسٹیشن یا جگہ: ',
       'res.title': 'تجویز کردہ سفر', 'res.min': 'منٹ', 'res.stops': 'اسٹیشن', 'res.transfers': 'تبدیلی', 'res.none': 'بغیر تبدیلی', 'res.distance': 'فاصلہ', 'res.fare': 'ٹکٹ',
@@ -166,7 +166,7 @@
       'plan.from': 'कहाँ से', 'plan.to': 'कहाँ तक', 'plan.search': 'स्टेशन या जगह खोजें…', 'plan.leaveAt': '🕒 प्रस्थान', 'plan.now': 'अभी',
       'plan.fastest': '⚡ सबसे तेज़', 'plan.fewest': '🔁 कम बदलाव', 'plan.go': 'रास्ता दिखाएँ', 'plan.new': 'नई यात्रा', 'plan.locate': 'मेरे पास का स्टेशन',
       'plan.hint': 'स्टेशन या जगह का नाम लिखें, या डायग्राम पर दो स्टेशन टैप करें। समय अनुमानित हैं।', 'plan.popular': 'लोकप्रिय यात्राएँ',
-      'view.map': '🗺️ नक्शा', 'view.diagram': '🚇 डायग्राम',
+      'view.map': '🗺️ नक्शा', 'view.diagram': '🚇 डायग्राम', 'view.gmaps': '🌐 गूगल मैप्स',
       'status.open': 'मेट्रो चालू है · {t} तक', 'status.closed': 'मेट्रो बंद है · {t} बजे खुलेगी', 'status.closedDay': 'मेट्रो बंद है · {d} {t} खुलेगी',
       'err.pick': 'प्रस्थान और गंतव्य स्टेशन चुनें।', 'err.same': 'प्रस्थान और गंतव्य एक ही स्टेशन हैं।', 'err.unknown': 'अज्ञात स्टेशन या जगह: ',
       'res.title': 'सुझाई गई यात्रा', 'res.min': 'मिनट', 'res.stops': 'स्टेशन', 'res.transfers': 'बदलाव', 'res.none': 'बिना बदलाव', 'res.distance': 'दूरी', 'res.fare': 'टिकट',
@@ -191,7 +191,7 @@
       'plan.from': 'কোথা থেকে', 'plan.to': 'কোথায়', 'plan.search': 'স্টেশন বা জায়গা খুঁজুন…', 'plan.leaveAt': '🕒 ছাড়ার সময়', 'plan.now': 'এখন',
       'plan.fastest': '⚡ দ্রুততম', 'plan.fewest': '🔁 কম বদল', 'plan.go': 'রুট দেখান', 'plan.new': 'নতুন যাত্রা', 'plan.locate': 'আমার কাছের স্টেশন',
       'plan.hint': 'স্টেশন বা জায়গার নাম লিখুন, অথবা ডায়াগ্রামে দুটি স্টেশনে ট্যাপ করুন। সময় আনুমানিক।', 'plan.popular': 'জনপ্রিয় যাত্রা',
-      'view.map': '🗺️ মানচিত্র', 'view.diagram': '🚇 ডায়াগ্রাম',
+      'view.map': '🗺️ মানচিত্র', 'view.diagram': '🚇 ডায়াগ্রাম', 'view.gmaps': '🌐 গুগল ম্যাপস',
       'status.open': 'মেট্রো চালু · {t} পর্যন্ত', 'status.closed': 'মেট্রো বন্ধ · {t}-এ খুলবে', 'status.closedDay': 'মেট্রো বন্ধ · {d} {t}-এ খুলবে',
       'err.pick': 'শুরু ও গন্তব্য স্টেশন বেছে নিন।', 'err.same': 'শুরু ও গন্তব্য একই স্টেশন।', 'err.unknown': 'অজানা স্টেশন বা জায়গা: ',
       'res.title': 'প্রস্তাবিত যাত্রা', 'res.min': 'মিনিট', 'res.stops': 'স্টেশন', 'res.transfers': 'বদল', 'res.none': 'বদল ছাড়া', 'res.distance': 'দূরত্ব', 'res.fare': 'টিকিট',
@@ -216,7 +216,7 @@
       'plan.from': 'Mula sa', 'plan.to': 'Papunta sa', 'plan.search': 'Hanapin ang istasyon o lugar…', 'plan.leaveAt': '🕒 Alis', 'plan.now': 'Ngayon',
       'plan.fastest': '⚡ Pinakamabilis', 'plan.fewest': '🔁 Pinakakaunting lipat', 'plan.go': 'Ipakita ang ruta', 'plan.new': 'Bagong biyahe', 'plan.locate': 'Pinakamalapit na istasyon sa akin',
       'plan.hint': 'I-type ang pangalan ng istasyon o lugar, o i-tap ang dalawang istasyon sa diagram. Tantiya lang ang oras.', 'plan.popular': 'Sikat na biyahe',
-      'view.map': '🗺️ Mapa', 'view.diagram': '🚇 Diagram',
+      'view.map': '🗺️ Mapa', 'view.diagram': '🚇 Diagram', 'view.gmaps': '🌐 Google Maps',
       'status.open': 'Bukas ang metro · hanggang {t}', 'status.closed': 'Sarado ang metro · bubukas {t}', 'status.closedDay': 'Sarado ang metro · bubukas {d} {t}',
       'err.pick': 'Pumili ng pinanggalingan at destinasyon.', 'err.same': 'Pareho ang pinanggalingan at destinasyon.', 'err.unknown': 'Hindi kilalang istasyon o lugar: ',
       'res.title': 'Iminumungkahing biyahe', 'res.min': 'min', 'res.stops': 'istasyon', 'res.transfers': 'lipat', 'res.none': 'walang lipat', 'res.distance': 'Distansya', 'res.fare': 'Tiket',
@@ -241,7 +241,7 @@
       'plan.from': 'Départ', 'plan.to': 'Arrivée', 'plan.search': 'Station ou lieu…', 'plan.leaveAt': '🕒 Départ à', 'plan.now': 'Maintenant',
       'plan.fastest': '⚡ Le plus rapide', 'plan.fewest': '🔁 Moins de correspondances', 'plan.go': 'Afficher l’itinéraire', 'plan.new': 'Nouveau trajet', 'plan.locate': 'Station la plus proche de moi',
       'plan.hint': 'Saisissez une station ou un lieu (les anciens noms comme « Olaya » fonctionnent), ou touchez deux stations sur le plan. Durées estimées.', 'plan.popular': 'Trajets fréquents',
-      'view.map': '🗺️ Carte', 'view.diagram': '🚇 Plan',
+      'view.map': '🗺️ Carte', 'view.diagram': '🚇 Plan', 'view.gmaps': '🌐 Google Maps',
       'status.open': 'Métro en service · jusqu’à {t}', 'status.closed': 'Métro fermé · ouvre à {t}', 'status.closedDay': 'Métro fermé · ouvre {d} à {t}',
       'err.pick': 'Choisissez une station de départ et d’arrivée.', 'err.same': 'Départ et arrivée sont la même station.', 'err.unknown': 'Station ou lieu inconnu : ',
       'res.title': 'Trajet proposé', 'res.min': 'min', 'res.stops': 'stations', 'res.transfers': 'correspondances', 'res.none': 'sans correspondance', 'res.distance': 'Distance', 'res.fare': 'Billet',
@@ -266,7 +266,7 @@
       'plan.from': 'Откуда', 'plan.to': 'Куда', 'plan.search': 'Станция или место…', 'plan.leaveAt': '🕒 Отправление', 'plan.now': 'Сейчас',
       'plan.fastest': '⚡ Быстрее всего', 'plan.fewest': '🔁 Меньше пересадок', 'plan.go': 'Показать маршрут', 'plan.new': 'Новый маршрут', 'plan.locate': 'Ближайшая станция ко мне',
       'plan.hint': 'Введите станцию или место (старые названия вроде «Olaya» тоже работают) или нажмите две станции на схеме. Время приблизительное.', 'plan.popular': 'Популярные маршруты',
-      'view.map': '🗺️ Карта', 'view.diagram': '🚇 Схема',
+      'view.map': '🗺️ Карта', 'view.diagram': '🚇 Схема', 'view.gmaps': '🌐 Google Maps',
       'status.open': 'Метро работает · до {t}', 'status.closed': 'Метро закрыто · откроется в {t}', 'status.closedDay': 'Метро закрыто · откроется {d} в {t}',
       'err.pick': 'Выберите станции отправления и назначения.', 'err.same': 'Станции отправления и назначения совпадают.', 'err.unknown': 'Неизвестная станция или место: ',
       'res.title': 'Предлагаемый маршрут', 'res.min': 'мин', 'res.stops': 'станций', 'res.transfers': 'пересадок', 'res.none': 'без пересадок', 'res.distance': 'Расстояние', 'res.fare': 'Билет',
@@ -1340,7 +1340,10 @@
       baseLayers[baseOrder[baseIdx]].addTo(map).bringToBack();
       toast(t('base.' + baseOrder[baseIdx]));
     });
-    $$('.view-switch button').forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.view); }); });
+    $$('.view-switch button').forEach(function (b) { b.addEventListener('click', function () {
+      if (b.dataset.view === 'gmaps') { location.href = 'google-maps.html#' + hashString(); return; }
+      setView(b.dataset.view);
+    }); });
     $('#sch-zoom-in').addEventListener('click', function () { var vp = $('#sch-viewport'); SCH.pz.zoomAt(1.4, vp.clientWidth / 2, vp.clientHeight / 2, true); });
     $('#sch-zoom-out').addEventListener('click', function () { var vp = $('#sch-viewport'); SCH.pz.zoomAt(1 / 1.4, vp.clientWidth / 2, vp.clientHeight / 2, true); });
     $$('.tabs button').forEach(function (b) { b.addEventListener('click', function () { switchTab(b.dataset.tab); }); });
