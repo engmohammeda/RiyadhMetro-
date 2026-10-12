@@ -155,3 +155,14 @@ test/        node --test
 - **darb card & payment:** the guide explains the four payment methods, where to get a darb card, how to top it up, and renders the current fare table live from `data/config.json`. A **dark mode** 🌙 (with a night map style and a transit-optimised day style) and a "why this project vs Google transit directions" comparison round it out.
 - UX inspired by community projects such as [riyadhmetro.fyi](https://riyadhmetro.fyi); data, code and artwork are fully independent.
 - Data provenance and accuracy notes: [`data/SOURCES.md`](data/SOURCES.md). Times are estimates; this is an unofficial community project (MIT).
+
+## Awareness toolkit — free-internet scams / أدوات التوعية بخدع «النت المجاني»
+
+A standalone **defensive/awareness** addition (not part of the metro app):
+
+- **[`docs/free-internet-scams/`](docs/free-internet-scams/README.md)** — Arabic guide: how “free internet” scams on mobile SIMs actually work (zero-rating metering, SNI/Host spoofing, open proxies), the Mobily 60-SAR gaming/social package case, the legal view under Saudi Anti-Cyber Crimes Law (M/17), red flags, and what to do if you subscribed.
+- **[`tools/host-audit/`](tools/host-audit/README.md)** — Python 3 (stdlib-only) host scanner that detects the misconfigurations these scams abuse (open forward proxies via `CONNECT`, Host-fronting tolerance, carrier proxy artifacts) and emits an educational Arabic report. Run: `python3 tools/host-audit/host_audit.py --file tools/host-audit/hosts.sample.txt --report report.md`.
+
+⚖️ Awareness & defence only — scan hosts you are authorized to test; the tool ships no bypass payloads.
+
+دليل عربي توعوي مستقل عن تطبيق المترو: كيف تعمل خدع «النت المجاني» على شرائح الهاتف تقنياً وقانونياً، مع أداة فحص الهوستات الدفاعية لكشف الإعدادات الخاطئة المستغلة في هذه الخدع.
