@@ -162,7 +162,8 @@ A standalone **defensive/awareness** addition (not part of the metro app):
 
 - **[`docs/free-internet-scams/`](docs/free-internet-scams/README.md)** — Arabic guide: how “free internet” scams on mobile SIMs actually work (zero-rating metering, SNI/Host spoofing, open proxies), the Mobily 60-SAR gaming/social package case, the legal view under Saudi Anti-Cyber Crimes Law (M/17), red flags, and what to do if you subscribed.
 - **[`tools/host-audit/`](tools/host-audit/README.md)** — Python 3 (stdlib-only) host scanner that detects the misconfigurations these scams abuse (open forward proxies via `CONNECT`, Host-fronting tolerance, carrier proxy artifacts) and emits an educational Arabic report. Run: `python3 tools/host-audit/host_audit.py --file tools/host-audit/hosts.sample.txt --report report.md`.
+- **[`tools/zero-rating-lab/`](tools/zero-rating-lab/README.md)** — hands-on localhost-only simulation lab (no real networks, no real hosts): watch metering drop to zero under Host spoofing, see what the “seller server” captures from you, then watch the fix kill the trick (421 + CONNECT disabled). Run: `python3 tools/zero-rating-lab/lab.py`.
 
 ⚖️ Awareness & defence only — scan hosts you are authorized to test; the tool ships no bypass payloads.
 
-دليل عربي توعوي مستقل عن تطبيق المترو: كيف تعمل خدع «النت المجاني» على شرائح الهاتف تقنياً وقانونياً، مع أداة فحص الهوستات الدفاعية لكشف الإعدادات الخاطئة المستغلة في هذه الخدع.
+دليل عربي توعوي مستقل عن تطبيق المترو: كيف تعمل خدع «النت المجاني» على شرائح الهاتف تقنياً وقانونياً، مع أداة فحص الهوستات الدفاعية لكشف الإعدادات الخاطئة المستغلة في هذه الخدع، ومختبر محاكاة محلي (localhost) لتجربة الآلية بأم عينيك.
