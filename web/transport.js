@@ -1181,10 +1181,10 @@
       ['الأحياء المخدومة', fmt(covered) + ' من ' + fmt(S.districts)],
       ['المواقف', fmt(PR.sites.length) + ' موقعاً · ' + fmt(spaces) + ' موقفاً'],
       ['ساعات الحافلات', busHours ? busHours.open + ' – ' + (busHours.close === '24:00' ? '24:00' : busHours.close) : '05:00 – 24:00'],
+      ['ساعات المترو', hours ? hours.open + ' – ' + (hours.close === '24:00' ? '24:00' : hours.close) : '05:30 – 24:00'],
       ['الترددات', '7 – 25 دقيقة'],
       ['الأجرة', fare + ' ر.س للرحلة على المترو والحافلات']
     ];
-    if (hours) facts[6][1] = hours.open + ' – ' + (hours.close === '24:00' ? '24:00' : hours.close);
     $('#pt-facts').innerHTML = facts.map(function (f) { return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join('');
   }
 

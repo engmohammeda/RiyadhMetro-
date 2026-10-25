@@ -84,7 +84,7 @@ test('transport page behaviour (jsdom + Leaflet stand-in)', { skip }, async (t) 
   await t.test('boots without script errors and fills the overview', () => {
     assert.deepEqual(page.errors, []);
     assert.equal(page.$$('#pt-stats li').length, 5, 'five headline figures');
-    assert.equal(page.$$('#pt-facts > div').length, 8, 'eight network facts');
+    assert.equal(page.$$('#pt-facts > div').length, 9, 'nine network facts');
     assert.ok(page.$('#pt-stats').textContent.includes('3,010'), 'bus stop count rendered');
     assert.equal(page.$$('#pt-bus-list .pt-card').length, 88, 'every bus route listed');
     assert.equal(page.$$('#pt-area-list .pt-card').length, 133, 'every district listed');
