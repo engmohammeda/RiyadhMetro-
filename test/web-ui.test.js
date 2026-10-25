@@ -137,8 +137,9 @@ test('fonts are self-hosted so the interface renders identically offline', () =>
 
 test('PWA shell is versioned and caches the new modules and fonts', () => {
   const worker = read('web/sw.js');
-  assert.match(worker, /var VERSION = 'rm-v6'/, 'cache version bumped for the redesign');
-  for (const asset of ["'./i18n.js'", "'./hero.js'", "'./lib/live.js'", "'./vendor/fonts/fonts.css'"]) {
+  assert.match(worker, /var VERSION = 'rm-v7'/, 'cache version bumped for the public-transport release');
+  for (const asset of ["'./i18n.js'", "'./hero.js'", "'./lib/live.js'", "'./vendor/fonts/fonts.css'",
+    "'./transport.html'", "'./transport.js'", "'./transport.css'", "'./lib/transit.js'", "'./data/transit-data.js'"]) {
     assert.ok(worker.includes(asset), `${asset} cached for offline use`);
   }
   // the app shell must contain every font face it declares — otherwise the

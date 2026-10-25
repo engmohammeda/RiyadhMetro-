@@ -1,12 +1,14 @@
 <div dir="rtl">
 
-# 🚇 مترو الرياض — دليل التنقل | Riyadh Metro Navigator
+# 🚇🚌 النقل العام في الرياض — المترو والحافلات | Riyadh Public Transport
 
-**إسقاط كامل لشبكة مترو الرياض (6 مسارات، 83 محطة، 176 كم) على Google Earth وخرائط Google، مع مخطط شبكة تفاعلي ومخطط رحلات للتنقل بين أي محطتين أو مكانين — بالأوقات والأسعار وبثماني لغات.**
+**شبكة النقل العام في الرياض كاملة في مكان واحد: مترو الرياض (6 مسارات، 83 محطة، 176 كم) وحافلات الرياض (88 مساراً، 3,010 محطة توقّف) على خريطة تفاعلية واحدة، مع مخطّط رحلات يجمع المترو والحافلة والمشي، ومحطات الوقوف والركوب لكل حي، والمواقف ومراكز الانتقال — إضافة إلى تصدير KML/KMZ وGeoJSON وCSV و**ملف GTFS** كامل.**
 
 [![CI](https://github.com/engmohammeda/RiyadhMetro-/actions/workflows/ci.yml/badge.svg)](https://github.com/engmohammeda/RiyadhMetro-/actions/workflows/ci.yml)
 ![Lines](https://img.shields.io/badge/%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B1%D8%A7%D8%AA-6-00ADE5)
 ![Stations](https://img.shields.io/badge/%D8%A7%D9%84%D9%85%D8%AD%D8%B7%D8%A7%D8%AA-83-F0493A)
+![Bus](https://img.shields.io/badge/%D8%AD%D8%A7%D9%81%D9%84%D8%A7%D8%AA-88%20%D9%85%D8%B3%D8%A7%D8%B1%D8%A7%D9%8B-2D7DD2)
+![Stops](https://img.shields.io/badge/%D9%85%D8%AD%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%88%D9%82%D9%81-3%2C010-2FA37C)
 ![License](https://img.shields.io/badge/license-MIT-43B649)
 
 <img src="docs/img/network-preview.png" alt="Riyadh Metro network preview" width="720">
@@ -22,7 +24,9 @@
 | 🧭 **تخطيط رحلة بين محطتين أو مكانين** | افتح التطبيق التفاعلي `web/` (محلياً: `npm start` ثم http://localhost:8080) أو انشره على GitHub Pages — انقر على محطتين في **المخطط**، أو اكتب محطة/مكاناً («العليا»، «برج المملكة»، «المطار») وستحصل على المسار، وقت المغادرة والوصول، التذكرة، التبديلات، ورابط قصير للمشاركة مثل `#al-batha~al-hamra~ar` |
 | 🌐 **المسارات فوق Google Maps مباشرة** | افتح `web/google-maps.html?key=YOUR_KEY` — دمج احترافي كامل عبر Maps JavaScript API: مسارات بألوانها الرسمية فوق الخريطة، محطات تفاعلية، رحلة بأسهم اتجاه متحركة، وإبراز أي خط بنقرة. [التفاصيل](docs/google-maps.md) |
 | 🚇 **مخطط الشبكة للطباعة** | [`dist/riyadh-metro-diagram.svg`](dist/riyadh-metro-diagram.svg) (عربي) · [`dist/riyadh-metro-diagram-en.svg`](dist/riyadh-metro-diagram-en.svg) (إنجليزي) |
-| 🧩 **دمج البيانات في تطبيقي** | [`dist/riyadh-metro.geojson`](dist/riyadh-metro.geojson) · [`dist/riyadh-metro-network.json`](dist/riyadh-metro-network.json) · [`dist/riyadh-metro-stations.csv`](dist/riyadh-metro-stations.csv) · [`dist/riyadh-metro.gpx`](dist/riyadh-metro.gpx) |
+| 🚌 **خريطة الحافلات والنقل العام** | افتح [`web/transport.html`](web/transport.html) (أو زر «الحافلات والمناطق» في التطبيق): 88 مساراً و3,010 محطة توقّف على الخريطة، بحث بالمسار أو المحطة أو الحي، ومحطات الوقوف والركوب لكل حي |
+| 🅿️ **المواقف والانتقالات** | تبويب المواقف في [`web/transport.html`](web/transport.html#pt-parking): 17 موقف «اركن واركب» بسعاتها وقواعد استخدامها، وأفضل 10 محطات انتقال بين المترو والحافلات |
+| 🧩 **دمج البيانات في تطبيقي** | [`dist/riyadh-metro.geojson`](dist/riyadh-metro.geojson) · [`dist/riyadh-metro-network.json`](dist/riyadh-metro-network.json) · [`dist/riyadh-metro-stations.csv`](dist/riyadh-metro-stations.csv) · [`dist/riyadh-metro.gpx`](dist/riyadh-metro.gpx) · **`dist/gtfs/riyadh-transit-gtfs.zip`** (مترو + حافلات) · [`dist/riyadh-bus-routes.geojson`](dist/riyadh-bus-routes.geojson) · [`dist/riyadh-bus-stops.geojson`](dist/riyadh-bus-stops.geojson) |
 
 ## ✨ ما الذي يقدّمه المشروع؟
 
@@ -41,7 +45,18 @@
 | `riyadh-metro.gpx` | نقاط المحطات + مسارات الخطوط لأجهزة GPS وOsmAnd وApple Maps |
 | `riyadh-metro-network.json` | الشبكة القابلة للتوجيه (المقاطع بين المحطات بهندستها الحقيقية، المسافات، الأزمنة، أزمنة التبديل) |
 
-### 2. تطبيق ويب تفاعلي (مجلد `web/`) — يعمل دون خادم خلفي ودون مفاتيح API
+### 2. 🚌 تطبيق النقل العام كاملاً (`web/transport.html`) — المترو + الحافلات + الأحياء
+
+صفحة مستقلة تعمل بلا خادم خلفي، تبني نموذجاً موحّداً من `data/` وتحسب الرحلات على شبكة تضم **كل** الوسائل:
+
+- **خريطة واحدة، ست طبقات:** مسارات المترو ومحاطته · 88 مسار حافلات بألوان نوعها (BRT/رئيسي/قطاعي/تغذوي) · 3,010 محطة توقّف تظهر عند التكبير لتفادي الازدحام · حدود 133 حياً مع أسمائها وعدد محطاتها · 17 موقف «اركن واركب» · مسار الرحلة المخطَّطة فوق كل ذلك.
+- **مخطّط رحلات متعدد الوسائط:** يبحث في المحطات والمواقف والأحياء والمعالم، ويقارن أربع استراتيجيات (الأسرع · أقل تبديل · مترو فقط · حافلات فقط)، ويعرض المشي والانتظار المتوقع والتبديلات والأجرة، مع رسم الرحلة على الخريطة وتصديرها GeoJSON أو فتحها في خرائط Google.
+- **تبويب الحافلات:** بحث برقم المسار أو اسم المحطة أو طرفي المسار، وتصفية حسب النوع، وبطاقة لكل مسار: الطول، الزمن، التردد، الاتجاهات، وقائمة المحطات المرتّبة قابلة للنقر.
+- **تبويب الأحياء (محطات الوقوف والركوب لكل منطقة):** 133 حياً مرتّبة بعدد المحطات، وتفصيل أنواع المآوي داخل كل حي (مكيّف/كبير/مفتوح/عمود تغذية/BRT)، ونسبة المحطات العاملة مقابل المراحل القادمة، وزر «خطّط من الحي».
+- **تبويب المواقف والانتقالات:** سعات المواقف المنشورة (6,154 موقفاً)، قواعد «اركن واركب» الرسمية، مواقف مستخدمي الحافلات، وأفضل محطات الانتقال (المحطات التي تخدمها أكبر عدد من مسارات الحافلات ضمن 450 م)، والمحطات التي لا تصلها حافلات.
+- **روابط عميقة:** `#r=924` لمسار، `#a=al-olaya` لحي، و`#f=stop:b52706~station:kafd&m=all` لرحلة — وكلها تُفتح من الرابط مباشرة.
+
+### 3. تطبيق ويب تفاعلي (مجلد `web/`) — يعمل دون خادم خلفي ودون مفاتيح API
 
 > 🎨 أُعيد بناء الواجهة بالكامل وفق نظام تصميم موحّد — انظر [**نظام التصميم «خط المدينة»**](docs/design-system.md)
 > (الرموز، السلم الطباعي السائل، المكوّنات، الاتجاه/RTL، الوصولية، وصوت الكتابة).
@@ -62,14 +77,16 @@
 - **8 لغات** للواجهة: العربية، English، اردو، हिन्दी، বাংলা، Filipino، Français، Русский — مع RTL/LTR، متجاوب للجوال، PWA يعمل دون اتصال (عدا بلاطات الخريطة).
 - `web/google-maps.html` — دمج احترافي كامل في **Google Maps JavaScript API** (بمفتاحك): مسارات بغلاف أبيض وألوان رسمية فوق خريطة جوجل، محطات `AdvancedMarker` تفاعلية مع أسماء تظهر حسب التكبير، إبراز أي خط بنقرة مع بطاقته، طبقة وجهات اختيارية، ومخطط رحلات يرسم الرحلة **بأسهم اتجاه متحركة** ودبابيس A/B وشارات تبديل مرقّمة — مع تصدير الرحلة (مشاركة / KML / GeoJSON) وفتحها في تطبيق خرائط جوجل. زر «🌐 Google Maps» في التطبيق الرئيسي ينقل رحلتك الحالية إليه مباشرة.
 
-### 3. نموذج بيانات مفتوح ومحرك توجيه قابل لإعادة الاستخدام
+### 4. نموذج بيانات مفتوح ومحرك توجيه قابل لإعادة الاستخدام
 
-- `data/*.json` هو المصدر الوحيد للحقيقة؛ `npm run build` يتحقق من سلامته ويولّد كل ما سبق.
+- `data/*.json` هو المصدر الوحيد للحقيقة؛ `npm run build` يتحقق من سلامته ويولّد كل ما سبق. بيانات الحافلات والأحياء تُبنى من النسخ الخام في `data/bus/source/` عبر `npm run import:transit` (لا تُحرَّر `data/bus/*.json` يدوياً).
+- `src/transit.js` نموذج النقل العام: يبني شبكة متعددة الوسائط (محطات مترو + مواقف حافلات + وصلات مشي حتى 1.2 كم)، ويشغّل Dijkstra على حالة (المحطة، الوسيلة) بحيث تُحسب عقوبة التبديل مرة واحدة عند تغيير الوسيلة، ويوفّر `plan` و`alternatives` و`search` و`nearby` و`interchangeRanking` — بلا اعتماديات، ويعمل في Node والمتصفح.
+- **GTFS:** `src/node/transit-exports.js` يبني حزمة GTFS كاملة (stops/routes/trips/stop_times/frequencies/calendar/fare_*) من نفس النموذج، ويُتحقق منها داخل الاختبارات (سلامة المراجع، ترتيب الأوقات، تغطية كل المحطات).
 - `src/` وحدات JavaScript بلا اعتماديات تعمل في Node والمتصفح معاً: الهندسة الجغرافية، بناء الشبكة (إسقاط المحطات على السكة وتقطيعها لمقاطع)، Dijkstra مع عقوبات التبديل، توليد KML/GeoJSON، الروابط العميقة، **المخطط التخطيطي** (`schematic.js`)، **ساعات الخدمة والأسعار والتوقيت** (`service.js`)، و**منطق التتبع الحي** (`live.js`: أقرب محطة على الرحلة، التبديل القادم، الاستعداد للنزول، الوصول).
 - واجهة سطر أوامر: `node scripts/route.js المركز المالي المطار`.
-- 94 اختباراً آلياً (`npm test`) تغطي سلامة البيانات، التوجيه بين كل زوج من المحطات (3,403 زوج)، صحة ملفات KML/KMZ/GeoJSON/CSV/GPX، تغطية المخطط لكل المحطات وتعامده، الأماكن وأقرب محطة، البحث بالأسماء البديلة، ساعات التشغيل/التوقيت، **منطق التتبع الحي** (الوصول، الاستعداد للنزول، التبديل القادم، العتبات القابلة للضبط)، **وسلامة محتوى دليل الركاب والوضع الداكن ونظام التصميم الجديد**، إضافة إلى **إقلاع الصفحة الحقيقية في jsdom** (بلا أي خطأ سكربت: تخطيط كامل، روابط عميقة، تبديل لغة، نقر محطة في الهيرو) و**فحص وصولية axe-core فعلي** (WCAG 2.1 AA — صفر مخالفات في اللاتينية وفي العربية/RTL مع رحلة مخطَّطة).
+- **127 اختباراً آلياً** (`npm test`) تغطي سلامة البيانات، بيانات الحافلات والمسارات والأحياء والمواقف، التوجيه متعدد الوسائط، GTFS، التوجيه بين كل زوج من المحطات (3,403 زوج)، صحة ملفات KML/KMZ/GeoJSON/CSV/GPX، تغطية المخطط لكل المحطات وتعامده، الأماكن وأقرب محطة، البحث بالأسماء البديلة، ساعات التشغيل/التوقيت، **منطق التتبع الحي** (الوصول، الاستعداد للنزول، التبديل القادم، العتبات القابلة للضبط)، **وسلامة محتوى دليل الركاب والوضع الداكن ونظام التصميم الجديد**، إضافة إلى **إقلاع الصفحة الحقيقية في jsdom** (بلا أي خطأ سكربت: تخطيط كامل، روابط عميقة، تبديل لغة، نقر محطة في الهيرو) و**فحص وصولية axe-core فعلي** (WCAG 2.1 AA — صفر مخالفات في اللاتينية وفي العربية/RTL مع رحلة مخطَّطة).
 
-### 4. خارطة طريق التطوير 🧭
+### 5. خارطة طريق التطوير 🧭
 
 انظر [**خطة التحسينات الشاملة**](docs/improvement-plan.md): تشخيص الوضع، ما نُفّذ (المرحلة الأولى: عرض المسارات كجزء احترافي من خريطة جوجل)، والمسارات المتبقية مرتبة بالأولوية (تعميق دمج Google Maps، بيانات GTFS وزمن حقيقي، تجربة الاستخدام، الأداء، الاختبارات، النشر، وتعدد الوسائط) مع مؤشرات نجاح ومخاطر.
 
@@ -93,7 +110,8 @@ git clone https://github.com/engmohammeda/RiyadhMetro-.git
 cd RiyadhMetro-
 npm run build     # يتحقق من البيانات ويولّد dist/ و web/data و web/lib — بناء حتمي (نفس البيانات = نفس البايتات)
 npm ci            # اختيارى: jsdom + axe-core لاختبارات المتصفح والوصولية (بدونهما تُتخطّى وحدها)
-npm test          # 94 اختباراً (بيانات · توجيه · تصدير · واجهة · دليل · هيرو · إقلاع الصفحة في jsdom · فحص axe-core)
+npm run import:transit   # إعادة بناء بيانات الحافلات والأحياء من ملفات المصدر الخام
+npm test          # 127 اختباراً (بيانات · توجيه · تصدير · GTFS · واجهة · صفحة النقل العام · إقلاع الصفحات في jsdom · فحص axe-core)
 npm start         # خادم محلي → http://localhost:8080/web/
 npm run route -- المركز المالي المتحف الوطني    # مخطط الرحلات من الطرفية
 ```
@@ -113,10 +131,11 @@ npm run route -- المركز المالي المتحف الوطني    # مخط
 
 ```
 data/        المصدر الوحيد للحقيقة: stations.json · lines.json · shapes.json · config.json · places.json · schematic.json · SOURCES.md
-src/         وحدات مشتركة (Node + متصفح): geo · network · router · links · kml · geojson · schematic · service  +  node/ (zip/png/csv/gpx/validate)
-scripts/     build.js (التوليد والتحقق) · serve.js (خادم ثابت) · route.js (CLI)
-dist/        المخرجات المولّدة: KMZ · KML · GeoJSON · CSV · GPX · SVG · network.json   ← لا تُحرَّر يدوياً
-web/         التطبيق التفاعلي (index.html · app.js · styles.css · google-maps.html · PWA · vendor/leaflet)
+             bus/ (stops · routes · shapes · district-names + source/ النسخ الخام) · districts.json · park-and-ride.json
+src/         وحدات مشتركة (Node + متصفح): geo · network · router · transit · links · kml · geojson · schematic · service  +  node/ (zip/png/csv/gpx/validate/transit-exports)
+scripts/     build.js (التوليد والتحقق) · import-transit.js (CSV/TopoJSON → data) · serve.js (خادم ثابت) · route.js (CLI)
+dist/        المخرجات المولّدة: KMZ · KML · GeoJSON · CSV · GPX · SVG · network.json · bus GeoJSON/CSV · gtfs/   ← لا تُحرَّر يدوياً
+web/         التطبيقات: index.html + app.js (المترو) · transport.html + transport.js (النقل العام) · styles.css · transport.css · google-maps.html · PWA · vendor/leaflet
 docs/        design-system.md · improvement-plan.md · google-earth.md · google-maps.md · data-model.md · img/ · workflows/ (CI جاهز للتفعيل)
 .github/     workflows/pages.yml (نشر GitHub Pages) ← ci.yml ما زال في docs/workflows/ بانتظار نقله
 test/        node --test
@@ -125,6 +144,9 @@ test/        node --test
 ## 📐 دقة البيانات والافتراضات
 
 - الإحداثيات والمسارات الهندسية من بيانات المسارات المفتوحة لمشغّل النقل العام بالرياض (انظر [`data/SOURCES.md`](data/SOURCES.md)). كل محطة تقع على بُعد أقل من 250 م من محور مسارها، والأطوال المحسوبة تطابق الأطوال الرسمية بفارق ~3%.
+- **بيانات الحافلات** من مجموعتَي البيانات المفتوحتين للهيئة الملكية لمدينة الرياض (2024): محطات التوقّف (3,010 محطة، 9 أنواع مأوى، 8 مراحل تطوير) وطرق الحافلات (117 اتجاهاً). **السرعات والترددات تقديرية** (`config.json → busModel`) لأن المشغّل لا ينشر جداول زمنية ولا GTFS رسمياً. أقصى إزاحة لمحطة عن مسارها 76 م، وأطول فراغ بلا محطة منشورة 25 كم في المسار 730 (بيانات المصدر، وليس خطأ هندسي).
+- **الأحياء:** 133 حياً من حدود موثّقة (البريد السعودي)؛ 128 حياً بها محطات، و110 محطات فقط أُسندت إلى أقرب حي لوقوعها خارج الحدود (`districtApprox`). 33 محطة في المصدر غير مرتبطة بأي مسار ولا تدخل التوجيه. الأحياء الخمسة بلا محطات مذكورة في [`data/SOURCES.md`](data/SOURCES.md).
+- **المواقف:** السعات المنشورة فقط (17 موقعاً · 6,154 موقفاً)؛ الهيئة تعلن 19 موقعاً بسعة 400–600 سيارة، والباقي بلا رقم منشور. قواعد الاستخدام من المشغّل وقد تتغير — المرجع تطبيق درب.
 - **الأزمنة تقديرية**: سرعة متوسطة 65 كم/س + 50 ثانية لكل توقف + 5 دقائق للتبديل (دقيقتان على الجذع المشترك للأصفر/البنفسجي، 7 دقائق في المركز المالي). قابلة للتعديل في `data/config.json`.
 - **ساعات التشغيل والأسعار** في `data/config.json` (السبت–الخميس 05:30–00:00، الجمعة 10:00–00:00؛ تذكرة ساعتين 4 ريال / الدرجة الأولى 10 ريال، وباقات 3 و7 و30 يوماً وسنوية) معلومات عامة قد تتغير — المرجع الرسمي تطبيق **درب (darb)** والهيئة الملكية لمدينة الرياض. التطبيق يحسب وقت الوصول بإضافة ~3 دقائق انتظار عند «المغادرة الآن».
 - **الأماكن** في `data/places.json` إحداثياتها تقريبية (±100–300 م) والغرض منها اختيار المحطة المناسبة فقط؛ أقرب محطة ومسافة المشي تُحسبان وقت البناء.
@@ -142,15 +164,17 @@ test/        node --test
 
 ## English
 
-**Riyadh Metro Navigator** projects the complete Riyadh Metro network (6 lines, 83 stations, 176 km) onto Google Earth and Google Maps, and ships an interactive schematic diagram and journey planner — stations *and* places, hours, fares, arrival times, short links, 8 UI languages.
+**Riyadh Public Transport** puts the whole Riyadh network on one map: the metro (6 lines, 83 stations, 176 km) and Riyadh Bus (88 routes, 3,010 stops), with a multimodal journey planner, boarding points for each of the 133 districts, park & ride and transfer hubs — plus Google Earth/Maps exports, GeoJSON/CSV and a complete **GTFS** feed.
 
 <img src="docs/img/diagram-en.png" alt="Riyadh Metro schematic diagram" width="720">
 
 - **Google Earth:** open [`dist/riyadh-metro.kmz`](dist/riyadh-metro.kmz) — official line colours on the real alignments, stations per line, an *Interchanges* folder, bilingual info balloons with Google Maps/Earth links, and 6 fly-over tours. ([guide](docs/google-earth.md))
 - **Google Maps:** import [`dist/riyadh-metro.kml`](dist/riyadh-metro.kml) (or one `dist/lines/*.kml` per layer) into Google My Maps → visible in the Google Maps app under *Saved → Maps*; deep links for every station (pin, walking directions, transit trip); `web/google-maps.html` for the Maps JavaScript API. ([guide](docs/google-maps.md))
 - **Web app (`web/`):** a journey-led responsive hero combines the real origin/destination, departure-time and route-preference controls with an A/B route motif; results appear alongside the interactive schematic (pan/zoom, tap A then B to plan) and Leaflet map, all using one planner state. Search stations **and places** (Kingdom Centre, Masmak, airport…) including old/common names (“Olaya” → stc); fastest / fewest-transfers; **“Leave at”** picker with estimated arrival, **ticket price** (standard / first class) and closed/late-service warnings; live “Metro running until 00:00” status; info tab with hours, fares, tips and destinations; nearest station via GPS; popular trips; station cards; route export to KML/GeoJSON; short links `#from~to~lang` (e.g. `#al-batha~al-hamra~en`, `#p:kingdom-centre~airport-t1-2~en`); UI in Arabic, English, Urdu, Hindi, Bengali, Filipino, French and Russian; installable PWA. The first-ride guide is opt-in, and the panel works as a collapsible mobile sheet. Run `npm start` → http://localhost:8080/web/ or deploy with the included GitHub Pages workflow (`.github/workflows/`).
+- **Bus & district map (`web/transport.html`):** six map layers (metro lines and stations, 88 bus routes coloured by service type — BRT / main / sector / feeder, 3,010 stops revealed as you zoom, 133 district boundaries with stop counts, 17 park & ride sites, and the planned journey); a multimodal planner that compares fastest / fewest transfers / metro-only / bus-only and shows walking, expected waits, transfers, fare and a GeoJSON export; a bus tab searchable by route number, stop name or termini; a districts tab with the boarding/alighting stops of every district broken down by shelter type and operating stage; and a park & ride tab with published capacities, the operator's rules and the top-10 metro↔bus interchange stations. Deep links: `#r=924`, `#a=al-olaya`, `#f=stop:b52706~station:kafd&m=all`.
+- **GTFS & open bus data:** [`dist/gtfs/riyadh-transit-gtfs.zip`](dist/gtfs/riyadh-transit-gtfs.zip) (stops, routes, trips, stop_times, frequencies, calendar, fares — metro + bus, generated from the same model and validated in the test suite); [`dist/riyadh-bus-routes.geojson`](dist/riyadh-bus-routes.geojson) · [`dist/riyadh-bus-stops.geojson`](dist/riyadh-bus-stops.geojson) · [`dist/riyadh-districts.geojson`](dist/riyadh-districts.geojson) · [`dist/riyadh-park-and-ride.geojson`](dist/riyadh-park-and-ride.geojson) · CSVs for Sheets/My Maps. Source data: RCRC open data 2024 (stops by route/direction/shelter type, bus roads by direction) and Saudi Post-verified district boundaries — see [`data/SOURCES.md`](data/SOURCES.md).
 - **Diagram & destinations:** `dist/riyadh-metro-diagram{,-en}.svg` (printable network diagram generated from the hand-designed octilinear layout in `data/schematic.json`); `dist/riyadh-metro-places.{geojson,csv}` and a hidden *Destinations* folder in the KMZ — ~50 landmarks/malls/hospitals/universities with their nearest station and walking distance.
-- **Open data & engine:** `data/*.json` is the single source of truth; dependency-free modules in `src/` (geodesy, network building, Dijkstra routing, KML/GeoJSON generation, deep links, schematic renderer, service hours/fares/timing, live GPS progress logic) run in Node and the browser; `node scripts/route.js "KAFD" "National Museum" --en`; 94 tests (`npm test`), covering data integrity, all-pairs routing, every export format, the landing page's structure and i18n coverage, accessibility, the hero schematic, a real page boot in jsdom with zero script errors, and a live axe-core WCAG 2.1 AA audit (zero violations, in LTR and in RTL with a planned itinerary). The UI is built on the documented [**“City Line” design system**](docs/design-system.md).
+- **Open data & engine:** `data/*.json` is the single source of truth; dependency-free modules in `src/` (geodesy, network building, Dijkstra routing, KML/GeoJSON generation, deep links, schematic renderer, service hours/fares/timing, live GPS progress logic) run in Node and the browser; `node scripts/route.js "KAFD" "National Museum" --en`; 127 tests (`npm test`), covering data integrity, all-pairs routing, every export format, the landing page's structure and i18n coverage, accessibility, the hero schematic, real page boots in jsdom with zero script errors (metro **and** public-transport pages), the multimodal planner's multimodal itineraries and GTFS referential integrity, and a live axe-core WCAG 2.1 AA audit (zero violations, in LTR and in RTL with a planned itinerary). The UI is built on the documented [**“City Line” design system**](docs/design-system.md).
 - **Live GPS tracking & rider guide:** a pulsing "you are here" marker follows you, a card suggests the nearest station to board from, and a live banner alerts you to prepare to transfer, prepare to alight and on arrival (with haptics). A full 📖 rider guide tab covers fines/violations, prohibited items, etiquette, first-ride steps and the boarding-vs-alighting question; an on-demand first-ride guide prompt highlights the five most common beginner mistakes without blocking the initial visit.
 - **darb card & payment:** the guide explains the four payment methods, where to get a darb card, how to top it up, and renders the current fare table live from `data/config.json`. A **dark mode** 🌙 (with a night map style and a transit-optimised day style) and a "why this project vs Google transit directions" comparison round it out.
 - UX inspired by community projects such as [riyadhmetro.fyi](https://riyadhmetro.fyi); data, code and artwork are fully independent.

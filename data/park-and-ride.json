@@ -1,0 +1,64 @@
+{
+  "_comment": "Park & Ride (اركن واركب) facilities at Riyadh Metro stations. Capacities come from the operator's park-and-ride information and from community/ press reports published between Dec 2024 and Feb 2026; where a source does not publish a figure the capacity is null. Verify before relying on a space — availability changes. Compiled 2026-10-25.",
+  "updated": "2026-10-25",
+  "summary": {
+    "ar": "19 موقف اركن واركب موزّعة على شبكة المترو بسعة 400–600 سيارة للموقف، إضافة إلى 4 مواقف مخصّصة لمستخدمي الحافلات (المصدر: الهيئة الملكية لمدينة الرياض). الأرقام أدناه للمواقف التي نُشرت سعتها فقط.",
+    "en": "19 park-and-ride sites across the metro network with 400–600 spaces each, plus four dedicated bus-user parking sites (source: Royal Commission for Riyadh City). Only published capacities are listed below."
+  },
+  "rules": {
+    "access": { "ar": "الدخول والخروج ببطاقة درب (أو التطبيق).", "en": "Entry and exit with a darb card (or the darb app)." },
+    "freeMinutes": 15,
+    "freeHoursWithTransit": 12,
+    "hourlyAfterFreeSar": 10,
+    "maxHours": 48,
+    "speedLimitKmh": 10,
+    "opening": { "ar": "24 ساعة طوال الأسبوع، مع تنظيم الوصول حسب ساعات تشغيل المحطة المرتبطة.", "en": "24/7, with access aligned to the linked metro station's opening hours." },
+    "notAllowed": {
+      "ar": "الدراجات النارية والهوائية والسكوترات والعربات.",
+      "en": "Motorcycles, bicycles, scooters and carts."
+    }
+  },
+  "sites": [
+    { "station": "sab-bank", "lines": ["1"], "capacity": 592, "confidence": "reported", "note": { "ar": "موقف المسار الأزرق الشمالي.", "en": "Northern Blue Line park-and-ride." } },
+    { "station": "transportation-center", "lines": ["1"], "capacity": 863, "confidence": "reported" },
+    { "station": "ad-dar-al-baida", "lines": ["1"], "capacity": 600, "confidence": "reported" },
+    { "station": "an-naseem", "lines": ["3", "6"], "capacity": 592, "confidence": "reported" },
+    { "station": "al-hamra", "lines": ["2", "6"], "capacity": 863, "confidence": "reported" },
+    { "station": "ar-rabi", "lines": ["4", "6"], "capacity": 567, "confidence": "reported", "note": { "ar": "مشترك بين المسارين الأصفر والبنفسجي.", "en": "Shared by the Yellow and Purple lines." } },
+    { "station": "pnu-2", "lines": ["4"], "capacity": 594, "confidence": "reported" },
+    { "station": "king-fahad-sport-city", "lines": ["2"], "capacity": 883, "confidence": "reported" },
+    { "station": "western-station", "lines": ["3"], "capacity": 600, "confidence": "reported", "note": { "ar": "موقف متعدد الطوابق ضمن المحطة الغربية (نحو 1,000 سيارة في بعض التقارير).", "en": "Multi-storey parking at the Western Station (reported up to ~1,000 cars in some outlets)." } },
+    { "station": "jeddah-road", "lines": ["3"], "capacity": null, "confidence": "reported" },
+    { "station": "sultanah", "lines": ["3"], "capacity": null, "confidence": "reported" },
+    { "station": "qasr-al-hokm", "lines": ["1", "3"], "capacity": null, "confidence": "reported" },
+    { "station": "al-malaz", "lines": ["3"], "capacity": null, "confidence": "reported" },
+    { "station": "al-rajhi-grand-mosque", "lines": ["3"], "capacity": null, "confidence": "reported" },
+    { "station": "khashm-al-an", "lines": ["3"], "capacity": null, "confidence": "reported" },
+    { "station": "khalid-bin-alwaleed-road", "lines": ["2"], "capacity": null, "confidence": "unconfirmed", "note": { "ar": "تتقاطع المصادر حول توفّر موقف اركن واركب هنا؛ تحقّق ميدانياً.", "en": "Sources disagree on whether a park-and-ride operates here — check on the ground." } },
+    { "station": "kafd", "lines": ["1", "4", "6"], "capacity": null, "confidence": "unconfirmed", "note": { "ar": "بعض المصادر تذكر مواقف في المركز المالي وأخرى تنفيها؛ حجم المواقف غير معلن.", "en": "Some sources list parking at KAFD, others deny it; capacity is not published." } }
+  ],
+  "busParking": {
+    "count": 4,
+    "note": {
+      "ar": "أربعة مواقف مخصّصة لمستخدمي الحافلات تربطهم بالمترو، بسعة 200–600 سيارة للموقف، بحسب الهيئة الملكية لمدينة الرياض. المواقع الدقيقة غير منشورة في البيانات المفتوحة.",
+      "en": "Four dedicated bus-user parking sites connecting to the metro, 200–600 cars each, per the Royal Commission for Riyadh City. Exact locations are not published in the open data."
+    }
+  },
+  "sources": [
+    {
+      "label": "RCRC — King Abdulaziz Public Transport Project (park & ride facilities)",
+      "url": "https://www.rcrc.gov.sa/en/projects/riyadh-public-transport-project-2/",
+      "note": "19 park-and-ride sites (400–600 cars each) + 4 bus parking sites = 23 locations."
+    },
+    {
+      "label": "Riyadh Public Transportation — Park & Ride terms",
+      "url": "https://www.rpt.sa/ar/web/guest/park-and-ride",
+      "note": "Access by darb card, 15 free minutes, 12 free hours when the same darb card is used on transit, 48-hour maximum, 10 km/h limit, prohibited vehicle types."
+    },
+    {
+      "label": "Riyadh Metro Guide — parking table by line (Feb 2026)",
+      "url": "https://riyadhmetroguide.com/%D9%85%D9%88%D8%A7%D9%82%D9%81-%D9%85%D8%AA%D8%B1%D9%88-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/",
+      "note": "Station-by-station capacity table (community source, reported figures)."
+    }
+  ]
+}

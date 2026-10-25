@@ -90,6 +90,28 @@
     return best;
   }
 
+  /** Point / segment index at a given along-distance (metres) on a polyline. */
+  function pointAtAlong(line, cum, target) {
+    cum = cum || cumulativeDistances(line);
+    var total = cum[cum.length - 1];
+    var t = Math.max(0, Math.min(total, target));
+    var lo = 0, hi = cum.length - 1;
+    while (lo < hi - 1) {
+      var mid = (lo + hi) >> 1;
+      if (cum[mid] <= t) lo = mid; else hi = mid;
+    }
+    var segLen = cum[lo + 1] - cum[lo] || 1;
+    var f = Math.max(0, Math.min(1, (t - cum[lo]) / segLen));
+    var a = line[lo], b = line[lo + 1];
+    return {
+      index: lo,
+      t: f,
+      along: t,
+      offset: 0,
+      point: [a[0] + f * (b[0] - a[0]), a[1] + f * (b[1] - a[1])]
+    };
+  }
+
   /** Sub-polyline between two projections (from must precede to along the line). */
   function slicePolyline(line, from, to) {
     var out = [from.point];
@@ -136,6 +158,7 @@
     polylineLength: polylineLength,
     cumulativeDistances: cumulativeDistances,
     projectOnPolyline: projectOnPolyline,
+    pointAtAlong: pointAtAlong,
     slicePolyline: slicePolyline,
     boundsOf: boundsOf,
     centroid: centroid,

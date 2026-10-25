@@ -1,7 +1,7 @@
 {
-  "name": "مترو الرياض — دليل التنقل | Riyadh Metro Navigator",
-  "short_name": "مترو الرياض",
-  "description": "خريطة تفاعلية ومخطط رحلات لشبكة مترو الرياض كاملة مع تصدير إلى Google Earth وخرائط Google.",
+  "name": "النقل العام في الرياض — المترو والحافلات | Riyadh Public Transport",
+  "short_name": "النقل العام",
+  "description": "خريطة تفاعلية ومخطّط رحلات لشبكة النقل العام في الرياض: المترو والحافلات والأحياء والمواقف، مع تصدير إلى Google Earth وخرائط Google وGTFS.",
   "lang": "ar",
   "dir": "rtl",
   "start_url": "./index.html",
@@ -9,6 +9,10 @@
   "display": "standalone",
   "background_color": "#0c211b",
   "theme_color": "#0c211b",
+  "shortcuts": [
+    { "name": "خريطة الحافلات والأحياء", "short_name": "الحافلات", "url": "./transport.html" },
+    { "name": "مخطّط رحلات المترو", "short_name": "المترو", "url": "./index.html#network-workspace" }
+  ],
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }

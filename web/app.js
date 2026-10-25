@@ -1204,7 +1204,13 @@
       { f: 'riyadh-metro-places.geojson', ic: '📍', tag: 'GeoJSON', d: ar ? '~50 وجهة مع أقرب محطة ومسافة المشي' : '~50 destinations with nearest station and walking distance' },
       { f: 'riyadh-metro-network.json', ic: '🕸️', tag: 'API', d: ar ? 'الشبكة القابلة للتوجيه: المقاطع والمسافات وأزمنة التبديل' : 'Routable network: segments, distances, transfer penalties' },
       { f: 'riyadh-metro.gpx', ic: '🛰️', tag: 'GPX', d: ar ? 'نقاط ومسارات لأجهزة GPS وOsmAnd' : 'Waypoints and tracks for GPS devices and OsmAnd' },
-      { f: 'riyadh-metro-diagram' + (ar ? '' : '-en') + '.svg', ic: '🚇', tag: 'SVG', d: ar ? 'مخطط الشبكة للطباعة والتضمين (عربي/إنجليزي)' : 'Network diagram for print and embedding (EN/AR)' }
+      { f: 'riyadh-metro-diagram' + (ar ? '' : '-en') + '.svg', ic: '🚇', tag: 'SVG', d: ar ? 'مخطط الشبكة للطباعة والتضمين (عربي/إنجليزي)' : 'Network diagram for print and embedding (EN/AR)' },
+      // public transport: bus network, districts, park & ride and the GTFS feed
+      { f: 'gtfs/riyadh-transit-gtfs.zip', ic: '🚌', tag: 'GTFS', d: ar ? 'جدول كامل للمترو والحافلات (stops · routes · trips · frequencies) جاهز لأي تطبيق نقل عام' : 'Complete metro + bus schedule (stops · routes · trips · frequencies) for any transit app' },
+      { f: 'riyadh-bus-routes.geojson', ic: '🛣️', tag: 'GeoJSON', d: ar ? '88 مسار حافلات (117 اتجاهاً) بهندستها الكاملة وألوان نوع الخدمة' : '88 bus routes (117 directions) with full geometry and service-tier colours' },
+      { f: 'riyadh-bus-stops.geojson', ic: '🚏', tag: 'GeoJSON', d: ar ? '3,010 محطة توقّف مع نوع المأوى والحي وحالة التشغيل' : '3,010 stops with shelter type, district and operating stage' },
+      { f: 'riyadh-districts.geojson', ic: '🏘️', tag: 'GeoJSON', d: ar ? '133 حياً مع أعداد المحطات والمسارات المخدومة' : '133 districts with stop and route counts' },
+      { f: 'riyadh-park-and-ride.geojson', ic: '🅿️', tag: 'GeoJSON', d: ar ? 'مواقف «اركن واركب» عند محطات المترو بسعاتها المنشورة' : 'Park & ride sites at metro stations with published capacities' }
     ];
     box.innerHTML = files.map(function (x) {
       return '<a class="data-card" href="../dist/' + x.f + '" download>' +

@@ -1,56 +1,278 @@
 {
   "_comment": "Project-wide settings used by the build and the web app. Travel-time parameters are estimates (تقديرية) — the operator does not publish inter-station run times. Fares/hours are public operator information as of 2026; verify in the darb app.",
   "project": {
-    "name": { "ar": "مترو الرياض — دليل التنقل", "en": "Riyadh Metro Navigator" },
+    "name": {
+      "ar": "مترو الرياض — دليل التنقل",
+      "en": "Riyadh Metro Navigator"
+    },
     "siteUrl": "https://engmohammeda.github.io/RiyadhMetro-/",
     "repoUrl": "https://github.com/engmohammeda/RiyadhMetro-",
     "operatorUrl": "https://www.rcrc.gov.sa/",
-    "supportPhone": "19933"
+    "supportPhone": "19933",
+    "networkStats": {
+      "busRoutes": 88,
+      "busStops": 3010,
+      "districts": 133,
+      "parkAndRide": 19
+    }
   },
   "travelModel": {
     "cruiseKmh": 65,
     "stopPenaltySec": 50,
     "transferMinutes": 5,
     "transferOverrides": [
-      { "station": "kafd", "lines": ["4", "6"], "minutes": 2, "note": "Shared Yellow/Purple platforms" },
-      { "station": "ar-rabi", "lines": ["4", "6"], "minutes": 2, "note": "Shared Yellow/Purple platforms" },
-      { "station": "uthman-bin-affan-road", "lines": ["4", "6"], "minutes": 2, "note": "Shared Yellow/Purple platforms" },
-      { "station": "sabic", "lines": ["4", "6"], "minutes": 2, "note": "Shared Yellow/Purple platforms" },
-      { "station": "kafd", "lines": ["1", "4"], "minutes": 7, "note": "Large interchange complex" },
-      { "station": "kafd", "lines": ["1", "6"], "minutes": 7, "note": "Large interchange complex" }
+      {
+        "station": "kafd",
+        "lines": [
+          "4",
+          "6"
+        ],
+        "minutes": 2,
+        "note": "Shared Yellow/Purple platforms"
+      },
+      {
+        "station": "ar-rabi",
+        "lines": [
+          "4",
+          "6"
+        ],
+        "minutes": 2,
+        "note": "Shared Yellow/Purple platforms"
+      },
+      {
+        "station": "uthman-bin-affan-road",
+        "lines": [
+          "4",
+          "6"
+        ],
+        "minutes": 2,
+        "note": "Shared Yellow/Purple platforms"
+      },
+      {
+        "station": "sabic",
+        "lines": [
+          "4",
+          "6"
+        ],
+        "minutes": 2,
+        "note": "Shared Yellow/Purple platforms"
+      },
+      {
+        "station": "kafd",
+        "lines": [
+          "1",
+          "4"
+        ],
+        "minutes": 7,
+        "note": "Large interchange complex"
+      },
+      {
+        "station": "kafd",
+        "lines": [
+          "1",
+          "6"
+        ],
+        "minutes": 7,
+        "note": "Large interchange complex"
+      }
     ],
     "walkingKmh": 4.5,
     "initialWaitMinutes": 3,
-    "headwayMinutes": { "min": 4, "max": 10 }
+    "headwayMinutes": {
+      "min": 4,
+      "max": 10
+    }
   },
   "service": {
     "timeZone": "Asia/Riyadh",
-    "note": { "ar": "أوقات التشغيل المعلنة قد تتغير في رمضان والأعياد — راجع تطبيق درب. آخر قطار في اتجاهك قد يغادر قبل موعد الإغلاق.", "en": "Hours change during Ramadan and on holidays — check the darb app. The last train in your direction may leave before closing time." },
+    "note": {
+      "ar": "أوقات التشغيل المعلنة قد تتغير في رمضان والأعياد — راجع تطبيق درب. آخر قطار في اتجاهك قد يغادر قبل موعد الإغلاق.",
+      "en": "Hours change during Ramadan and on holidays — check the darb app. The last train in your direction may leave before closing time."
+    },
     "hours": [
-      { "days": [6, 0, 1, 2, 3, 4], "label": { "ar": "السبت – الخميس", "en": "Sat – Thu" }, "open": "05:30", "close": "24:00" },
-      { "days": [5], "label": { "ar": "الجمعة", "en": "Friday" }, "open": "10:00", "close": "24:00" }
+      {
+        "days": [
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "label": {
+          "ar": "السبت – الخميس",
+          "en": "Sat – Thu"
+        },
+        "open": "05:30",
+        "close": "24:00"
+      },
+      {
+        "days": [
+          5
+        ],
+        "label": {
+          "ar": "الجمعة",
+          "en": "Friday"
+        },
+        "open": "10:00",
+        "close": "24:00"
+      }
+    ],
+    "busHours": [
+      {
+        "days": [
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "label": {
+          "ar": "السبت – الخميس",
+          "en": "Sat – Thu"
+        },
+        "open": "05:00",
+        "close": "24:00"
+      },
+      {
+        "days": [
+          5
+        ],
+        "label": {
+          "ar": "الجمعة",
+          "en": "Friday"
+        },
+        "open": "05:00",
+        "close": "24:00"
+      }
     ]
   },
   "fares": {
     "currency": "SAR",
-    "note": { "ar": "تذكرة واحدة تغطي أي عدد من الرحلات والتبديلات خلال مدتها على المترو وحافلات الرياض. الأطفال دون 6 سنوات مجاناً مع شخص بالغ. الدفع ببطاقة درب أو تطبيق درب أو بطاقة بنكية لاتلامسية. للاسترشاد فقط — تحقّق من الأسعار الحالية في تطبيق درب.", "en": "One ticket covers any number of rides and transfers within its validity on the metro and Riyadh buses. Children under 6 travel free with an adult. Pay with a darb card, the darb app or a contactless bank card. Indicative only — verify current fares in the darb app." },
-    "classes": { "standard": { "ar": "عادي", "en": "Standard" }, "first": { "ar": "الدرجة الأولى", "en": "First class" } },
+    "note": {
+      "ar": "تذكرة واحدة تغطي أي عدد من الرحلات والتبديلات خلال مدتها على المترو وحافلات الرياض. الأطفال دون 6 سنوات مجاناً مع شخص بالغ. الدفع ببطاقة درب أو تطبيق درب أو بطاقة بنكية لاتلامسية. للاسترشاد فقط — تحقّق من الأسعار الحالية في تطبيق درب.",
+      "en": "One ticket covers any number of rides and transfers within its validity on the metro and Riyadh buses. Children under 6 travel free with an adult. Pay with a darb card, the darb app or a contactless bank card. Indicative only — verify current fares in the darb app."
+    },
+    "classes": {
+      "standard": {
+        "ar": "عادي",
+        "en": "Standard"
+      },
+      "first": {
+        "ar": "الدرجة الأولى",
+        "en": "First class"
+      }
+    },
     "tickets": [
-      { "id": "2h", "name": { "ar": "تذكرة ساعتين", "en": "2-hour ticket" }, "price": 4, "firstClass": 10, "validMinutes": 120 },
-      { "id": "3d", "name": { "ar": "3 أيام", "en": "3 days" }, "price": 20, "firstClass": 50 },
-      { "id": "7d", "name": { "ar": "7 أيام", "en": "7 days" }, "price": 40, "firstClass": 100 },
-      { "id": "30d", "name": { "ar": "30 يوماً", "en": "30 days" }, "price": 140, "firstClass": 350 },
-      { "id": "1y", "name": { "ar": "اشتراك سنوي", "en": "Annual pass" }, "price": 1260, "firstClass": 3150 }
+      {
+        "id": "2h",
+        "name": {
+          "ar": "تذكرة ساعتين",
+          "en": "2-hour ticket"
+        },
+        "price": 4,
+        "firstClass": 10,
+        "validMinutes": 120
+      },
+      {
+        "id": "3d",
+        "name": {
+          "ar": "3 أيام",
+          "en": "3 days"
+        },
+        "price": 20,
+        "firstClass": 50
+      },
+      {
+        "id": "7d",
+        "name": {
+          "ar": "7 أيام",
+          "en": "7 days"
+        },
+        "price": 40,
+        "firstClass": 100
+      },
+      {
+        "id": "30d",
+        "name": {
+          "ar": "30 يوماً",
+          "en": "30 days"
+        },
+        "price": 140,
+        "firstClass": 350
+      },
+      {
+        "id": "1y",
+        "name": {
+          "ar": "اشتراك سنوي",
+          "en": "Annual pass"
+        },
+        "price": 1260,
+        "firstClass": 3150
+      }
     ]
   },
   "popularTrips": [
-    { "from": "airport-t1-2", "to": "kafd" },
-    { "from": "airport-t1-2", "to": "al-urubah", "label": { "ar": "المطار ← برج المملكة", "en": "Airport → Kingdom Centre" } },
-    { "from": "airport-t1-2", "to": "al-batha" },
-    { "from": "kafd", "to": "national-museum" },
-    { "from": "al-urubah", "to": "qasr-al-hokm", "label": { "ar": "برج المملكة ← سوق الزل", "en": "Kingdom Centre → Souq Al Zal" } },
-    { "from": "railway", "to": "national-museum" },
-    { "from": "king-saud-university", "to": "king-fahad-sport-city" },
-    { "from": "jeddah-road", "to": "khashm-al-an" }
-  ]
+    {
+      "from": "airport-t1-2",
+      "to": "kafd"
+    },
+    {
+      "from": "airport-t1-2",
+      "to": "al-urubah",
+      "label": {
+        "ar": "المطار ← برج المملكة",
+        "en": "Airport → Kingdom Centre"
+      }
+    },
+    {
+      "from": "airport-t1-2",
+      "to": "al-batha"
+    },
+    {
+      "from": "kafd",
+      "to": "national-museum"
+    },
+    {
+      "from": "al-urubah",
+      "to": "qasr-al-hokm",
+      "label": {
+        "ar": "برج المملكة ← سوق الزل",
+        "en": "Kingdom Centre → Souq Al Zal"
+      }
+    },
+    {
+      "from": "railway",
+      "to": "national-museum"
+    },
+    {
+      "from": "king-saud-university",
+      "to": "king-fahad-sport-city"
+    },
+    {
+      "from": "jeddah-road",
+      "to": "khashm-al-an"
+    }
+  ],
+  "busModel": {
+    "_comment": "Riyadh Bus run-time and waiting assumptions. The operator does not publish GTFS timetables, so commercial speeds and headways are estimates by route class — tune them here and rebuild. Times include dwell.",
+    "commercialKmh": {
+      "brt": 24,
+      "main": 21,
+      "sector": 18,
+      "community": 16
+    },
+    "headwayMinutes": {
+      "brt": 7,
+      "main": 12,
+      "sector": 18,
+      "community": 25
+    },
+    "walkTransferMaxM": 400,
+    "metroWalkMaxM": 500,
+    "sameStopTransferMinutes": 1,
+    "metroTransferMinutes": 5,
+    "boardingPenaltyMinutes": 1
+  }
 }

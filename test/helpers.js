@@ -17,4 +17,24 @@ function network() {
   if (!cached) cached = net.buildNetwork(loadData());
   return cached;
 }
-module.exports = { ROOT, loadData, network };
+module.exports = { ROOT, loadData, network, read };
+
+let transitModel = null;
+/** Multimodal model (metro + bus + districts + park & ride), built once per process. */
+function transit() {
+  if (transitModel) return transitModel;
+  const tr = require('../src/transit');
+  transitModel = tr.build({
+    network: network(),
+    bus: { stops: read('bus/stops.json'), routes: read('bus/routes.json'), shapes: read('bus/shapes.json') },
+    districts: read('districts.json'),
+    parkAndRide: read('park-and-ride.json'),
+    config: read('config.json')
+  });
+  return transitModel;
+}
+function busSources() {
+  return { stops: read('bus/stops.json'), routes: read('bus/routes.json'), shapes: read('bus/shapes.json') };
+}
+module.exports.transit = transit;
+module.exports.busSources = busSources;

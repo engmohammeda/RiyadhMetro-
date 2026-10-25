@@ -1,6 +1,8 @@
 # نموذج البيانات — Data model
 
-كل شيء يُولَّد من ثلاثة ملفات JSON صغيرة في `data/` (المصدر الوحيد للحقيقة). لا تُحرَّر ملفات `dist/` أو `web/data/` أو `web/lib/` يدوياً — شغّل `npm run build`.
+كل شيء يُولَّد من ملفات JSON صغيرة في `data/` (المصدر الوحيد للحقيقة). لا تُحرَّر ملفات `dist/` أو `web/data/` أو `web/lib/` يدوياً — شغّل `npm run build`.
+
+> **النقل العام:** ملفات `data/bus/*.json` و`data/districts.json` و`data/park-and-ride.json` **مولَّدة** من النسخ الخام في `data/bus/source/` عبر `npm run import:transit` — لا تُحرَّر يدوياً أيضاً.
 
 ## `data/stations.json`
 
@@ -117,3 +119,96 @@ node scripts/route.js --near 24.7114 46.6745
 2. أدرج المحطة في موضعها الصحيح ضمن `stations[]` للمسار في `data/lines.json`.
 3. `npm run build` ← يفشل البناء إن كانت المحطة بعيدة عن المسار الهندسي (> 400 م) أو خارج ترتيبها، ويعيد توليد كل الملفات.
 4. `npm test`.
+
+---
+
+## النقل العام — `data/bus/` · `data/districts.json` · `data/park-and-ride.json`
+
+### `data/bus/stops.json` — 3,010 محطة توقّف
+
+```jsonc
+{
+  "id": "b41090",                       // ثابت: b + كود المحطة في المصدر
+  "code": "41090",                      // كود لوحة المحطة (يظهر على الأرض)
+  "name": { "en": "Ali Ibn Abi Talib 18 B", "ar": "علي بن أبي طالب 18 ب" },
+  "lat": 24.654694, "lng": 46.754313,   // WGS84
+  "shelter": "brt",                     // brt | ac | ac-large | open | pole | pole-standard | metro | terminal | unknown
+  "stage": "4",                         // مرحلة التطوير: 1…5.2 | "beyond-5.2" | null
+  "operating": true,                    // false لمرحلة «بعد 5.2» (تُعرض ولا تُستخدم في التوجيه)
+  "district": "al-safaa",               // معرّف الحي من districts.json
+  "districtApprox": false,              // true = خارج كل مضلّع، أُسندت إلى أقرب حي
+  "nearMetro": { "station": "kacst", "distanceM": 177 }   // اختياري: أقرب محطة مترو ضمن 450 م
+}
+```
+
+### `data/bus/routes.json` — 88 مساراً
+
+```jsonc
+{
+  "id": "11", "number": 11, "type": "brt",          // brt | main | sector | community
+  "color": "#E8552D",
+  "name": { "ar": "الربيع ↔ الخرج", "en": "Ar Rabi ↔ Al Kharj" },
+  "origin": { "ar": "الربيع", "en": "Ar Rabi" }, "destination": { "ar": "الخرج", "en": "Al Kharj" },
+  "loop": false, "stage": "partial",
+  "headwayMin": 7, "speedKmh": 24,                  // تقديرات من config.json → busModel
+  "lengthM": 38805, "runtimeMin": 97, "stopCount": 29, "uniqueStops": 55,
+  "plannedStops": 3, "brtStops": 48,
+  "directions": [1, 2], "bidirectional": true,
+  "stops": ["b41068", "..."],                       // ترتيب الإسقاط على المسار (كل الاتجاهات)
+  "dirs": {
+    "1": { "shape": "11-1", "shapeLengthM": 39050, "stops": ["b41068", "..."], "along": [0, 210, "..."],
+           "segments": [{ "from": "b41068", "to": "b41064", "meters": 210, "seconds": 32 }],
+           "lengthM": 38805, "maxOffsetM": 41 }
+  }
+}
+```
+
+> `dir: "r"` يعني «الاتجاه المعاكس» مشتقاً من المسار الوحيد المنشور (59 مساراً باتجاه واحد فقط في المصدر).
+
+### `data/bus/shapes.json`
+
+```jsonc
+{ "shapes": { "11-1": [[24.7875, 46.66162], "…"] }, "updated": "…" }  // [lat, lng] مبسّطة للعرض (6 م)
+```
+
+### `data/districts.json` — 133 حياً
+
+```jsonc
+{
+  "id": "al-olaya", "name": { "ar": "العليا", "en": "Al Olaya" },
+  "approx": false,                                   // حدود تقريبية؟
+  "centroid": [24.68663, 46.68745], "bbox": [[24.66, 46.65], [24.71, 46.72]],
+  "geometry": { "type": "Polygon", "coordinates": [[[46.73, 24.64], "…"]] },   // GeoJSON [lng, lat]
+  "stops": 68, "routes": ["181", "…"], "brtStops": 0, "plannedStops": 24
+}
+```
+
+### `data/park-and-ride.json`
+
+```jsonc
+{
+  "summary": { "ar": "…", "en": "…" },
+  "rules": { "freeMinutes": 15, "freeHoursWithTransit": 12, "hourlyAfterFreeSar": 10, "maxHours": 48, "speedLimitKmh": 10 },
+  "sites": [{ "station": "sab-bank", "lines": ["1"], "capacity": 592, "confidence": "reported" }],  // 17 موقعاً
+  "busParking": { "count": 4 }, "sources": [{ "label": "…", "url": "…", "note": "…" }]
+}
+```
+
+## نموذج التوجيه متعدد الوسائط (`RMTransit`) — `src/transit.js`
+
+```js
+const tr = require('./src/transit');
+const model = tr.build({ network, bus, districts, parkAndRide, config });
+
+tr.plan(model, from, to, { mode: 'fastest' | 'fewest-transfers', modes: ['metro', 'bus', 'walk'], maxWalkM: 1200 });
+tr.alternatives(model, from, to, opts);     // الأسرع · الأقل تبديلاً · مترو فقط · حافلات فقط (بعد إزالة التكرار)
+tr.search(model, 'العليا', 8);               // محطات + مواقف + مسارات + أحياء + معالم
+tr.nearby(model, lat, lng, 5, 900);          // نقاط صعود قريبة (مترو + حافلة)
+tr.interchangeRanking(model);                // محطات المترو مرتّبة بعدد مسارات الحافلات ضمن 450 م
+tr.districtStops(model, 'al-olaya');         // محطات التوقّف داخل حي
+```
+
+- `from`/`to`: `{kind:'station'|'stop'|'place', id}` أو `{kind:'coord', lat, lng, name}`.
+- الساق: `{type:'walk'|'metro'|'bus', minutes, meters, geometry, fromName, toName, …}`؛ للحافلة `route, dir, stopsIds, fromStop, toStop`؛ للمترو `line, stations, fromStation, toStation`.
+- التكلفة: زمن الركوب + نصف التردد المتوقع + دقيقة صعود + دقيقة تبديل في نفس الموقف، و45 دقيقة إضافية لكل تبديل في وضع «أقل تبديل».
+- الرسوم: `dist/gtfs/riyadh-transit-gtfs.zip` — يبنيه `src/node/transit-exports.js` من النموذج نفسه، وتتحقق منه `test/transit.test.js`.
